@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16181d">
+<title>Tokyo in Numbers</title>
+<!-- One self-contained page. No libraries: the chart is drawn as inline SVG by the script at the bottom. -->
+<style>
+:root{
+  color-scheme: light;
+  --accent:#d2491f;
+  --bar:#16181d; --bar-2:#23262d; --bar-text:#f3f3f1; --bar-dim:#a9adb5; --barlink:#2c3340;
+  --page:#f6f6f4; --surface:#fcfcfb; --ink:#15171a; --ink-2:#52514e; --muted:#6f6d68;
+  --grid:#e1e0d9; --axis:#c3c2b7; --line:#dedfe2; --link:#0b57a4;
+  --shade:rgba(21,23,26,.07); --rule:#898781;
+  --s-pref:#2a78d6; --s-ward:#eb6834; --s-city:#1baf7a; --s-edo:#eda100; --s-share:#e87ba4;
+  --tip:#ffffff; --tip-border:rgba(11,11,11,.12);
+  --tap:44px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --page:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink-2:#c3c2b7; --muted:#a3a19a;
+    --grid:#2c2c2a; --axis:#383835; --line:#2c2c2a; --link:#8ab8f0;
+    --shade:rgba(240,239,236,.08); --rule:#898781;
+    --s-pref:#3987e5; --s-ward:#d95926; --s-city:#199e70; --s-edo:#c98500; --s-share:#d55181;
+    --tip:#232321; --tip-border:rgba(255,255,255,.14);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --page:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink-2:#c3c2b7; --muted:#a3a19a;
+  --grid:#2c2c2a; --axis:#383835; --line:#2c2c2a; --link:#8ab8f0;
+  --shade:rgba(240,239,236,.08); --rule:#898781;
+  --s-pref:#3987e5; --s-ward:#d95926; --s-city:#199e70; --s-edo:#c98500; --s-share:#d55181;
+  --tip:#232321; --tip-border:rgba(255,255,255,.14);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--ink);overflow-x:hidden;
+  font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif}
+a{color:var(--link)}
+/* title bar: same dark bar, link buttons and accent as the map pages */
+header.top{background:var(--bar);color:var(--bar-text);padding:calc(8px + env(safe-area-inset-top)) 16px 10px;
+  box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.top-in{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.top h1{margin:0;font-size:18px;font-weight:700;letter-spacing:.01em;flex:1 1 auto}
+.top h1 small{display:block;font-size:13px;font-weight:400;color:var(--bar-dim)}
+nav.pages{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;flex:1 1 320px;max-width:420px}
+nav.pages a{min-height:var(--tap);display:flex;align-items:center;justify-content:center;text-align:center;
+  border-radius:8px;background:var(--barlink);color:var(--bar-text);text-decoration:none;font-size:14px;font-weight:600;
+  line-height:1.15;padding:2px 6px}
+nav.pages a[aria-current="page"]{background:var(--accent);color:#fff}
+nav.pages a:focus-visible{outline:3px solid #ffd27a;outline-offset:1px}
+main{max-width:960px;margin:0 auto;padding:16px 16px 40px}
+h2{font-size:19px;margin:22px 0 6px}
+h3{font-size:16px;margin:18px 0 6px}
+p{margin:6px 0}
+.lede{color:var(--ink-2);font-size:15px;max-width:68ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 12px 10px;margin:12px 0}
+/* legend */
+ul.legend{list-style:none;margin:0 0 6px;padding:0;display:grid;grid-template-columns:1fr;gap:6px 18px}
+@media (min-width:700px){ul.legend{grid-template-columns:1fr 1fr}}
+ul.legend li{display:grid;grid-template-columns:30px 1fr;align-items:start;gap:0 6px;font-size:14px;line-height:1.3}
+ul.legend li svg{margin-top:4px}
+ul.legend b{font-weight:600;color:var(--ink)}
+ul.legend span{display:block;color:var(--ink-2);font-size:13px}
+/* chart */
+.chart-wrap{position:relative;margin:4px 0 0;touch-action:pan-y}
+#chart{display:block;width:100%;overflow:visible}
+#chart:focus{outline:none}
+#chart:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+#chart text{font-family:inherit;fill:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+#chart text.ttl{fill:var(--ink-2);font-size:12.5px;font-weight:600}
+#chart text.ann{fill:var(--ink-2);font-size:11.5px}
+.tip{position:absolute;z-index:3;pointer-events:none;background:var(--tip);color:var(--ink);border:1px solid var(--tip-border);
+  border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.18);padding:8px 10px;font-size:13px;line-height:1.3;width:max-content;max-width:250px}
+.tip[hidden]{display:none}
+.tip .yr{font-weight:700;font-size:14px;margin-bottom:4px}
+.tip .row{display:grid;grid-template-columns:28px 1fr;gap:0 6px;margin:5px 0 0}
+.tip.flow{position:static;width:auto;max-width:none;margin:8px 0 0;box-shadow:none}
+@media (min-width:420px){.tip.flow .rows{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}}
+.tip .row svg{margin-top:6px}
+.tip .v{font-weight:700;font-size:14px;color:var(--ink)}
+.tip .n{color:var(--ink-2)}
+.tip .s{color:var(--muted);font-size:11.5px}
+.hint{font-size:12.5px;color:var(--muted);margin:4px 0 0}
+.note{border-left:4px solid var(--accent);background:var(--surface);border-radius:0 10px 10px 0;padding:8px 12px;margin:12px 0}
+.note p{font-size:15px;max-width:72ch}
+.note p.warn{font-weight:600}
+/* table: scrolls sideways inside its own box, never the page */
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;background:var(--surface);max-width:100%}
+table{border-collapse:collapse;font-size:13.5px;min-width:760px;width:100%}
+th,td{padding:6px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{font-weight:600;color:var(--ink-2);background:var(--surface);position:sticky;top:0}
+td{font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface);font-weight:600}
+td.src,th.src{text-align:left}
+td.est{font-style:italic;color:var(--ink-2)}
+td.na{color:var(--muted)}
+tbody tr:last-child td{border-bottom:0}
+.tbl-cap{font-size:13px;color:var(--muted);margin:4px 0 8px}
+ol.refs{padding-left:22px;font-size:14px;color:var(--ink-2)}
+ol.refs li{margin:6px 0;overflow-wrap:anywhere}
+ol.refs a{word-break:break-all}
+ul.next{font-size:15px;padding-left:20px}
+ul.next li{margin:4px 0}
+footer{font-size:12.5px;color:var(--muted);margin-top:28px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <h1>Tokyo in Numbers<small>How many people, and what share of Japan, 1720 to 2025</small></h1>
+    <nav class="pages" aria-label="Pages">
+      <a href="index.html">Five Faces map</a>
+      <a href="foliage.html">Autumn colour</a>
+      <a href="stats.html" aria-current="page">Numbers</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="lede">Tokyo grew from about one million people in Edo times to over fourteen million today. But "Tokyo" has meant four different areas. Each line below measures one of them.</p>
+
+  <section class="card" aria-labelledby="c1">
+    <h2 id="c1" style="margin-top:2px">Tokyo's population, and its share of Japan</h2>
+    <ul class="legend" id="legend"></ul>
+    <div class="chart-wrap" id="wrap">
+      <svg id="chart" role="img" tabindex="0" aria-labelledby="c1 chartDesc"></svg>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <p class="hint" id="chartDesc">Left scale: millions of people. Right scale: share of Japan's population, in percent. Tap or hover on the chart for exact numbers and sources. Arrow keys also work. Every number is also in the table below.</p>
+  </section>
+
+  <div class="note">
+    <p><b>Why four lines?</b> The name "Tokyo" has covered four different areas. Comparing the lines shows how much depends on where the border is drawn.</p>
+    <p><b>Edo</b> numbers are scholars' estimates. Officials counted only the townspeople, about 500,000 to 575,000. Samurai households were never counted, so the shaded band shows the range of guesses, 1.0 to 1.3 million (sources 9, 11 and 12).</p>
+    <p><b>Tokyo City</b> jumps in 1932, when it took in the towns around it and grew from 15 to 35 wards. Those 35 wards are almost exactly today's 23-ward area.</p>
+    <p><b>Tokyo Prefecture</b> also takes in the Tama area and the islands. It jumps in 1894, when three Tama districts moved over from Kanagawa.</p>
+    <p>After 1868 many samurai went home, and the city shrank. It took until the 1890s to regain Edo's peak size (Smith, 1978).</p>
+    <p class="warn">A warning about two scales. The pink share line uses the right-hand scale. Where it seems to cross a population line, nothing real happens there. The crossing is only a side effect of how the two scales are drawn.</p>
+  </div>
+
+  <section aria-labelledby="t1">
+    <h2 id="t1">The numbers</h2>
+    <p class="tbl-cap">Selected years. Italic numbers are estimates, not counts. On a phone, swipe the table sideways. Numbers in brackets point to the source list.</p>
+    <div class="tbl" tabindex="0" role="region" aria-label="Data table, scrolls sideways">
+      <table>
+        <thead><tr>
+          <th scope="col">Year</th><th scope="col">Edo (estimate)</th><th scope="col">Tokyo City</th>
+          <th scope="col">Tokyo Prefecture</th><th scope="col">23-ward area</th><th scope="col">Japan</th>
+          <th scope="col">Prefecture share of Japan</th><th scope="col" class="src">Sources</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>1721</td><td class="est">c. 1,000,000</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td class="est">c. 31,278,500</td><td class="est">c. 3.2% (Edo)</td><td class="src">[7] [9]</td></tr>
+          <tr><td>1750</td><td class="est">c. 1,220,000</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td class="src">[10] [13]</td></tr>
+          <tr><td>1850</td><td class="est">c. 1,150,000</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td class="est">c. 30,714,000</td><td class="est">c. 3.7% (Edo)</td><td class="src">[7] [8] [10] [13]</td></tr>
+          <tr><td>1872</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>859,345</td><td class="na">&ndash;</td><td class="est">c. 34,806,000</td><td>2.47%</td><td class="src">[1] [6]</td></tr>
+          <tr><td>1880</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>1,084,745</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>2.96%</td><td class="src">[1]</td></tr>
+          <tr><td>1890</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>1,385,700</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>3.47%</td><td class="src">[1]</td></tr>
+          <tr><td>1891</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>1,333,900</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>3.31%</td><td class="src">[1]</td></tr>
+          <tr><td>1894</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>1,608,700</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>3.91%</td><td class="src">[1]</td></tr>
+          <tr><td>1900</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>1,947,300</td><td class="na">&ndash;</td><td class="est">c. 43,847,000</td><td>4.44%</td><td class="src">[1] [6]</td></tr>
+          <tr><td>1908</td><td class="na">&ndash;</td><td>1,626,103</td><td>2,603,300</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>5.43%</td><td class="src">[1] [5]</td></tr>
+          <tr><td>1910</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>2,706,800</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>5.50%</td><td class="src">[1]</td></tr>
+          <tr><td>1920</td><td class="na">&ndash;</td><td>2,173,201</td><td>3,699,428</td><td>3,358,186</td><td>55,963,000</td><td>6.61%</td><td class="src">[1] [2] [5] [6]</td></tr>
+          <tr><td>1923</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>3,859,400</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>6.64%</td><td class="src">[1]</td></tr>
+          <tr><td>1925</td><td class="na">&ndash;</td><td>1,995,567</td><td>4,485,144</td><td>4,109,113</td><td>59,737,000</td><td>7.51%</td><td class="src">[1] [2] [5] [6]</td></tr>
+          <tr><td>1930</td><td class="na">&ndash;</td><td>2,070,913</td><td>5,408,678</td><td>4,986,913</td><td>64,450,000</td><td>8.39%</td><td class="src">[1] [2] [5] [6]</td></tr>
+          <tr><td>1935</td><td class="na">&ndash;</td><td>5,895,882</td><td>6,369,919</td><td>5,895,882</td><td>69,254,000</td><td>9.20%</td><td class="src">[1] [2] [5] [6]</td></tr>
+          <tr><td>1940</td><td class="na">&ndash;</td><td>6,778,804</td><td>7,354,971</td><td>6,778,804</td><td>71,933,000</td><td>10.22%</td><td class="src">[1] [2] [5] [6]</td></tr>
+          <tr><td>1944</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>7,271,001</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>9.77%</td><td class="src">[1]</td></tr>
+          <tr><td>1945</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>3,488,284</td><td>2,777,010</td><td>72,147,000</td><td>4.83%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1950</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>6,277,500</td><td>5,385,071</td><td>83,200,000</td><td>7.55%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1955</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>8,037,084</td><td>6,969,104</td><td>89,276,000</td><td>9.00%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1960</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>9,683,802</td><td>8,310,027</td><td>93,419,000</td><td>10.37%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1965</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>10,869,244</td><td>8,893,094</td><td>98,275,000</td><td>11.06%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1970</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>11,408,071</td><td>8,840,942</td><td>104,665,000</td><td>10.90%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1975</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>11,673,554</td><td>8,646,520</td><td>111,940,000</td><td>10.43%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1980</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>11,618,281</td><td>8,351,893</td><td>117,060,000</td><td>9.93%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1985</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>11,829,363</td><td>8,354,615</td><td>121,049,000</td><td>9.77%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1990</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>11,855,563</td><td>8,163,573</td><td>123,611,000</td><td>9.59%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>1995</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>11,773,605</td><td>7,967,614</td><td>125,570,000</td><td>9.38%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>2000</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>12,064,101</td><td>8,134,688</td><td>126,926,000</td><td>9.50%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>2005</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>12,576,601</td><td>8,489,653</td><td>127,768,000</td><td>9.84%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>2010</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>13,159,388</td><td>8,945,695</td><td>128,057,000</td><td>10.28%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>2015</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>13,515,271</td><td>9,272,740</td><td>127,095,000</td><td>10.63%</td><td class="src">[1] [2] [6]</td></tr>
+          <tr><td>2020</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>14,047,594</td><td>9,733,276</td><td>126,146,000</td><td>11.14%</td><td class="src">[1] [4] [6]</td></tr>
+          <tr><td>2024</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>14,192,184</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>11.46%</td><td class="src">[1]</td></tr>
+          <tr><td>2025</td><td class="na">&ndash;</td><td class="na">&ndash;</td><td>14,236,627</td><td>9,944,109</td><td>122,972,528</td><td>11.58%</td><td class="src">[3] [4]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="s1">
+    <h2 id="s1">Sources</h2>
+    <ol class="refs">
+      <li>Tokyo Metropolitan Government, Bureau of General Affairs, Statistics Division. (n.d.). <i>Tokyo statistical yearbook 2024</i>, table 2-1: Changes in population, 1872&ndash;2024 [Data set, CSV]. Population and share of Japan for Tokyo Prefecture. <a href="https://www.toukei.metro.tokyo.lg.jp/tnenkan/2024/tn24qv020100.csv">https://www.toukei.metro.tokyo.lg.jp/tnenkan/2024/tn24qv020100.csv</a></li>
+      <li>Tokyo Metropolitan Government, Statistics Division. (n.d.). <i>2015 Population Census of Japan: Summary of results for Tokyo</i>, table 2: Population by ku-bu, shi-bu, gun-bu and island areas, 1920&ndash;2015 [Data set, CSV]. <a href="https://www.toukei.metro.tokyo.lg.jp/kokutyo/2015/kt15tv0002.csv">https://www.toukei.metro.tokyo.lg.jp/kokutyo/2015/kt15tv0002.csv</a></li>
+      <li>Statistics Bureau of Japan. (2026, September 29). <i>2025 Population Census: Outline of the basic complete tabulation results</i> [Report]. Tokyo 14,236,627; Japan 122,972,528. <a href="https://www.stat.go.jp/data/kokusei/2025/kekka/pdf/outline_01.pdf">https://www.stat.go.jp/data/kokusei/2025/kekka/pdf/outline_01.pdf</a></li>
+      <li>Statistics Bureau of Japan. (2026, September 29). <i>2025 Population Census: Summary of the basic complete tabulation results</i> [Report]. 23-ward area 9,944,109, up 210,833 since 2020. <a href="https://www.stat.go.jp/data/kokusei/2025/kekka/pdf/summary_01.pdf">https://www.stat.go.jp/data/kokusei/2025/kekka/pdf/summary_01.pdf</a></li>
+      <li>Tokyo Metropolitan Government, Bureau of General Affairs. (n.d.). <i>35-ku no jinko, 1908&ndash;1945</i> [Population of the 35 wards, 1908&ndash;1945] [Table, PDF]. 1908 Tokyo City census; national censuses 1920&ndash;1940; 1 November 1945 population survey. <a href="https://www.soumu.metro.tokyo.lg.jp/documents/d/soumu/2188_0714ku_jinkou">https://www.soumu.metro.tokyo.lg.jp/documents/d/soumu/2188_0714ku_jinkou</a></li>
+      <li>National Institute of Population and Social Security Research. (2026). <i>Jinko tokei shiryoshu 2026</i> [Population statistics of Japan 2026], table 1-1: Total population, 1872&ndash;2024. 1872 and 1900 are Cabinet Statistics Bureau estimates. <a href="https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-01.htm">https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-01.htm</a></li>
+      <li>Kito, H. (2000). <i>Jinko kara yomu Nihon no rekishi</i> [Japanese history read through population]. Kodansha. Japan in 1721: 31.28 million (estimate), as given in IPSS table 1-6: <a href="https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-06.htm">https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-06.htm</a></li>
+      <li>Morita, Y. (1944). <i>Jinko zoka no bunseki</i> [An analysis of population growth]. Nihon Hyoronsha. Japan in 1850: 30.71 million (estimate), as given in IPSS table 1-7: <a href="https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-07.htm">https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-07.htm</a></li>
+      <li>Matsumoto, S. (n.d.). Edo. In <i>Sekai daihyakka jiten</i> (rev. ed.). Heibonsha; and Yoshihara, K. (n.d.). Edo. In <i>Nihon daihyakka zensho (Nipponica)</i>. Shogakukan. Both via Kotobank. Townspeople about 500,000 in 1721; with samurai about 1 million. <a href="https://kotobank.jp/word/%E6%B1%9F%E6%88%B8">https://kotobank.jp/word/%E6%B1%9F%E6%88%B8</a></li>
+      <li>Saito, S. (1984). Edo jidai no toshi jinko [Urban population in the Edo period]. <i>Chiiki Kaihatsu</i>. Edo 1750: 1.22 million; 1850: 1.15 million. Not checked against the original; figures taken from the compilation in source 13.</li>
+      <li>Sekiyama, N. (1958). <i>Kinsei Nihon no jinko kozo</i> [The population structure of early modern Japan]. Yoshikawa Kobunkan. Edo total about 1.1 million. Not checked against the original; figure taken from source 13.</li>
+      <li>Tokyo Metropolitan Government, Bureau of City Planning. (2019). <i>Tokyo no toshizukuri no ayumi</i> [The changing face of Tokyo: From Edo to today], prologue, section 04: Land use in Edo [PDF]. About 1.3 million: samurai land 650,000, temple land 50,000, townspeople 600,000. <a href="https://www.toshiseibi.metro.tokyo.lg.jp/keikaku_chousa_singikai/pdf/tokyotoshizukuri/0_04.pdf">https://www.toshiseibi.metro.tokyo.lg.jp/keikaku_chousa_singikai/pdf/tokyotoshizukuri/0_04.pdf</a></li>
+      <li>Wikipedia contributors. (n.d.). Edo no jinko [The population of Edo]. In <i>Wikipedia (Japanese)</i>. Retrieved October 24, 2026. Lists the official townspeople counts (for example 501,394 in 1721; 575,091 in 1853; 539,618 in 1867) and scholars' estimates. <a href="https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E3%81%AE%E4%BA%BA%E5%8F%A3">https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E3%81%AE%E4%BA%BA%E5%8F%A3</a></li>
+      <li>Smith, H. D., II. (1978). Tokyo as an idea: An exploration of Japanese urban thought until 1945. <i>Journal of Japanese Studies, 4</i>(1), 45&ndash;80. <a href="http://links.jstor.org/sici?sici=0095-6848%28197824%294%3A1%3C45%3ATAAIAE%3E2.0.C0%3B2-8">http://links.jstor.org/sici?sici=0095-6848%28197824%294%3A1%3C45%3ATAAIAE%3E2.0.C0%3B2-8</a></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="m1">
+    <h2 id="m1">More charts coming</h2>
+    <p>Possible next charts, not yet made:</p>
+    <ul class="next">
+      <li>Population density: people per square kilometre, ward by ward.</li>
+      <li>Foreign residents: how many, from where, and in which wards.</li>
+      <li>Non-regular employment: part-time and contract work in Tokyo compared with Japan.</li>
+      <li>Income by ward: average taxable income in each of the 23 wards.</li>
+    </ul>
+  </section>
+
+  <footer>Built 24 October 2026. Personal, non-commercial use. Figures are as published by each source.</footer>
+</main>
+
+<script>
+(function(){
+'use strict';
+var DATA = {"sources":{"tmgyb":{"short":"Tokyo Statistical Yearbook 2024, table 2-1","url":"https://www.toukei.metro.tokyo.lg.jp/tnenkan/2024/tn24qv020100.csv"},"tmgcen":{"short":"Tokyo census summary 2015, table 2 (ku-bu)","url":"https://www.toukei.metro.tokyo.lg.jp/kokutyo/2015/kt15tv0002.csv"},"sb2025":{"short":"2025 Census, final basic results (Statistics Bureau, 29 Sep 2026)","url":"https://www.stat.go.jp/data/kokusei/2025/kekka/pdf/outline_01.pdf"},"sb2025s":{"short":"2025 Census, summary of results (Statistics Bureau, 29 Sep 2026)","url":"https://www.stat.go.jp/data/kokusei/2025/kekka/pdf/summary_01.pdf"},"ku35":{"short":"TMG, \"Population of the 35 wards, 1908-1945\"","url":"https://www.soumu.metro.tokyo.lg.jp/documents/d/soumu/2188_0714ku_jinkou"},"ipss11":{"short":"IPSS Population Statistics 2026, table 1-1","url":"https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-01.htm"},"ipss16":{"short":"IPSS table 1-6 (Kito 2000, estimate)","url":"https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-06.htm"},"ipss17":{"short":"IPSS table 1-7 (Morita 1944, estimate)","url":"https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-07.htm"},"edo1721":{"short":"Townspeople count 501,394 doubled for samurai (Kotobank: Matsumoto; Yoshihara)","url":"https://kotobank.jp/word/%E6%B1%9F%E6%88%B8"},"saito":{"short":"Saito Seiji (1984), estimate, as compiled in ja.wikipedia \"Edo no jinko\"","url":"https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E3%81%AE%E4%BA%BA%E5%8F%A3"},"derived":{"short":"Calculated here: Tokyo Prefecture / Japan (2025 Census)","url":"https://www.stat.go.jp/data/kokusei/2025/kekka/pdf/outline_01.pdf"},"edoshare":{"short":"Calculated here: Edo estimate / Japan estimate","url":"https://www.ipss.go.jp/syoushika/tohkei/Popular/P_Detail2026.asp?fname=T01-06.htm"}},"series":[{"id":"edo","name":"Edo (estimates)","axis":"L","est":true,"pts":[[1721,1000000,"edo1721","Estimate. Officials counted 501,394 townspeople; samurai were not counted. Scholars add about the same again."],[1750,1220000,"saito","Estimate by Saito Seiji (1984)."],[1850,1150000,"saito","Estimate by Saito Seiji (1984)."]],"range":[1000000,1300000]},{"id":"city","name":"Tokyo City (15 then 35 wards)","axis":"L","pts":[[1908,1626103,"ku35","Tokyo City census of 1 Oct 1908: 15 wards 1,588,119 plus 37,984 people living on the water."],[1920,2173201,"ku35","15 wards. First national census."],[1925,1995567,"ku35","15 wards. Fewer people after the 1923 earthquake."],[1930,2070913,"ku35","15 wards."],[1935,5895882,"ku35","35 wards, counted on the 1936 boundaries (the city grew from 15 to 35 wards in 1932)."],[1940,6778804,"ku35","35 wards. Same area as today's 23 wards."]],"breakAfter":1930},{"id":"pref","name":"Tokyo Prefecture","axis":"L","pts":[[1872,859345,"tmgyb","Official estimate from household registers."],[1873,887322,"tmgyb","Official estimate from household registers."],[1874,932458,"tmgyb","Official estimate from household registers."],[1875,986091,"tmgyb","Official estimate from household registers."],[1876,1027517,"tmgyb","Official estimate from household registers."],[1877,890681,"tmgyb","Official estimate from household registers."],[1878,1072560,"tmgyb","Official estimate from household registers."],[1879,1084025,"tmgyb","Official estimate from household registers."],[1880,1084745,"tmgyb","Official estimate from household registers."],[1881,1121560,"tmgyb","Official estimate from household registers."],[1882,1146971,"tmgyb","Official estimate from household registers."],[1883,1173603,"tmgyb","Official estimate from household registers."],[1884,1152500,"tmgyb","Official estimate from household registers."],[1885,1163400,"tmgyb","Official estimate from household registers."],[1886,1203600,"tmgyb","Official estimate from household registers."],[1887,1296600,"tmgyb","Official estimate from household registers."],[1888,1329200,"tmgyb","Official estimate from household registers."],[1889,1354400,"tmgyb","Official estimate from household registers."],[1890,1385700,"tmgyb","Official estimate from household registers."],[1891,1333900,"tmgyb","Dip is a counting correction (double-counted lodgers), not a real fall. Official estimate from household registers."],[1892,1342000,"tmgyb","Official estimate from household registers."],[1893,1356800,"tmgyb","Official estimate from household registers."],[1894,1608700,"tmgyb","Jump: three Tama districts moved from Kanagawa to Tokyo. Official estimate from household registers."],[1895,1638700,"tmgyb","Official estimate from household registers."],[1896,1661300,"tmgyb","Official estimate from household registers."],[1897,1705900,"tmgyb","Official estimate from household registers."],[1898,1762100,"tmgyb","Official estimate from household registers."],[1899,1878000,"tmgyb","Official estimate from household registers."],[1900,1947300,"tmgyb","Official estimate from household registers."],[1901,2019100,"tmgyb","Official estimate from household registers."],[1902,2093800,"tmgyb","Official estimate from household registers."],[1903,2171100,"tmgyb","Official estimate from household registers."],[1904,2251300,"tmgyb","Official estimate from household registers."],[1905,2334600,"tmgyb","Official estimate from household registers."],[1906,2420900,"tmgyb","Official estimate from household registers."],[1907,2510500,"tmgyb","Official estimate from household registers."],[1908,2603300,"tmgyb","Official estimate from household registers."],[1909,2682000,"tmgyb","Official estimate from household registers."],[1910,2706800,"tmgyb","Official estimate from household registers."],[1911,2732000,"tmgyb","Official estimate from household registers."],[1912,2757500,"tmgyb","Official estimate from household registers."],[1913,2783400,"tmgyb","Official estimate from household registers."],[1914,2809600,"tmgyb","Official estimate from household registers."],[1915,2836200,"tmgyb","Official estimate from household registers."],[1916,2863100,"tmgyb","Official estimate from household registers."],[1917,2890400,"tmgyb","Official estimate from household registers."],[1918,2918000,"tmgyb","Official estimate from household registers."],[1919,3340100,"tmgyb","Official estimate from household registers."],[1920,3699428,"tmgyb","Census count (1 October)."],[1921,3830700,"tmgyb",""],[1922,3984200,"tmgyb",""],[1923,3859400,"tmgyb",""],[1924,4185500,"tmgyb",""],[1925,4485144,"tmgyb","Census count (1 October)."],[1926,4694400,"tmgyb",""],[1927,4897400,"tmgyb",""],[1928,5101400,"tmgyb",""],[1929,5300000,"tmgyb",""],[1930,5408678,"tmgyb","Census count (1 October)."],[1931,5521100,"tmgyb",""],[1932,5755600,"tmgyb",""],[1933,5975100,"tmgyb",""],[1934,6176900,"tmgyb",""],[1935,6369919,"tmgyb","Census count (1 October)."],[1936,6586500,"tmgyb",""],[1937,6725700,"tmgyb",""],[1938,6875600,"tmgyb",""],[1939,7081600,"tmgyb",""],[1940,7354971,"tmgyb","Census count (1 October)."],[1941,7284300,"tmgyb",""],[1942,7357800,"tmgyb",""],[1943,7332600,"tmgyb",""],[1944,7271001,"tmgyb",""],[1945,3488284,"tmgyb","November 1945 count after the air raids, not a full census."],[1946,4183072,"tmgyb",""],[1947,5000777,"tmgyb","Census count (1 October)."],[1948,5417871,"tmgyb",""],[1949,5950775,"tmgyb",""],[1950,6277500,"tmgyb","Census count (1 October)."],[1951,6712494,"tmgyb",""],[1952,7108749,"tmgyb",""],[1953,7468907,"tmgyb",""],[1954,7773648,"tmgyb",""],[1955,8037084,"tmgyb","Census count (1 October)."],[1956,8348969,"tmgyb",""],[1957,8681040,"tmgyb",""],[1958,9010534,"tmgyb",""],[1959,9349323,"tmgyb",""],[1960,9683802,"tmgyb","Census count (1 October)."],[1961,9936970,"tmgyb",""],[1962,10180203,"tmgyb",""],[1963,10432526,"tmgyb",""],[1964,10639361,"tmgyb",""],[1965,10869244,"tmgyb","Census count (1 October)."],[1966,10973070,"tmgyb",""],[1967,11104969,"tmgyb",""],[1968,11251775,"tmgyb",""],[1969,11340417,"tmgyb",""],[1970,11408071,"tmgyb","Census count (1 October)."],[1971,11521226,"tmgyb",""],[1972,11598152,"tmgyb",""],[1973,11636797,"tmgyb",""],[1974,11654642,"tmgyb",""],[1975,11673554,"tmgyb","Census count (1 October)."],[1976,11670355,"tmgyb",""],[1977,11668721,"tmgyb",""],[1978,11657218,"tmgyb",""],[1979,11635411,"tmgyb",""],[1980,11618281,"tmgyb","Census count (1 October)."],[1981,11619066,"tmgyb",""],[1982,11645872,"tmgyb",""],[1983,11700815,"tmgyb",""],[1984,11762368,"tmgyb",""],[1985,11829363,"tmgyb","Census count (1 October)."],[1986,11894011,"tmgyb",""],[1987,11904896,"tmgyb",""],[1988,11898526,"tmgyb",""],[1989,11878244,"tmgyb",""],[1990,11855563,"tmgyb","Census count (1 October)."],[1991,11878594,"tmgyb",""],[1992,11878284,"tmgyb",""],[1993,11843612,"tmgyb",""],[1994,11791565,"tmgyb",""],[1995,11773605,"tmgyb","Census count (1 October)."],[1996,11789799,"tmgyb",""],[1997,11838466,"tmgyb",""],[1998,11904007,"tmgyb",""],[1999,11973385,"tmgyb",""],[2000,12064101,"tmgyb","Census count (1 October)."],[2001,12178176,"tmgyb",""],[2002,12292467,"tmgyb",""],[2003,12388222,"tmgyb",""],[2004,12477934,"tmgyb",""],[2005,12576601,"tmgyb","Census count (1 October)."],[2006,12700327,"tmgyb",""],[2007,12835130,"tmgyb",""],[2008,12965871,"tmgyb",""],[2009,13077625,"tmgyb",""],[2010,13159388,"tmgyb","Census count (1 October)."],[2011,13191203,"tmgyb",""],[2012,13225551,"tmgyb",""],[2013,13301154,"tmgyb",""],[2014,13398087,"tmgyb",""],[2015,13515271,"tmgyb","Census count (1 October)."],[2016,13651276,"tmgyb",""],[2017,13773187,"tmgyb",""],[2018,13888986,"tmgyb",""],[2019,14004097,"tmgyb",""],[2020,14047594,"tmgyb","Census count (1 October)."],[2021,14011487,"tmgyb",""],[2022,14040732,"tmgyb",""],[2023,14099993,"tmgyb",""],[2024,14192184,"tmgyb",""],[2025,14236627,"sb2025","Census count (1 October)."]]},{"id":"ward","name":"Today's 23-ward area","axis":"L","pts":[[1920,3358186,"tmgcen","Census count (1 October). Recounted on the 1936 ward boundaries."],[1925,4109113,"tmgcen","Census count (1 October). Recounted on the 1936 ward boundaries."],[1930,4986913,"tmgcen","Census count (1 October). Recounted on the 1936 ward boundaries."],[1935,5895882,"tmgcen","Census count (1 October)."],[1940,6778804,"tmgcen","Census count (1 October)."],[1945,2777010,"tmgcen","November 1945 count after the air raids, not a full census."],[1950,5385071,"tmgcen","Census count (1 October)."],[1955,6969104,"tmgcen","Census count (1 October)."],[1960,8310027,"tmgcen","Census count (1 October)."],[1965,8893094,"tmgcen","Census count (1 October)."],[1970,8840942,"tmgcen","Census count (1 October)."],[1975,8646520,"tmgcen","Census count (1 October)."],[1980,8351893,"tmgcen","Census count (1 October)."],[1985,8354615,"tmgcen","Census count (1 October)."],[1990,8163573,"tmgcen","Census count (1 October)."],[1995,7967614,"tmgcen","Census count (1 October)."],[2000,8134688,"tmgcen","Census count (1 October)."],[2005,8489653,"tmgcen","Census count (1 October)."],[2010,8945695,"tmgcen","Census count (1 October)."],[2015,9272740,"tmgcen","Census count (1 October)."],[2020,9733276,"sb2025s","Census count. 2025 total minus the 2020-25 increase (210,833)."],[2025,9944109,"sb2025s","Census count (1 October)."]]},{"id":"share","name":"Share of Japan's population","axis":"R","pts":[[1872,2.47,"tmgyb",""],[1873,2.54,"tmgyb",""],[1874,2.65,"tmgyb",""],[1875,2.79,"tmgyb",""],[1876,2.89,"tmgyb",""],[1877,2.48,"tmgyb",""],[1878,2.97,"tmgyb",""],[1879,2.97,"tmgyb",""],[1880,2.96,"tmgyb",""],[1881,3.03,"tmgyb",""],[1882,3.08,"tmgyb",""],[1883,3.12,"tmgyb",""],[1884,3.04,"tmgyb",""],[1885,3.04,"tmgyb",""],[1886,3.12,"tmgyb",""],[1887,3.35,"tmgyb",""],[1888,3.41,"tmgyb",""],[1889,3.43,"tmgyb",""],[1890,3.47,"tmgyb",""],[1891,3.31,"tmgyb",""],[1892,3.31,"tmgyb",""],[1893,3.32,"tmgyb",""],[1894,3.91,"tmgyb",""],[1895,3.94,"tmgyb",""],[1896,3.96,"tmgyb",""],[1897,4.02,"tmgyb",""],[1898,4.11,"tmgyb",""],[1899,4.33,"tmgyb",""],[1900,4.44,"tmgyb",""],[1901,4.55,"tmgyb",""],[1902,4.66,"tmgyb",""],[1903,4.77,"tmgyb",""],[1904,4.88,"tmgyb",""],[1905,5.01,"tmgyb",""],[1906,5.15,"tmgyb",""],[1907,5.29,"tmgyb",""],[1908,5.43,"tmgyb",""],[1909,5.52,"tmgyb",""],[1910,5.5,"tmgyb",""],[1911,5.48,"tmgyb",""],[1912,5.45,"tmgyb",""],[1913,5.43,"tmgyb",""],[1914,5.4,"tmgyb",""],[1915,5.38,"tmgyb",""],[1916,5.35,"tmgyb",""],[1917,5.34,"tmgyb",""],[1918,5.33,"tmgyb",""],[1919,6.07,"tmgyb",""],[1920,6.61,"tmgyb",""],[1921,6.76,"tmgyb",""],[1922,6.94,"tmgyb",""],[1923,6.64,"tmgyb",""],[1924,7.11,"tmgyb",""],[1925,7.51,"tmgyb",""],[1926,7.73,"tmgyb",""],[1927,7.94,"tmgyb",""],[1928,8.15,"tmgyb",""],[1929,8.35,"tmgyb",""],[1930,8.39,"tmgyb",""],[1931,8.43,"tmgyb",""],[1932,8.66,"tmgyb",""],[1933,8.86,"tmgyb",""],[1934,9.04,"tmgyb",""],[1935,9.2,"tmgyb",""],[1936,9.39,"tmgyb",""],[1937,9.52,"tmgyb",""],[1938,9.68,"tmgyb",""],[1939,9.92,"tmgyb",""],[1940,10.22,"tmgyb",""],[1941,10.09,"tmgyb",""],[1942,10.1,"tmgyb",""],[1943,9.92,"tmgyb",""],[1944,9.77,"tmgyb",""],[1945,4.83,"tmgyb",""],[1946,5.52,"tmgyb",""],[1947,6.4,"tmgyb",""],[1948,6.77,"tmgyb",""],[1949,7.28,"tmgyb",""],[1950,7.55,"tmgyb",""],[1951,7.94,"tmgyb",""],[1952,8.28,"tmgyb",""],[1953,8.59,"tmgyb",""],[1954,8.81,"tmgyb",""],[1955,9.0,"tmgyb",""],[1956,9.26,"tmgyb",""],[1957,9.55,"tmgyb",""],[1958,9.82,"tmgyb",""],[1959,10.09,"tmgyb",""],[1960,10.37,"tmgyb",""],[1961,10.54,"tmgyb",""],[1962,10.7,"tmgyb",""],[1963,10.85,"tmgyb",""],[1964,10.95,"tmgyb",""],[1965,11.06,"tmgyb",""],[1966,11.08,"tmgyb",""],[1967,11.08,"tmgyb",""],[1968,11.1,"tmgyb",""],[1969,11.06,"tmgyb",""],[1970,10.9,"tmgyb",""],[1971,10.86,"tmgyb",""],[1972,10.78,"tmgyb",""],[1973,10.67,"tmgyb",""],[1974,10.54,"tmgyb",""],[1975,10.43,"tmgyb",""],[1976,10.32,"tmgyb",""],[1977,10.22,"tmgyb",""],[1978,10.12,"tmgyb",""],[1979,10.02,"tmgyb",""],[1980,9.93,"tmgyb",""],[1981,9.85,"tmgyb",""],[1982,9.81,"tmgyb",""],[1983,9.79,"tmgyb",""],[1984,9.78,"tmgyb",""],[1985,9.77,"tmgyb",""],[1986,9.78,"tmgyb",""],[1987,9.74,"tmgyb",""],[1988,9.69,"tmgyb",""],[1989,9.64,"tmgyb",""],[1990,9.59,"tmgyb",""],[1991,9.57,"tmgyb",""],[1992,9.54,"tmgyb",""],[1993,9.48,"tmgyb",""],[1994,9.41,"tmgyb",""],[1995,9.38,"tmgyb",""],[1996,9.37,"tmgyb",""],[1997,9.38,"tmgyb",""],[1998,9.41,"tmgyb",""],[1999,9.45,"tmgyb",""],[2000,9.5,"tmgyb",""],[2001,9.57,"tmgyb",""],[2002,9.64,"tmgyb",""],[2003,9.7,"tmgyb",""],[2004,9.76,"tmgyb",""],[2005,9.84,"tmgyb",""],[2006,9.93,"tmgyb",""],[2007,10.02,"tmgyb",""],[2008,10.12,"tmgyb",""],[2009,10.21,"tmgyb",""],[2010,10.28,"tmgyb",""],[2011,10.32,"tmgyb",""],[2012,10.37,"tmgyb",""],[2013,10.44,"tmgyb",""],[2014,10.53,"tmgyb",""],[2015,10.63,"tmgyb",""],[2016,10.75,"tmgyb",""],[2017,10.85,"tmgyb",""],[2018,10.96,"tmgyb",""],[2019,11.07,"tmgyb",""],[2020,11.14,"tmgyb",""],[2021,11.16,"tmgyb",""],[2022,11.24,"tmgyb",""],[2023,11.34,"tmgyb",""],[2024,11.46,"tmgyb",""],[2025,11.58,"derived","14,236,627 / 122,972,528"]],"estPts":[[1721,3.2,"edoshare","Edo about 1.00 million / Japan about 31.3 million. Both are estimates."],[1850,3.7,"edoshare","Edo about 1.15 million / Japan about 30.7 million. Both are estimates."]]}],"japan":{"1721":[31278500,"ipss16"],"1850":[30714000,"ipss17"],"1872":[34806000,"ipss11"],"1900":[43847000,"ipss11"],"1920":[55963000,"ipss11"],"1925":[59737000,"ipss11"],"1930":[64450000,"ipss11"],"1935":[69254000,"ipss11"],"1940":[71933000,"ipss11"],"1945":[72147000,"ipss11"],"1950":[83200000,"ipss11"],"1955":[89276000,"ipss11"],"1960":[93419000,"ipss11"],"1965":[98275000,"ipss11"],"1970":[104665000,"ipss11"],"1975":[111940000,"ipss11"],"1980":[117060000,"ipss11"],"1985":[121049000,"ipss11"],"1990":[123611000,"ipss11"],"1995":[125570000,"ipss11"],"2000":[126926000,"ipss11"],"2005":[127768000,"ipss11"],"2010":[128057000,"ipss11"],"2015":[127095000,"ipss11"],"2020":[126146000,"ipss11"],"2025":[122972528,"sb2025s"]}};
+var S = DATA.sources;
+var byId = {}; DATA.series.forEach(function(s){ byId[s.id] = s; });
+
+/* What each line measures: one short gloss per line for the legend. */
+var GLOSS = {
+  edo:   'The shogun’s city, before 1868. Dotted with hollow dots: estimates. Shaded band: range of estimates.',
+  city:  'The city proper: 15 central wards to 1932, then 35 wards to 1943.',
+  pref:  'Tokyo-fu, then Tokyo-to from 1943: the city plus Tama and the islands. Yearly.',
+  ward:  'Today’s 23 wards, counted on today’s borders. Census years from 1920.',
+  share: 'Right-hand scale. Tokyo Prefecture as a % of Japan. Dotted part: Edo’s share, estimated.'
+};
+var VAR = {edo:'--s-edo', city:'--s-city', pref:'--s-pref', ward:'--s-ward', share:'--s-share'};
+var ORDER = ['edo','city','pref','ward','share'];
+var NS = 'http://www.w3.org/2000/svg';
+
+function col(id){ return getComputedStyle(document.documentElement).getPropertyValue(VAR[id]).trim(); }
+function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function el(tag, attrs, parent){
+  var e = document.createElementNS(NS, tag);
+  for (var k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function keySvg(id, dotted, hollow){
+  var s = el('svg', {width:26, height:10, viewBox:'0 0 26 10', 'aria-hidden':'true'});
+  el('line', {x1:1, y1:5, x2:25, y2:5, stroke:col(id), 'stroke-width':2.5, 'stroke-linecap':'round',
+    'stroke-dasharray': dotted ? '0.1 5' : 'none'}, s);
+  if (hollow) el('circle', {cx:13, cy:5, r:3.5, fill:css('--surface'), stroke:col(id), 'stroke-width':2}, s);
+  return s;
+}
+
+/* ---------- legend (text in ink colours; the coloured key carries identity) ---------- */
+function buildLegend(){
+  var ul = document.getElementById('legend'); ul.textContent = '';
+  ORDER.forEach(function(id){
+    var li = document.createElement('li');
+    li.appendChild(keySvg(id, id === 'edo', id === 'edo' || id === 'city'));
+    var d = document.createElement('div');
+    var b = document.createElement('b'); b.textContent = byId[id].name;
+    var sp = document.createElement('span'); sp.textContent = GLOSS[id];
+    d.appendChild(b); d.appendChild(sp); li.appendChild(d); ul.appendChild(li);
+  });
+}
+
+/* ---------- chart ---------- */
+var X0 = 1712, X1 = 2030, LMAX = 15, RMAX = 100;
+var svg = document.getElementById('chart'), wrap = document.getElementById('wrap'), tip = document.getElementById('tip');
+var G = {}; // geometry
+var YEARS = []; // every year that has at least one value
+(function(){
+  var set = {};
+  DATA.series.forEach(function(s){ s.pts.forEach(function(p){ set[p[0]] = 1; }); (s.estPts||[]).forEach(function(p){ set[p[0]] = 1; }); });
+  YEARS = Object.keys(set).map(Number).sort(function(a,b){ return a-b; });
+})();
+var cur = -1;
+
+function fmtInt(n){ return n.toLocaleString('en-US'); }
+function valueAt(s, yr){
+  for (var i = 0; i < s.pts.length; i++) if (s.pts[i][0] === yr) return {p:s.pts[i], est:!!s.est};
+  if (s.estPts) for (var j = 0; j < s.estPts.length; j++) if (s.estPts[j][0] === yr) return {p:s.estPts[j], est:true};
+  return null;
+}
+
+function render(){
+  var W = Math.max(280, wrap.clientWidth);
+  var narrow = W < 560;
+  var H = narrow ? 360 : 430;
+  var m = {l: narrow ? 26 : 34, r: narrow ? 38 : 46, t: 44, b: 26};
+  G = {W:W, H:H, m:m,
+    x: function(y){ return m.l + (y - X0) / (X1 - X0) * (W - m.l - m.r); },
+    yl: function(v){ return m.t + (1 - v / LMAX) * (H - m.t - m.b); },
+    yr: function(p){ return m.t + (1 - p / RMAX) * (H - m.t - m.b); }};
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  svg.setAttribute('height', H);
+  svg.textContent = '';
+  var x = G.x, yl = G.yl, yr = G.yr;
+  var gGrid = el('g', {}, svg), gAnn = el('g', {}, svg), gData = el('g', {}, svg), gHover = el('g', {}, svg);
+
+  // gridlines: 0,3,...,15 million on the left line up with 0,20,...,100% on the right, so one set serves both scales
+  for (var i = 0; i <= 5; i++){
+    var v = i * 3, yy = Math.round(yl(v)) + 0.5;
+    el('line', {x1:m.l, x2:W - m.r, y1:yy, y2:yy, stroke: i === 0 ? css('--axis') : css('--grid'), 'stroke-width':1}, gGrid);
+    var tl = el('text', {x:m.l - 6, y:yy + 4, 'text-anchor':'end'}, gGrid); tl.textContent = v;
+    var tr = el('text', {x:W - m.r + 6, y:yy + 4, 'text-anchor':'start'}, gGrid); tr.textContent = (i * 20) + '%';
+  }
+  // axis titles above the plot
+  var t1 = el('text', {x:0, y:14, 'class':'ttl', 'text-anchor':'start'}, gGrid); t1.textContent = narrow ? 'Millions of people' : 'Population, millions';
+  var t2 = el('text', {x:W, y:14, 'class':'ttl', 'text-anchor':'end'}, gGrid); t2.textContent = narrow ? 'Share of Japan, %' : "Share of Japan's population, %";
+  var tw = narrow ? 112 : 196;
+  el('line', {x1:W - tw - 24, x2:W - tw - 6, y1:10, y2:10, stroke:col('share'), 'stroke-width':2.5, 'stroke-linecap':'round'}, gGrid);
+  // x ticks
+  [1750, 1800, 1850, 1900, 1950, 2000].forEach(function(t){
+    var tx = el('text', {x:x(t), y:H - m.b + 17, 'text-anchor':'middle'}, gGrid); tx.textContent = t;
+    el('line', {x1:x(t), x2:x(t), y1:H - m.b, y2:H - m.b + 4, stroke:css('--axis')}, gGrid);
+  });
+
+  // war years 1941-45: light shading; 1923: a thin labelled rule
+  el('rect', {x:x(1941), y:m.t, width:Math.max(2, x(1945) - x(1941)), height:H - m.t - m.b, fill:css('--shade')}, gAnn);
+  var wl = el('text', {x:x(1945) + 4, y:m.t + 12, 'class':'ann', 'text-anchor':'start'}, gAnn); wl.textContent = narrow ? 'War' : 'War 1941–45';
+  if (narrow){ var wl2 = el('text', {x:x(1945) + 4, y:m.t + 26, 'class':'ann', 'text-anchor':'start'}, gAnn); wl2.textContent = '1941–45'; }
+  var qx = Math.round(x(1923)) + 0.5;
+  el('line', {x1:qx, x2:qx, y1:m.t, y2:H - m.b, stroke:css('--rule'), 'stroke-width':1}, gAnn);
+  var ql = el('text', {x:qx - 4, y:m.t + 12, 'class':'ann', 'text-anchor':'end'}, gAnn); ql.textContent = narrow ? '1923' : '1923 earthquake';
+  if (narrow){ var ql2 = el('text', {x:qx - 4, y:m.t + 26, 'class':'ann', 'text-anchor':'end'}, gAnn); ql2.textContent = 'quake'; }
+
+  // Edo estimate band (1.0 to 1.3 million, 1721 to 1867)
+  var edo = byId.edo;
+  el('rect', {x:x(1721), y:yl(edo.range[1] / 1e6), width:x(1867) - x(1721), height:yl(edo.range[0] / 1e6) - yl(edo.range[1] / 1e6),
+    fill:col('edo'), 'fill-opacity':0.14}, gData);
+
+  function path(pts, ys, id, dotted){
+    if (pts.length < 2) return;
+    var d = pts.map(function(p, k){ return (k ? 'L' : 'M') + x(p[0]).toFixed(1) + ' ' + ys(p[1]).toFixed(1); }).join('');
+    el('path', {d:d, fill:'none', stroke:col(id), 'stroke-width':2, 'stroke-linejoin':'round', 'stroke-linecap':'round',
+      'stroke-dasharray': dotted ? '0.1 5' : 'none'}, gData);
+  }
+  function mil(v){ return v / 1e6; }
+  function lp(s){ return s.pts.map(function(p){ return [p[0], mil(p[1])]; }); }
+
+  // lines, drawn back to front
+  path(byId.share.pts.map(function(p){ return [p[0], p[1]]; }), yr, 'share', false);
+  path(byId.share.estPts.map(function(p){ return [p[0], p[1]]; }), yr, 'share', true);
+  path(lp(byId.pref), yl, 'pref', false);
+  var c = lp(byId.city);
+  path(c.filter(function(p){ return p[0] <= byId.city.breakAfter; }), yl, 'city', false);
+  path(c.filter(function(p){ return p[0] > byId.city.breakAfter; }), yl, 'city', false);
+  path(lp(byId.ward), yl, 'ward', false);
+  path(lp(edo), yl, 'edo', true);
+
+  // markers: 2px surface ring keeps them legible where lines cross
+  var surf = css('--surface');
+  // no markers on the 23-ward line: at 5-year steps they would read as a dotted (estimate) line
+  byId.city.pts.forEach(function(p){ el('circle', {cx:x(p[0]), cy:yl(mil(p[1])), r:6.5, fill:'none', stroke:col('city'), 'stroke-width':2}, gData); });
+  edo.pts.forEach(function(p){ el('circle', {cx:x(p[0]), cy:yl(mil(p[1])), r:4.5, fill:surf, stroke:col('edo'), 'stroke-width':2}, gData); });
+  byId.share.estPts.forEach(function(p){ el('circle', {cx:x(p[0]), cy:yr(p[1]), r:4.5, fill:surf, stroke:col('share'), 'stroke-width':2}, gData); });
+
+  // hover layer: crosshair snaps to the nearest year that has data
+  G.cross = el('line', {x1:0, x2:0, y1:m.t, y2:H - m.b, stroke:css('--ink-2'), 'stroke-width':1, visibility:'hidden'}, gHover);
+  G.dots = el('g', {}, gHover);
+  var hit = el('rect', {x:0, y:0, width:W, height:H, fill:'transparent'}, gHover);
+  hit.addEventListener('pointermove', onPointer);
+  hit.addEventListener('pointerdown', onPointer);
+  hit.addEventListener('pointerleave', function(e){ if (e.pointerType === 'mouse') hide(); });
+  if (cur >= 0) show(cur);
+}
+
+function nearest(px){
+  var best = 0, bd = Infinity;
+  for (var i = 0; i < YEARS.length; i++){ var d = Math.abs(G.x(YEARS[i]) - px); if (d < bd){ bd = d; best = i; } }
+  return best;
+}
+function onPointer(e){
+  var r = svg.getBoundingClientRect();
+  show(nearest(e.clientX - r.left));
+}
+function hide(){ cur = -1; tip.hidden = true; if (G.cross) G.cross.setAttribute('visibility', 'hidden'); if (G.dots) G.dots.textContent = ''; }
+
+function show(i){
+  cur = i; var yr = YEARS[i], x = G.x(yr);
+  G.cross.setAttribute('x1', x); G.cross.setAttribute('x2', x); G.cross.setAttribute('visibility', 'visible');
+  G.dots.textContent = '';
+  tip.textContent = '';
+  var flow = G.W < 560; tip.classList.toggle('flow', flow);
+  var h = document.createElement('div'); h.className = 'yr'; h.textContent = yr; tip.appendChild(h);
+  var rowsBox = document.createElement('div'); rowsBox.className = 'rows'; tip.appendChild(rowsBox);
+  var any = false;
+  ORDER.forEach(function(id){
+    var s = byId[id], hitv = valueAt(s, yr);
+    if (!hitv) return;
+    any = true;
+    var p = hitv.p, isR = s.axis === 'R';
+    var cy = isR ? G.yr(p[1]) : G.yl(p[1] / 1e6);
+    el('circle', {cx:x, cy:cy, r:5, fill: hitv.est ? css('--surface') : col(id), stroke: hitv.est ? col(id) : css('--surface'), 'stroke-width':2}, G.dots);
+    var row = document.createElement('div'); row.className = 'row';
+    row.appendChild(keySvg(id, hitv.est, false));
+    var box = document.createElement('div');
+    var v = document.createElement('div'); v.className = 'v';
+    if (isR) v.textContent = (hitv.est ? 'about ' : '') + p[1].toFixed(hitv.est ? 1 : 2) + '%';
+    else if (hitv.est) v.textContent = 'about ' + (p[1] / 1e6).toFixed(2) + ' million';
+    else v.textContent = (p[1] / 1e6).toFixed(2) + ' million (' + fmtInt(p[1]) + ')';
+    var n = document.createElement('div'); n.className = 'n';
+    n.textContent = (isR && hitv.est) ? 'Edo’s share of Japan (estimate)' : s.name;
+    var src = document.createElement('div'); src.className = 's';
+    src.textContent = (p[3] ? p[3] + ' ' : '') + 'Source: ' + S[p[2]].short + '.';
+    box.appendChild(v); box.appendChild(n); box.appendChild(src); row.appendChild(box); rowsBox.appendChild(row);
+  });
+  if (!any){ hide(); return; }
+  tip.hidden = false;
+  if (flow){ tip.style.left = ''; tip.style.top = ''; return; }
+  // keep the tooltip inside the chart box, beside the crosshair
+  var tw = tip.offsetWidth, th = tip.offsetHeight, W = G.W;
+  var left = x + 12; if (left + tw > W) left = x - tw - 12; if (left < 0) left = Math.max(0, Math.min(W - tw, x - tw / 2));
+  var top = G.m.t; if (top + th > G.H + 40) top = Math.max(0, G.H + 40 - th);
+  tip.style.left = left + 'px'; tip.style.top = top + 'px';
+}
+
+svg.addEventListener('keydown', function(e){
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+    e.preventDefault();
+    var i = cur < 0 ? YEARS.length - 1 : cur + (e.key === 'ArrowRight' ? 1 : -1);
+    show(Math.max(0, Math.min(YEARS.length - 1, i)));
+  } else if (e.key === 'Escape') hide();
+});
+svg.addEventListener('blur', hide);
+document.addEventListener('pointerdown', function(e){ if (!wrap.contains(e.target)) hide(); });
+
+function all(){ buildLegend(); render(); }
+all();
+var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(render, 120); });
+try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', all); } catch (e) {}
+new MutationObserver(all).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
+})();
+</script>
+</body>
+</html>
