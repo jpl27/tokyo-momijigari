@@ -204,6 +204,9 @@ p.route{font-size:13.5px !important;color:#4a4f57 !important}
 #legend.mm{max-width:min(64%,230px)}
 #legendBody .lgn{font-size:12px;line-height:1.35;color:#333;margin:3px 0 7px;white-space:normal}
 #legendBody .lgr i.dash{height:0;width:20px;border:0;border-top:3px dashed #4a2c0f;align-self:center}
+.pop.mmp{max-height:min(56vh,460px);overflow-y:auto}
+.pop .mmnote{font-size:14px;color:#3d4148;font-style:italic}
+.pop .mmsrc{font-size:12.5px;color:#555;margin-top:6px}
 </style>
 </head>
 <body>
@@ -9936,6 +9939,142 @@ function wardPopup(p, ll){
   div.appendChild(dl);
   return popup(ll, div);
 }
+/* ---------- Tap popups for the mental-map layers (added 2026-10-24) ---------- */
+const MMSRC = {
+  edge:'Sources: Japanese Wikipedia (山の手, 下町); Seidensticker 1983; Jinnai 1995; GSI height data.',
+  w:'Sources: Japanese Wikipedia (place and ward articles); Seidensticker 1983.',
+  q:'Sources: Japanese Wikipedia (東京都区部, 副都心); common real-estate usage.'
+};
+const MMLINE = 'The dashed line is a 10 m height line worked out by computer, not a border anyone drew.';
+const MMPOP = {
+  edge:{
+    up:{ja:'山の手', ro:'Yamanote', en:'“The hill side”, “toward the mountains”', per:'From the 1600s; still used',
+      txt:['In Edo the plateau held samurai estates and temples. After 1868 officials, teachers and office workers made their homes here.',
+        'Today it suggests quiet, well-off, educated neighbourhoods. As the city grew, the label moved west along the railways.']},
+    low:{ja:'下町', ro:'Shitamachi', en:'“The low town”, “downtown”', per:'From the 1600s; still used',
+      txt:['Merchants, artisans and labourers lived here, on flat filled land by the river and the bay, cut by canals.',
+        'At first it meant Nihonbashi and Kanda; it later spread east to Asakusa, Honjo and beyond.',
+        'Today it means old, friendly, working neighbourhoods. People still argue over which areas are the “real” Shitamachi.']}
+  },
+  w:{
+    'Kōjimachi':{ja:'麹町区', en:'“Malt town”', now:'Chiyoda',
+      o:'Three ideas: a town on the road to the provincial office, a malt maker who lived here, or its many lanes.',
+      c:'The palace, the ministries at Kasumigaseki, and Marunouchi, Mitsubishi’s new office district.'},
+    'Kanda':{ja:'神田区', en:'“God’s rice field”', now:'Chiyoda',
+      o:'Named after rice fields whose harvest paid for a shrine’s rites.',
+      c:'Private colleges, student boarding houses and bookshops, among older streets of craftsmen and shops.'},
+    'Nihonbashi':{ja:'日本橋区', en:'“Japan Bridge”', now:'Chūō',
+      o:'Named after the bridge of 1603, where Japan’s five great roads began. Why the bridge got that name is disputed.',
+      c:'Big merchant houses such as Mitsui’s Echigoya, the fish market, and banks around the Bank of Japan (1896).'},
+    'Kyōbashi':{ja:'京橋区', en:'“Capital Bridge”', now:'Chūō',
+      o:'Named after the first bridge on the road south from Nihonbashi toward the old capital, Kyōto.',
+      c:'Ginza’s brick shopping street, newspaper offices, and the old foreign settlement at Tsukiji.'},
+    'Shiba':{ja:'芝区', en:'“Turf”', now:'Minato',
+      o:'Taken from the old village of Shiba, once written 柴, “brushwood”. Why the village had that name is disputed.',
+      c:'Zōjōji temple and Shiba Park, the Shinbashi rail terminus, and new engineering works on the Shibaura shore.'},
+    'Azabu':{ja:'麻布区', en:'“Hemp cloth”', now:'Minato',
+      o:'Written with the characters for “hemp cloth” only from about 1700. The original meaning is disputed.',
+      c:'Hilltop estates of nobles and the rich, old temples, and army barracks.'},
+    'Akasaka':{ja:'赤坂区', en:'“Red slope”', now:'Minato',
+      o:'Two ideas: a slope where madder, a red-dye plant, grew, or the red clay soil of its many slopes.',
+      c:'Homes of senior officials and nobles on the hills, and a busy geisha quarter below them.'},
+    'Yotsuya':{ja:'四谷区', en:'“Four valleys”', now:'Shinjuku',
+      o:'Either four valleys or four early teahouses (yotsu-ya). The origin is disputed.',
+      c:'Shops on the western highway, temples, and Samegahashi, one of Meiji Tokyo’s three great slums.'},
+    'Ushigome':{ja:'牛込区', en:'“Cattle pen”', now:'Shinjuku',
+      o:'Probably the site of an ancient official cattle pasture.',
+      c:'Old samurai lots turned into homes of officials and writers, with Kagurazaka as its shopping and geisha street.'},
+    'Koishikawa':{ja:'小石川区', en:'“Small stone river”', now:'Bunkyō',
+      o:'From a stream of that name, said to be full of pebbles and sand.',
+      c:'The army arsenal (where Tokyo Dome stands now) and its workers, beside quiet streets and the botanical garden.'},
+    'Hongō':{ja:'本郷区', en:'“The main village”', now:'Bunkyō',
+      o:'It was the centre of the old Yushima village, called “Yushima Hongō”.',
+      c:'Tokyo Imperial University and the boarding houses of its students; writers such as Higuchi Ichiyō lived here.'},
+    'Shitaya':{ja:'下谷区', en:'“The valley below”', now:'Taitō',
+      o:'The low ground below the Ueno hill.',
+      c:'Ueno Park and station, the temples of Yanaka, and crowded back streets such as Mannen-chō.'},
+    'Asakusa':{ja:'浅草区', en:'“Shallow grass”', now:'Taitō',
+      o:'Perhaps land where the grass grew thin; Ainu and other origins have been proposed. The origin is disputed.',
+      c:'Sensōji temple and the theatres and side-shows of Rokku, Tokyo’s busiest pleasure district.'},
+    'Honjo':{ja:'本所区', en:'“The main estate”', now:'Sumida',
+      o:'From the medieval estate (shōen) system.',
+      c:'Factories and workshops, among them Seikōsha’s clock works (1892), grew among old craft streets.'},
+    'Fukagawa':{ja:'深川区', en:'“Deep river”', now:'Kōtō',
+      o:'Named after Fukagawa Hachirōemon, who opened the land for farming in 1596.',
+      c:'Timber yards at Kiba, warehouses on the canals, and more and more factories.'}
+  },
+  q:{
+    c:{ja:'都心', ro:'Toshin', en:'“The city heart”', per:'Modern usage; still used', wards:'Chiyoda, Chūō, Minato',
+      txt:['The palace, the national government and the head offices of big companies are here.',
+        'Millions come to work here each day, but far fewer live here.']},
+    s:{ja:'副都心', ro:'Fukutoshin', en:'“Sub-centres”', per:'From 1958, when planners named Shinjuku, Shibuya and Ikebukuro', wards:'Shinjuku, Shibuya, Toshima, Bunkyō',
+      txt:['Planners chose these railway hubs to draw offices and shops away from the crowded centre.',
+        'Shinjuku’s skyscrapers are the clearest result. Bunkyō is grouped here on this map, though it has no sub-centre of its own.']},
+    e:{ja:'城東', ro:'Jōtō', en:'“East of the castle”', per:'Since Tokyo grew to today’s size in 1932; a Jōtō Ward existed 1932–47', wards:'Taitō, Sumida, Kōtō, Arakawa, Adachi, Katsushika, Edogawa',
+      txt:['The old working Tokyo of small factories, workshops and crowded wooden houses.',
+        'It was hit hardest by the 1923 earthquake and the 1945 fire raids.',
+        'Today it keeps much of the Shitamachi feel, with lower rents than the west.']},
+    n:{ja:'城南', ro:'Jōnan', en:'“South of the castle”', per:'Since Tokyo grew to today’s size in 1932', wards:'Shinagawa, Meguro, Ōta, Setagaya',
+      txt:['Two faces: railway suburbs such as Den-en-chōfu along the Tōkyū lines, and factories along the bay.',
+        'Its railway suburbs are now among Tokyo’s most wanted addresses.']},
+    w:{ja:'城西', ro:'Jōsai', en:'“West of the castle”', per:'Since Tokyo grew to today’s size in 1932', wards:'Nakano, Suginami, Nerima',
+      txt:['Farmland that became garden suburbs after the 1923 earthquake, as families moved out along the railways.',
+        'Today it is quiet and residential, with many small houses and gardens.']},
+    h:{ja:'城北', ro:'Jōhoku', en:'“North of the castle”', per:'Since Tokyo grew to today’s size in 1932', wards:'Kita, Itabashi',
+      txt:['Mixed flat land along the Arakawa river: army works and factories before 1945, big housing estates after.',
+        'Today it is a plain, affordable mix of homes, shops and workshops.']}
+  }
+};
+function mmPopup(kind, key, ll){
+  var d = MMPOP[kind] && MMPOP[kind][key];
+  if (!d) return null;
+  var div = el('div', 'pop mmp'), dl = el('dl', 'facts');
+  if (kind === 'w') {
+    div.appendChild(el('h4', null, d.ja + ' · ' + key + '-ku'));
+    div.appendChild(el('p', 'cpl', d.en + ' Ward'));
+    factRow(dl, 'In use', '1878–1947');
+    factRow(dl, 'Side', (MM && MM.w1878 && MM.w1878.features.some(function(f){ return f.properties.w === key && f.properties.lc === 1; })
+      ? 'Low City' : 'High City') + ' (Seidensticker)');
+    factRow(dl, 'Now part of', d.now + ' Ward (since 1947)');
+    div.appendChild(dl);
+    div.appendChild(el('p', null, 'The name: ' + d.o));
+    div.appendChild(el('p', null, 'Around 1900: ' + d.c));
+  } else {
+    div.appendChild(el('h4', null, d.ja + ' · ' + d.ro));
+    div.appendChild(el('p', 'cpl', d.en));
+    factRow(dl, 'In use', d.per);
+    if (d.wards) factRow(dl, 'On this map', d.wards);
+    div.appendChild(dl);
+    d.txt.forEach(function(t){ div.appendChild(el('p', null, t)); });
+    if (kind === 'edge') div.appendChild(el('p', 'mmnote', MMLINE));
+    if (kind === 'q' && key !== 's') div.appendChild(el('p', 'mmnote', 'These quarters have no official borders; this map follows common real-estate usage.'));
+  }
+  div.appendChild(el('p', 'mmsrc', MMSRC[kind]));
+  /* these popups are tall: open below the finger in the top half, above it in the bottom half, then nudge the map so all of it shows */
+  var box = map.getContainer().getBoundingClientRect(), y = map.project(ll).y;
+  var pp = new maplibregl.Popup({offset:10, maxWidth:'290px', focusAfterOpen:false, anchor: y < box.height / 2 ? 'top' : 'bottom'})
+    .setLngLat(ll).setDOMContent(div).addTo(map);
+  requestAnimationFrame(function(){
+    var r = pp.getElement().getBoundingClientRect(), dy = 0;
+    if (r.bottom > box.bottom - 8) dy = r.bottom - box.bottom + 8;
+    else if (r.top < box.top + 8) dy = r.top - box.top - 8;
+    if (dy) map.panBy([0, dy], {duration: RM ? 0 : 300});
+  });
+  return pp;
+}
+/* returns true when a mental-map region took the tap; the 1878 wards win, then the quarters, then the plateau edge */
+function mmTap(e){
+  function on(id){ return map.getLayer(id) && map.getLayoutProperty(id, 'visibility') === 'visible'; }
+  var order = [['mm-1878-fill', 'w'], ['mm-q-fill', 'q'], ['mm-edge-fill', 'edge']];
+  for (var k = 0; k < order.length; k++) {
+    if (!on(order[k][0])) continue;
+    var f = map.queryRenderedFeatures(e.point, {layers:[order[k][0]]});
+    if (!f.length) continue;
+    var p = f[0].properties, key = order[k][1] === 'w' ? p.w : order[k][1] === 'q' ? QGROUP[p.code] : p.k;
+    if (mmPopup(order[k][1], key, e.lngLat)) return true;
+  }
+  return false;
+}
 /* one tap handler for the extra layers: the nearest small marker wins, then the ward */
 map.on('click', function(e){
   var t = e.originalEvent && e.originalEvent.target;
@@ -9955,6 +10094,13 @@ map.on('click', function(e){
     else if (h.layer.id === 'x-museums') museumPopup(i);
     else workPopup(i);
     return;
+  }
+  /* mental-map regions (added 2026-10-24); an Edo name label under the finger keeps its own popup */
+  if (mmAny()) {
+    var owa = map.getLayer('ov-owariya') && map.getLayoutProperty('ov-owariya', 'visibility') === 'visible' &&
+      map.queryRenderedFeatures(bb, {layers:['ov-owariya']}).length;
+    if (owa) return;
+    if (mmTap(e)) return;
   }
   if (map.getLayer('x-wards-fill') && map.getLayoutProperty('x-wards-fill', 'visibility') === 'visible') {
     if (map.getLayer('ov-owariya') && map.getLayoutProperty('ov-owariya', 'visibility') === 'visible' &&
