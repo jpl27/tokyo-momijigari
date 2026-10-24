@@ -172,6 +172,29 @@ p.route{font-size:13.5px !important;color:#4a4f57 !important}
 #legendBody .lgs{font-size:12px;color:#444}
 #legendBody .lgr{display:flex;font-size:12.5px;margin:1px 0;white-space:nowrap}
 #legendBody .lgr i{width:18px;height:12px;display:inline-block;border:1px solid #9a8f86}
+/* map key: dockable left/right, folds to an edge tab (added 2026-10-24) */
+#legend{left:calc(8px + env(safe-area-inset-left));overflow-y:auto;overscroll-behavior:contain}
+#legend.dock-r{left:auto;right:calc(8px + env(safe-area-inset-right))}
+#legendTop{display:flex;align-items:stretch;margin:0 -7px 0 -5px}
+#legend.dock-r #legendTop{flex-direction:row-reverse;margin:0 -5px 0 -7px}
+#legendHead{flex:1 1 auto;width:auto;min-height:44px;display:flex;align-items:center;gap:5px;padding:0 4px}
+#legend.dock-r #legendHead{flex-direction:row-reverse;justify-content:flex-end}
+#legendSide{flex:0 0 44px;min-height:44px;border:0;background:none;padding:0;font:inherit;font-size:18px;line-height:1;color:#555;cursor:pointer}
+#legend .chev{display:inline-block;width:9px;height:9px;border:solid #555;border-width:0 0 2.5px 2.5px;transform:rotate(45deg);flex:0 0 auto}
+#legend.dock-r #legendHead .chev{transform:rotate(-135deg)}
+#legendTab{display:none}
+#legend.folded{left:0;padding:0;max-width:none;border-radius:0 10px 10px 0;overflow:visible}
+#legend.folded.dock-r{left:auto;right:0;border-radius:10px 0 0 10px}
+#legend.folded #legendTop,#legend.folded #legendBody{display:none}
+#legend.folded #legendTab{display:flex;align-items:center;gap:7px;min-height:44px;min-width:44px;border:0;background:none;cursor:pointer;
+  font:inherit;font-size:13px;font-weight:700;color:#15171a;white-space:nowrap;padding:0 12px 0 calc(10px + env(safe-area-inset-left))}
+#legend.folded.dock-r #legendTab{flex-direction:row-reverse;padding:0 calc(10px + env(safe-area-inset-right)) 0 12px}
+#legend.folded #legendTab .chev{transform:rotate(-135deg)}
+#legend.folded.dock-r #legendTab .chev{transform:rotate(45deg)}
+#legend button:focus-visible{outline:3px solid #ffd27a;outline-offset:-3px}
+/* while a sheet or popup is open, the small notices shrink to one line */
+#stage.busy #kjBadge .kjl{display:none}
+#stage.busy #notice{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:min(calc(100% - 136px),420px)}
 </style>
 </head>
 <body>
@@ -181,7 +204,7 @@ p.route{font-size:13.5px !important;color:#4a4f57 !important}
     <div id="maperr"></div>
     <div id="title"><h1>Tokyo in Five Faces</h1><p id="faceNote">Today</p></div>
     <div id="notice" role="status" hidden></div>
-    <div id="kjBadge" hidden><a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a></div>
+    <div id="kjBadge" hidden><a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ<span class="kjl"> on the web</span></a></div>
 
     <section class="sheet" id="sheet-layers" hidden aria-label="Layers">
       <header><h2>Layers</h2><button class="close" type="button">Close</button></header>
@@ -207,7 +230,7 @@ p.route{font-size:13.5px !important;color:#4a4f57 !important}
       <div id="storyBody"></div>
     </section>
 
-    <div id="legend" hidden><button type="button" id="legendHead" aria-expanded="true">Map key</button><div id="legendBody"></div></div>
+    <div id="legend" hidden><div id="legendTop"><button type="button" id="legendHead" aria-expanded="true" aria-label="Map key: fold to the edge"><span class="chev" aria-hidden="true"></span>Map key</button><button type="button" id="legendSide" aria-label="Move the map key to the right side"><span aria-hidden="true">&#8644;</span></button></div><div id="legendBody"></div><button type="button" id="legendTab" aria-expanded="false" aria-label="Open the map key"><span class="chev" aria-hidden="true"></span><span id="legendTabTxt">Map key</span></button></div>
 
     <section class="sheet" id="sheet-sources" hidden aria-label="Sources and rights">
       <header><h2>Sources and rights</h2><button class="close" type="button">Close</button></header>
@@ -9806,9 +9829,76 @@ map.on('click', function(e){
   map.on('mouseenter', id, function(){ map.getCanvas().style.cursor = 'pointer'; });
   map.on('mouseleave', id, function(){ map.getCanvas().style.cursor = ''; });
 });
-$('legendHead').addEventListener('click', function(){
-  var b = $('legendBody'); b.hidden = !b.hidden; this.setAttribute('aria-expanded', b.hidden ? 'false' : 'true');
+/* ---------- Map key: dock left/right, fold to an edge tab, tuck under sheets and popups ---------- */
+const dock = Object.assign({side:'l', folded:false}, load('legendDock', {}));
+const TABNAME = {inc:'Income', grad:'Graduates', pa:'Welfare', fr:'Foreign'};
+let peek = false;                    /* key opened by hand while a sheet or popup is up */
+function openSheet(){
+  var s = null;
+  document.querySelectorAll('.sheet').forEach(function(x){ if (!x.hidden) s = x; });
+  return s;
+}
+function popupOpen(){ return !!document.querySelector('#map .maplibregl-popup'); }
+function layoutDock(){
+  var lg = $('legend'), stage = $('stage'), sh = openSheet(), busy = !!sh || popupOpen();
+  if (!busy) peek = false;
+  stage.classList.toggle('busy', busy);
+  var folded = busy ? !peek : dock.folded, right = dock.side === 'r';
+  lg.classList.toggle('folded', folded); lg.classList.toggle('dock-r', right);
+  $('legendHead').setAttribute('aria-expanded', folded ? 'false' : 'true');
+  $('legendTab').setAttribute('aria-expanded', folded ? 'false' : 'true');
+  $('legendSide').setAttribute('aria-label', 'Move the map key to the ' + (right ? 'left' : 'right') + ' side');
+  var shadeOn = !!(T.wards && state.shade && SHADE[state.shade]);
+  $('legendTabTxt').textContent = shadeOn ? (TABNAME[state.shade] || SHADE[state.shade].label) : (state.ov.sites ? 'Sites' : 'Map key');
+  lg.style.bottom = ''; lg.style.maxHeight = '';
+  if (lg.hidden) return;
+  var sr = stage.getBoundingClientRect(), H = sr.height;
+  /* keep clear of the title card (left) or the zoom and locate buttons (right), and of a notice */
+  function fit(onRight){
+    lg.classList.toggle('dock-r', onRight);
+    var top = 8, ref = onRight ? document.querySelector('.maplibregl-ctrl-top-right') : $('title');
+    if (ref) top = Math.max(top, ref.getBoundingClientRect().bottom - sr.top + 8);
+    var nt = $('notice');
+    if (!nt.hidden) top = Math.max(top, nt.getBoundingClientRect().bottom - sr.top + 8);
+    var bottom = 40;
+    if (sh) {
+      var r = sh.getBoundingClientRect(), l = lg.getBoundingClientRect();
+      if (r.left < l.right && r.right > l.left) bottom = Math.max(bottom, Math.round(sr.bottom - r.top) + 8);
+    }
+    return {top:top, bottom:bottom, room:H - top - bottom};
+  }
+  var g = fit(right);
+  /* a tucked tab with no room under the zoom buttons waits on the left edge instead */
+  if (g.room < 44 && right && busy) { var g2 = fit(false); if (g2.room >= 44) g = g2; else g = fit(true); }
+  var bottom = g.room < 44 ? Math.max(8, Math.round(H - g.top - 44)) : g.bottom;
+  lg.style.bottom = bottom + 'px';
+  if (!folded) lg.style.maxHeight = Math.max(44, Math.round(H - g.top - bottom)) + 'px';
+}
+function setFold(f){
+  if (openSheet() || popupOpen()) peek = !f;
+  else { dock.folded = f; save('legendDock', dock); }
+  layoutDock();
+  try { $(f ? 'legendTab' : 'legendHead').focus({preventScroll:true}); } catch (e) {}
+}
+$('legendHead').addEventListener('click', function(){ setFold(true); });
+$('legendTab').addEventListener('click', function(){ setFold(false); });
+$('legendSide').addEventListener('click', function(){
+  dock.side = dock.side === 'r' ? 'l' : 'r'; save('legendDock', dock); layoutDock();
 });
+try {
+  var dockObs = new MutationObserver(function(){ layoutDock(); });
+  document.querySelectorAll('.sheet').forEach(function(s){ dockObs.observe(s, {attributes:true, attributeFilter:['hidden']}); });
+  dockObs.observe($('notice'), {attributes:true, attributeFilter:['hidden']});
+  dockObs.observe($('legend'), {attributes:true, attributeFilter:['hidden']});
+  dockObs.observe(map.getContainer(), {childList:true});
+  if (window.ResizeObserver) {
+    var dockRO = new ResizeObserver(function(){ layoutDock(); });
+    document.querySelectorAll('.sheet').forEach(function(s){ dockRO.observe(s); });
+    dockRO.observe($('stage'));
+  }
+} catch (e) { console.warn('[map] key docking observers not started', e); }
+window.addEventListener('resize', layoutDock);
+layoutDock();
 
 /* ---------- Draw the current face ---------- */
 function apply(){
