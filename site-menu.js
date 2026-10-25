@@ -7,7 +7,7 @@
    so the header does not take the phone screen from the map. */
 (function(){
   var TITLE="A History of Tokyo";
-  var SMALL="Private study site · Joe Lavallee · started 24 October 2026";
+  var SMALL="Private study site · started 24 October 2026";
   var MENUS=[
     {label:"Before Edo",items:[
       ["The land","primer-land.html"],
