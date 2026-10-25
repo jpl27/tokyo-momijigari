@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Location test</title>
+<style>
+body{margin:0;background:#fbf3e8;color:#1f1712;font:20px/1.5 Georgia,serif}
+main{max-width:560px;margin:0 auto;padding:20px 16px 40px}
+h1{color:#9c3415;font-size:1.6rem;margin:8px 0 12px}
+button{width:100%;min-height:70px;font:bold 1.3rem Georgia,serif;color:#fff;background:#a8381a;border:0;border-radius:10px;margin:10px 0}
+#out p{margin:8px 0;padding:10px 12px;background:#fff;border-left:5px solid #d2491f;border-radius:4px}
+.ok{border-left-color:#2e7d32!important}.bad{border-left-color:#c62828!important}
+</style></head>
+<body><main>
+<h1>Location test</h1>
+<p>Tap the button, and tap "Allow" if Safari asks. Then send a screenshot of what appears below it.</p>
+<button id="go" type="button">Find me</button>
+<div id="out"></div>
+<p><a href="five-faces.html">Back to the walking map</a></p>
+</main>
+<script>
+var out=document.getElementById('out');
+function say(t,c){var p=document.createElement('p');p.textContent=t;if(c)p.className=c;out.appendChild(p);}
+var WHY={1:'Permission refused. Safari or the iPhone settings are blocking location for this site.',2:'Position unavailable. The phone could not work out where it is (location services off, or no signal).',3:'Timed out. The phone did not answer within 30 seconds.'};
+function attempt(high,label,next){
+  var t0=Date.now();
+  say(label+': asking the phone…');
+  navigator.geolocation.getCurrentPosition(function(pos){
+    var c=pos.coords;
+    say(label+': FOUND after '+Math.round((Date.now()-t0)/1000)+' s. '+c.latitude.toFixed(4)+', '+c.longitude.toFixed(4)+', accurate to about '+Math.round(c.accuracy)+' m.','ok');
+    if(next)next();
+  },function(err){
+    say(label+': FAILED after '+Math.round((Date.now()-t0)/1000)+' s. Code '+err.code+': '+(WHY[err.code]||err.message),'bad');
+    if(next)next();
+  },{enableHighAccuracy:high,timeout:30000,maximumAge:0});
+}
+document.getElementById('go').addEventListener('click',function(){
+  out.innerHTML='';
+  say('Secure page: '+(window.isSecureContext?'yes':'NO'), window.isSecureContext?'ok':'bad');
+  if(!('geolocation' in navigator)){say('This browser has no location feature.','bad');return;}
+  var run=function(){attempt(false,'Quick test',function(){attempt(true,'Precise test');});};
+  if(navigator.permissions&&navigator.permissions.query){
+    navigator.permissions.query({name:'geolocation'}).then(function(r){say('Permission state before asking: '+r.state);run();},function(){say('Permission state: not reported');run();});
+  } else {say('Permission state: not reported');run();}
+});
+</script>
+</body></html>
