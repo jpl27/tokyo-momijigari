@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#16181d">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Tokyo in Colour</title>
-<!-- Map engine, pinned to the same version as the Five Faces map (index.html). The only other things this page loads are map tiles. -->
+<!-- Map engine, pinned to the same version as the Five Faces map (five-faces.html). The only other things this page loads are map tiles. -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css"
       integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"
@@ -177,6 +177,8 @@ a.btnlink.sec{background:#e9eef6;color:#0b57a4 !important}
 </style>
 </head>
 <body>
+<div id="site-header"></div>
+<script src="site-menu.js"></script>
 <div id="app">
   <div id="stage">
     <div id="map" role="region" aria-label="Map"></div>
@@ -219,7 +221,7 @@ a.btnlink.sec{background:#e9eef6;color:#0b57a4 !important}
       <button type="button" id="lightsBtn" aria-pressed="false">Evening lights</button>
       <button type="button" data-sheet="layers" aria-expanded="false">Layers</button>
       <button type="button" data-sheet="sources" aria-expanded="false">Sources</button>
-      <a class="barlink" href="index.html">Five Faces map</a>
+      <a class="barlink" href="five-faces.html">Five Faces map</a>
       <a class="barlink" href="stats.html">Numbers</a>
     </div>
   </nav>
