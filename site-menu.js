@@ -1,4 +1,4 @@
-/* Shared title bar and menus for the History of Tokyo study site.
+/* Shared title bar and menus for the Tokyo Momijigari site (renamed from "A History of Tokyo" 2026-10-25).
    Edit menus HERE only. Each page has <div id="site-header"></div> followed by
    <script src="site-menu.js"></script>. Two levels deep, never deeper.
    Copied from the Japan site's site-menu.js (2026-10-25). All styles are scoped
@@ -6,19 +6,18 @@
    The full-screen map pages (COMPACT) get one slim bar with a "Menu" button,
    so the header does not take the phone screen from the map. */
 (function(){
-  var TITLE="A History of Tokyo";
+  var TITLE="Tokyo Momijigari";
   var SMALL="Private study site · started 24 October 2026";
   var MENUS=[
-    {label:"Before Edo",items:[
-      ["The land","primer-land.html"],
-      ["People and power to 1590","primer-people.html"]]},
-    {label:"The growing city",items:[
-      ["Growth of the city","growth.html"],
-      ["Population 1720–2025","stats.html"]]},
-    {label:"Walking map",href:"five-faces.html"},
-    {label:"Autumn",items:[
+    {label:"Momijigari",items:[
       ["Tokyo in Colour","foliage.html"],
-      ["The leaves","leaves.html"]]}
+      ["The leaves","leaves.html"]]},
+    {label:"Tokyo background",items:[
+      ["The land","primer-land.html"],
+      ["People and power to 1590","primer-people.html"],
+      ["Growth of the city","growth.html"],
+      ["Population 1720–2025","stats.html"],
+      ["Walking map: Tokyo in Five Faces","five-faces.html"]]}
   ];
   var COMPACT=["five-faces.html","foliage.html","growth.html"];
 
