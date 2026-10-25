@@ -5,14 +5,100 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>People and Power</title>
-<meta name="description" content="Primer page on the people and rulers of the Tokyo area before 1590. In preparation.">
+<meta name="description" content="Primer page: who lived and ruled around Edo before 1590, with a timeline and a small map.">
+<!-- The page's one data file is primer-people-data.json (sections, timeline, picture, references). -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css"
+      integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"
+        integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj" crossorigin="anonymous"></script>
 <style>
+:root{
+  --ink:#111; --ink-dim:#555a62; --line:#dedfe2; --paper:#fff; --soft:#f7f5f1;
+  --accent:#d2491f; --water:#3b78b5;
+}
 *{box-sizing:border-box}
-body{margin:0;background:#fff;color:#111;font-family:Georgia,"Times New Roman",Times,serif;font-size:19px;line-height:1.65}
-a{color:#111}
-main{max-width:760px;margin:0 auto;padding:8px 16px 48px}
-h1{font-size:1.9rem;line-height:1.25;margin:36px 0 12px}
-@media (max-width:700px){body{font-size:18px}h1{font-size:1.6rem}}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:19px;line-height:1.6;overflow-x:hidden}
+a{color:var(--ink)}
+main{max-width:760px;margin:0 auto;padding:0 16px 48px}
+h1{font-size:1.9rem;line-height:1.25;margin:32px 0 10px}
+h2{font-size:1.35rem;line-height:1.3;margin:34px 0 8px;scroll-margin-top:110px}
+p{margin:0 0 14px}
+[lang=ja]{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",Georgia,serif}
+.muted{color:var(--ink-dim)}
+.small{font-size:.85em}
+sup.r{font-size:.62em;line-height:0;margin-left:1px;white-space:nowrap}
+sup.r a{text-decoration:none;color:var(--accent);padding:0 1px}
+sup.r a:hover,sup.r a:focus-visible{text-decoration:underline}
+details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:28px 0 10px;padding:0}
+summary{cursor:pointer;padding:10px 2px;min-height:44px;font-weight:bold;list-style:none;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:1.1em;color:var(--accent);font-weight:bold}
+details[open] > summary::before{content:"\2212"}
+details > div{padding:0 2px 12px}
+ol.refs{padding-left:2.4em;margin:6px 0;font-size:.85em;line-height:1.45}
+ol.refs li{margin:0 0 8px;overflow-wrap:anywhere;scroll-margin-top:80px}
+ol.refs li:target{background:#fff3d6}
+.ui{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif}
+/* maps */
+figure.mapfig{margin:22px -16px 26px;padding:0}
+@media (min-width:792px){figure.mapfig{margin-left:0;margin-right:0}}
+.maphead{padding:0 16px;font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif}
+.maphead h3{font-size:16px;margin:0 0 4px}
+.legend{margin:0 0 8px;color:#222}
+.legend div{margin:0;display:flex;flex-wrap:wrap;column-gap:10px}
+.sw{display:inline-block;width:18px;height:0;border-top:3px solid #333;vertical-align:middle;margin:0 4px 0 0}
+.sw.fill{height:11px;border:1px solid rgba(0,0,0,.35);border-radius:2px}
+.sw.dash{border-top-style:dashed}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.4);vertical-align:-1px;margin:0 3px 0 0}
+.leg-i{white-space:nowrap}
+.mapbox{position:relative;overflow:hidden;height:60vh;min-height:300px;background:#e9e7e2;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media (min-width:792px){.mapbox{border:1px solid var(--line);border-radius:10px;overflow:hidden;height:min(60vh,560px)}}
+.mapbox .map{position:absolute;inset:0}
+.mapnote{padding:8px 16px 0;font-size:.85em;color:var(--ink-dim);margin:0}
+.fsbtn{position:absolute;right:8px;bottom:30px;z-index:3;min-height:40px;padding:0 12px;border:0;border-radius:8px;background:rgba(22,24,29,.88);color:#fff;font:600 14px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.fsbtn:focus-visible{outline:3px solid #ffd27a;outline-offset:1px}
+.credit{position:absolute;left:6px;right:120px;bottom:6px;z-index:3;pointer-events:none}
+.credit span{pointer-events:auto;display:inline-block;max-width:100%;background:rgba(255,255,255,.92);border-radius:6px;padding:2px 7px;font:11.5px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",sans-serif;color:#222;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.credit a{color:#222}
+.maperr{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font:15px/1.4 -apple-system,sans-serif}
+figure.full .mapbox{position:fixed;inset:0;z-index:2000;height:100vh;height:100dvh;border:0;border-radius:0}
+body.fs{overflow:hidden}
+.lab{font:600 12px/1.15 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",sans-serif;color:#1d1d1d;white-space:nowrap;pointer-events:none;
+  text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 4px #fff;transform:translate(8px,-50%)}
+.lab.prov{font:italic 600 13px/1 Georgia,serif;color:#5b4a2e;letter-spacing:.04em;transform:none}
+.maplibregl-popup{z-index:4}
+.maplibregl-popup-content{padding:10px 12px;border-radius:10px;font:13.5px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",sans-serif;max-height:55vh;overflow-y:auto}
+.maplibregl-popup-content h4{margin:0 22px 2px 0;font-size:15px}
+.maplibregl-popup-content p{margin:4px 0}
+.maplibregl-popup-content .src{font-size:12px;color:#555;overflow-wrap:anywhere}
+.maplibregl-popup-close-button{font-size:22px;width:32px;height:32px}
+.conf{display:inline-block;padding:0 6px;border-radius:8px;background:#eee;font-size:12px}
+.conf.sketch{background:#fff0d0}
+
+.hero{margin:18px 0 8px}
+.hero button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.hero img{display:block;width:100%;height:auto;border-radius:8px;background:#ece9e3}
+.hero figcaption{font-size:.9em;margin:8px 0 0}
+.hero .cred{font-size:12.5px;line-height:1.4;color:var(--ink-dim);margin:6px 0 0;overflow-wrap:anywhere}
+.tap{font:600 13px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink-dim);margin:6px 0 0}
+#lightbox{position:fixed;inset:0;z-index:3000;background:rgba(10,10,12,.94);display:flex;flex-direction:column}
+#lightbox[hidden]{display:none}
+#lightbox .lbbar{display:flex;justify-content:flex-end;padding:8px}
+#lightbox .lbbar button{min-height:44px;padding:0 14px;border:0;border-radius:8px;background:#fff;color:#111;font:600 15px/1 -apple-system,sans-serif;cursor:pointer}
+#lightbox .lbimg{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;display:flex;align-items:center}
+#lightbox img{display:block;max-width:none;height:min(86vh,100%);width:auto;margin:auto}
+@media (orientation:portrait){#lightbox img{height:auto;width:180vw}}
+.secrefs{font-size:.85em;color:var(--ink-dim);margin:-6px 0 0}
+/* timeline */
+ol.tl{list-style:none;margin:16px 0 0;padding:0 0 0 22px;border-left:3px solid #e5c7b8;position:relative;left:6px}
+ol.tl li{position:relative;margin:0 0 22px;padding:0 0 0 4px}
+ol.tl li::before{content:"";position:absolute;left:-33px;top:.45em;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 1px #d9b3a2}
+ol.tl .when{display:block;font:700 13px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+ol.tl h3{font-size:1.05rem;margin:2px 0 4px}
+ol.tl p{margin:0 0 4px}
+ol.tl .acts{font:13.5px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+ol.tl .acts a.show{display:inline-flex;align-items:center;min-height:36px;color:var(--water)}
 </style>
 </head>
 <body>
@@ -20,7 +106,164 @@ h1{font-size:1.9rem;line-height:1.25;margin:36px 0 12px}
 <script src="site-menu.js"></script>
 <main>
 <h1>People and power to 1590</h1>
-<p>In preparation — expected this week.</p>
+<p id="err" hidden>The page text could not be loaded. Please reload the page.</p>
+<figure class="hero" id="hero"></figure>
+<div id="sections"></div>
+<h2 id="timeline">Timeline</h2>
+<p class="muted small">Dates before 1873 follow the old Japanese calendar. Tap "Show on map" to see the place on the map below.</p>
+<ol class="tl" id="tl"></ol>
+<figure class="mapfig" id="tlmapfig">
+  <div class="maphead"><h3>Places in the timeline</h3>
+    <div class="legend"><div><span class="leg-i"><span class="dot" style="background:#d2491f"></span>A place in the timeline</span></div>
+    <div><span class="leg-i">Tap a dot for its event</span></div></div></div>
+  <div class="mapbox" style="height:50vh"><div class="map" id="tlmap" role="region" aria-label="Places in the timeline"></div>
+    <button class="fsbtn" type="button" aria-pressed="false">Full screen</button>
+    <div class="credit"><span></span></div></div>
+  <p class="mapnote">Dots mark the place of each event, not an exact spot. Three events have no single place and are not shown.</p>
+</figure>
+<details id="refs"><summary>References</summary><div><ol class="refs" id="reflist"></ol></div></details>
 </main>
+<div id="lightbox" hidden role="dialog" aria-label="The picture, full size"><div class="lbbar"><button type="button">Close</button></div><div class="lbimg"><img alt="Sensō-ji copperplate, full size"></div></div>
+<script>
+(function(){
+  "use strict";
+
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function linkify(s){ return esc(s).replace(/(https?:\/\/[^\s;,)]+)/g, function(u){ return '<a href="'+u+'" target="_blank" rel="noopener">'+u+'</a>'; }); }
+  var GSI_LIST = 'https://maps.gsi.go.jp/development/ichiran.html';
+  var ATTR = {
+    gsi: '<a href="' + GSI_LIST + '" target="_blank" rel="noopener">地理院タイル (国土地理院)</a>',
+    osm: 'Rivers today © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> (ODbL)'
+  };
+  function gsi(id, ext, maxz, minz){
+    return {type:'raster', tiles:['https://cyberjapandata.gsi.go.jp/xyz/' + id + '/{z}/{x}/{y}.' + ext],
+            tileSize:256, minzoom:minz || 0, maxzoom:maxz};
+  }
+  function fullToggle(fig, map){
+    var btn = fig.querySelector('.fsbtn');
+    function set(on){
+      fig.classList.toggle('full', on); document.body.classList.toggle('fs', on);
+      btn.textContent = on ? 'Close full screen' : 'Full screen';
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      setTimeout(function(){ if (map) map.resize(); }, 30);
+    }
+    btn.addEventListener('click', function(){ set(!fig.classList.contains('full')); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && fig.classList.contains('full')) set(false); });
+  }
+  function whenNear(el, fn){
+    if (!('IntersectionObserver' in window)) { fn(); return; }
+    var io = new IntersectionObserver(function(es){ if (es.some(function(e){ return e.isIntersecting; })) { io.disconnect(); fn(); } }, {rootMargin:'700px 0px'});
+    io.observe(el);
+  }
+
+  var D = null, map = null, pop = null, mapReady = false, pending = null;
+  function sup(keys){
+    return '<sup class="r">[' + keys.map(function(k){ var n = k.slice(1); return '<a href="#ref-' + k + '" data-ref="' + k + '" aria-label="Reference ' + n + '">' + n + '</a>'; }).join(',') + ']</sup>';
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[data-ref]'); if (a) { var d = document.getElementById('refs'); if (d) d.open = true; }
+  });
+
+  function render(d){
+    D = d;
+    var cited = [];
+    function cite(keys){ (keys || []).forEach(function(k){ if (cited.indexOf(k) < 0) cited.push(k); }); return keys && keys.length ? sup(keys) : ''; }
+    /* picture */
+    var im = d.image;
+    document.getElementById('hero').innerHTML =
+      '<button type="button" id="openimg" aria-label="Open the full picture"><img src="' + esc(im.thumb) + '" alt="' + esc(im.title_en) + '" width="600" height="292" loading="eager"></button>' +
+      '<p class="tap">Tap the picture to see it full size.</p>' +
+      '<figcaption>' + esc(im.caption) + ' ' + cite(im.refs) + '</figcaption>' +
+      '<p class="cred">' + esc(im.credit_line) + '</p>';
+    var img = document.querySelector('#hero img');
+    img.addEventListener('load', function(){ img.removeAttribute('width'); img.removeAttribute('height'); });
+    var lb = document.getElementById('lightbox');
+    document.getElementById('openimg').addEventListener('click', function(){
+      var big = lb.querySelector('img'); if (!big.getAttribute('src')) big.src = im.file;
+      lb.hidden = false; document.body.classList.add('fs'); lb.querySelector('button').focus();
+    });
+    function closeLb(){ lb.hidden = true; document.body.classList.remove('fs'); }
+    lb.querySelector('button').addEventListener('click', closeLb);
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !lb.hidden) closeLb(); });
+    /* sections */
+    document.getElementById('sections').innerHTML = d.sections.map(function(s){
+      var ps = s.paragraphs.map(function(p, i){ return '<p>' + esc(p) + (i === s.paragraphs.length - 1 ? ' ' + cite(s.refs) : '') + '</p>'; }).join('');
+      return '<section id="' + esc(s.id) + '"><h2>' + esc(s.heading) + '</h2>' + ps + '</section>';
+    }).join('');
+    /* timeline */
+    var tl = d.timeline.slice().sort(function(a, b){ return a.sort_year - b.sort_year; });
+    document.getElementById('tl').innerHTML = tl.map(function(t){
+      var i = d.timeline.indexOf(t);
+      var acts = t.place ? '<a href="#tlmapfig" class="show" data-ev="' + i + '">Show on map: ' + esc(t.place.name_en) + '</a>' : '';
+      return '<li><span class="when">' + esc(t.date_label) + '</span><h3>' + esc(t.title) + '</h3><p>' + esc(t.text) + ' ' + cite(t.refs) + '</p>' +
+        (acts ? '<div class="acts">' + acts + '</div>' : '') + '</li>';
+    }).join('');
+    document.getElementById('tl').addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a.show'); if (!a) return;
+      e.preventDefault();
+      var i = +a.getAttribute('data-ev');
+      document.getElementById('tlmapfig').scrollIntoView({behavior:'smooth', block:'center'});
+      showEvent(i);
+    });
+    /* references */
+    cited.sort(function(a, b){ return +a.slice(1) - +b.slice(1); });
+    var R = {}; d.references.forEach(function(r){ R[r.key] = r; });
+    document.getElementById('reflist').innerHTML = cited.filter(function(k){ return R[k]; }).map(function(k){
+      var r = R[k], t = esc(r.apa);
+      if (r.url) { var u = esc(r.url); t = t.indexOf(u) >= 0 ? t.split(u).join('<a href="' + u + '">' + u + '</a>') : t + ' <a href="' + u + '">' + u + '</a>'; }
+      return '<li id="ref-' + k + '" value="' + k.slice(1) + '">' + t + '</li>';
+    }).join('');
+    if (location.hash && location.hash.indexOf('#ref-') === 0) { document.getElementById('refs').open = true; var t0 = document.querySelector(location.hash); if (t0) t0.scrollIntoView(); }
+    window.PRIMER = {sections:d.sections.length, events:d.timeline.length, placed:d.timeline.filter(function(t){ return t.place; }).length, refs:cited.length};
+    whenNear(document.getElementById('tlmapfig'), buildMap);
+  }
+
+  function popHTML(t){
+    return '<h4>' + esc(t.place.name_en) + '</h4>' + (t.place.name_ja ? '<p lang="ja" style="font-size:15px">' + esc(t.place.name_ja) + '</p>' : '') +
+      '<p><b>' + esc(t.date_label) + ':</b> ' + esc(t.title) + '</p>';
+  }
+  function showEvent(i){
+    if (!mapReady) { pending = i; if (!map) buildMap(); return; }
+    var t = D.timeline[i];
+    map.flyTo({center:[t.place.lon, t.place.lat], zoom:Math.max(map.getZoom(), 11), duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 900});
+    pop.setLngLat([t.place.lon, t.place.lat]).setHTML(popHTML(t)).addTo(map);
+  }
+  function buildMap(){
+    if (map) return;
+    var fig = document.getElementById('tlmapfig'), el = document.getElementById('tlmap');
+    fig.querySelector('.credit span').innerHTML = ATTR.gsi;
+    if (typeof maplibregl === 'undefined') { el.innerHTML = '<div class="maperr">The map engine could not be loaded. Check the internet connection and reload the page.</div>'; fullToggle(fig, null); map = 1; return; }
+    var feats = [];
+    D.timeline.forEach(function(t, i){ if (t.place) feats.push({type:'Feature', id:i, properties:{i:i}, geometry:{type:'Point', coordinates:[t.place.lon, t.place.lat]}}); });
+    var b = [180, 90, -180, -90];
+    feats.forEach(function(f){ var c = f.geometry.coordinates; b[0] = Math.min(b[0], c[0]); b[1] = Math.min(b[1], c[1]); b[2] = Math.max(b[2], c[0]); b[3] = Math.max(b[3], c[1]); });
+    map = new maplibregl.Map({container:el, style:{version:8, sources:{'gsi-pale':gsi('pale', 'png', 18)}, layers:[{id:'base', type:'raster', source:'gsi-pale'}]},
+      bounds:[[b[0], b[1]], [b[2], b[3]]], fitBoundsOptions:{padding:30}, maxZoom:17, minZoom:5, attributionControl:false, dragRotate:false, pitchWithRotate:false});
+    map.touchZoomRotate.disableRotation();
+    map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+    fullToggle(fig, map);
+    pop = new maplibregl.Popup({offset:8, maxWidth:'280px', focusAfterOpen:false});
+    window.PRIMER.map = map;
+    map.on('load', function(){
+      map.addSource('ev', {type:'geojson', data:{type:'FeatureCollection', features:feats}});
+      map.addLayer({id:'ev', type:'circle', source:'ev', paint:{'circle-radius':6.5, 'circle-color':'#d2491f', 'circle-stroke-color':'#fff', 'circle-stroke-width':2}});
+      map.on('click', function(e){
+        var q = map.queryRenderedFeatures([[e.point.x - 8, e.point.y - 8], [e.point.x + 8, e.point.y + 8]], {layers:['ev']});
+        if (!q.length) return;
+        var t = D.timeline[q[0].properties.i];
+        pop.setLngLat([t.place.lon, t.place.lat]).setHTML(popHTML(t)).addTo(map);
+      });
+      map.on('mouseenter', 'ev', function(){ map.getCanvas().style.cursor = 'pointer'; });
+      map.on('mouseleave', 'ev', function(){ map.getCanvas().style.cursor = ''; });
+      mapReady = true; window.PRIMER.drawn = feats.length;
+      if (pending !== null) { var p = pending; pending = null; showEvent(p); }
+    });
+  }
+
+  fetch('primer-people-data.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(render).catch(function(){
+    document.getElementById('err').hidden = false;
+  });
+})();
+</script>
 </body>
 </html>

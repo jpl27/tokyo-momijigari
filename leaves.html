@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Leaves</title>
+<meta name="description" content="Sixteen trees whose autumn leaves we may see in Tokyo: how to know them, when they turn, and their lore.">
+<!-- The page's one data file is leaves-data.json. Outlines come from leaf-outlines.js; photo credits from images/leaves/credits.json. -->
+<style>
+:root{
+  --ink:#111; --ink-dim:#555a62; --line:#dedfe2; --paper:#fff; --soft:#f7f5f1;
+  --accent:#d2491f; --peak:#c62828; --late:#ef8a17; --done:#8a8178;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:19px;line-height:1.6;overflow-x:hidden}
+a{color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.intro{max-width:760px}
+h1{font-size:1.9rem;line-height:1.25;margin:32px 0 10px}
+h1 + .lead{margin-top:0}
+h2{font-size:1.3rem;line-height:1.3;margin:28px 0 8px}
+.lead{font-size:1.05em}
+[lang=ja]{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",Georgia,serif}
+.muted{color:var(--ink-dim)}
+.small{font-size:.85em}
+details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:10px 0;padding:0}
+details + details{border-top:0;margin-top:-10px}
+summary{cursor:pointer;padding:10px 2px;min-height:44px;font-weight:bold;list-style:none;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:1.1em;color:var(--accent);font-weight:bold}
+details[open] > summary::before{content:"\2212"}
+details > div{padding:0 2px 12px}
+ol.refs{padding-left:1.3em;margin:6px 0;font-size:.85em;line-height:1.45}
+ol.refs li{margin:0 0 8px;overflow-wrap:anywhere}
+.words{display:grid;gap:10px;grid-template-columns:1fr;margin:8px 0 0;padding:0;list-style:none}
+.words li{border-left:4px solid var(--late);padding:4px 0 4px 12px}
+.words li:nth-child(1){border-color:var(--peak)}
+.words li:nth-child(3){border-color:var(--done)}
+.words .w{font-size:1.5em;line-height:1.2;margin-right:8px}
+@media (min-width:700px){.words{grid-template-columns:repeat(3,1fr)}}
+
+/* sticky mini-index */
+#idx{position:sticky;top:var(--hh,0px);z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);box-shadow:0 2px 6px rgba(0,0,0,.06);margin-top:24px}
+#idx ul{list-style:none;margin:0 auto;padding:6px 16px;display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:1180px;scrollbar-width:thin}
+#idx li{flex:0 0 auto}
+#idx a{display:flex;flex-direction:column;justify-content:center;min-height:44px;padding:3px 10px;border:1px solid var(--line);border-radius:8px;text-decoration:none;font-size:13px;line-height:1.25;white-space:nowrap;background:#fff}
+#idx a .j{font-size:15px}
+#idx a:hover,#idx a:focus-visible{border-color:var(--accent)}
+#idx a.warn{border-color:var(--peak);color:var(--peak)}
+
+/* cards */
+#cards{display:grid;grid-template-columns:1fr;gap:28px;margin:24px 0 8px}
+@media (min-width:960px){#cards{grid-template-columns:1fr 1fr;align-items:start}}
+.card{border:1px solid var(--line);border-radius:12px;padding:0 0 6px;scroll-margin-top:calc(var(--hh,0px) + var(--ih,60px) + 10px);min-width:0;background:#fff}
+.card.warning{border:3px solid var(--peak)}
+.media{display:grid;grid-template-columns:minmax(0,1fr) 30%;gap:0;align-items:stretch;border-radius:11px 11px 0 0;overflow:hidden;background:var(--soft)}
+.photo{position:relative;margin:0;min-width:0}
+.photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#ece9e3}
+.swap{position:absolute;left:8px;bottom:8px;min-height:40px;padding:0 12px;border:0;border-radius:20px;background:rgba(17,17,17,.82);color:#fff;font:600 14px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer}
+.swap:focus-visible{outline:3px solid #ffd27a;outline-offset:1px}
+.season{position:absolute;right:8px;top:8px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.9);font:600 12px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.outline{display:flex;align-items:center;justify-content:center;padding:6px;border-left:1px solid var(--line)}
+.outline svg{width:100%;height:auto;max-height:160px}
+.card .credit{margin:6px 14px 0;font-size:12.5px;line-height:1.4;color:var(--ink-dim);overflow-wrap:anywhere}
+.credit a{color:var(--ink-dim)}
+.credit .cav{display:block;font-style:italic}
+.body{padding:4px 14px 0}
+.strip{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:12px 0 4px;border:1px solid rgba(0,0,0,.08)}
+.strip span{flex:1}
+.strip span.sum{flex:.6}
+.striplab{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-dim);margin:0 0 2px}
+.pattern{font-size:.88em;margin:0 0 6px}
+.card h2{margin:12px 0 0;font-size:1.45rem}
+.card .kana{font-size:1.15em;margin:2px 0 0;line-height:1.4}
+.card .rom{margin:2px 0 0}
+.card .rom b{font-weight:normal;font-style:italic}
+.card .lat{margin:2px 0 8px;font-style:italic;color:var(--ink-dim)}
+.card h3{font-size:1rem;margin:14px 0 2px;text-transform:uppercase;letter-spacing:.04em;color:var(--accent)}
+.card.warning h3{color:var(--peak)}
+.card p{margin:0 0 6px}
+dl.when{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 10px}
+dl.when dt{font-weight:bold}
+dl.when dd{margin:0}
+ul.lore{margin:0;padding-left:1.1em}
+ul.lore li{margin:0 0 8px}
+.poem{display:block;font-size:1.1em;margin:4px 0 0;line-height:1.5}
+.trans{display:block;font-style:italic}
+.trans small{font-style:normal;color:var(--ink-dim)}
+.danger{border:3px solid var(--peak);background:#fdeeee;color:#5a0d0d;border-radius:8px;padding:10px 12px;margin:12px 0 4px;font-size:1.05em}
+.danger strong{display:block;font-size:1.25em;color:var(--peak);text-transform:uppercase;letter-spacing:.03em}
+.card details{margin:12px 0 0}
+.card ul.bio{margin:0;padding-left:1.1em}
+footer{border-top:1px solid var(--line);margin:32px 0 0;padding:14px 0 40px;font-size:.85em;color:var(--ink-dim)}
+#err{display:none;border:1px solid #e3c98a;background:#fff8e6;padding:10px 12px;border-radius:8px}
+@media (max-width:700px){body{font-size:18px}h1{font-size:1.6rem}.card h2{font-size:1.3rem}}
+</style>
+</head>
+<body>
+<div id="site-header"><noscript><p style="padding:12px 16px;margin:0"><a href="index.html">A History of Tokyo</a> · the menus need JavaScript</p></noscript></div>
+<script src="site-menu.js"></script>
+<script src="leaf-outlines.js"></script>
+
+<div class="wrap intro">
+  <h1>The leaves</h1>
+  <p id="err">The leaf list could not be loaded. Please reload the page.</p>
+  <div id="top"></div>
+</div>
+
+<nav id="idx" aria-label="The sixteen trees"><ul id="idxlist"></ul></nav>
+
+<main class="wrap">
+  <div id="cards"></div>
+  <footer>Photographs from Wikimedia Commons under the licences shown; outlines drawn for this site.</footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  var STRESS = /\s*Japanese has no strong stress[\s\S]*$/;
+  function sentences(s){ return String(s||"").split(/(?<=\.)\s+/); }
+  function tidy(s){ return String(s||"").replace(/\s*\(reference photo\)/g,"").replace(/\s*Hex values[^.]*\./g,"").trim(); }
+  function shortName(e){ return e.english.replace(/^WARNING:\s*/,"").replace(/\s*\(.*\)$/,""); }
+  function shortKana(e){ return e.kanji_kana.split(/[;；]/)[0].split(/[（(]/)[0].split("・")[0].trim(); }
+
+  /* leaf-outlines.js declares a top-level const, which is not a window property */
+  var OUTLINES = (typeof LEAF_OUTLINES !== "undefined") ? LEAF_OUTLINES : {};
+  var GENREFS = {};
+  function refList(keys, local){
+    var seen = {}, out = [];
+    (keys||[]).forEach(function(k){
+      if (seen[k]) return; seen[k]=1;
+      var r = (local && local[k]) || GENREFS[k];
+      if (r) out.push(r);
+    });
+    return out;
+  }
+  function refsHTML(list){
+    return '<ol class="refs">' + list.map(function(r){
+      var t = esc(r.apa);
+      if (r.url){ var u = esc(r.url); t = t.indexOf(u) >= 0 ? t.replace(u, '<a href="'+u+'">'+u+'</a>') : t + ' <a href="'+u+'">'+u+'</a>'; }
+      return '<li>'+t+'</li>';
+    }).join("") + '</ol>';
+  }
+
+  function topHTML(g){
+    var h = '<p class="lead">'+esc(g.why_leaves_turn.text)+'</p>';
+    h += '<details><summary>For the biologist</summary><div><p>'+esc(g.for_the_biologist.text)+'</p>' +
+         '<p class="small muted">References</p>' + refsHTML(refList(g.for_the_biologist.ref)) + '</div></details>';
+    h += '<h2>Three words for turning leaves</h2><ul class="words">' + g.three_words.map(function(w){
+      return '<li><span class="w" lang="ja">'+esc(w.word)+'</span><span lang="ja">'+esc(w.kana)+'</span> · <i>'+esc(w.romaji)+'</i><br>'+esc(w.meaning)+'</li>';
+    }).join("") + '</ul>';
+    h += '<h2>The autumn-colour front</h2><p>'+esc(g.autumn_colour_front.text)+'</p>';
+    h += '<p class="small muted">'+esc(g.pronunciation_note.split(/\s*Pitch accent/)[0])+'</p>';
+    return h;
+  }
+
+  function creditHTML(c){
+    if (!c) return '';
+    var lic = c.licence_url ? '<a href="'+esc(c.licence_url)+'">'+esc(c.licence)+'</a>' : esc(c.licence);
+    var h = 'Photo: '+esc(c.author)+', '+lic+', <a href="'+esc(c.file_page)+'">Wikimedia Commons</a>.';
+    if (c.caveat) h += '<span class="cav">'+esc(c.caveat)+'</span>';
+    return h;
+  }
+
+  function cardHTML(e, credits){
+    var aut = e.id+'-autumn.jpg', sum = e.id+'-summer.jpg';
+    var hasA = !!credits[aut], hasS = !!credits[sum];
+    var first = hasA ? aut : (hasS ? sum : null);
+    var local = {}; (e.references||[]).forEach(function(r){ local[r.key]=r; });
+    var h = '<article class="card'+(e.warning?' warning':'')+'" id="'+esc(e.id)+'">';
+    h += '<div class="media"><figure class="photo">';
+    if (first){
+      h += '<img src="images/leaves/'+first+'" alt="'+esc(shortName(e))+', '+(first===aut?'autumn':'summer')+' leaf" loading="lazy" decoding="async" data-a="'+(hasA?aut:'')+'" data-s="'+(hasS?sum:'')+'">';
+      h += '<span class="season">'+(first===aut?'Autumn':'Summer')+'</span>';
+      if (hasA && hasS) h += '<button type="button" class="swap" aria-pressed="false">Show summer</button>';
+    }
+    h += '</figure><div class="outline" aria-label="Leaf outline" role="img">'+(OUTLINES[e.id]||'')+'</div></div>';
+    h += '<p class="credit">'+creditHTML(credits[first])+'</p>';
+    h += '<div class="body">';
+    var cols = e.colours||{};
+    h += '<div class="strip" aria-hidden="true"><span class="sum" style="background:'+esc(cols.summer)+'"></span>' +
+         (cols.autumn||[]).map(function(c){ return '<span style="background:'+esc(c)+'"></span>'; }).join("") + '</div>';
+    h += '<div class="striplab"><span>summer</span><span>autumn &rarr;</span></div>';
+    h += '<p class="pattern muted">'+esc(sentences(tidy(cols.pattern))[0])+'</p>';
+    h += '<h2>'+esc(e.english)+'</h2>';
+    h += '<p class="kana" lang="ja">'+esc(e.kanji_kana)+'</p>';
+    h += '<p class="rom"><b>'+esc(e.romaji)+'</b> · say it: '+esc(String(e.say_it).replace(STRESS,""))+'</p>';
+    h += '<p class="lat">'+esc(e.latin)+' · '+esc(e.family)+'</p>';
+    if (e.warning) h += '<div class="danger" role="note"><strong>Do not touch. Do not burn.</strong>Leaves, twigs and sap can cause a bad rash. Smoke from burning them can too. Look from the path.</div>';
+    h += '<h3>How to know it</h3><p>'+esc(e.recognise)+'</p>';
+    h += '<h3>When it turns</h3><dl class="when"><dt>Tokyo</dt><dd>'+esc(e.timing.tokyo)+'</dd><dt>Kawaguchiko</dt><dd>'+esc(e.timing.kawaguchiko)+'</dd></dl>';
+    h += '<h3>Where on our route</h3><p>'+esc(e.where_on_route.text)+'</p>';
+    h += '<h3>Lore</h3><ul class="lore">' + (e.lore||[]).map(function(l){
+      var t = esc(l.text);
+      if (l.japanese){
+        t += '<span class="poem" lang="ja">'+esc(l.japanese)+'</span>';
+        if (l.translation) t += '<span class="trans">'+esc(l.translation)+(l.translation_by==='our own'?' <small>(our translation)</small>':'')+'</span>';
+      }
+      return '<li>'+t+'</li>';
+    }).join("") + '</ul>';
+    h += '<details><summary>For the biologist</summary><div>';
+    h += '<p><b>Native or introduced.</b> '+esc(e.native_or_introduced)+'</p>';
+    if (cols.pigment) h += '<p><b>Pigment.</b> '+esc(cols.pigment)+'</p>';
+    if (cols.pattern) h += '<p><b>How the colour moves.</b> '+esc(tidy(cols.pattern))+'</p>';
+    h += '<ul class="bio">' + (e.biology||[]).map(function(b){ return '<li>'+esc(b.text)+'</li>'; }).join("") + '</ul>';
+    h += '</div></details>';
+    h += '<details><summary>References</summary><div>'+refsHTML(e.references||[])+'</div></details>';
+    h += '</div></article>';
+    return h;
+  }
+
+  function wire(){
+    Array.prototype.forEach.call(document.querySelectorAll(".swap"), function(b){
+      b.addEventListener("click", function(){
+        var fig = b.closest(".photo"), img = fig.querySelector("img"), tag = fig.querySelector(".season");
+        var toSummer = b.getAttribute("aria-pressed") !== "true";
+        img.src = "images/leaves/" + (toSummer ? img.dataset.s : img.dataset.a);
+        img.alt = img.alt.replace(/(autumn|summer) leaf$/, (toSummer?"summer":"autumn")+" leaf");
+        tag.textContent = toSummer ? "Summer" : "Autumn";
+        b.textContent = toSummer ? "Show autumn" : "Show summer";
+        b.setAttribute("aria-pressed", toSummer ? "true" : "false");
+        var card = b.closest(".card"), cr = card.querySelector(".credit");
+        cr.innerHTML = creditHTML(window.__CREDITS[toSummer ? img.dataset.s : img.dataset.a]);
+      });
+    });
+  }
+
+  /* the site header is sticky; keep the mini-index just below it */
+  function measure(){
+    var hd = document.getElementById("site-header"), ix = document.getElementById("idx"), r = document.documentElement.style;
+    r.setProperty("--hh", (hd ? hd.offsetHeight : 0) + "px");
+    r.setProperty("--ih", (ix ? ix.offsetHeight : 0) + "px");
+  }
+  measure(); window.addEventListener("resize", measure); window.addEventListener("load", measure);
+
+  function getJSON(u){ return fetch(u).then(function(r){ if(!r.ok) throw new Error(u+": HTTP "+r.status); return r.json(); }); }
+  Promise.all([getJSON("leaves-data.json"), getJSON("images/leaves/credits.json").catch(function(){ return {}; })])
+  .then(function(res){
+    var d = res[0], credits = res[1]; window.__CREDITS = credits;
+    (d.general.references||[]).forEach(function(r){ GENREFS[r.key]=r; });
+    document.getElementById("top").innerHTML = topHTML(d.general);
+    document.getElementById("idxlist").innerHTML = d.entries.map(function(e){
+      return '<li><a href="#'+esc(e.id)+'"'+(e.warning?' class="warn"':'')+'><span class="j" lang="ja">'+esc(shortKana(e))+'</span><span>'+(e.warning?'Warning: ':'')+esc(shortName(e))+'</span></a></li>';
+    }).join("");
+    document.getElementById("cards").innerHTML = d.entries.map(function(e){ return cardHTML(e, credits); }).join("");
+    wire(); measure();
+    if (location.hash){ var t = document.getElementById(location.hash.slice(1)); if (t) requestAnimationFrame(function(){ t.scrollIntoView({behavior:"instant", block:"start"}); }); }
+  })
+  .catch(function(err){ var el = document.getElementById("err"); el.style.display = "block"; if (window.console) console.error(err); });
+})();
+</script>
+</body>
+</html>

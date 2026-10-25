@@ -1,0 +1,2242 @@
+{
+ "title": "The leaves",
+ "built": "2026-10-25",
+ "status": "Research data for the page 'The leaves'. Drawings will be made in code; the reference photos are for the artist only and are not published.",
+ "general": {
+  "pronunciation_note": "The guides use plain English sounds. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel with a bar (ō) is held for two beats. Pitch accent is not marked yet.",
+  "why_leaves_turn": {
+   "text": "A green leaf is green because chlorophyll hides every other colour. In autumn the tree takes its chlorophyll apart, to save the nitrogen inside for next spring. Then the yellows and oranges that were there all summer show through. That is why ginkgo and larch turn gold. Red is new paint. Maples, wax trees and dogwoods build fresh red pigment in the leaf's last weeks, using sugar trapped inside. Bright sun and cold weather favour the strongest reds. Brown comes from other compounds that darken as the leaf dies, as in zelkova, beech and oak. Each species keeps its own timetable. In Tokyo the ginkgos usually turn in late November, and the maples soon after. Around Kawaguchiko, higher and colder, the leaves peak about three weeks earlier. That is why the lake will be bare and Tokyo bright. East Asia, like eastern North America, has many red-turning trees, so its autumns look redder than northern Europe's.",
+   "ref": [
+    "hortensteiner2006",
+    "lee2003",
+    "schaberg2003",
+    "hoch2001",
+    "renner2019",
+    "kb_kouyou",
+    "jma_ichou_y",
+    "jma_kaede_r",
+    "yamanashi_corridor",
+    "hirji2012"
+   ]
+  },
+  "for_the_biologist": {
+   "text": "Autumn colour starts with chlorophyll breakdown. Senescing leaves dismantle chlorophyll into colourless catabolites, freeing the nitrogen in chlorophyll-binding proteins for resorption (Hörtensteiner, 2006). Yellow and orange carotenoids are present all summer and are simply unmasked (Lee et al., 2003). Red is different. Anthocyanins are synthesised de novo during senescence, mainly in palisade vacuoles (Lee et al., 2003). In sugar maple, red appeared earlier and more fully in trees with higher leaf sugars and lower nitrogen (Schaberg et al., 2003). Why pay for pigment in a leaf about to fall? The leading answer is photoprotection. The anthocyanin layer screens the failing photosynthetic machinery from excess light, especially in cold. Nutrients can then be withdrawn safely (Feild et al., 2001; Hoch et al., 2001). A rival idea treats bright colour as a signal of defence to autumn-colonising aphids (Hamilton & Brown, 2001). The question remains open (Archetti et al., 2009). Geography matters as well. Eastern North America and East Asia have many more red-turning species than Europe. One explanation is ice-age history: Europe's east–west mountains trapped retreating trees and insects, and many red-leaved lineages died out (Lev-Yadun & Holopainen, 2009; Hirji, 2012). Another points to light and temperature: eastern North America and Asia receive stronger irradiation than Europe (Renner & Zohner, 2019). Japan's maple flora fits this picture: 26 native Acer species against 13 in Europe (Kotobank, Kaede). Brown, as in zelkova, beech and konara, comes from colourless catechins oxidising to phlobaphene (Kotobank, Kōyō).",
+   "ref": [
+    "hortensteiner2006",
+    "lee2003",
+    "schaberg2003",
+    "feild2001",
+    "hoch2001",
+    "hamilton2001",
+    "archetti2009",
+    "levyadun2009",
+    "hirji2012",
+    "renner2019",
+    "kb_kaede",
+    "kb_kouyou"
+   ]
+  },
+  "three_words": [
+   {
+    "word": "紅葉",
+    "kana": "こうよう / もみじ",
+    "romaji": "kōyō / momiji",
+    "meaning": "Red leaves. Also the general word, which can include yellow and brown leaves.",
+    "ref": [
+     "kb_kouyou"
+    ]
+   },
+   {
+    "word": "黄葉",
+    "kana": "こうよう",
+    "romaji": "kōyō",
+    "meaning": "Yellow leaves, as in a ginkgo avenue. It sounds the same as red kōyō. In the oldest poetry momichi-ba was often written with these characters.",
+    "ref": [
+     "kb_kouyou_y",
+     "kb_kouyou"
+    ]
+   },
+   {
+    "word": "褐葉",
+    "kana": "かつよう",
+    "romaji": "katsuyō",
+    "meaning": "Brown leaves, as in zelkova, kunugi oak, beech, konara and chestnut.",
+    "ref": [
+     "kb_kouyou"
+    ]
+   }
+  ],
+  "momiji_gari": {
+   "text": "Momiji-gari, 'red-leaf hunting', means going out to the hills to enjoy autumn leaves; it is an autumn season word. Viewing red and yellow leaves appears in writing from the Man'yōshū onward, and medieval emperors made journeys to see them. For centuries the outing was an elegant pastime of the court and nobility. From the Edo period it spread to ordinary people; in Edo, Ueno, Nezu Gongen, Shōtōji in Asakusa, and Kaianji and Tōkaiji in Shinagawa became famous. In the Noh play Momijigari, by Kanze Nobumitsu, a demon disguised as a lady lures a warrior to a leaf-viewing feast.",
+   "ref": [
+    "kb_momijigari"
+   ]
+  },
+  "autumn_colour_front": {
+   "text": "The momiji front (紅葉前線, momiji zensen) is a line on the map joining places where the iroha maple has turned. It starts in the north around 10 October and moves south over about a month. Its spring partner is the cherry-blossom front. The Japan Meteorological Agency's 1991–2020 normals put the maple front across the Kantō by 30 November. It reaches the Pacific coast of Kantō and Tōkai in early to mid December. The ginkgo front reaches the same coast at the end of November or in early December. The agency counts a tree as turned on the first day most of its leaves have changed colour.",
+   "ref": [
+    "kb_front",
+    "jma_kaede_map",
+    "jma_ichou_map"
+   ]
+  },
+  "references": [
+   {
+    "key": "hortensteiner2006",
+    "apa": "Hörtensteiner, S. (2006). Chlorophyll degradation during senescence. Annual Review of Plant Biology, 57, 55–77. https://doi.org/10.1146/annurev.arplant.57.032905.105212",
+    "url": "https://doi.org/10.1146/annurev.arplant.57.032905.105212",
+    "url_record": "https://api.crossref.org/works/10.1146/annurev.arplant.57.032905.105212",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+   },
+   {
+    "key": "lee2003",
+    "apa": "Lee, D. W., O'Keefe, J., Holbrook, N. M., & Feild, T. S. (2003). Pigment dynamics and autumn leaf senescence in a New England deciduous forest, eastern USA. Ecological Research, 18(6), 677–694. https://doi.org/10.1111/j.1440-1703.2003.00588.x",
+    "url": "https://doi.org/10.1111/j.1440-1703.2003.00588.x",
+    "url_record": "https://api.crossref.org/works/10.1111/j.1440-1703.2003.00588.x",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+   },
+   {
+    "key": "schaberg2003",
+    "apa": "Schaberg, P. G., van den Berg, A. K., Murakami, P. F., Shane, J. B., & Donnelly, J. R. (2003). Factors influencing red expression in autumn foliage of sugar maple trees. Tree Physiology, 23(5), 325–333. https://doi.org/10.1093/treephys/23.5.325",
+    "url": "https://doi.org/10.1093/treephys/23.5.325",
+    "url_record": "https://api.crossref.org/works/10.1093/treephys/23.5.325",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+   },
+   {
+    "key": "hoch2001",
+    "apa": "Hoch, W. A., Zeldin, E. L., & McCown, B. H. (2001). Physiological significance of anthocyanins during autumnal leaf senescence. Tree Physiology, 21(1), 1–8. https://doi.org/10.1093/treephys/21.1.1",
+    "url": "https://doi.org/10.1093/treephys/21.1.1",
+    "url_record": "https://api.crossref.org/works/10.1093/treephys/21.1.1",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+   },
+   {
+    "key": "feild2001",
+    "apa": "Feild, T. S., Lee, D. W., & Holbrook, N. M. (2001). Why leaves turn red in autumn. The role of anthocyanins in senescing leaves of red-osier dogwood. Plant Physiology, 127(2), 566–574. https://doi.org/10.1104/pp.010063",
+    "url": "https://doi.org/10.1104/pp.010063",
+    "url_record": "https://api.crossref.org/works/10.1104/pp.010063",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+   },
+   {
+    "key": "hamilton2001",
+    "apa": "Hamilton, W. D., & Brown, S. P. (2001). Autumn tree colours as a handicap signal. Proceedings of the Royal Society of London. Series B: Biological Sciences, 268(1475), 1489–1493. https://doi.org/10.1098/rspb.2001.1672",
+    "url": "https://doi.org/10.1098/rspb.2001.1672",
+    "url_record": "https://api.crossref.org/works/10.1098/rspb.2001.1672",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser.",
+    "url_open": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1088768/"
+   },
+   {
+    "key": "archetti2009",
+    "apa": "Archetti, M., Döring, T. F., Hagen, S. B., Hughes, N. M., Leather, S. R., Lee, D. W., Lev-Yadun, S., Manetas, Y., Ougham, H. J., Schaberg, P. G., & Thomas, H. (2009). Unravelling the evolution of autumn colours: An interdisciplinary approach. Trends in Ecology & Evolution, 24(3), 166–173. https://doi.org/10.1016/j.tree.2008.10.006",
+    "url": "https://doi.org/10.1016/j.tree.2008.10.006",
+    "url_record": "https://api.crossref.org/works/10.1016/j.tree.2008.10.006",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+   },
+   {
+    "key": "levyadun2009",
+    "apa": "Lev-Yadun, S., & Holopainen, J. K. (2009). Why red-dominated autumn leaves in America and yellow-dominated autumn leaves in Northern Europe? New Phytologist, 183(3), 506–512. https://doi.org/10.1111/j.1469-8137.2009.02904.x",
+    "url": "https://doi.org/10.1111/j.1469-8137.2009.02904.x",
+    "url_record": "https://api.crossref.org/works/10.1111/j.1469-8137.2009.02904.x",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+   },
+   {
+    "key": "hirji2012",
+    "apa": "Hirji, Z. (2012, January 5). Why red leaves remain elusive in Europe. EARTH Magazine. https://www.earthmagazine.org/article/why-red-leaves-remain-elusive-europe/",
+    "url": "https://www.earthmagazine.org/article/why-red-leaves-remain-elusive-europe/"
+   },
+   {
+    "key": "renner2019",
+    "apa": "Renner, S. S., & Zohner, C. M. (2019). The occurrence of red and yellow autumn leaves explained by regional differences in insolation and temperature. New Phytologist, 224(4), 1464–1471. https://doi.org/10.1111/nph.15900",
+    "url": "https://doi.org/10.1111/nph.15900",
+    "url_record": "https://api.crossref.org/works/10.1111/nph.15900",
+    "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+   },
+   {
+    "key": "kb_kaede",
+    "apa": "カエデ [Kaede, maple]. (n.d.). In 改訂新版 世界大百科事典 [World Encyclopedia, revised ed.]. Heibonsha. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%8B%E3%81%88%E3%81%A7-3147147",
+    "url": "https://kotobank.jp/word/%E3%81%8B%E3%81%88%E3%81%A7-3147147"
+   },
+   {
+    "key": "kb_kouyou",
+    "apa": "Yoshida, S. (2020, September 17). 紅葉 [Kōyō, autumn colour]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan; with entries from デジタル大辞泉 [Digital Daijisen]. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295",
+    "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295"
+   },
+   {
+    "key": "kb_kouyou_y",
+    "apa": "黄葉 [Kōyō, yellow leaves]. (n.d.). In デジタル大辞泉 [Digital Daijisen]. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E9%BB%84%E8%91%89-497736",
+    "url": "https://kotobank.jp/word/%E9%BB%84%E8%91%89-497736"
+   },
+   {
+    "key": "kb_momijigari",
+    "apa": "紅葉狩 [Momiji-gari]. (n.d.). In 日本大百科全書（ニッポニカ） and デジタル大辞泉. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89%E7%8B%A9-3173337",
+    "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89%E7%8B%A9-3173337"
+   },
+   {
+    "key": "kb_front",
+    "apa": "紅葉前線 [Momiji zensen, autumn-colour front]. (n.d.). In デジタル大辞泉 and 精選版 日本国語大辞典. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89%E5%89%8D%E7%B7%9A-155665",
+    "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89%E5%89%8D%E7%B7%9A-155665"
+   },
+   {
+    "key": "jma_kaede_map",
+    "apa": "Japan Meteorological Agency. (n.d.). かえでの紅葉日 等期日線図（1991～2020年平年値） [Maple reddening: lines of equal normal date, 1991–2020] [PDF]. https://www.data.jma.go.jp/sakura/data/kaede2020.pdf",
+    "url": "https://www.data.jma.go.jp/sakura/data/kaede2020.pdf"
+   },
+   {
+    "key": "jma_ichou_map",
+    "apa": "Japan Meteorological Agency. (n.d.). いちょうの黄葉日 等期日線図（1991～2020年平年値） [Ginkgo yellowing: lines of equal normal date, 1991–2020] [PDF]. https://www.data.jma.go.jp/sakura/data/ichou2020.pdf",
+    "url": "https://www.data.jma.go.jp/sakura/data/ichou2020.pdf"
+   },
+   {
+    "key": "jma_ichou_y",
+    "apa": "Japan Meteorological Agency. (2026). いちょうの黄葉日 (2025年–2026年) [Dates when ginkgo turned yellow, 2025–2026]. Retrieved October 25, 2026. https://www.data.jma.go.jp/sakura/data/phn_012.html",
+    "url": "https://www.data.jma.go.jp/sakura/data/phn_012.html"
+   },
+   {
+    "key": "jma_kaede_r",
+    "apa": "Japan Meteorological Agency. (2026). かえでの紅葉日 (2025年–2026年) [Dates when maples turned red, 2025–2026]. Retrieved October 25, 2026. https://www.data.jma.go.jp/sakura/data/phn_014.html",
+    "url": "https://www.data.jma.go.jp/sakura/data/phn_014.html"
+   },
+   {
+    "key": "yamanashi_corridor",
+    "apa": "Yamanashi Prefecture official tourism site. (2026). もみじ回廊 [Momiji Corridor]. 富士の国やまなし観光ネット. Retrieved October 25, 2026. https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html",
+    "url": "https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html"
+   }
+  ]
+ },
+ "entries": [
+  {
+   "id": "japanese-maple",
+   "english": "Japanese maple",
+   "kanji_kana": "イロハモミジ（also イロハカエデ, タカオカエデ）",
+   "romaji": "iroha-momiji",
+   "say_it": "ee-roh-hah moh-mee-jee. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Acer palmatum Thunb.",
+   "family": "Sapindaceae (maple family, formerly Aceraceae)",
+   "native_or_introduced": "Native: Honshū from Fukushima west, Shikoku, Kyūshū, southern Korea and eastern China.",
+   "recognise": "A hand-shaped leaf with five to seven narrow, pointed lobes. The edges carry coarse double teeth. Leaves grow in opposite pairs on slim stalks.",
+   "shape_spec": "Palmate, usually 7 lobes (5 to 7), cut deep, about two-thirds of the way to the stalk; lobes lance-shaped with long pointed tips. Edge coarsely double-toothed. Palmate veins: one main vein runs up each lobe from the top of the stalk. Blade about as wide as long (ratio about 1:1), 4–7 cm across. Stalk 2–4 cm, half to two-thirds of the blade. Opposite pairs. Sizes and lobe count from Kotobank (Ogata, 2020); lobe depth from the reference photo.",
+   "colours": {
+    "summer": "#4f8a2b",
+    "autumn": [
+     "#f2b233",
+     "#e8641c",
+     "#c4161c"
+    ],
+    "pattern": "Colour starts at the lobe tips and edges and moves inward. Sun-facing leaves go deep scarlet; shaded leaves stay orange or yellow (reference photo). Hex values are an artist's palette chosen from the photo.",
+    "pigment": "Red: anthocyanins made fresh in autumn, laid over yellow carotenoids that show once chlorophyll breaks down."
+   },
+   "timing": {
+    "tokyo": "Late November to early December. In 2025 the Japan Meteorological Agency recorded Tokyo's maple turning on 23 November, five days before normal. Rikugien forecast: 28 November to 11 December, peak about 3 December.",
+    "kawaguchiko": "Early to mid November. Colour starts in late October; the fallen-leaf carpet follows in mid to late November.",
+    "ref": [
+     "jma_kaede_r",
+     "foliage_page",
+     "yamanashi_corridor"
+    ],
+    "source": [
+     "https://www.data.jma.go.jp/sakura/data/phn_014.html",
+     "foliage.html (internal)",
+     "https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html"
+    ]
+   },
+   "where_on_route": {
+    "text": "Rikugien Garden in Komagome, with its night light-up. At the lake, the Momiji Corridor on the north shore will already be bare.",
+    "ref": [
+     "foliage_page",
+     "yamanashi_corridor"
+    ]
+   },
+   "lore": [
+    {
+     "text": "The name comes from a children's game: counting the lobes like the old syllable poem, i, ro, ha, ni, ho, he, to.",
+     "ref": [
+      "kb_iroha"
+     ]
+    },
+    {
+     "text": "Momiji comes from the old verb momizu, 'to change colour'. It came to mean the maple, the tree that colours best.",
+     "ref": [
+      "kb_kaede"
+     ]
+    },
+    {
+     "text": "Hyakunin Isshu no. 17, by Ariwara no Narihira (Kokinshū 294).",
+     "ref": [
+      "ws_hyakunin"
+     ],
+     "japanese": "ちはやぶる 神代も聞かず 龍田川 から紅に 水くくるとは",
+     "translation": "Not even in the age of the gods was this heard of: the Tatsuta River tie-dyeing its water deep crimson.",
+     "translation_by": "our own"
+    },
+    {
+     "text": "Hyakunin Isshu no. 5, attributed to Sarumaru Dayū (Kokinshū 215).",
+     "ref": [
+      "ws_hyakunin"
+     ],
+     "japanese": "奥山に 紅葉ふみ分け なく鹿の 聲きく時ぞ 秋は悲しき",
+     "translation": "Deep in the hills a deer walks through the fallen red leaves, calling. When I hear it, autumn is at its saddest.",
+     "translation_by": "our own"
+    },
+    {
+     "text": "At Minoo, north of Osaka, maple leaves are fried as tempura and sold to visitors.",
+     "ref": [
+      "kb_momijigari"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "Japan has 26 native maple species, twice as many as Europe (13) or North America (13). Only China and the Himalaya have more.",
+     "ref": [
+      "kb_kaede"
+     ]
+    },
+    {
+     "text": "Maple reds are anthocyanins built in the dying leaf. A leading idea says they shade the failing leaf from strong light while nitrogen is drawn back.",
+     "ref": [
+      "hoch2001",
+      "feild2001"
+     ]
+    },
+    {
+     "text": "In sugar maple, trees with more leaf sugar and less nitrogen turned red earlier and more fully.",
+     "ref": [
+      "schaberg2003"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_iroha",
+     "apa": "Ogata, K. (2020, September 17). イロハモミジ [Iroha-momiji]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%84%E3%82%8D%E3%81%AF%E3%82%82%E3%81%BF%E3%81%98-3143486",
+     "url": "https://kotobank.jp/word/%E3%81%84%E3%82%8D%E3%81%AF%E3%82%82%E3%81%BF%E3%81%98-3143486"
+    },
+    {
+     "key": "kb_kaede",
+     "apa": "カエデ [Kaede, maple]. (n.d.). In 改訂新版 世界大百科事典 [World Encyclopedia, revised ed.]. Heibonsha. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%8B%E3%81%88%E3%81%A7-3147147",
+     "url": "https://kotobank.jp/word/%E3%81%8B%E3%81%88%E3%81%A7-3147147"
+    },
+    {
+     "key": "kb_momijigari",
+     "apa": "紅葉狩 [Momiji-gari]. (n.d.). In 日本大百科全書（ニッポニカ） and デジタル大辞泉. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89%E7%8B%A9-3173337",
+     "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89%E7%8B%A9-3173337"
+    },
+    {
+     "key": "ws_hyakunin",
+     "apa": "小倉百人一首 [Ogura Hyakunin Isshu]. (n.d.). In Wikisource (Japanese). Retrieved October 25, 2026. https://ja.wikisource.org/wiki/%E5%B0%8F%E5%80%89%E7%99%BE%E4%BA%BA%E4%B8%80%E9%A6%96",
+     "url": "https://ja.wikisource.org/wiki/%E5%B0%8F%E5%80%89%E7%99%BE%E4%BA%BA%E4%B8%80%E9%A6%96"
+    },
+    {
+     "key": "jma_kaede_r",
+     "apa": "Japan Meteorological Agency. (2026). かえでの紅葉日 (2025年–2026年) [Dates when maples turned red, 2025–2026]. Retrieved October 25, 2026. https://www.data.jma.go.jp/sakura/data/phn_014.html",
+     "url": "https://www.data.jma.go.jp/sakura/data/phn_014.html"
+    },
+    {
+     "key": "yamanashi_corridor",
+     "apa": "Yamanashi Prefecture official tourism site. (2026). もみじ回廊 [Momiji Corridor]. 富士の国やまなし観光ネット. Retrieved October 25, 2026. https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html",
+     "url": "https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html"
+    },
+    {
+     "key": "foliage_page",
+     "apa": "Tokyo in Colour, the colour map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
+     "url": "foliage.html",
+     "note": "A page on this site, not a public source."
+    },
+    {
+     "key": "hoch2001",
+     "apa": "Hoch, W. A., Zeldin, E. L., & McCown, B. H. (2001). Physiological significance of anthocyanins during autumnal leaf senescence. Tree Physiology, 21(1), 1–8. https://doi.org/10.1093/treephys/21.1.1",
+     "url": "https://doi.org/10.1093/treephys/21.1.1",
+     "url_record": "https://api.crossref.org/works/10.1093/treephys/21.1.1",
+     "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+    },
+    {
+     "key": "feild2001",
+     "apa": "Feild, T. S., Lee, D. W., & Holbrook, N. M. (2001). Why leaves turn red in autumn. The role of anthocyanins in senescing leaves of red-osier dogwood. Plant Physiology, 127(2), 566–574. https://doi.org/10.1104/pp.010063",
+     "url": "https://doi.org/10.1104/pp.010063",
+     "url_record": "https://api.crossref.org/works/10.1104/pp.010063",
+     "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+    },
+    {
+     "key": "schaberg2003",
+     "apa": "Schaberg, P. G., van den Berg, A. K., Murakami, P. F., Shane, J. B., & Donnelly, J. R. (2003). Factors influencing red expression in autumn foliage of sugar maple trees. Tree Physiology, 23(5), 325–333. https://doi.org/10.1093/treephys/23.5.325",
+     "url": "https://doi.org/10.1093/treephys/23.5.325",
+     "url_record": "https://api.crossref.org/works/10.1093/treephys/23.5.325",
+     "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+    },
+    {
+     "key": "gbif_palmatum",
+     "apa": "GBIF Secretariat. (n.d.). Acer palmatum Thunb. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3189882",
+     "url": "https://api.gbif.org/v1/species/3189882"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Japanese_maple_roede_blade.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Japanese_maple_roede_blade.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "Malene (Wikimedia Commons user)",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Japanese_maple_roede_blade.jpg",
+    "local_file": "~/tokyo-leaves-ref/japanese-maple-autumn.jpg",
+    "commons_title": "File:Japanese maple roede blade.jpg",
+    "season": "autumn",
+    "summer": {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Acer_palmatum0.jpg",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Acer_palmatum0.jpg",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+     "author": "Kurt Stüber",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Acer_palmatum0.jpg",
+     "local_file": "~/tokyo-leaves-ref/japanese-maple-summer.jpg",
+     "commons_title": "File:Acer palmatum0.jpg"
+    }
+   }
+  },
+  {
+   "id": "full-moon-maple",
+   "english": "Full-moon maple",
+   "kanji_kana": "羽団扇楓（ハウチワカエデ）; also 名月楓（メイゲツカエデ）",
+   "romaji": "hauchiwa-kaede",
+   "say_it": "hah-oo-chee-wah kah-eh-deh. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Acer japonicum Thunb.",
+   "family": "Sapindaceae (maple family, formerly Aceraceae)",
+   "native_or_introduced": "Native: mountains of Hokkaidō and Honshū, in the upper temperate zone.",
+   "recognise": "A big round leaf, 7 to 12 cm across, with nine to eleven lobes. It looks more like a fan than a hand. The edges are coarsely double-toothed.",
+   "shape_spec": "Round palmate outline, 9–11 lobes cut about half way to the centre; lobes egg-shaped with pointed tips. Edge coarsely double-toothed. Palmate veins: 9–11 main veins fan out from the top of the stalk. Ratio about 1:1, 7–12 cm across. Stalk 2–4 cm, about a quarter to a third of the blade width. Opposite pairs. Figures from Kotobank (Ogata, 2020).",
+   "colours": {
+    "summer": "#5d9a32",
+    "autumn": [
+     "#f4c430",
+     "#f08a24",
+     "#d2321e"
+    ],
+    "pattern": "Patchy. Yellow and orange come first; red spreads from the edges and between the veins. One tree can show green, orange and red at once (reference photos).",
+    "pigment": "Yellow and orange carotenoids unmasked; red anthocyanins made in autumn."
+   },
+   "timing": {
+    "tokyo": "No dated source found. It is a mountain tree and is not on the city's forecast lists.",
+    "kawaguchiko": "No dated source yet.",
+    "ref": [],
+    "source": []
+   },
+   "where_on_route": {
+    "text": "No confirmed spot on our route. It grows wild high in the mountains, and the encyclopaedia notes it also does well around Tokyo.",
+    "ref": [
+     "kb_hauchiwa"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Hauchiwa means 'feather fan': the leaf is likened to the feather fan carried by a tengu, a long-nosed mountain spirit.",
+     "ref": [
+      "kb_hauchiwa"
+     ]
+    },
+    {
+     "text": "Its other name, meigetsu-kaede, means 'bright-moon maple', the moon of mid-autumn.",
+     "ref": [
+      "kb_hauchiwa"
+     ]
+    },
+    {
+     "text": "A maple poem for any tree: Hyakunin Isshu no. 26, by Fujiwara no Tadahira (Shūishū 1128).",
+     "ref": [
+      "ws_hyakunin"
+     ],
+     "japanese": "小倉山 峯のもみぢ葉 心あらば 今ひとたびの みゆき待たなむ",
+     "translation": "Red leaves on Mount Ogura's peak, if you have hearts, hold on until the emperor comes to see you once more.",
+     "translation_by": "our own"
+    }
+   ],
+   "biology": [
+    {
+     "text": "Like all maples, its leaves grow in opposite pairs. The sweetgum (fū), often confused with maples, has them one by one.",
+     "ref": [
+      "kb_kaede"
+     ]
+    },
+    {
+     "text": "Japan is the richest country for maples in the temperate northern hemisphere, and maples are a main tree of its temperate forests.",
+     "ref": [
+      "kb_kaede"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_hauchiwa",
+     "apa": "Ogata, K. (2020, September 17). ハウチワカエデ [Hauchiwa-kaede]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%AF%E3%81%86%E3%81%A1%E3%82%8F%E3%81%8B%E3%81%88%E3%81%A7-3163246",
+     "url": "https://kotobank.jp/word/%E3%81%AF%E3%81%86%E3%81%A1%E3%82%8F%E3%81%8B%E3%81%88%E3%81%A7-3163246"
+    },
+    {
+     "key": "kb_kaede",
+     "apa": "カエデ [Kaede, maple]. (n.d.). In 改訂新版 世界大百科事典 [World Encyclopedia, revised ed.]. Heibonsha. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%8B%E3%81%88%E3%81%A7-3147147",
+     "url": "https://kotobank.jp/word/%E3%81%8B%E3%81%88%E3%81%A7-3147147"
+    },
+    {
+     "key": "ws_hyakunin",
+     "apa": "小倉百人一首 [Ogura Hyakunin Isshu]. (n.d.). In Wikisource (Japanese). Retrieved October 25, 2026. https://ja.wikisource.org/wiki/%E5%B0%8F%E5%80%89%E7%99%BE%E4%BA%BA%E4%B8%80%E9%A6%96",
+     "url": "https://ja.wikisource.org/wiki/%E5%B0%8F%E5%80%89%E7%99%BE%E4%BA%BA%E4%B8%80%E9%A6%96"
+    },
+    {
+     "key": "gbif_japonicum",
+     "apa": "GBIF Secretariat. (n.d.). Acer japonicum Thunb. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3767816",
+     "url": "https://api.gbif.org/v1/species/3767816"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/%E3%81%9D%E3%82%8D%E3%81%9D%E3%82%8D%E6%9E%AF%E3%82%8C%E5%A7%8B%E3%82%81%E3%81%9F%E3%83%8F%E3%82%A6%E3%83%81%E3%83%AF%E3%82%AB%E3%82%A8%E3%83%87_-_%E6%AD%A6%E8%94%B5%E4%B8%98%E9%99%B5%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9C%92%E3%81%A7%E6%92%AE%E5%BD%B1_Pcs34560_IMG0738.jpg/1280px-%E3%81%9D%E3%82%8D%E3%81%9D%E3%82%8D%E6%9E%AF%E3%82%8C%E5%A7%8B%E3%82%81%E3%81%9F%E3%83%8F%E3%82%A6%E3%83%81%E3%83%AF%E3%82%AB%E3%82%A8%E3%83%87_-_%E6%AD%A6%E8%94%B5%E4%B8%98%E9%99%B5%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9C%92%E3%81%A7%E6%92%AE%E5%BD%B1_Pcs34560_IMG0738.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/%E3%81%9D%E3%82%8D%E3%81%9D%E3%82%8D%E6%9E%AF%E3%82%8C%E5%A7%8B%E3%82%81%E3%81%9F%E3%83%8F%E3%82%A6%E3%83%81%E3%83%AF%E3%82%AB%E3%82%A8%E3%83%87_-_%E6%AD%A6%E8%94%B5%E4%B8%98%E9%99%B5%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9C%92%E3%81%A7%E6%92%AE%E5%BD%B1_Pcs34560_IMG0738.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "Public domain",
+    "licence_url": null,
+    "author": "pcs34560",
+    "file_page": "https://commons.wikimedia.org/wiki/File:%E3%81%9D%E3%82%8D%E3%81%9D%E3%82%8D%E6%9E%AF%E3%82%8C%E5%A7%8B%E3%82%81%E3%81%9F%E3%83%8F%E3%82%A6%E3%83%81%E3%83%AF%E3%82%AB%E3%82%A8%E3%83%87_-_%E6%AD%A6%E8%94%B5%E4%B8%98%E9%99%B5%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9C%92%E3%81%A7%E6%92%AE%E5%BD%B1_Pcs34560_IMG0738.jpg",
+    "local_file": "~/tokyo-leaves-ref/full-moon-maple-autumn.jpg",
+    "commons_title": "File:そろそろ枯れ始めたハウチワカエデ - 武蔵丘陵森林公園で撮影 Pcs34560 IMG0738.jpg",
+    "season": "autumn",
+    "summer": {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Changing_color%2C_Acer_japonicum_-_Flickr_-_odako1.jpg/1280px-Changing_color%2C_Acer_japonicum_-_Flickr_-_odako1.jpg",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Changing_color%2C_Acer_japonicum_-_Flickr_-_odako1.jpg",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "CC BY-SA 2.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+     "author": "Koichi Oda",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Changing_color,_Acer_japonicum_-_Flickr_-_odako1.jpg",
+     "local_file": "~/tokyo-leaves-ref/full-moon-maple-summer.jpg",
+     "commons_title": "File:Changing color, Acer japonicum - Flickr - odako1.jpg"
+    }
+   }
+  },
+  {
+   "id": "ginkgo",
+   "english": "Ginkgo (maidenhair tree)",
+   "kanji_kana": "銀杏・公孫樹（イチョウ）; the nut is ぎんなん",
+   "romaji": "ichō",
+   "say_it": "ee-choh (hold the final oh for two beats). The nut: geen-nahn. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Ginkgo biloba L.",
+   "family": "Ginkgoaceae",
+   "native_or_introduced": "Introduced, probably from China, long ago; one account links it to the arrival of Buddhism. It is the only living species of its line.",
+   "recognise": "A fan-shaped leaf with no midrib, often split by a notch in the middle. Fine veins fork again and again toward the wavy top edge. Leaves crowd in tufts on short spurs.",
+   "shape_spec": "Fan (flabellate) blade with one central notch, sometimes extra shallow notches. Top edge wavy and irregular, otherwise untoothed. Dichotomous veins: two veins enter at the base and fork repeatedly; no midrib. Blade wider than long (about 1.3–1.5 : 1), about 5–8 cm wide. Stalk long, roughly as long as the blade. Leaves sparse and alternate on long shoots, clustered on short spurs. Shape and veins from Kotobank; sizes approximate, from the reference photo.",
+   "colours": {
+    "summer": "#6a9a3a",
+    "autumn": [
+     "#e8d34a",
+     "#f2c40f",
+     "#d9a400"
+    ],
+    "pattern": "Green to lemon to butter-yellow. The last green lingers in a faint patch near the base and middle of the fan (reference photo). Whole trees change within days.",
+    "pigment": "Yellow: carotenoids (mainly xanthophylls) unmasked as chlorophyll breaks down. No new pigment is made."
+   },
+   "timing": {
+    "tokyo": "Late November to early December. In 2025 the Japan Meteorological Agency recorded Tokyo's ginkgo yellow on 22 November and mostly fallen by 4 December. Gaien avenue forecast: 24 November to 5 December, peak about 28 November.",
+    "kawaguchiko": "Not a lake tree in our sources; no date found.",
+    "ref": [
+     "jma_ichou_y",
+     "jma_ichou_f",
+     "foliage_page"
+    ],
+    "source": [
+     "https://www.data.jma.go.jp/sakura/data/phn_012.html",
+     "https://www.data.jma.go.jp/sakura/data/phn_013.html",
+     "foliage.html (internal)"
+    ]
+   },
+   "where_on_route": {
+    "text": "The Meiji Jingū Gaien avenue: 146 trees in four rows over 300 m, planted 1908 to 1923. Also the Hongō campus avenue and the great ginkgo in Koishikawa Botanical Garden.",
+    "ref": [
+     "minato_gaien",
+     "foliage_page",
+     "utokyo_koishikawa"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Tokyo's own tree. In the 1966 public vote ginkgo won 49%, ahead of zelkova (32%) and cherry (19%). Most of the committee had preferred zelkova.",
+     "ref": [
+      "tokyo_symbols"
+     ]
+    },
+    {
+     "text": "Yosano Akiko, in Koigoromo (1905).",
+     "ref": [
+      "aozora_koigoromo"
+     ],
+     "japanese": "金色のちひさき鳥のかたちして銀杏ちるなり夕日の岡に",
+     "translation": "Shaped like small golden birds, the ginkgo leaves are falling on the hill in the evening sun.",
+     "translation_by": "our own"
+    },
+    {
+     "text": "In Hiroshima a temple ginkgo at Anrakuji, 2,160 m from the hypocentre, burned to its trunk in 1945. It put out new shoots the next year.",
+     "ref": [
+      "hiroshima_anrakuji",
+      "hiroshima_list"
+     ]
+    },
+    {
+     "text": "The seeds, ginnan, are roasted or added to chawan-mushi custard. The fleshy coat smells strongly, and eating too many nuts can cause acute poisoning.",
+     "ref": [
+      "kb_ichou",
+      "kb_ginnan"
+     ]
+    },
+    {
+     "text": "The Chinese name 鴨脚, 'duck's foot', is said to have become ichō in Japanese.",
+     "ref": [
+      "kb_ichou"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "In 1896 Hirase Sakugorō found swimming sperm in ginkgo, the first in any seed plant. That tree still stands in Koishikawa Botanical Garden.",
+     "ref": [
+      "utokyo_koishikawa",
+      "kb_ichou"
+     ]
+    },
+    {
+     "text": "Ginkgo is the last living species of a group found as fossils worldwide. Its forking veins are an ancient pattern.",
+     "ref": [
+      "kb_ichou"
+     ]
+    },
+    {
+     "text": "Trees are male or female. Only females bear the smelly seeds.",
+     "ref": [
+      "kb_ichou"
+     ]
+    },
+    {
+     "text": "Its yellow is unmasked carotenoid, not new pigment. In Tokyo in 2025, 12 days passed between 'mostly yellow' and 'mostly bare'.",
+     "ref": [
+      "kb_kouyou",
+      "jma_ichou_y",
+      "jma_ichou_f"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "tokyo_symbols",
+     "apa": "Tokyo Metropolitan Government. (2016, August 5). 都の紋章・花・木・鳥・歌 [Tokyo's emblem, flower, tree, bird and song]. https://www.metro.tokyo.lg.jp/tosei/tokyoto/profile/gaiyo/monsho",
+     "url": "https://www.metro.tokyo.lg.jp/tosei/tokyoto/profile/gaiyo/monsho"
+    },
+    {
+     "key": "minato_gaien",
+     "apa": "Minato City. (2017, December 29). 写真今昔物語 第19話 神宮外苑いちょう並木（北青山） [Photo then and now, no. 19: the Jingū Gaien ginkgo avenue]. https://www.city.minato.tokyo.jp/kouhou/kuse/koho/konjaku/konjaku19.html",
+     "url": "https://www.city.minato.tokyo.jp/kouhou/kuse/koho/konjaku/konjaku19.html"
+    },
+    {
+     "key": "utokyo_koishikawa",
+     "apa": "Kayahara, M. (2021, October 1). 日本の近代植物学発祥の地 [The birthplace of modern botany in Japan]. Rigakuru, Graduate School of Science, The University of Tokyo. https://www.s.u-tokyo.ac.jp/ja/rigakuru/feature/GzVMRLy5/",
+     "url": "https://www.s.u-tokyo.ac.jp/ja/rigakuru/feature/GzVMRLy5/"
+    },
+    {
+     "key": "hiroshima_anrakuji",
+     "apa": "City of Hiroshima. (2025, February 16). 認識番号 N21a53-01 イチョウ [A-bombed tree N21a53-01: ginkgo]. https://www.city.hiroshima.lg.jp/atomicbomb-peace/fukko/1021101/1026920/1026922/1020754.html",
+     "url": "https://www.city.hiroshima.lg.jp/atomicbomb-peace/fukko/1021101/1026920/1026922/1020754.html"
+    },
+    {
+     "key": "hiroshima_list",
+     "apa": "City of Hiroshima. (n.d.). 被爆樹木リスト 一覧 [List of A-bombed trees]. https://www.city.hiroshima.lg.jp/atomicbomb-peace/fukko/1021101/1026920/1026922/1003421.html",
+     "url": "https://www.city.hiroshima.lg.jp/atomicbomb-peace/fukko/1021101/1026920/1026922/1003421.html"
+    },
+    {
+     "key": "aozora_koigoromo",
+     "apa": "Yamakawa, T., Masuda, M., & Yosano, A. (2004). 恋衣 [Koigoromo] [Digital edition]. Aozora Bunko. (Original work published 1905) https://www.aozora.gr.jp/cards/000318/files/2086_15764.html",
+     "url": "https://www.aozora.gr.jp/cards/000318/files/2086_15764.html"
+    },
+    {
+     "key": "kb_ichou",
+     "apa": "イチョウ [Ichō, ginkgo]. (n.d.). In 改訂新版 世界大百科事典, 日本大百科全書（ニッポニカ） and ブリタニカ国際大百科事典. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%84%E3%81%A1%E3%82%88%E3%81%86-3143147",
+     "url": "https://kotobank.jp/word/%E3%81%84%E3%81%A1%E3%82%88%E3%81%86-3143147"
+    },
+    {
+     "key": "kb_ginnan",
+     "apa": "ぎんなん [Ginnan, ginkgo nut]. (n.d.). In 日本大百科全書（ニッポニカ） and other works. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%8E%E3%82%93%E3%81%AA%E3%82%93-1526542",
+     "url": "https://kotobank.jp/word/%E3%81%8E%E3%82%93%E3%81%AA%E3%82%93-1526542"
+    },
+    {
+     "key": "kb_kouyou",
+     "apa": "Yoshida, S. (2020, September 17). 紅葉 [Kōyō, autumn colour]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan; with entries from デジタル大辞泉 [Digital Daijisen]. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295",
+     "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295"
+    },
+    {
+     "key": "jma_ichou_y",
+     "apa": "Japan Meteorological Agency. (2026). いちょうの黄葉日 (2025年–2026年) [Dates when ginkgo turned yellow, 2025–2026]. Retrieved October 25, 2026. https://www.data.jma.go.jp/sakura/data/phn_012.html",
+     "url": "https://www.data.jma.go.jp/sakura/data/phn_012.html"
+    },
+    {
+     "key": "jma_ichou_f",
+     "apa": "Japan Meteorological Agency. (2026). いちょうの落葉日 (2025年–2026年) [Dates when ginkgo leaves fell, 2025–2026]. Retrieved October 25, 2026. https://www.data.jma.go.jp/sakura/data/phn_013.html",
+     "url": "https://www.data.jma.go.jp/sakura/data/phn_013.html"
+    },
+    {
+     "key": "foliage_page",
+     "apa": "Tokyo in Colour, the colour map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
+     "url": "foliage.html",
+     "note": "A page on this site, not a public source."
+    },
+    {
+     "key": "gbif_ginkgo",
+     "apa": "GBIF Secretariat. (n.d.). Ginkgo biloba L. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/2687885",
+     "url": "https://api.gbif.org/v1/species/2687885"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Autumn_Ginkgo_Leaf.jpg/1280px-Autumn_Ginkgo_Leaf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Autumn_Ginkgo_Leaf.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Ninjatacoshell",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Autumn_Ginkgo_Leaf.jpg",
+    "local_file": "~/tokyo-leaves-ref/ginkgo-autumn.jpg",
+    "commons_title": "File:Autumn Ginkgo Leaf.jpg",
+    "season": "autumn",
+    "summer": {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Green_Ginkgo_Tree_Leaf.jpg/1280px-Green_Ginkgo_Tree_Leaf.jpg",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Green_Ginkgo_Tree_Leaf.jpg",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "CC BY-SA 4.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+     "author": "Brayden A.",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Green_Ginkgo_Tree_Leaf.jpg",
+     "local_file": "~/tokyo-leaves-ref/ginkgo-summer.jpg",
+     "commons_title": "File:Green Ginkgo Tree Leaf.jpg"
+    }
+   }
+  },
+  {
+   "id": "zelkova",
+   "english": "Japanese zelkova",
+   "kanji_kana": "欅（ケヤキ）; old name 槻（ツキ）",
+   "romaji": "keyaki",
+   "say_it": "keh-yah-kee. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Zelkova serrata (Thunb.) Makino",
+   "family": "Ulmaceae (elm family)",
+   "native_or_introduced": "Native: Aomori to northern Kagoshima, and Korea and China.",
+   "recognise": "A narrow pointed leaf, 3 to 10 cm long, with sharp teeth along each side. The top feels rough. Leaves alternate in two flat rows along the twig.",
+   "shape_spec": "Narrow egg-shaped to oblong, long pointed tip, base rounded and slightly lopsided. Each side vein ends in a sharp, forward-curving tooth. Pinnate veins, straight and parallel (about 8–14 pairs, approximate). Ratio about 2.5–3 : 1; 3–10 cm long. Stalk very short, a few millimetres. Alternate in two ranks. Size and teeth from Kotobank (Hamatani); vein count from the reference photo.",
+   "colours": {
+    "summer": "#5e8f3a",
+    "autumn": [
+     "#d9a83a",
+     "#c46a2a",
+     "#8f3b1e"
+    ],
+    "pattern": "Varies tree by tree: yellow, orange-brown or rusty red. On one leaf the colour spreads in from the edges (reference photo).",
+    "pigment": "Mostly brown and orange: colourless catechins oxidise to brown phlobaphene, mixed early on with yellow carotenoids."
+   },
+   "timing": {
+    "tokyo": "Earlier than ginkgo and maple. The colour report expects Ueno's zelkovas mostly bare by early December.",
+    "kawaguchiko": "No date found.",
+    "ref": [
+     "foliage_page"
+    ],
+    "source": [
+     "foliage.html (internal)"
+    ]
+   },
+   "where_on_route": {
+    "text": "Ueno Park, Koishikawa Kōrakuen, Hibiya, Shinjuku Gyoen and Yoyogi all list zelkova. The avenue at Ōkunitama Shrine in Fuchū is a national natural monument.",
+    "ref": [
+     "foliage_page",
+     "kb_keyaki"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Zelkova lost the 1966 vote for Tokyo's tree to ginkgo, although most of the selection committee wanted it.",
+     "ref": [
+      "tokyo_symbols"
+     ]
+    },
+    {
+     "text": "Its old name is tsuki. On the Musashino plain it is the great tree of homestead woods and avenues.",
+     "ref": [
+      "kb_keyaki"
+     ]
+    },
+    {
+     "text": "Its hard, handsome wood went into temple beams, main pillars, and the cores of lacquerware.",
+     "ref": [
+      "kb_keyaki"
+     ]
+    },
+    {
+     "text": "Brown-turning trees like zelkova show katsuyō (褐葉), 'brown leaves', the third word for autumn colour.",
+     "ref": [
+      "kb_kouyou"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "Brown autumn colour comes from colourless catechins that oxidise into brown phlobaphene as the leaf ages.",
+     "ref": [
+      "kb_kouyou"
+     ]
+    },
+    {
+     "text": "Zelkova is sensitive to air pollution; some street trees drop leaves out of season in summer.",
+     "ref": [
+      "kb_keyaki"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_keyaki",
+     "apa": "Hamatani, T. (n.d.). ケヤキ [Keyaki, zelkova]. In 改訂新版 世界大百科事典 [World Encyclopedia, revised ed.]. Heibonsha. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%91%E3%82%84%E3%81%8D-3151118",
+     "url": "https://kotobank.jp/word/%E3%81%91%E3%82%84%E3%81%8D-3151118"
+    },
+    {
+     "key": "kb_kouyou",
+     "apa": "Yoshida, S. (2020, September 17). 紅葉 [Kōyō, autumn colour]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan; with entries from デジタル大辞泉 [Digital Daijisen]. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295",
+     "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295"
+    },
+    {
+     "key": "tokyo_symbols",
+     "apa": "Tokyo Metropolitan Government. (2016, August 5). 都の紋章・花・木・鳥・歌 [Tokyo's emblem, flower, tree, bird and song]. https://www.metro.tokyo.lg.jp/tosei/tokyoto/profile/gaiyo/monsho",
+     "url": "https://www.metro.tokyo.lg.jp/tosei/tokyoto/profile/gaiyo/monsho"
+    },
+    {
+     "key": "foliage_page",
+     "apa": "Tokyo in Colour, the colour map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
+     "url": "foliage.html",
+     "note": "A page on this site, not a public source."
+    },
+    {
+     "key": "gbif_zelkova",
+     "apa": "GBIF Secretariat. (n.d.). Zelkova serrata (Thunb.) Makino. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/2984532",
+     "url": "https://api.gbif.org/v1/species/2984532"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Autumn_Leaf_08Nov17.jpg/1280px-Autumn_Leaf_08Nov17.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Autumn_Leaf_08Nov17.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "Public domain",
+    "licence_url": null,
+    "author": "池田正樹 masaki ikeda",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Autumn_Leaf_08Nov17.jpg",
+    "local_file": "~/tokyo-leaves-ref/zelkova-autumn.jpg",
+    "commons_title": "File:Autumn Leaf 08Nov17.jpg",
+    "season": "autumn",
+    "summer": null
+   }
+  },
+  {
+   "id": "cherry",
+   "english": "Yoshino cherry",
+   "kanji_kana": "染井吉野（ソメイヨシノ）",
+   "romaji": "someiyoshino",
+   "say_it": "soh-may yoh-shee-noh. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Prunus × yedoensis Matsum. (also written Cerasus × yedoensis)",
+   "family": "Rosaceae (rose family)",
+   "native_or_introduced": "A Japanese garden hybrid, said to be Edo higan × Ōshima cherry. Gardeners of Somei village spread it at the end of the Edo period.",
+   "recognise": "A broad oval leaf, widest above the middle, ending in a sharp point. Fine teeth run all round the edge. By early December most will be on the ground.",
+   "shape_spec": "Broad obovate to elliptic, with an abrupt pointed tip. Edge finely toothed, teeth often doubled. Pinnate veins, about 8–12 pairs curving toward the tip. Ratio about 1.8–2 : 1; about 8–12 cm long. Stalk about a quarter of the blade. Alternate. Outline from Kotobank (broad obovate); all figures approximate, from the reference photo.",
+   "colours": {
+    "summer": "#3f7a2e",
+    "autumn": [
+     "#f0a030",
+     "#e0602a",
+     "#b82a22"
+    ],
+    "pattern": "Blotchy: orange and red patches spread from the edges and tip, while the veins stay yellow longer (reference photo).",
+    "pigment": "Red-orange: anthocyanins over unmasked carotenoids."
+   },
+   "timing": {
+    "tokyo": "Early. The colour report expects cherry leaves already down at Ueno and along the Chidorigafuchi moat by early December.",
+    "kawaguchiko": "No date found.",
+    "ref": [
+     "foliage_page"
+    ],
+    "source": [
+     "foliage.html (internal)"
+    ]
+   },
+   "where_on_route": {
+    "text": "Komagome, the old Somei village, right beside Rikugien. Ueno Park and the Chidorigafuchi moat are lined with these trees.",
+    "ref": [
+     "tokyo_symbols",
+     "foliage_page"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Tokyo's official flower since 1984. It also came third in the 1966 vote for Tokyo's tree.",
+     "ref": [
+      "tokyo_symbols"
+     ]
+    },
+    {
+     "text": "Sakura-momiji, 'cherry red leaves', is an autumn season word in haiku. It is listed in the Kefukigusa of 1638.",
+     "ref": [
+      "kb_sakuramomiji"
+     ]
+    },
+    {
+     "text": "Sakura-mochi sweets are wrapped in salted cherry leaves. Chōmeiji temple's version at Mukōjima has been famous since Edo times.",
+     "ref": [
+      "kb_sakuramochi"
+     ]
+    },
+    {
+     "text": "Somei-yoshino grows fast but lives a short life.",
+     "ref": [
+      "kb_somei"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "It is usually described as a hybrid of Edo higan and Ōshima cherry.",
+     "ref": [
+      "kb_somei"
+     ]
+    },
+    {
+     "text": "Its name comes from 'Yoshino cherry' trees sold by Somei nurserymen in the late Edo period.",
+     "ref": [
+      "kb_somei",
+      "tokyo_symbols"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "tokyo_symbols",
+     "apa": "Tokyo Metropolitan Government. (2016, August 5). 都の紋章・花・木・鳥・歌 [Tokyo's emblem, flower, tree, bird and song]. https://www.metro.tokyo.lg.jp/tosei/tokyoto/profile/gaiyo/monsho",
+     "url": "https://www.metro.tokyo.lg.jp/tosei/tokyoto/profile/gaiyo/monsho"
+    },
+    {
+     "key": "kb_somei",
+     "apa": "染井吉野 [Someiyoshino]. (n.d.). In デジタル大辞泉 and 動植物名よみかた辞典. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E6%9F%93%E4%BA%95%E5%90%89%E9%87%8E-555284",
+     "url": "https://kotobank.jp/word/%E6%9F%93%E4%BA%95%E5%90%89%E9%87%8E-555284"
+    },
+    {
+     "key": "kb_sakuramomiji",
+     "apa": "桜紅葉 [Sakura-momiji]. (n.d.). In デジタル大辞泉 and 精選版 日本国語大辞典. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E6%A1%9C%E7%B4%85%E8%91%89-509872",
+     "url": "https://kotobank.jp/word/%E6%A1%9C%E7%B4%85%E8%91%89-509872"
+    },
+    {
+     "key": "kb_sakuramochi",
+     "apa": "桜餅 [Sakura-mochi]. (n.d.). In デジタル大辞泉 [Digital Daijisen]. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E6%A1%9C%E9%A4%85-68831",
+     "url": "https://kotobank.jp/word/%E6%A1%9C%E9%A4%85-68831"
+    },
+    {
+     "key": "foliage_page",
+     "apa": "Tokyo in Colour, the colour map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
+     "url": "foliage.html",
+     "note": "A page on this site, not a public source."
+    },
+    {
+     "key": "gbif_yedoensis",
+     "apa": "GBIF Secretariat. (n.d.). Prunus × yedoensis Matsum. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3021335",
+     "url": "https://api.gbif.org/v1/species/3021335"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/2025-11-08_12_25_23_Yoshino_Cherry_leaves_in_autumn_along_Aquetong_Lane_in_the_Mountainview_section_of_Ewing_Township%2C_Mercer_County%2C_New_Jersey.jpg/1280px-2025-11-08_12_25_23_Yoshino_Cherry_leaves_in_autumn_along_Aquetong_Lane_in_the_Mountainview_section_of_Ewing_Township%2C_Mercer_County%2C_New_Jersey.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/2025-11-08_12_25_23_Yoshino_Cherry_leaves_in_autumn_along_Aquetong_Lane_in_the_Mountainview_section_of_Ewing_Township%2C_Mercer_County%2C_New_Jersey.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Famartin",
+    "file_page": "https://commons.wikimedia.org/wiki/File:2025-11-08_12_25_23_Yoshino_Cherry_leaves_in_autumn_along_Aquetong_Lane_in_the_Mountainview_section_of_Ewing_Township,_Mercer_County,_New_Jersey.jpg",
+    "local_file": "~/tokyo-leaves-ref/cherry-autumn.jpg",
+    "commons_title": "File:2025-11-08 12 25 23 Yoshino Cherry leaves in autumn along Aquetong Lane in the Mountainview section of Ewing Township, Mercer County, New Jersey.jpg",
+    "season": "autumn",
+    "summer": null
+   }
+  },
+  {
+   "id": "chinese-tallow",
+   "english": "Chinese tallow tree",
+   "kanji_kana": "南京櫨（ナンキンハゼ）",
+   "romaji": "nankinhaze",
+   "say_it": "nahn-keen hah-zeh. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Triadica sebifera (L.) Small (older name Sapium sebiferum)",
+   "family": "Euphorbiaceae (spurge family)",
+   "native_or_introduced": "Introduced from central and southern China in the Edo period. Planted in warm areas; wild in parts of Kyūshū.",
+   "recognise": "A smooth diamond-shaped leaf, 4 to 7 cm long, with a long drawn-out tip and no teeth. In late autumn the capsules split to show three white, waxy seeds.",
+   "shape_spec": "Rhombic-ovate (diamond) blade drawn out into a tail-like tip. Edge smooth, no teeth. Slightly leathery; veins pinnate and faint, not raised. Ratio about 1 : 1 without the tip. 4–7 cm long. Stalk long and slim, roughly two-thirds to the full blade length (approximate, from the reference photo). Alternate. Figures from Kotobank (Kobayashi, 2020).",
+   "colours": {
+    "summer": "#4f8a3c",
+    "autumn": [
+     "#f2b134",
+     "#e2572b",
+     "#9c1f3a"
+    ],
+    "pattern": "Mixed on one tree: yellow, orange, scarlet and wine-purple leaves side by side. Each leaf colours fairly evenly (reference photo).",
+    "pigment": "Red and purple: anthocyanins made in autumn."
+   },
+   "timing": {
+    "tokyo": "No dated source found.",
+    "kawaguchiko": "Not a lake tree: it is planted in warm areas.",
+    "ref": [
+     "kb_nankin"
+    ],
+    "source": [
+     "https://kotobank.jp/word/%E3%81%AA%E3%82%93%E3%81%8D%E3%82%93%E3%81%AF%E3%81%9C-3162088"
+    ]
+   },
+   "where_on_route": {
+    "text": "A street and park tree in warm parts of Japan. No named spot on our route was found.",
+    "ref": [
+     "kb_nankin"
+    ]
+   },
+   "lore": [
+    {
+     "text": "The name means 'Nanjing wax tree'. Like the haze wax tree, its seeds gave wax for candles.",
+     "ref": [
+      "kb_nankin"
+     ]
+    },
+    {
+     "text": "The seeds' fat also made soap, lamp oil and paint. The pressed remains were used as fertiliser.",
+     "ref": [
+      "kb_nankin"
+     ]
+    },
+    {
+     "text": "Chinese medicine dries its root and stem bark as ukyū, used as a diuretic.",
+     "ref": [
+      "kb_nankin"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "Each seed is wrapped in a white waxy coat; three seeds sit in a three-part capsule that ripens black-brown around November.",
+     "ref": [
+      "kb_nankin"
+     ]
+    },
+    {
+     "text": "It grows very fast in sun and is not fussy about soil.",
+     "ref": [
+      "kb_nankin"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_nankin",
+     "apa": "ナンキンハゼ [Nankinhaze, Chinese tallow]. (n.d.). In 改訂新版 世界大百科事典 and 日本大百科全書（ニッポニカ）. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%AA%E3%82%93%E3%81%8D%E3%82%93%E3%81%AF%E3%81%9C-3162088",
+     "url": "https://kotobank.jp/word/%E3%81%AA%E3%82%93%E3%81%8D%E3%82%93%E3%81%AF%E3%81%9C-3162088"
+    },
+    {
+     "key": "gbif_triadica",
+     "apa": "GBIF Secretariat. (n.d.). Triadica sebifera (L.) Small. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3054399",
+     "url": "https://api.gbif.org/v1/species/3054399"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Sapium_sebiferum_4939.JPG/1280px-Sapium_sebiferum_4939.JPG",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Sapium_sebiferum_4939.JPG",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Zhangzhugang",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Sapium_sebiferum_4939.JPG",
+    "local_file": "~/tokyo-leaves-ref/chinese-tallow-autumn.jpg",
+    "commons_title": "File:Sapium sebiferum 4939.JPG",
+    "season": "autumn",
+    "summer": {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Triadica_sebifera2.jpg/1280px-Triadica_sebifera2.jpg",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Triadica_sebifera2.jpg",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+     "author": "KENPEI",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Triadica_sebifera2.jpg",
+     "local_file": "~/tokyo-leaves-ref/chinese-tallow-summer.jpg",
+     "commons_title": "File:Triadica sebifera2.jpg"
+    }
+   }
+  },
+  {
+   "id": "flowering-dogwood",
+   "english": "Flowering dogwood",
+   "kanji_kana": "花水木（ハナミズキ）; also アメリカヤマボウシ",
+   "romaji": "hanamizuki",
+   "say_it": "hah-nah-mee-zoo-kee. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Cornus florida L.",
+   "family": "Cornaceae (dogwood family)",
+   "native_or_introduced": "Introduced from North America; the first trees came in 1915.",
+   "recognise": "An oval leaf with veins that curve up and run alongside the edge. The edge is smooth and a little wavy. Leaves come in opposite pairs, with red berries in autumn.",
+   "shape_spec": "Elliptic to ovate with a short pointed tip. Edge smooth, slightly wavy. Arcuate veins: about 5–6 pairs of side veins curve toward the tip, parallel to the edge. Ratio about 1.6–1.8 : 1; about 8–12 cm long. Stalk short, about 1 cm. Opposite. Outline and arrangement from Kotobank; figures approximate, from the reference photo.",
+   "colours": {
+    "summer": "#4d7f35",
+    "autumn": [
+     "#c8402a",
+     "#a3203a",
+     "#6e1830"
+    ],
+    "pattern": "Dull red-purple first at the edges and on sunny leaves, then the whole blade deep red; shaded leaves stay mottled green and red (reference photo).",
+    "pigment": "Red: anthocyanins made in autumn."
+   },
+   "timing": {
+    "tokyo": "No dated source found.",
+    "kawaguchiko": "No date found.",
+    "ref": [],
+    "source": []
+   },
+   "where_on_route": {
+    "text": "A common street and garden tree. No named spot on our route was found.",
+    "ref": [
+     "kb_hanamizuki"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Japan sent cherry trees to Washington in 1912. In 1915 the United States sent dogwoods in return: Japan's first hanamizuki.",
+     "ref": [
+      "kb_hanamizuki"
+     ]
+    },
+    {
+     "text": "In haiku its flowers are a spring season word.",
+     "ref": [
+      "kb_hanamizuki"
+     ]
+    },
+    {
+     "text": "Its 'flowers' are four pink or white bracts around a small true flower head, in April and May.",
+     "ref": [
+      "kb_hanamizuki"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "A close relative, red-osier dogwood, is where the light-screen role of red autumn pigment was shown experimentally.",
+     "ref": [
+      "feild2001"
+     ]
+    },
+    {
+     "text": "Its showy white or pink 'petals' are bracts, leaf-like parts that frame the small true flowers.",
+     "ref": [
+      "kb_hanamizuki"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_hanamizuki",
+     "apa": "花水木 [Hanamizuki]. (n.d.). In デジタル大辞泉 and 精選版 日本国語大辞典. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E8%8A%B1%E6%B0%B4%E6%9C%A8-603751",
+     "url": "https://kotobank.jp/word/%E8%8A%B1%E6%B0%B4%E6%9C%A8-603751"
+    },
+    {
+     "key": "feild2001",
+     "apa": "Feild, T. S., Lee, D. W., & Holbrook, N. M. (2001). Why leaves turn red in autumn. The role of anthocyanins in senescing leaves of red-osier dogwood. Plant Physiology, 127(2), 566–574. https://doi.org/10.1104/pp.010063",
+     "url": "https://doi.org/10.1104/pp.010063",
+     "url_record": "https://api.crossref.org/works/10.1104/pp.010063",
+     "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser."
+    },
+    {
+     "key": "gbif_cornus",
+     "apa": "GBIF Secretariat. (n.d.). Cornus florida L. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3082240",
+     "url": "https://api.gbif.org/v1/species/3082240"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/2020-10-08_16_12_31_A_Flowering_Dogwood_leaf_in_autumn_along_Tranquility_Court_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg/1280px-2020-10-08_16_12_31_A_Flowering_Dogwood_leaf_in_autumn_along_Tranquility_Court_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/2020-10-08_16_12_31_A_Flowering_Dogwood_leaf_in_autumn_along_Tranquility_Court_in_the_Franklin_Farm_section_of_Oak_Hill%2C_Fairfax_County%2C_Virginia.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Famartin",
+    "file_page": "https://commons.wikimedia.org/wiki/File:2020-10-08_16_12_31_A_Flowering_Dogwood_leaf_in_autumn_along_Tranquility_Court_in_the_Franklin_Farm_section_of_Oak_Hill,_Fairfax_County,_Virginia.jpg",
+    "local_file": "~/tokyo-leaves-ref/flowering-dogwood-autumn.jpg",
+    "commons_title": "File:2020-10-08 16 12 31 A Flowering Dogwood leaf in autumn along Tranquility Court in the Franklin Farm section of Oak Hill, Fairfax County, Virginia.jpg",
+    "season": "autumn",
+    "summer": null
+   }
+  },
+  {
+   "id": "enkianthus",
+   "english": "White enkianthus",
+   "kanji_kana": "ドウダンツツジ",
+   "romaji": "dōdan-tsutsuji",
+   "say_it": "doh-dahn tsoo-tsoo-jee. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Enkianthus perulatus (Miq.) C.K.Schneid.",
+   "family": "Ericaceae (heath and azalea family)",
+   "native_or_introduced": "Native: Shizuoka west through Honshū, Shikoku and Kyūshū to Kagoshima.",
+   "recognise": "A small leaf, 2 to 4 cm long, narrow and pointed, crowded at the twig tips. Often clipped into dense hedges that turn fire-red.",
+   "shape_spec": "Oblanceolate to obovate, pointed tip, narrowing to the base. Edge with very fine teeth (from the reference photo). Pinnate veins, faint. Ratio about 2–2.5 : 1 (2–4 cm long, 1–1.5 cm wide). Stalk very short. Leaves gathered in whorl-like clusters at branch tips. Figures from Kotobank.",
+   "colours": {
+    "summer": "#5a9a3c",
+    "autumn": [
+     "#f07a2a",
+     "#e0301e",
+     "#c0102a"
+    ],
+    "pattern": "Whole bushes flare red together; each leaf goes evenly scarlet, with some orange on shaded inner leaves (reference photo).",
+    "pigment": "Red: anthocyanins made in autumn."
+   },
+   "timing": {
+    "tokyo": "No dated source found.",
+    "kawaguchiko": "No date found.",
+    "ref": [],
+    "source": []
+   },
+   "where_on_route": {
+    "text": "Planted almost everywhere as garden shrubs and clipped hedges. Look along temple and garden paths.",
+    "ref": [
+     "kb_doudan"
+    ]
+   },
+   "lore": [
+    {
+     "text": "The name comes from tōdai, an old oil-lamp stand: its branches fan out like the legs of a 'tied lamp stand'.",
+     "ref": [
+      "kb_doudan"
+     ]
+    },
+    {
+     "text": "White bell-shaped flowers hang from the twigs in April.",
+     "ref": [
+      "kb_doudan"
+     ]
+    },
+    {
+     "text": "It takes clipping well, so gardeners shape it into hedges and round bushes.",
+     "ref": [
+      "kb_doudan"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "Japan has five wild Enkianthus species in three groups. In this one the flowers open before the leaves expand.",
+     "ref": [
+      "kb_doudan"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_doudan",
+     "apa": "ドウダンツツジ [Dōdan-tsutsuji]. (n.d.). In 改訂新版 世界大百科事典 and 日本大百科全書（ニッポニカ）. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%A9%E3%81%86%E3%81%A0%E3%82%93%E3%81%A4%E3%81%A4%E3%81%98-3161457",
+     "url": "https://kotobank.jp/word/%E3%81%A9%E3%81%86%E3%81%A0%E3%82%93%E3%81%A4%E3%81%A4%E3%81%98-3161457"
+    },
+    {
+     "key": "gbif_enkianthus",
+     "apa": "GBIF Secretariat. (n.d.). Enkianthus perulatus (Miq.) C.K.Schneid. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/7328266",
+     "url": "https://api.gbif.org/v1/species/7328266"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Enkianthus_perulatus_%27J._L._Pennock%27%2C_Morris_Arboretum_03.jpg/1280px-Enkianthus_perulatus_%27J._L._Pennock%27%2C_Morris_Arboretum_03.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Enkianthus_perulatus_%27J._L._Pennock%27%2C_Morris_Arboretum_03.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Shuvaev",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Enkianthus_perulatus_%27J._L._Pennock%27,_Morris_Arboretum_03.jpg",
+    "local_file": "~/tokyo-leaves-ref/enkianthus-autumn.jpg",
+    "commons_title": "File:Enkianthus perulatus 'J. L. Pennock', Morris Arboretum 03.jpg",
+    "season": "autumn",
+    "summer": null
+   }
+  },
+  {
+   "id": "winged-spindle",
+   "english": "Winged spindle (burning bush)",
+   "kanji_kana": "錦木（ニシキギ）",
+   "romaji": "nishikigi",
+   "say_it": "nee-shee-kee-gee. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Euonymus alatus (Thunb.) Siebold",
+   "family": "Celastraceae (spindle family)",
+   "native_or_introduced": "Native: grows wild in hills and mountains from Hokkaidō south; also planted in gardens.",
+   "recognise": "Small leaves, 2 to 7 cm, pointed at both ends, in opposite pairs. The twigs carry four corky wings. Orange-red seeds hang from split capsules.",
+   "shape_spec": "Elliptic to narrow obovate, pointed at both ends. Edge with very fine teeth. Pinnate veins, about 5–7 faint pairs (approximate). Ratio about 2–2.5 : 1; 2–7 cm long. Stalk very short. Opposite. Twigs with four corky ridges ('wings'). Figures from Kotobank.",
+   "colours": {
+    "summer": "#4f8a3a",
+    "autumn": [
+     "#e85a7a",
+     "#d81e3c",
+     "#b0102e"
+    ],
+    "pattern": "Rose-pink first, then clear crimson, even across the blade (reference photo).",
+    "pigment": "Red: anthocyanins, unusually formed only in the leaf's outer skin cells."
+   },
+   "timing": {
+    "tokyo": "No dated source found.",
+    "kawaguchiko": "No date found.",
+    "ref": [],
+    "source": []
+   },
+   "where_on_route": {
+    "text": "A common garden and hedge shrub. No named spot on our route was found.",
+    "ref": [
+     "kb_nishikigi"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Nishiki-gi means 'brocade tree', named for its autumn colour.",
+     "ref": [
+      "kb_nishikigi"
+     ]
+    },
+    {
+     "text": "Brocade is the classic image for red leaves. Hyakunin Isshu no. 24, by Sugawara no Michizane (Kokinshū 420).",
+     "ref": [
+      "ws_hyakunin"
+     ],
+     "japanese": "此の度は 幣もとりあへず 手向山 紅葉の錦 神のまにまに",
+     "translation": "This journey I brought no offering. Gods of Mount Tamuke, take this brocade of red leaves as you will.",
+     "translation_by": "our own"
+    },
+    {
+     "text": "Hyakunin Isshu no. 69, by the monk Nōin (Goshūishū 366).",
+     "ref": [
+      "ws_hyakunin"
+     ],
+     "japanese": "嵐ふく 三室の山の もみぢ葉は 龍田の川の 錦なりけり",
+     "translation": "Storm winds strip the red leaves from Mount Mimuro. On the Tatsuta River they become brocade.",
+     "translation_by": "our own"
+    },
+    {
+     "text": "The corky winged twigs are a favourite material for flower arranging.",
+     "ref": [
+      "kb_nishikigi"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "In nishikigi and its relative tsuribana, red anthocyanin forms only in the outer skin cells. In most plants it forms in the inner leaf tissue.",
+     "ref": [
+      "kb_kouyou"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_nishikigi",
+     "apa": "ニシキギ [Nishikigi, winged spindle]. (n.d.). In 改訂新版 世界大百科事典 and 日本大百科全書（ニッポニカ）. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%AB%E3%81%97%E3%81%8D%E3%81%8E-3162260",
+     "url": "https://kotobank.jp/word/%E3%81%AB%E3%81%97%E3%81%8D%E3%81%8E-3162260"
+    },
+    {
+     "key": "kb_kouyou",
+     "apa": "Yoshida, S. (2020, September 17). 紅葉 [Kōyō, autumn colour]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan; with entries from デジタル大辞泉 [Digital Daijisen]. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295",
+     "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295"
+    },
+    {
+     "key": "ws_hyakunin",
+     "apa": "小倉百人一首 [Ogura Hyakunin Isshu]. (n.d.). In Wikisource (Japanese). Retrieved October 25, 2026. https://ja.wikisource.org/wiki/%E5%B0%8F%E5%80%89%E7%99%BE%E4%BA%BA%E4%B8%80%E9%A6%96",
+     "url": "https://ja.wikisource.org/wiki/%E5%B0%8F%E5%80%89%E7%99%BE%E4%BA%BA%E4%B8%80%E9%A6%96"
+    },
+    {
+     "key": "gbif_euonymus",
+     "apa": "GBIF Secretariat. (n.d.). Euonymus alatus (Thunb.) Siebold. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3169120",
+     "url": "https://api.gbif.org/v1/species/3169120"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Euonymus_alatus_autumn_leaf.jpg/1280px-Euonymus_alatus_autumn_leaf.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Euonymus_alatus_autumn_leaf.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0",
+    "author": "Kjoonlee",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Euonymus_alatus_autumn_leaf.jpg",
+    "local_file": "~/tokyo-leaves-ref/winged-spindle-autumn.jpg",
+    "commons_title": "File:Euonymus alatus autumn leaf.jpg",
+    "season": "autumn",
+    "summer": null
+   }
+  },
+  {
+   "id": "boston-ivy",
+   "english": "Japanese ivy (Boston ivy)",
+   "kanji_kana": "蔦（ツタ）; also ナツヅタ",
+   "romaji": "tsuta",
+   "say_it": "tsoo-tah. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Parthenocissus tricuspidata (Siebold & Zucc.) Planch.",
+   "family": "Vitaceae (grape family)",
+   "native_or_introduced": "Native: Hokkaidō to Kyūshū, and China. English calls it Boston ivy, but it is an East Asian plant.",
+   "recognise": "A thick, glossy leaf on a long stalk, either whole or split into three lobes. It climbs walls with tendrils ending in round sucker pads. The blade falls first, then the stalk.",
+   "shape_spec": "Broad egg-shaped, usually three-lobed with pointed lobes and a heart-shaped base. Edge coarsely toothed. Palmate veins: 3–5 main veins from the base. Ratio about 1 : 1; about 5–15 cm (approximate). Stalk long, often as long as the blade or longer. Alternate; tendrils end in sticky discs. Lobing and texture from Kotobank; sizes from the reference photo.",
+   "colours": {
+    "summer": "#3e7a2e",
+    "autumn": [
+     "#f2a23a",
+     "#e04a26",
+     "#a8162a"
+    ],
+    "pattern": "Patchy and quick: red spreads from the edge and between the veins, which can stay yellow-green; sunny walls go crimson first (reference photo).",
+    "pigment": "Red: anthocyanins made in autumn."
+   },
+   "timing": {
+    "tokyo": "No dated source found.",
+    "kawaguchiko": "No date found.",
+    "ref": [],
+    "source": []
+   },
+   "where_on_route": {
+    "text": "Walls and fences anywhere in the city. No named spot on our route was found.",
+    "ref": [
+     "kb_tsuta"
+    ]
+   },
+   "lore": [
+    {
+     "text": "The ivy on the outer wall of Kōshien Stadium is one of the ballpark's famous sights.",
+     "ref": [
+      "kb_koshien"
+     ]
+    },
+    {
+     "text": "Its other name natsu-zuta, 'summer ivy', contrasts with the evergreen kizuta, called fuyu-zuta, 'winter ivy'.",
+     "ref": [
+      "kb_tsuta"
+     ]
+    },
+    {
+     "text": "Heian cooks made a sweet syrup, amazura, from ivy vines.",
+     "ref": [
+      "kb_tsuta"
+     ]
+    },
+    {
+     "text": "The name probably comes from tsutau, 'to creep along'.",
+     "ref": [
+      "kb_tsuta"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "Leaf fall happens in two steps: the blade drops first, and the stalk follows later.",
+     "ref": [
+      "kb_tsuta"
+     ]
+    },
+    {
+     "text": "It grows fast enough to green about a square metre of wall in one summer.",
+     "ref": [
+      "kb_tsuta"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_tsuta",
+     "apa": "ツタ [Tsuta, Japanese ivy]. (n.d.). In 改訂新版 世界大百科事典 [World Encyclopedia, revised ed.]. Heibonsha. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%A4%E3%81%9F-1369919",
+     "url": "https://kotobank.jp/word/%E3%81%A4%E3%81%9F-1369919"
+    },
+    {
+     "key": "kb_koshien",
+     "apa": "阪神甲子園球場 [Hanshin Kōshien Stadium]. (2018, August 1). In 共同通信ニュース用語解説 [Kyodo News glossary]. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E9%98%AA%E7%A5%9E%E7%94%B2%E5%AD%90%E5%9C%92%E7%90%83%E5%A0%B4-177088",
+     "url": "https://kotobank.jp/word/%E9%98%AA%E7%A5%9E%E7%94%B2%E5%AD%90%E5%9C%92%E7%90%83%E5%A0%B4-177088"
+    },
+    {
+     "key": "gbif_parthenocissus",
+     "apa": "GBIF Secretariat. (n.d.). Parthenocissus tricuspidata (Siebold & Zucc.) Planch. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3039209",
+     "url": "https://api.gbif.org/v1/species/3039209"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/004_2021_10_16_Herbstf%C3%A4rbung.jpg/1280px-004_2021_10_16_Herbstf%C3%A4rbung.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/004_2021_10_16_Herbstf%C3%A4rbung.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Friedrich Haag",
+    "file_page": "https://commons.wikimedia.org/wiki/File:004_2021_10_16_Herbstf%C3%A4rbung.jpg",
+    "local_file": "~/tokyo-leaves-ref/boston-ivy-autumn.jpg",
+    "commons_title": "File:004 2021 10 16 Herbstfärbung.jpg",
+    "season": "autumn",
+    "summer": {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Wilder_Wein_%28Parthenocissus_tricuspidata%2C_Green_Spring%29_8_Juni_2003.JPG",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Wilder_Wein_%28Parthenocissus_tricuspidata%2C_Green_Spring%29_8_Juni_2003.JPG",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+     "author": "Hedwig Storch",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Wilder_Wein_(Parthenocissus_tricuspidata,_Green_Spring)_8_Juni_2003.JPG",
+     "local_file": "~/tokyo-leaves-ref/boston-ivy-summer.jpg",
+     "commons_title": "File:Wilder Wein (Parthenocissus tricuspidata, Green Spring) 8 Juni 2003.JPG"
+    }
+   }
+  },
+  {
+   "id": "dawn-redwood",
+   "english": "Dawn redwood",
+   "kanji_kana": "メタセコイア; also アケボノスギ",
+   "romaji": "metasekoia",
+   "say_it": "meh-tah-seh-koh-ee-ah. The other name: ah-keh-boh-noh soo-gee. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Metasequoia glyptostroboides Hu & W.C.Cheng",
+   "family": "Cupressaceae (cypress family; formerly placed in Taxodiaceae)",
+   "native_or_introduced": "Introduced from China, where living trees were found in 1943. It was known first from fossils.",
+   "recognise": "Soft, flat needles in two neat rows along short green side shoots. In autumn each shoot turns rust and falls whole. A conifer that loses its leaves.",
+   "shape_spec": "Draw the whole deciduous shoot as the 'leaf': a green shoot about 5–10 cm long carrying two ranks of flat linear needles, each about 1–3 cm long and 2 mm wide, in opposite pairs; soft, blunt-tipped, one midvein. Ratio of the shoot outline about 3–4 : 1. All figures approximate, from the reference photos.",
+   "colours": {
+    "summer": "#6b9a3e",
+    "autumn": [
+     "#d79b4a",
+     "#c46a2e",
+     "#8a4a26"
+    ],
+    "pattern": "Whole shoots turn together, green to apricot to rust-brown (reference photos).",
+    "pigment": "Rust and brown: carotenoids plus browning. Conifers like hinoki and sugi make a pink-red carotenoid, rhodoxanthin, in autumn; not confirmed for this tree."
+   },
+   "timing": {
+    "tokyo": "Jindai Botanical Garden forecast for the whole garden: 30 November to 12 December, peak about 4 December.",
+    "kawaguchiko": "No date found.",
+    "ref": [
+     "foliage_page"
+    ],
+    "source": [
+     "foliage.html (internal)"
+    ]
+   },
+   "where_on_route": {
+    "text": "Jindai Botanical Garden in Chōfu lists metasequoia among its autumn trees.",
+    "ref": [
+     "foliage_page"
+    ]
+   },
+   "lore": [
+    {
+     "text": "In 1941 the Japanese botanist Miki Shigeru named the genus Metasequoia from fossils.",
+     "ref": [
+      "ma2002"
+     ]
+    },
+    {
+     "text": "Living trees were then found in China in 1943 and named in 1948: a 'living fossil'.",
+     "ref": [
+      "ma2002",
+      "kb_akebono"
+     ]
+    },
+    {
+     "text": "Its Japanese name akebono-sugi means 'dawn cedar'.",
+     "ref": [
+      "kb_akebono"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "The living species was described only in 1948; war in China delayed the work.",
+     "ref": [
+      "ma2002"
+     ]
+    },
+    {
+     "text": "Conifer autumn colour can differ from broadleaf colour: in hinoki and sugi the red is a carotenoid, rhodoxanthin.",
+     "ref": [
+      "kb_kouyou"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "ma2002",
+     "apa": "Ma, J. (2002). The history of the discovery and initial seed dissemination of Metasequoia glyptostroboides, a \"living fossil\". Aliso, 21(2), 65–75. https://doi.org/10.5642/aliso.20022102.04",
+     "url": "https://doi.org/10.5642/aliso.20022102.04",
+     "url_record": "https://api.crossref.org/works/10.5642/aliso.20022102.04",
+     "access_note": "DOI checked: the Crossref record returns 200 and doi.org redirects to the publisher. Some publisher pages refuse automated requests (403) but open normally in a browser.",
+     "url_open": "https://scholarship.claremont.edu/aliso/vol21/iss2/4/"
+    },
+    {
+     "key": "kb_akebono",
+     "apa": "アケボノスギ [Akebono-sugi, dawn redwood]. (n.d.). In ブリタニカ国際大百科事典 and 世界大百科事典（旧版）. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%82%E3%81%91%E3%81%BC%E3%81%AE%E3%81%99%E3%81%8E-3140766",
+     "url": "https://kotobank.jp/word/%E3%81%82%E3%81%91%E3%81%BC%E3%81%AE%E3%81%99%E3%81%8E-3140766"
+    },
+    {
+     "key": "kb_kouyou",
+     "apa": "Yoshida, S. (2020, September 17). 紅葉 [Kōyō, autumn colour]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan; with entries from デジタル大辞泉 [Digital Daijisen]. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295",
+     "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295"
+    },
+    {
+     "key": "foliage_page",
+     "apa": "Tokyo in Colour, the colour map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
+     "url": "foliage.html",
+     "note": "A page on this site, not a public source."
+    },
+    {
+     "key": "gbif_metasequoia",
+     "apa": "GBIF Secretariat. (n.d.). Metasequoia glyptostroboides H.H.Hu & W.C.Cheng. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/5284231",
+     "url": "https://api.gbif.org/v1/species/5284231"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Metasequoia_glyptostroboides_D.jpg/1280px-Metasequoia_glyptostroboides_D.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Metasequoia_glyptostroboides_D.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "Public domain",
+    "licence_url": null,
+    "author": "Wouter Hagens",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Metasequoia_glyptostroboides_D.jpg",
+    "local_file": "~/tokyo-leaves-ref/dawn-redwood-autumn.jpg",
+    "commons_title": "File:Metasequoia glyptostroboides D.jpg",
+    "season": "autumn",
+    "summer": {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Urweltmammut_Metasequoia_glyptostroboides_bottom.jpg/1280px-Urweltmammut_Metasequoia_glyptostroboides_bottom.jpg",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Urweltmammut_Metasequoia_glyptostroboides_bottom.jpg",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "author": "NobbiP",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Urweltmammut_Metasequoia_glyptostroboides_bottom.jpg",
+     "local_file": "~/tokyo-leaves-ref/dawn-redwood-summer.jpg",
+     "commons_title": "File:Urweltmammut Metasequoia glyptostroboides bottom.jpg"
+    }
+   }
+  },
+  {
+   "id": "japanese-larch",
+   "english": "Japanese larch",
+   "kanji_kana": "落葉松・唐松（カラマツ）; also フジマツ",
+   "romaji": "karamatsu",
+   "say_it": "kah-rah-mah-tsoo. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Larix kaempferi (Lamb.) Carrière",
+   "family": "Pinaceae (pine family)",
+   "native_or_introduced": "Native and found only in Japan: central Honshū, mainly Nagano and Yamanashi, and around Nikkō, at 1,000–2,800 m.",
+   "recognise": "Soft needles 2 to 4 cm long, in tufts on short knobby spurs, single on long shoots. Small upright cones with scales curled back. A conifer that turns gold and drops every needle.",
+   "shape_spec": "Draw a spur rosette: many linear needles, 2–4 cm long and about 1 mm wide, fanning out from a spur 3–4 mm long; on long shoots, needles single and spiralled. Needle tips pointed; one midvein. Rosette about 5–7 cm across. Needle and spur sizes from Kotobank; rosette size approximate.",
+   "colours": {
+    "summer": "#7fae4a",
+    "autumn": [
+     "#e8c547",
+     "#d9a22e",
+     "#b8792a"
+    ],
+    "pattern": "The whole tree turns together, lime to gold to orange-tan (reference photos).",
+    "pigment": "Yellow to yellow-brown: carotenoids unmasked, then browning."
+   },
+   "timing": {
+    "tokyo": "Not a Tokyo tree.",
+    "kawaguchiko": "Fuji Subaru Line slopes: early to late October (Walkerplus); mid October to early November (Weathernews). Bare by your visit.",
+    "ref": [
+     "walker_subaru",
+     "wn_subaru",
+     "foliage_page"
+    ],
+    "source": [
+     "https://koyo.walkerplus.com/detail/ar0419e12832/",
+     "https://weathernews.jp/s/koyo/spot/24924/",
+     "foliage.html (internal)"
+    ]
+   },
+   "where_on_route": {
+    "text": "The larch belt along the Fuji Subaru Line toward the Fifth Station: gold in October, bare in December.",
+    "ref": [
+     "walker_subaru",
+     "foliage_page"
+    ]
+   },
+   "lore": [
+    {
+     "text": "A local name is Fuji-matsu, 'Fuji pine'.",
+     "ref": [
+      "kb_karamatsu"
+     ]
+    },
+    {
+     "text": "Kara-matsu means 'Chinese pine': late-Edo nurserymen thought the new shoots looked like pines in Chinese paintings.",
+     "ref": [
+      "kb_karamatsu"
+     ]
+    },
+    {
+     "text": "Kitahara Hakushū, 'Karamatsu' (Larch), first stanza.",
+     "ref": [
+      "hiroshima_karamatsu"
+     ],
+     "japanese": "からまつの林を過ぎて、からまつをしみじみと見き。からまつはさびしかりけり。たびゆくはさびしかりけり。",
+     "translation": "I passed through the larch wood and looked long at the larches. The larches were lonely. Travelling is lonely too.",
+     "translation_by": "our own"
+    },
+    {
+     "text": "Because it is hardy and grows fast, it was planted widely on burned and logged land.",
+     "ref": [
+      "kb_karamatsu"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "It is a deciduous conifer: it drops all its needles each autumn.",
+     "ref": [
+      "kb_karamatsu"
+     ]
+    },
+    {
+     "text": "It is a sun-loving tree of the upper temperate and subalpine zones; above the tree line it creeps low.",
+     "ref": [
+      "kb_karamatsu"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_karamatsu",
+     "apa": "カラマツ [Karamatsu, Japanese larch]. (n.d.). In 改訂新版 世界大百科事典 and 日本大百科全書（ニッポニカ）. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%8B%E3%82%89%E3%81%BE%E3%81%A4-3147849",
+     "url": "https://kotobank.jp/word/%E3%81%8B%E3%82%89%E3%81%BE%E3%81%A4-3147849"
+    },
+    {
+     "key": "hiroshima_karamatsu",
+     "apa": "Hiroshima Prefecture. (n.d.). 落葉松 [Karamatsu (Larch), poem by Kitahara Hakushū] [Teaching material, Word file]. https://www.pref.hiroshima.lg.jp/uploaded/attachment/122781.docx",
+     "url": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/122781.docx"
+    },
+    {
+     "key": "walker_subaru",
+     "apa": "Walkerplus. (2026). 富士山5合目(山梨側)の紅葉 [Autumn colour at the Fifth Station of Mt. Fuji, Yamanashi side]. Retrieved October 25, 2026. https://koyo.walkerplus.com/detail/ar0419e12832/",
+     "url": "https://koyo.walkerplus.com/detail/ar0419e12832/"
+    },
+    {
+     "key": "wn_subaru",
+     "apa": "Weathernews. (2026). 富士スバルラインの紅葉情報 [Autumn colour on the Fuji Subaru Line]. Retrieved October 25, 2026. https://weathernews.jp/s/koyo/spot/24924/",
+     "url": "https://weathernews.jp/s/koyo/spot/24924/"
+    },
+    {
+     "key": "foliage_page",
+     "apa": "Tokyo in Colour, the colour map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
+     "url": "foliage.html",
+     "note": "A page on this site, not a public source."
+    },
+    {
+     "key": "gbif_larix",
+     "apa": "GBIF Secretariat. (n.d.). Larix kaempferi (Lamb.) Carrière. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/2686157",
+     "url": "https://api.gbif.org/v1/species/2686157"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Japanese_larch_autumn_forest_%2852506194263%29.jpg/1280px-Japanese_larch_autumn_forest_%2852506194263%29.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Japanese_larch_autumn_forest_%2852506194263%29.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Raita Futo from Tokyo, Japan",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Japanese_larch_autumn_forest_(52506194263).jpg",
+    "local_file": "~/tokyo-leaves-ref/japanese-larch-autumn.jpg",
+    "commons_title": "File:Japanese larch autumn forest (52506194263).jpg",
+    "season": "autumn",
+    "summer": {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Larix_kaempferi_%28Trondheim%29.jpg/1280px-Larix_kaempferi_%28Trondheim%29.jpg",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Larix_kaempferi_%28Trondheim%29.jpg",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "Public domain",
+     "licence_url": null,
+     "author": "Daderot",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Larix_kaempferi_(Trondheim).jpg",
+     "local_file": "~/tokyo-leaves-ref/japanese-larch-summer.jpg",
+     "commons_title": "File:Larix kaempferi (Trondheim).jpg"
+    }
+   }
+  },
+  {
+   "id": "horse-chestnut",
+   "english": "Japanese horse chestnut",
+   "kanji_kana": "栃・橡（トチノキ）",
+   "romaji": "tochinoki",
+   "say_it": "toh-chee-noh-kee. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Aesculus turbinata Blume",
+   "family": "Sapindaceae (soapberry family; formerly Hippocastanaceae)",
+   "native_or_introduced": "Native: mountains from near Sapporo south, in moist, well-drained valleys.",
+   "recognise": "A huge hand of five to seven stalkless leaflets; the middle one reaches 25 to 40 cm. Edges have blunt teeth. Shiny brown nuts, like chestnuts, fall in autumn.",
+   "shape_spec": "Palmately compound: 5–7 obovate to oblanceolate leaflets without their own stalks, radiating from the top of a long main stalk. The centre leaflet is largest (25–40 cm); side leaflets get smaller outward. Leaflet edge with blunt teeth. Each leaflet pinnately veined with many straight parallel side veins. Leaflet ratio about 3 : 1. Main stalk long (approximate). Opposite. Figures from Kotobank.",
+   "colours": {
+    "summer": "#4a7f30",
+    "autumn": [
+     "#d8b84a",
+     "#c48a34",
+     "#8a5a2a"
+    ],
+    "pattern": "Yellow, then tan; brown patches spread from leaflet edges and tips. No free autumn photo was found, so this is approximate.",
+    "pigment": "Yellow carotenoids unmasked, then browning."
+   },
+   "timing": {
+    "tokyo": "No dated source found.",
+    "kawaguchiko": "No date found.",
+    "ref": [],
+    "source": []
+   },
+   "where_on_route": {
+    "text": "A fine avenue stands outside the Sakuradamon gate of the Imperial Palace, on the castle day.",
+    "ref": [
+     "kb_tochi"
+    ]
+   },
+   "lore": [
+    {
+     "text": "The nuts were soaked in water for a long time and boiled in lye, then pounded with rice into tochi-mochi. They were a famine food.",
+     "ref": [
+      "kb_tochi"
+     ]
+    },
+    {
+     "text": "In Shirakawa, Hida, tochi trees were protected: even scorching one with a field fire brought a strict village inquiry.",
+     "ref": [
+      "kb_tochi"
+     ]
+    },
+    {
+     "text": "Tochi noodle dough sets fast, so 'tochimenbō', the rolling pin, came to mean a flustered rush.",
+     "ref": [
+      "kb_tochi"
+     ]
+    },
+    {
+     "text": "It is the prefectural tree of Tochigi.",
+     "ref": [
+      "kb_tochi"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "The seeds are rich in starch but also hold saponins and tannins, so they must be leached before eating.",
+     "ref": [
+      "kb_tochi"
+     ]
+    },
+    {
+     "text": "The genus has about 25 species across the northern temperate zone. The European horse chestnut is the marronnier.",
+     "ref": [
+      "kb_tochi"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_tochi",
+     "apa": "トチノキ [Tochinoki, Japanese horse chestnut]. (n.d.). In 改訂新版 世界大百科事典 and 日本大百科全書（ニッポニカ）. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%A8%E3%81%A1%E3%81%AE%E3%81%8D-3160876",
+     "url": "https://kotobank.jp/word/%E3%81%A8%E3%81%A1%E3%81%AE%E3%81%8D-3160876"
+    },
+    {
+     "key": "gbif_aesculus",
+     "apa": "GBIF Secretariat. (n.d.). Aesculus turbinata Blume. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3189819",
+     "url": "https://api.gbif.org/v1/species/3189819"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Aesculus_turbinata_8.JPG/1280px-Aesculus_turbinata_8.JPG",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Aesculus_turbinata_8.JPG",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Qwert1234",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Aesculus_turbinata_8.JPG",
+    "local_file": "~/tokyo-leaves-ref/horse-chestnut-summer.jpg",
+    "commons_title": "File:Aesculus turbinata 8.JPG",
+    "season": "summer",
+    "note": "No free autumn photograph of this species was found on Wikimedia Commons; this is the summer leaf. Use the autumn colours listed above.",
+    "summer": null
+   }
+  },
+  {
+   "id": "japanese-beech",
+   "english": "Japanese beech (Siebold's beech)",
+   "kanji_kana": "橅・山毛欅（ブナ）",
+   "romaji": "buna",
+   "say_it": "boo-nah. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Fagus crenata Blume",
+   "family": "Fagaceae (beech family)",
+   "native_or_introduced": "Native: mountains of southwest Hokkaidō, Honshū, Shikoku and Kyūshū.",
+   "recognise": "An egg- to diamond-shaped leaf with wavy, blunt teeth. Seven to eleven pairs of straight side veins run toward the edge. The smooth grey bark is often painted with lichen.",
+   "shape_spec": "Ovate to rhombic-ovate, slightly lopsided, pointed tip. Edge wavy with blunt teeth, one wave at each vein end. Pinnate veins: 7–11 straight parallel pairs whose tips turn upward near the edge. Ratio about 1.6–1.8 : 1; about 4–9 cm long (approximate). Stalk short and hairy. Alternate. Veins and edge from Kotobank; sizes from the reference photo.",
+   "colours": {
+    "summer": "#6aa63e",
+    "autumn": [
+     "#e2b74a",
+     "#c97a2e",
+     "#9a5a2a"
+    ],
+    "pattern": "Yellow first, then copper-orange from the edges; dead leaves turn russet brown (reference photo).",
+    "pigment": "Yellow carotenoids, then brown from oxidised catechins."
+   },
+   "timing": {
+    "tokyo": "Not a central Tokyo tree. On Mt. Takao the season ends about 30 November, before your week.",
+    "kawaguchiko": "No dated source found.",
+    "ref": [
+     "foliage_page"
+    ],
+    "source": [
+     "foliage.html (internal)"
+    ]
+   },
+   "where_on_route": {
+    "text": "Mt. Takao and Mt. Mitake carry beech, but both will be finished by your week.",
+    "ref": [
+     "foliage_page"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Shirakami-Sanchi in northern Honshū holds the largest remaining virgin beech forest in East Asia.",
+     "ref": [
+      "unesco_shirakami"
+     ]
+    },
+    {
+     "text": "The nuts are edible and once gave lamp oil and cooking oil.",
+     "ref": [
+      "kb_buna2"
+     ]
+    },
+    {
+     "text": "Folk names include bunanoki, shirobuna and sobaguri.",
+     "ref": [
+      "kb_buna2"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "Each female flower has three ovaries and six ovules, but only one ovule grows; each husk holds two nuts.",
+     "ref": [
+      "kb_buna"
+     ]
+    },
+    {
+     "text": "Beech is one of the brown-turning trees: catechins oxidise to brown phlobaphene as the leaf dies.",
+     "ref": [
+      "kb_kouyou"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_buna",
+     "apa": "ブナ [Buna, Japanese beech]. (n.d.). In 日本大百科全書（ニッポニカ） and 精選版 日本国語大辞典. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%B6%E3%81%AA-3167814",
+     "url": "https://kotobank.jp/word/%E3%81%B6%E3%81%AA-3167814"
+    },
+    {
+     "key": "kb_buna2",
+     "apa": "橅 [Buna]. (n.d.). In 精選版 日本国語大辞典 [Nihon Kokugo Daijiten, selected ed.]. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E6%A9%85-619863",
+     "url": "https://kotobank.jp/word/%E6%A9%85-619863"
+    },
+    {
+     "key": "kb_kouyou",
+     "apa": "Yoshida, S. (2020, September 17). 紅葉 [Kōyō, autumn colour]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan; with entries from デジタル大辞泉 [Digital Daijisen]. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295",
+     "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295"
+    },
+    {
+     "key": "unesco_shirakami",
+     "apa": "UNESCO World Heritage Centre. (n.d.). Shirakami-Sanchi. https://whc.unesco.org/en/list/663/",
+     "url": "https://whc.unesco.org/en/list/663/"
+    },
+    {
+     "key": "foliage_page",
+     "apa": "Tokyo in Colour, the colour map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
+     "url": "foliage.html",
+     "note": "A page on this site, not a public source."
+    },
+    {
+     "key": "gbif_fagus",
+     "apa": "GBIF Secretariat. (n.d.). Fagus crenata Blume. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/2882300",
+     "url": "https://api.gbif.org/v1/species/2882300"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Fagus_crenata_in_Ogasayama_2010-10-17.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Fagus_crenata_in_Ogasayama_2010-10-17.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "Public domain",
+    "licence_url": null,
+    "author": "Alpsdake",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Fagus_crenata_in_Ogasayama_2010-10-17.jpg",
+    "local_file": "~/tokyo-leaves-ref/japanese-beech-autumn.jpg",
+    "commons_title": "File:Fagus crenata in Ogasayama 2010-10-17.jpg",
+    "season": "autumn",
+    "summer": {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Fagus_crenata_leaves_front.JPG/1280px-Fagus_crenata_leaves_front.JPG",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Fagus_crenata_leaves_front.JPG",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "CC BY-SA 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+     "author": "Alpsdake",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Fagus_crenata_leaves_front.JPG",
+     "local_file": "~/tokyo-leaves-ref/japanese-beech-summer.jpg",
+     "commons_title": "File:Fagus crenata leaves front.JPG"
+    }
+   }
+  },
+  {
+   "id": "konara-oak",
+   "english": "Konara oak",
+   "kanji_kana": "小楢（コナラ）",
+   "romaji": "konara",
+   "say_it": "koh-nah-rah. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Quercus serrata Murray",
+   "family": "Fagaceae (beech family)",
+   "native_or_introduced": "Native: all Japan from Tanegashima north, and Korea.",
+   "recognise": "An oval leaf, widest near the tip, 5 to 12 cm long, with large sharp teeth. The underside is greyish white. Slim acorns, about 1.5 cm, sit in shallow cups.",
+   "shape_spec": "Obovate-oblong, pointed tip, wedge-shaped base. Edge with coarse, sharp, forward-pointing teeth, one at each vein end. Pinnate veins, about 8–12 straight pairs (approximate). Ratio about 2–2.5 : 1; 5–12 cm long. Stalk about 1 cm. Alternate, crowded toward shoot tips. Figures from Kotobank.",
+   "colours": {
+    "summer": "#5a8a34",
+    "autumn": [
+     "#d8a838",
+     "#c0702e",
+     "#8a4a24"
+    ],
+    "pattern": "Uneven: yellow-orange with red-brown patches spreading from the edges; leaves dry brown on the tree (reference photo).",
+    "pigment": "Brown: catechins oxidise to phlobaphene, over early yellow carotenoids."
+   },
+   "timing": {
+    "tokyo": "No dated source found.",
+    "kawaguchiko": "No date found.",
+    "ref": [],
+    "source": []
+   },
+   "where_on_route": {
+    "text": "The oak woods of the Musashino plain west of the city. Kunikida Doppo walked them while living in Shibuya in 1896–97.",
+    "ref": [
+     "kb_musashino",
+     "aozora_musashino"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Kunikida Doppo, Musashino (1898).",
+     "ref": [
+      "aozora_musashino",
+      "kb_musashino"
+     ],
+     "japanese": "林はじつに今の武蔵野の特色といってもよい。すなわち木はおもに楢の類いで冬はことごとく落葉し",
+     "translation": "Woods are truly the mark of today's Musashino. The trees are mostly oaks, and in winter they drop every leaf.",
+     "translation_by": "our own"
+    },
+    {
+     "text": "Man'yōshū, book 14, poem 3424, a song from Shimotsuke province.",
+     "ref": [
+      "kb_konara"
+     ],
+     "japanese": "下毛野 美可母の山の 許奈良のす ま麗し児ろは 誰が笥か持たむ",
+     "translation": "Lovely as the young oaks on Mount Mikamo in Shimotsuke: whose rice bowl will that girl carry?",
+     "translation_by": "our own"
+    },
+    {
+     "text": "Cut every twenty years or so for firewood and charcoal, it made Japan's classic village woodland with kunugi oak.",
+     "ref": [
+      "kb_konara"
+     ]
+    },
+    {
+     "text": "Its logs are used to grow shiitake mushrooms, and its bark gives a tannin dye.",
+     "ref": [
+      "kb_konara"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "It sprouts strongly from cut stumps. Abandoned coppice is slowly turning into evergreen oak forest.",
+     "ref": [
+      "kb_konara"
+     ]
+    },
+    {
+     "text": "Konara is one of the brown-turning trees named in the encyclopaedia.",
+     "ref": [
+      "kb_kouyou"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_konara",
+     "apa": "こなら [Konara]. (n.d.). In 精選版 日本国語大辞典 and 日本大百科全書（ニッポニカ）. Shōgakukan. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%93%E3%81%AA%E3%82%89-2039623",
+     "url": "https://kotobank.jp/word/%E3%81%93%E3%81%AA%E3%82%89-2039623"
+    },
+    {
+     "key": "kb_musashino",
+     "apa": "武蔵野 [Musashino]. (n.d.). In 改訂新版 世界大百科事典 and デジタル大辞泉. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E6%AD%A6%E8%94%B5%E9%87%8E-140406",
+     "url": "https://kotobank.jp/word/%E6%AD%A6%E8%94%B5%E9%87%8E-140406"
+    },
+    {
+     "key": "aozora_musashino",
+     "apa": "Kunikida, D. (1998). 武蔵野 [Musashino] [Digital edition]. Aozora Bunko. (Original work published 1898) https://www.aozora.gr.jp/cards/000038/files/329_15886.html",
+     "url": "https://www.aozora.gr.jp/cards/000038/files/329_15886.html"
+    },
+    {
+     "key": "kb_kouyou",
+     "apa": "Yoshida, S. (2020, September 17). 紅葉 [Kōyō, autumn colour]. In 日本大百科全書（ニッポニカ） [Encyclopedia Nipponica]. Shōgakukan; with entries from デジタル大辞泉 [Digital Daijisen]. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295",
+     "url": "https://kotobank.jp/word/%E7%B4%85%E8%91%89-63295"
+    },
+    {
+     "key": "gbif_quercus",
+     "apa": "GBIF Secretariat. (n.d.). Quercus serrata Murray. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/2879649",
+     "url": "https://api.gbif.org/v1/species/2879649"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Quercus_serrata-%E3%82%B3%E3%83%8A%E3%83%A9%EF%BC%88%E5%B0%8F%E6%A5%A2%EF%BC%89%2CMt.Saikoji_%E8%A5%BF%E5%85%89%E5%AF%BA%E5%B1%B1%E9%A0%82_PC051298.JPG/1280px-Quercus_serrata-%E3%82%B3%E3%83%8A%E3%83%A9%EF%BC%88%E5%B0%8F%E6%A5%A2%EF%BC%89%2CMt.Saikoji_%E8%A5%BF%E5%85%89%E5%AF%BA%E5%B1%B1%E9%A0%82_PC051298.JPG",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Quercus_serrata-%E3%82%B3%E3%83%8A%E3%83%A9%EF%BC%88%E5%B0%8F%E6%A5%A2%EF%BC%89%2CMt.Saikoji_%E8%A5%BF%E5%85%89%E5%AF%BA%E5%B1%B1%E9%A0%82_PC051298.JPG",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "author": "松岡明芳",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Quercus_serrata-%E3%82%B3%E3%83%8A%E3%83%A9%EF%BC%88%E5%B0%8F%E6%A5%A2%EF%BC%89,Mt.Saikoji_%E8%A5%BF%E5%85%89%E5%AF%BA%E5%B1%B1%E9%A0%82_PC051298.JPG",
+    "local_file": "~/tokyo-leaves-ref/konara-oak-autumn.jpg",
+    "commons_title": "File:Quercus serrata-コナラ（小楢）,Mt.Saikoji 西光寺山頂 PC051298.JPG",
+    "season": "autumn",
+    "summer": {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Quercus_serrata_01.jpg/1280px-Quercus_serrata_01.jpg",
+     "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Quercus_serrata_01.jpg",
+     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+     "licence": "CC BY 3.0",
+     "licence_url": "https://creativecommons.org/licenses/by/3.0",
+     "author": "Σ64",
+     "file_page": "https://commons.wikimedia.org/wiki/File:Quercus_serrata_01.jpg",
+     "local_file": "~/tokyo-leaves-ref/konara-oak-summer.jpg",
+     "commons_title": "File:Quercus serrata 01.jpg"
+    }
+   }
+  },
+  {
+   "id": "wax-and-lacquer-trees",
+   "warning": true,
+   "english": "WARNING: wax tree and lacquer trees",
+   "kanji_kana": "ハゼノキ（also リュウキュウハゼ）・漆（ウルシ）・ヤマウルシ",
+   "romaji": "hazenoki, urushi, yama-urushi",
+   "say_it": "hah-zeh-noh-kee; oo-roo-shee; yah-mah oo-roo-shee. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
+   "latin": "Toxicodendron succedaneum (L.) Kuntze; Toxicodendron vernicifluum (Stokes) F.A.Barkley; Toxicodendron trichocarpum (Miq.) Kuntze",
+   "family": "Anacardiaceae (cashew and sumac family)",
+   "native_or_introduced": "Wax tree: grown for wax and now wild in warm areas from Kantō south; sources differ on whether any are native. Lacquer tree: from China and the Himalaya, brought in very early. Yama-urushi: native.",
+   "recognise": "Do not touch. Long feather-like leaves of 7 to 15 pointed leaflets, crowded at branch tips like an umbrella. In autumn they are the brightest scarlet in the garden.",
+   "shape_spec": "Odd-pinnate compound leaf, 15–25 cm long (wax tree) to about 50 cm (yama-urushi). Wax tree: 7–15 leathery, lance-shaped leaflets with smooth edges (edges from the reference photo), 5–10 cm long with pointed tips, in pairs plus one at the end. Leaflet ratio about 3–3.5 : 1, with faint pinnate veins. Leaves gather at twig tips in an umbrella-like cluster. Figures from Kotobank.",
+   "colours": {
+    "summer": "#3f7a32",
+    "autumn": [
+     "#f29a2e",
+     "#e43a1e",
+     "#b5122a"
+    ],
+    "pattern": "Leaflets turn one by one, orange first while others are still green (reference photo); a fully turned tree is vivid scarlet.",
+    "pigment": "Red: anthocyanins made in autumn."
+   },
+   "timing": {
+    "tokyo": "Kiyosumi Garden forecast for the whole garden: 28 November to 3 December, peak about 30 November. Kyū-Furukawa: peak about 2 December.",
+    "kawaguchiko": "No dated source found.",
+    "ref": [
+     "foliage_page"
+    ],
+    "source": [
+     "foliage.html (internal)"
+    ]
+   },
+   "where_on_route": {
+    "text": "Kiyosumi Garden's island of scarlet wax trees, Kyū-Furukawa Gardens and Hamarikyū. Admire them from the path.",
+    "ref": [
+     "foliage_page"
+    ]
+   },
+   "lore": [
+    {
+     "text": "Wax from the berries, mokurō, made Japanese candles, pomade and a polish for cloth.",
+     "ref": [
+      "kb_haze"
+     ]
+    },
+    {
+     "text": "Its other name ryūkyū-haze records that it reached Okinawa first.",
+     "ref": [
+      "kb_haze"
+     ]
+    },
+    {
+     "text": "Lacquer sap hardens when its urushiol is joined together by the enzyme laccase.",
+     "ref": [
+      "kb_urushi"
+     ]
+    },
+    {
+     "text": "Lacquer trees were already widely grown in Japan by the 7th century.",
+     "ref": [
+      "kb_urushi"
+     ]
+    }
+   ],
+   "biology": [
+    {
+     "text": "The rash is an allergy to urushiol. Once sensitised, some people react to tiny amounts, even walking past a tree.",
+     "ref": [
+      "kb_urushi"
+     ]
+    },
+    {
+     "text": "Yama-urushi is milder than lacquer but can still cause a rash. So can the wax tree.",
+     "ref": [
+      "kb_haze",
+      "kb_yamaurushi"
+     ]
+    },
+    {
+     "text": "If a rash starts, stop all contact and see a doctor. Washing skin straight after contact helps prevent it.",
+     "ref": [
+      "kb_urushi"
+     ]
+    }
+   ],
+   "references": [
+    {
+     "key": "kb_haze",
+     "apa": "ハゼノキ [Hazenoki, wax tree]. (n.d.). In 改訂新版 世界大百科事典, 百科事典マイペディア and ブリタニカ国際大百科事典. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%AF%E3%81%9C%E3%81%AE%E3%81%8D-3163372",
+     "url": "https://kotobank.jp/word/%E3%81%AF%E3%81%9C%E3%81%AE%E3%81%8D-3163372"
+    },
+    {
+     "key": "kb_urushi",
+     "apa": "ウルシ [Urushi, lacquer tree]. (n.d.). In 改訂新版 世界大百科事典 and 日本大百科全書（ニッポニカ）. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%86%E3%82%8B%E3%81%97-3144570",
+     "url": "https://kotobank.jp/word/%E3%81%86%E3%82%8B%E3%81%97-3144570"
+    },
+    {
+     "key": "kb_yamaurushi",
+     "apa": "ヤマウルシ [Yama-urushi]. (n.d.). In 日本大百科全書（ニッポニカ） and ブリタニカ国際大百科事典. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%82%84%E3%81%BE%E3%81%86%E3%82%8B%E3%81%97-3173770",
+     "url": "https://kotobank.jp/word/%E3%82%84%E3%81%BE%E3%81%86%E3%82%8B%E3%81%97-3173770"
+    },
+    {
+     "key": "foliage_page",
+     "apa": "Tokyo in Colour, the colour map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
+     "url": "foliage.html",
+     "note": "A page on this site, not a public source."
+    },
+    {
+     "key": "gbif_toxsucc",
+     "apa": "GBIF Secretariat. (n.d.). Toxicodendron succedaneum (L.) Kuntze. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3190624",
+     "url": "https://api.gbif.org/v1/species/3190624"
+    },
+    {
+     "key": "gbif_toxvern",
+     "apa": "GBIF Secretariat. (n.d.). Toxicodendron vernicifluum (Stokes) F.A.Barkley. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3190612",
+     "url": "https://api.gbif.org/v1/species/3190612"
+    },
+    {
+     "key": "gbif_toxtri",
+     "apa": "GBIF Secretariat. (n.d.). Toxicodendron trichocarpum (Miq.) Kuntze. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/3660916",
+     "url": "https://api.gbif.org/v1/species/3660916"
+    }
+   ],
+   "reference_photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Japanese_Wax_Tree_%28Toxicodendron_succedaneum%29_%2821620095994%29.jpg/1280px-Japanese_Wax_Tree_%28Toxicodendron_succedaneum%29_%2821620095994%29.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Japanese_Wax_Tree_%28Toxicodendron_succedaneum%29_%2821620095994%29.jpg",
+    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "author": "harum.koh from Kobe city, Japan",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Japanese_Wax_Tree_(Toxicodendron_succedaneum)_(21620095994).jpg",
+    "local_file": "~/tokyo-leaves-ref/wax-and-lacquer-trees-autumn.jpg",
+    "commons_title": "File:Japanese Wax Tree (Toxicodendron succedaneum) (21620095994).jpg",
+    "season": "autumn",
+    "summer": null
+   }
+  }
+ ]
+}

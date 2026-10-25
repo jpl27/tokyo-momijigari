@@ -15,9 +15,10 @@
     {label:"The growing city",items:[
       ["Growth of the city","growth.html"],
       ["Population 1720–2025","stats.html"]]},
-    {label:"Walking",items:[
-      ["Tokyo in Five Faces","five-faces.html"],
-      ["Tokyo in Colour","foliage.html"]]}
+    {label:"Walking map",href:"five-faces.html"},
+    {label:"Autumn",items:[
+      ["Tokyo in Colour","foliage.html"],
+      ["The leaves","leaves.html"]]}
   ];
   var COMPACT=["five-faces.html","foliage.html","growth.html"];
 

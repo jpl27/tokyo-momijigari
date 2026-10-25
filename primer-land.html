@@ -5,14 +5,76 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Land</title>
-<meta name="description" content="Primer page on the land around Tokyo before 1590. In preparation.">
+<meta name="description" content="Primer page: the plain, the rivers, the bay and the region around Tokyo before 1590, with three maps.">
+<!-- The page's one data file is primer-land-data.json (map features). Text and references from the primer synthesis of 2026-10-25. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css"
+      integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"
+        integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj" crossorigin="anonymous"></script>
 <style>
+:root{
+  --ink:#111; --ink-dim:#555a62; --line:#dedfe2; --paper:#fff; --soft:#f7f5f1;
+  --accent:#d2491f; --water:#3b78b5;
+}
 *{box-sizing:border-box}
-body{margin:0;background:#fff;color:#111;font-family:Georgia,"Times New Roman",Times,serif;font-size:19px;line-height:1.65}
-a{color:#111}
-main{max-width:760px;margin:0 auto;padding:8px 16px 48px}
-h1{font-size:1.9rem;line-height:1.25;margin:36px 0 12px}
-@media (max-width:700px){body{font-size:18px}h1{font-size:1.6rem}}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:19px;line-height:1.6;overflow-x:hidden}
+a{color:var(--ink)}
+main{max-width:760px;margin:0 auto;padding:0 16px 48px}
+h1{font-size:1.9rem;line-height:1.25;margin:32px 0 10px}
+h2{font-size:1.35rem;line-height:1.3;margin:34px 0 8px;scroll-margin-top:110px}
+p{margin:0 0 14px}
+[lang=ja]{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",Georgia,serif}
+.muted{color:var(--ink-dim)}
+.small{font-size:.85em}
+sup.r{font-size:.62em;line-height:0;margin-left:1px;white-space:nowrap}
+sup.r a{text-decoration:none;color:var(--accent);padding:0 1px}
+sup.r a:hover,sup.r a:focus-visible{text-decoration:underline}
+details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:28px 0 10px;padding:0}
+summary{cursor:pointer;padding:10px 2px;min-height:44px;font-weight:bold;list-style:none;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";display:inline-block;width:1.1em;color:var(--accent);font-weight:bold}
+details[open] > summary::before{content:"\2212"}
+details > div{padding:0 2px 12px}
+ol.refs{padding-left:2.4em;margin:6px 0;font-size:.85em;line-height:1.45}
+ol.refs li{margin:0 0 8px;overflow-wrap:anywhere;scroll-margin-top:80px}
+ol.refs li:target{background:#fff3d6}
+.ui{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif}
+/* maps */
+figure.mapfig{margin:22px -16px 26px;padding:0}
+@media (min-width:792px){figure.mapfig{margin-left:0;margin-right:0}}
+.maphead{padding:0 16px;font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif}
+.maphead h3{font-size:16px;margin:0 0 4px}
+.legend{margin:0 0 8px;color:#222}
+.legend div{margin:0;display:flex;flex-wrap:wrap;column-gap:10px}
+.sw{display:inline-block;width:18px;height:0;border-top:3px solid #333;vertical-align:middle;margin:0 4px 0 0}
+.sw.fill{height:11px;border:1px solid rgba(0,0,0,.35);border-radius:2px}
+.sw.dash{border-top-style:dashed}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.4);vertical-align:-1px;margin:0 3px 0 0}
+.leg-i{white-space:nowrap}
+.mapbox{position:relative;overflow:hidden;height:60vh;min-height:300px;background:#e9e7e2;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media (min-width:792px){.mapbox{border:1px solid var(--line);border-radius:10px;overflow:hidden;height:min(60vh,560px)}}
+.mapbox .map{position:absolute;inset:0}
+.mapnote{padding:8px 16px 0;font-size:.85em;color:var(--ink-dim);margin:0}
+.fsbtn{position:absolute;right:8px;bottom:30px;z-index:3;min-height:40px;padding:0 12px;border:0;border-radius:8px;background:rgba(22,24,29,.88);color:#fff;font:600 14px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.fsbtn:focus-visible{outline:3px solid #ffd27a;outline-offset:1px}
+.credit{position:absolute;left:6px;right:120px;bottom:6px;z-index:3;pointer-events:none}
+.credit span{pointer-events:auto;display:inline-block;max-width:100%;background:rgba(255,255,255,.92);border-radius:6px;padding:2px 7px;font:11.5px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",sans-serif;color:#222;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.credit a{color:#222}
+.maperr{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font:15px/1.4 -apple-system,sans-serif}
+figure.full .mapbox{position:fixed;inset:0;z-index:2000;height:100vh;height:100dvh;border:0;border-radius:0}
+body.fs{overflow:hidden}
+.lab{font:600 12px/1.15 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",sans-serif;color:#1d1d1d;white-space:nowrap;pointer-events:none;
+  text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 4px #fff;transform:translate(8px,-50%)}
+.lab.prov{font:italic 600 13px/1 Georgia,serif;color:#5b4a2e;letter-spacing:.04em;transform:none}
+.maplibregl-popup{z-index:4}
+.maplibregl-popup-content{padding:10px 12px;border-radius:10px;font:13.5px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",sans-serif;max-height:55vh;overflow-y:auto}
+.maplibregl-popup-content h4{margin:0 22px 2px 0;font-size:15px}
+.maplibregl-popup-content p{margin:4px 0}
+.maplibregl-popup-content .src{font-size:12px;color:#555;overflow-wrap:anywhere}
+.maplibregl-popup-close-button{font-size:22px;width:32px;height:32px}
+.conf{display:inline-block;padding:0 6px;border-radius:8px;background:#eee;font-size:12px}
+.conf.sketch{background:#fff0d0}
 </style>
 </head>
 <body>
@@ -20,7 +82,209 @@ h1{font-size:1.9rem;line-height:1.25;margin:36px 0 12px}
 <script src="site-menu.js"></script>
 <main>
 <h1>The land</h1>
-<p>In preparation — expected this week.</p>
+<p class="muted">Before Edo: the ground the city was built on. Small numbers link to the references at the foot of the page.</p>
+<h2>The plain</h2>
+<p>The Kantō plain is the largest lowland in Japan. Mountains wall it in on the west, the north and the northeast. The bay closes it on the south. The middle of the plain is slowly sinking, which gives it this bowl shape. Most rivers of central Honshū drain into the bowl and carry mud and sand toward the bay.<sup class="r">[<a href="#ref-R7" data-ref="R7" aria-label="Reference 7">7</a>,<a href="#ref-R8" data-ref="R8" aria-label="Reference 8">8</a>]</sup></p>
+<p>Central Tokyo sits on two kinds of ground. To the west is the Musashino upland, a raised, flat terrace. Rivers built it as a huge fan of gravel during the ice ages. To the east is the low delta, only a few metres above the sea. Later centuries called the upland Yamanote and the lowland Shitamachi. The 10-metre contour on the Five Faces map marks the edge between them.<sup class="r">[<a href="#ref-R6" data-ref="R6" aria-label="Reference 6">6</a>,<a href="#ref-R7" data-ref="R7" aria-label="Reference 7">7</a>]</sup></p>
+<p>Volcanic ash from Fuji and Hakone covers the upland in a thick layer. Rain sinks straight through it to gravel far below. So the flat top of the terrace had little surface water. Springs came out only where valleys cut down to that water. People settled at the terrace edge and around the spring ponds, not on the dry top. The upland stayed thinly settled until Edo's aqueducts arrived in the 1600s. The first map shows the whole plain in relief, with its old and present rivers and its old provinces.<sup class="r">[<a href="#ref-R4" data-ref="R4" aria-label="Reference 4">4</a>,<a href="#ref-R7" data-ref="R7" aria-label="Reference 7">7</a>,<a href="#ref-R8" data-ref="R8" aria-label="Reference 8">8</a>]</sup></p>
+<figure class="mapfig" id="fig-m1">
+  <div class="maphead"><h3>Map 1. Relief and the region</h3><div class="legend"><div><span class="leg-i"><span class="sw fill" style="background:#f3e3b5"></span>Province</span><span class="leg-i"><span class="sw" style="border-color:#1f6fc0"></span>River today</span><span class="leg-i"><span class="sw dash" style="border-color:#7a4fb0"></span>Old river course</span><span class="leg-i"><span class="sw" style="border-color:#9a4a12"></span>Road</span></div><div><span class="leg-i"><span class="dot" style="background:#b3261e"></span>Castle</span><span class="leg-i"><span class="dot" style="background:#2e7d32"></span>Shrine</span><span class="leg-i"><span class="dot" style="background:#37474f"></span>Place or port</span><span class="leg-i">dashed = sketch, approximate</span></div></div></div>
+  <div class="mapbox"><div class="map" id="m1" role="region" aria-label="Map 1. Relief and the region"></div>
+    <button class="fsbtn" type="button" aria-pressed="false">Full screen</button>
+    <div class="credit"><span></span></div></div>
+  <p class="mapnote">The provinces and the old river courses are sketches; the rivers of today are data from OpenStreetMap contributors (ODbL). Tap a line, shape or dot for details.</p>
+</figure>
+<h2>The rivers</h2>
+<p>Before 1590 the Tone River did not reach the Pacific. It flowed south across the plain into Tokyo Bay. Its main channel ran roughly where the Furu-Tone and Naka rivers run today. The Watarase was a separate river then, flowing down the line of the lower Edo River. The lowland flooded often. People built where low banks of sand lifted the ground a little.<sup class="r">[<a href="#ref-R16" data-ref="R16" aria-label="Reference 16">16</a>,<a href="#ref-R17" data-ref="R17" aria-label="Reference 17">17</a>]</sup></p>
+<p>Between 1594 and 1654, Tokugawa officials moved the Tone east. A dam at Kawamata in 1594 closed its main southward channel. From 1621, cuts at Akahori began to link the Tone to rivers flowing east. The upper Edo River was dug between 1635 and 1641. A deeper cut in 1654 finally let the Tone run to the sea at Chōshi. Scholars still argue whether this was one plan. Many date the real start to 1621 and see several aims: new rice land, boat routes and flood control.<sup class="r">[<a href="#ref-R16" data-ref="R16" aria-label="Reference 16">16</a>,<a href="#ref-R17" data-ref="R17" aria-label="Reference 17">17</a>,<a href="#ref-R18" data-ref="R18" aria-label="Reference 18">18</a>]</sup></p>
+<p>The Arakawa once joined the Tone too. In 1629 it was turned west into the Iruma River. From then on, today's Sumida carried the Arakawa past Asakusa. The straight Arakawa flood channel was dug from 1911 to 1930. The Tama River frames the terrace on the south. The Kanda's straight run through Ochanomizu is a cut made in 1620.<sup class="r">[<a href="#ref-R14" data-ref="R14" aria-label="Reference 14">14</a>,<a href="#ref-R15" data-ref="R15" aria-label="Reference 15">15</a>,<a href="#ref-R9" data-ref="R9" aria-label="Reference 9">9</a>]</sup></p>
+<h2>The bay and the inlet</h2>
+<p>Tokyo Bay is shallow and sheltered. The Miura and Bōsō peninsulas pinch its mouth into a narrow channel. That keeps out most of the Pacific swell, so small boats could cross it safely. Rivers filled its head with wide, gently sloping mudflats.<sup class="r">[<a href="#ref-R7" data-ref="R7" aria-label="Reference 7">7</a>]</sup></p>
+<p>About 6,000 years ago the sea stood a few metres higher than it does now. It flooded the river valleys far inland, into what is now Saitama. Waves broke against the foot of the terrace from Akabane south to Ōmori. Shell mounds mark where people lived above that shore. They sit on the terrace rim, close to springs and to rich mudflats. The Ōmori mound, dug by Edward Morse in 1877, is the famous case.<sup class="r">[<a href="#ref-R1" data-ref="R1" aria-label="Reference 1">1</a>,<a href="#ref-R23" data-ref="R23" aria-label="Reference 23">23</a>,<a href="#ref-R26" data-ref="R26" aria-label="Reference 26">26</a>]</sup></p>
+<p>As the sea fell back, sand built a low spit east of today's palace. Historians call it Edo-maejima. It ran south from Kanda through Nihonbashi and Ginza toward Shinbashi. Between the spit and the castle bluff lay the shallow Hibiya inlet. The Hirakawa River emptied into its northern end, near today's Ōtemachi. Boats could land at the foot of the castle. Filling began in 1590 and had closed most of the inlet by about 1607. The second map draws this old shore over today's streets. Its lines are a sketch, not a survey.<sup class="r">[<a href="#ref-R1" data-ref="R1" aria-label="Reference 1">1</a>,<a href="#ref-R12" data-ref="R12" aria-label="Reference 12">12</a>,<a href="#ref-R13" data-ref="R13" aria-label="Reference 13">13</a>,<a href="#ref-R9" data-ref="R9" aria-label="Reference 9">9</a>]</sup></p>
+<figure class="mapfig" id="fig-m2">
+  <div class="maphead"><h3>Map 2. The old coastline</h3><div class="legend"><div><span class="leg-i"><span class="sw fill" style="background:#7fb6e6"></span>Hibiya inlet</span><span class="leg-i"><span class="sw dash" style="border-color:#c9962e;border-top-width:5px"></span>Edo-maejima spit</span><span class="leg-i"><span class="sw dash" style="border-color:#0d3f78"></span>Shore 6,000 years ago</span><span class="leg-i"><span class="sw dash" style="border-color:#7a4fb0"></span>Old Hirakawa</span></div><div><span class="leg-i"><span class="dot" style="background:#8d5a2b"></span>Shell mound</span><span class="leg-i"><span class="dot" style="background:#37474f"></span>Place or port</span><span class="leg-i">blue tint = Meiji low wet ground (GSI)</span><span class="leg-i">dashed = sketch, approximate</span></div></div></div>
+  <div class="mapbox"><div class="map" id="m2" role="region" aria-label="Map 2. The old coastline"></div>
+    <button class="fsbtn" type="button" aria-pressed="false">Full screen</button>
+    <div class="credit"><span></span></div></div>
+  <p class="mapnote">The inlet, spit, old shore and old Hirakawa are sketches; the shell mounds are known sites, and the blue tint is GSI data. Tap a line, shape or dot for details.</p>
+</figure>
+<h2>The region</h2>
+<p>Before Edo, power on this plain lay elsewhere. Musashi was one of the eight Kantō provinces. Its government office stood at Fuchū, on dry ground above the Tama River. The office dates from the early 700s. Ōkunitama Shrine now stands over its central buildings.<sup class="r">[<a href="#ref-R24" data-ref="R24" aria-label="Reference 24">24</a>]</sup></p>
+<p>Kamakura, to the south, became the seat of warrior government in 1185. Roads ran north from it across the plain like the ribs of a fan. Two of the main roads crossed the dry upland well west of Edo. Only the lower road followed the bay shore through Shinagawa, Edo and Asakusa. From about 1495 the Hōjō family ruled from Odawara, at the plain's southwest corner.<sup class="r">[<a href="#ref-R19" data-ref="R19" aria-label="Reference 19">19</a>,<a href="#ref-R31" data-ref="R31" aria-label="Reference 31">31</a>]</sup></p>
+<p>Edo lay where the coast road met the bay and the rivers. A traveller could keep to dry sandbars there and cross the river mouths. Ships from the bay met boats coming down the inland rivers. So Edo was a crossing point, not yet a centre. The Tokugawa later made it the starting point of every main road. They set up the Tōkaidō and the Nakasendō from 1601. The third map shows these roads with the early shrines and castles.<sup class="r">[<a href="#ref-R7" data-ref="R7" aria-label="Reference 7">7</a>,<a href="#ref-R19" data-ref="R19" aria-label="Reference 19">19</a>,<a href="#ref-R22" data-ref="R22" aria-label="Reference 22">22</a>]</sup></p>
+<figure class="mapfig" id="fig-m3">
+  <div class="maphead"><h3>Map 3. Early roads, shrines and castles</h3><div class="legend"><div><span class="leg-i"><span class="sw" style="border-color:#9a4a12"></span>Road</span><span class="leg-i"><span class="dot" style="background:#b3261e"></span>Castle</span><span class="leg-i"><span class="dot" style="background:#2e7d32"></span>Shrine or temple</span><span class="leg-i"><span class="dot" style="background:#8d5a2b"></span>Mound</span><span class="leg-i"><span class="dot" style="background:#37474f"></span>Place or port</span></div><div><span class="leg-i">dashed = sketch, approximate</span><span class="leg-i">paler dots = sketch places</span></div></div></div>
+  <div class="mapbox"><div class="map" id="m3" role="region" aria-label="Map 3. Early roads, shrines and castles"></div>
+    <button class="fsbtn" type="button" aria-pressed="false">Full screen</button>
+    <div class="credit"><span></span></div></div>
+  <p class="mapnote">The three Kamakura roads and a few places are sketches; the other roads and places follow records of known sites. Tap a line, shape or dot for details.</p>
+</figure>
+<details id="refs"><summary>References</summary><div>
+<ol class="refs">
+<li id="ref-R1" value="1">Kikuchi, M. (2021). 古地理復元の高分解能化と課題：補遺―東京低地南西部の微地形発達史 [Higher-resolution palaeogeographic reconstruction: Addendum on the micro-landforms of the southwest Tokyo Lowland]. 神戸大学文学部紀要 [Bulletin of the Faculty of Letters, Kobe University], 48, 221–238. <a href="https://da.lib.kobe-u.ac.jp/da/kernel/81012693/">https://da.lib.kobe-u.ac.jp/da/kernel/81012693/</a></li>
+<li id="ref-R4" value="4">Matsuda, I. (2014). 東京低地西部の地形・地盤と地震被害 [Landforms, ground and earthquake damage in the western Tokyo Lowland]. 日本地震工学会誌 [Bulletin of the Japan Association for Earthquake Engineering], 20. <a href="https://www.jaee.gr.jp/jp/wp-content/uploads/2014/11/kaishi20.pdf">https://www.jaee.gr.jp/jp/wp-content/uploads/2014/11/kaishi20.pdf</a></li>
+<li id="ref-R6" value="6">Matsuda, I. (2013). 対話で学ぶ江戸東京・横浜の地形 [Learning the landforms of Edo-Tokyo and Yokohama through dialogue]. 之潮. <a href="https://ci.nii.ac.jp/ncid/BB14647248">https://ci.nii.ac.jp/ncid/BB14647248</a></li>
+<li id="ref-R7" value="7">Kaizuka, S. (1979). 東京の自然史 [The natural history of Tokyo] (Enlarged 2nd ed.). 紀伊國屋書店. <a href="https://ci.nii.ac.jp/ncid/BN10939337">https://ci.nii.ac.jp/ncid/BN10939337</a></li>
+<li id="ref-R8" value="8">Kubo, S. (2026). 東京の自然史を歩く [Walking the natural history of Tokyo]. 創元社. <a href="https://www.sogensha.co.jp/book/b10152173.html">https://www.sogensha.co.jp/book/b10152173.html</a></li>
+<li id="ref-R9" value="9">Suzuki, M. (2000). 江戸はこうして造られた：幻の百年を復原する [How Edo was made: Reconstructing the lost century]. 筑摩書房 (ちくま学芸文庫). <a href="https://www.chikumashobo.co.jp/product/9784480085399/">https://www.chikumashobo.co.jp/product/9784480085399/</a></li>
+<li id="ref-R12" value="12">Chiyoda City. (2020). 千代田区の都市特性 [Urban character of Chiyoda City] [PDF]. <a href="https://www.city.chiyoda.lg.jp/documents/18350/toshitokusei2.pdf">https://www.city.chiyoda.lg.jp/documents/18350/toshitokusei2.pdf</a></li>
+<li id="ref-R13" value="13">Minato City. (n.d.). 日比谷入江. In 港区史 自然編 [History of Minato City: Natural environment] (digital edition, ADEAC). <a href="https://adeac.jp/minato-city/texthtml/d110110/mp100110-110110/ht000380">https://adeac.jp/minato-city/texthtml/d110110/mp100110-110110/ht000380</a></li>
+<li id="ref-R14" value="14">Ministry of Land, Infrastructure, Transport and Tourism, Arakawa Upstream River Office. (n.d.). 荒川の瀬替え [The westward diversion of the Arakawa]. <a href="https://www.ktr.mlit.go.jp/arajo/arajo00559.html">https://www.ktr.mlit.go.jp/arajo/arajo00559.html</a></li>
+<li id="ref-R15" value="15">Ministry of Land, Infrastructure, Transport and Tourism, Arakawa Downstream River Office. (n.d.). 荒川放水路の開削 [Digging the Arakawa flood channel]. <a href="https://www.ktr.mlit.go.jp/arage/arage00031.html">https://www.ktr.mlit.go.jp/arage/arage00031.html</a></li>
+<li id="ref-R16" value="16">Matsuura, S. (2002). 利根川東遷 [The eastward diversion of the Tone River]. 水利科学 [Water Science], 46(2), 23–48. <a href="https://doi.org/10.20820/suirikagaku.46.2_23">https://doi.org/10.20820/suirikagaku.46.2_23</a></li>
+<li id="ref-R17" value="17">Ōkuma, T. (1981). 利根川治水の変遷と水害 [Changes in Tone River flood control and flood disasters]. 東京大学出版会. <a href="https://www.utp.or.jp/book/b302602.html">https://www.utp.or.jp/book/b302602.html</a></li>
+<li id="ref-R18" value="18">Hanyu City. (2024). 会の川締切跡ビフォーアフター [The Aino-gawa closure site, before and after] [Exhibition panels, PDF]. <a href="https://www.city.hanyu.lg.jp/docs/2018072700016/file_contents/paneruten.pdf">https://www.city.hanyu.lg.jp/docs/2018072700016/file_contents/paneruten.pdf</a></li>
+<li id="ref-R19" value="19">Okano, T. (1999). 家康はなぜ江戸を選んだか [Why did Ieyasu choose Edo?]. 教育出版. <a href="https://www.kyoiku-shuppan.co.jp/book/book/cate5/cate526/sho-641.html">https://www.kyoiku-shuppan.co.jp/book/book/cate5/cate526/sho-641.html</a></li>
+<li id="ref-R22" value="22">Shinagawa City. (n.d.). 品川湊. In 品川区史 [History of Shinagawa City] (digital edition, ADEAC). <a href="https://adeac.jp/shinagawa-city/text-list/d000010/ht001330">https://adeac.jp/shinagawa-city/text-list/d000010/ht001330</a></li>
+<li id="ref-R23" value="23">Shinagawa Historical Museum. (n.d.). 大森貝塚 [The Ōmori shell mound] [Explanatory sheet, PDF]. <a href="https://www.city.shinagawa.tokyo.jp/jigyo/06/historyhp/en/pdf/kaisetsu_multi/tagengo_jpn/PDF_jpn/2_01jpn.pdf">https://www.city.shinagawa.tokyo.jp/jigyo/06/historyhp/en/pdf/kaisetsu_multi/tagengo_jpn/PDF_jpn/2_01jpn.pdf</a></li>
+<li id="ref-R24" value="24">Agency for Cultural Affairs. (n.d.). 武蔵国府跡 [Site of the Musashi provincial office]. 文化遺産オンライン [Cultural Heritage Online]. <a href="https://online.bunka.go.jp/db/heritages/detail/212270">https://online.bunka.go.jp/db/heritages/detail/212270</a></li>
+<li id="ref-R26" value="26">Kita City. (n.d.). 史跡中里貝塚に関する計画の概要 [Outline of the plan for the Nakazato shell mound historic site]. <a href="https://www.city.kita.lg.jp/city-information/policy/1018355/1018360/1011239/1011240.html">https://www.city.kita.lg.jp/city-information/policy/1018355/1018360/1011239/1011240.html</a></li>
+<li id="ref-R31" value="31">Farris, W. W. (2009). Japan to 1600: A social and economic history. University of Hawai'i Press. <a href="https://uhpress.hawaii.edu/title/japan-to-1600-a-social-and-economic-history/">https://uhpress.hawaii.edu/title/japan-to-1600-a-social-and-economic-history/</a></li>
+</ol></div></details>
 </main>
+<script>
+(function(){
+  "use strict";
+
+  function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function linkify(s){ return esc(s).replace(/(https?:\/\/[^\s;,)]+)/g, function(u){ return '<a href="'+u+'" target="_blank" rel="noopener">'+u+'</a>'; }); }
+  var GSI_LIST = 'https://maps.gsi.go.jp/development/ichiran.html';
+  var ATTR = {
+    gsi: '<a href="' + GSI_LIST + '" target="_blank" rel="noopener">地理院タイル (国土地理院)</a>',
+    osm: 'Rivers today © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> (ODbL)'
+  };
+  function gsi(id, ext, maxz, minz){
+    return {type:'raster', tiles:['https://cyberjapandata.gsi.go.jp/xyz/' + id + '/{z}/{x}/{y}.' + ext],
+            tileSize:256, minzoom:minz || 0, maxzoom:maxz};
+  }
+  function fullToggle(fig, map){
+    var btn = fig.querySelector('.fsbtn');
+    function set(on){
+      fig.classList.toggle('full', on); document.body.classList.toggle('fs', on);
+      btn.textContent = on ? 'Close full screen' : 'Full screen';
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      setTimeout(function(){ if (map) map.resize(); }, 30);
+    }
+    btn.addEventListener('click', function(){ set(!fig.classList.contains('full')); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && fig.classList.contains('full')) set(false); });
+  }
+  function whenNear(el, fn){
+    if (!('IntersectionObserver' in window)) { fn(); return; }
+    var io = new IntersectionObserver(function(es){ if (es.some(function(e){ return e.isIntersecting; })) { io.disconnect(); fn(); } }, {rootMargin:'700px 0px'});
+    io.observe(el);
+  }
+
+  /* reference links open the fold-out */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[data-ref]'); if (!a) return;
+    var d = document.getElementById('refs'); if (d) d.open = true;
+  });
+  if (location.hash && location.hash.indexOf('#ref-') === 0) { var d0 = document.getElementById('refs'); if (d0) d0.open = true; }
+
+  var COL = {castle:'#b3261e', shrine:'#2e7d32', temple:'#2e7d32', shell_mound:'#8d5a2b', harbour:'#37474f', point:'#37474f'};
+  var PROV = ['#f3e3b5','#d9ead3','#f4d6cc','#d6e4f0','#ece0f1','#fff2b8','#dbeee8','#f6dfe9'];
+  window.PRIMER = {loaded:0, perMap:{}, drawn:{}};
+
+  function popupHTML(p){
+    var h = '<h4>' + esc(p.name_en) + '</h4>';
+    if (p.name_ja) h += '<p lang="ja" style="font-size:15px">' + esc(p.name_ja) + '</p>';
+    if (p.period) h += '<p><b>When:</b> ' + esc(p.period) + '</p>';
+    if (p.note) h += '<p>' + esc(p.note) + '</p>';
+    h += '<p><b>Confidence:</b> <span class="conf ' + esc(p.confidence) + '">' + esc(p.confidence) + '</span></p>';
+    if (p.source) h += '<p class="src"><b>Source:</b> ' + linkify(p.source) + '</p>';
+    return h;
+  }
+
+  var CONF = {
+    m1: {base:'relief', credit:[ATTR.gsi, ATTR.osm]},
+    m2: {base:'pale', swale:true, credit:[ATTR.gsi + ' (淡色地図, 明治期の低湿地)']},
+    m3: {base:'pale', credit:[ATTR.gsi]}
+  };
+
+  function bbox(features){
+    var b = [180, 90, -180, -90];
+    function walk(c){ if (typeof c[0] === 'number') { b[0]=Math.min(b[0],c[0]); b[1]=Math.min(b[1],c[1]); b[2]=Math.max(b[2],c[0]); b[3]=Math.max(b[3],c[1]); } else c.forEach(walk); }
+    features.forEach(function(f){ walk(f.geometry.coordinates); });
+    return [[b[0],b[1]],[b[2],b[3]]];
+  }
+
+  function build(num, feats){
+    var id = 'm' + num, el = document.getElementById(id), fig = document.getElementById('fig-' + id), cf = CONF[id];
+    fig.querySelector('.credit span').innerHTML = cf.credit.join(' · ');
+    if (typeof maplibregl === 'undefined') {
+      el.innerHTML = '<div class="maperr">The map engine could not be loaded. Check the internet connection and reload the page.</div>';
+      fullToggle(fig, null); return;
+    }
+    feats.forEach(function(f, i){ f.id = i; f.properties._sk = f.properties.confidence === 'sketch' ? 1 : 0; f.properties._i = i;
+      if (f.properties.kind === 'province') f.properties._c = PROV[i % PROV.length]; });
+    var src = {
+      'gsi-base': cf.base === 'relief' ? gsi('relief', 'png', 15, 5) : gsi('pale', 'png', 18)
+    };
+    var layers = [{id:'base', type:'raster', source:'gsi-base'}];
+    if (cf.swale) { src['gsi-swale'] = gsi('swale', 'png', 16, 10); layers.push({id:'swale', type:'raster', source:'gsi-swale', paint:{'raster-opacity':0.45}}); }
+    var b = bbox(feats);
+    var map = new maplibregl.Map({container:el, style:{version:8, sources:src, layers:layers},
+      bounds:b, fitBoundsOptions:{padding:{top:20,bottom:40,left:16,right:16}}, maxZoom:17, minZoom:5,
+      attributionControl:false, dragRotate:false, pitchWithRotate:false, cooperativeGestures:false});
+    map.touchZoomRotate.disableRotation();
+    map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+    fullToggle(fig, map);
+    window.PRIMER['map' + num] = map;
+    map.on('load', function(){
+      map.addSource('f', {type:'geojson', data:{type:'FeatureCollection', features:feats}});
+      var isK = function(k){ return ['==', ['get','kind'], k]; };
+      var sk = ['==', ['get','_sk'], 1], nsk = ['==', ['get','_sk'], 0];
+      map.addLayer({id:'prov-fill', type:'fill', source:'f', filter:isK('province'), paint:{'fill-color':['get','_c'], 'fill-opacity':0.38}});
+      map.addLayer({id:'prov-line', type:'line', source:'f', filter:isK('province'), paint:{'line-color':'#7d6a45', 'line-width':1.2, 'line-dasharray':[3,2], 'line-opacity':0.7}});
+      map.addLayer({id:'inlet', type:'fill', source:'f', filter:isK('inlet'), paint:{'fill-color':'#7fb6e6', 'fill-opacity':0.6}});
+      map.addLayer({id:'inlet-line', type:'line', source:'f', filter:isK('inlet'), paint:{'line-color':'#2f6ea8', 'line-width':1.5, 'line-dasharray':[3,2]}});
+      map.addLayer({id:'river-now', type:'line', source:'f', filter:isK('river_now'), paint:{'line-color':'#1f6fc0', 'line-width':['interpolate',['linear'],['zoom'],7,1.6,12,3.2]}});
+      map.addLayer({id:'river-old', type:'line', source:'f', filter:['all', isK('river_old'), nsk], paint:{'line-color':'#7a4fb0', 'line-width':2.2, 'line-opacity':0.8}});
+      map.addLayer({id:'river-old-sk', type:'line', source:'f', filter:['all', isK('river_old'), sk], paint:{'line-color':'#7a4fb0', 'line-width':2.6, 'line-dasharray':[3,2]}});
+      map.addLayer({id:'spit', type:'line', source:'f', filter:['all', isK('shoreline'), ['in', 'spit', ['downcase', ['get','name_en']]]], paint:{'line-color':'#c9962e', 'line-width':7, 'line-opacity':0.8, 'line-dasharray':[2,1]}});
+      map.addLayer({id:'shore', type:'line', source:'f', filter:['all', isK('shoreline'), ['!', ['in', 'spit', ['downcase', ['get','name_en']]]]], paint:{'line-color':'#0d3f78', 'line-width':2.4, 'line-dasharray':[3,2]}});
+      map.addLayer({id:'road', type:'line', source:'f', filter:['all', isK('road'), nsk], paint:{'line-color':'#9a4a12', 'line-width':2.6}});
+      map.addLayer({id:'road-sk', type:'line', source:'f', filter:['all', isK('road'), sk], paint:{'line-color':'#9a4a12', 'line-width':2.4, 'line-opacity':0.75, 'line-dasharray':[3,2]}});
+      map.addLayer({id:'hit-line', type:'line', source:'f', filter:['==', ['geometry-type'], 'LineString'], paint:{'line-color':'#000', 'line-width':16, 'line-opacity':0.001}});
+      map.addLayer({id:'pts', type:'circle', source:'f', filter:['==', ['geometry-type'], 'Point'], paint:{
+        'circle-radius':['interpolate',['linear'],['zoom'],7,4.5,13,7],
+        'circle-color':['match', ['get','kind'], 'castle', COL.castle, 'shrine', COL.shrine, 'temple', COL.temple, 'shell_mound', COL.shell_mound, COL.point],
+        'circle-opacity':['case', sk, 0.45, 1], 'circle-stroke-color':'#fff', 'circle-stroke-width':1.6}});
+      /* labels as HTML markers (raster style has no font files) */
+      feats.forEach(function(f){
+        var p = f.properties, pt = null, cls = 'lab';
+        if (p.kind === 'province' && p.label_point) { pt = p.label_point; cls += ' prov'; }
+        else if (f.geometry.type === 'Point') pt = f.geometry.coordinates;
+        if (!pt) return;
+        var d = document.createElement('div'); d.className = cls; d.textContent = p.name_en;
+        new maplibregl.Marker({element:d, anchor: p.kind === 'province' ? 'center' : 'left'}).setLngLat(pt).addTo(map);
+      });
+      var pop = new maplibregl.Popup({offset:8, maxWidth:'300px', focusAfterOpen:false});
+      var ORDER = ['pts', 'hit-line', 'inlet', 'prov-fill'];
+      map.on('click', function(e){
+        var r = 6, box = [[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]];
+        var hit = null;
+        for (var i = 0; i < ORDER.length && !hit; i++) { var q = map.queryRenderedFeatures(box, {layers:[ORDER[i]]}); if (q.length) hit = q[0]; }
+        if (!hit) return;
+        var full = feats[hit.properties._i];
+        pop.setLngLat(e.lngLat).setHTML(popupHTML(full.properties)).addTo(map);
+      });
+      ORDER.forEach(function(l){ map.on('mouseenter', l, function(){ map.getCanvas().style.cursor = 'pointer'; }); map.on('mouseleave', l, function(){ map.getCanvas().style.cursor = ''; }); });
+      window.PRIMER.drawn[id] = feats.length;
+    });
+  }
+
+  fetch('primer-land-data.json').then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(d){
+    var by = {1:[], 2:[], 3:[]};
+    d.features.forEach(function(f){ if (by[f.properties.map]) by[f.properties.map].push(JSON.parse(JSON.stringify(f))); });
+    window.PRIMER.loaded = d.features.length;
+    [1,2,3].forEach(function(n){ window.PRIMER.perMap['m' + n] = by[n].length;
+      whenNear(document.getElementById('fig-m' + n), function(){ build(n, by[n]); }); });
+  }).catch(function(){
+    document.querySelectorAll('.mapbox .map').forEach(function(el){ el.innerHTML = '<div class="maperr">The map data could not be loaded. Please reload the page.</div>'; });
+  });
+})();
+</script>
 </body>
 </html>

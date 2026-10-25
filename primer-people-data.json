@@ -1,0 +1,570 @@
+{
+ "sections": [
+  {
+   "id": "mounds",
+   "heading": "Shell mounds and burial mounds",
+   "paragraphs": [
+    "The first people we can trace here lived on the terrace edge. Jōmon villagers built pit houses on the dry rim above the flooded valleys. They gathered shellfish on the mudflats below and drew water from springs at the foot of the cliff. Their shell heaps survive at Ōmori, Nakazato and Nishigahara. Nakazato is unusual. It lies on the old beach and seems to have been a place for boiling and drying shellfish.",
+    "Later local chiefs built large burial mounds shaped like keyholes. A long chain of them lines the bluff above the lower Tama River. The Noge Ōtsuka mound there was built in the 400s. Its grave goods include iron armour of the kind made in central Japan."
+   ],
+   "refs": [
+    "R23",
+    "R26",
+    "R27"
+   ]
+  },
+  {
+   "id": "fuchu",
+   "heading": "Fuchū and the province of Musashi",
+   "paragraphs": [
+    "In the 600s and 700s the court in central Japan ruled through provinces. Musashi's office was at Fuchū, beside a crossing of the Tama River. Digging under and around Ōkunitama Shrine found its central layout. The office seems to have stopped working by the late 900s. A short way north stood the province's official Buddhist temple, at Kokubunji.",
+    "Musashi was a frontier province. Its dry grasslands suited horses, and the court kept horse pastures there. Families who managed land and horses became mounted warriors. Small warrior leagues and larger clans, such as the Chichibu, grew from this base."
+   ],
+   "refs": [
+    "R24",
+    "R25",
+    "R31"
+   ]
+  },
+  {
+   "id": "sensoji",
+   "heading": "Sensō-ji and Asakusa",
+   "paragraphs": [
+    "Sensō-ji's founding story is set in 628. Two fishermen brothers pulled a small golden statue of Kannon from the river at Asakusa. A local leader turned his house into a shrine for it. That is the temple's own account. Historians treat the date as legend, but the temple is very old.",
+    "Asakusa stood on a sandbar beside the river now called the Sumida. Boats from the inland rivers met boats from the bay there. The temple and a river-port town grew up together. The coast road crossed the river by ferry close by. In the early 1800s the artist Aōdō Denzen engraved the temple grounds on copper, shown here."
+   ],
+   "refs": [
+    "R28",
+    "R29"
+   ]
+  },
+  {
+   "id": "edo-family",
+   "heading": "The Edo family",
+   "paragraphs": [
+    "In the 1100s a branch of the Chichibu clan settled on the bluff above the inlet. Edo Shigetsugu took the place name as his family name. His son, Edo Shigenaga, is better known. In 1180 he joined Minamoto no Yoritomo, who founded the Kamakura government. He helped bridge the Sumida with boats for Yoritomo's army. Their hall probably stood where the inner palace grounds are now. Under Kamakura, Edo was a small port. The family gave up the site in the 1450s and moved to Kitami, by the Tama River."
+   ],
+   "refs": [
+    "R9",
+    "R19"
+   ]
+  },
+  {
+   "id": "dokan",
+   "heading": "Ōta Dōkan's castle",
+   "paragraphs": [
+    "Ōta Dōkan (1432–1486) served the Uesugi, who held this part of the Kantō. In 1457 he finished a castle at Edo. It belonged to a line of forts that faced enemies across the rivers. Kawagoe lay to the northwest; whether he also built Iwatsuki is disputed. His castle was made of earth banks and moats, not stone walls. Monks he invited wrote of ships crowding the harbour below. They brought rice, fish, salt, tea and timber from other provinces. Bigger ships anchored at Shinagawa, a few kilometres south. In 1486 his own lord had him killed."
+   ],
+   "refs": [
+    "R9",
+    "R19",
+    "R22",
+    "R32"
+   ]
+  },
+  {
+   "id": "hojo-1590",
+   "heading": "The Hōjō and 1590",
+   "paragraphs": [
+    "The Hōjō family of Odawara took Edo in 1524. Under them Edo became the main base for ruling Musashi. The Tōyama, a leading Hōjō family, held the castle and led its troops. In 1590 Toyotomi Hideyoshi, ruler of most of Japan, besieged Odawara. Edo castle surrendered to Tokugawa troops without a fight in the fourth month. Odawara gave up in the seventh month. Hideyoshi then moved Tokugawa Ieyasu from his home provinces to the Kantō. Ieyasu formally entered Edo on the first day of the eighth month. In today's calendar that is 30 August 1590."
+   ],
+   "refs": [
+    "R19",
+    "R20"
+   ]
+  },
+  {
+   "id": "why-edo",
+   "heading": "Why Edo?",
+   "paragraphs": [
+    "Why did Ieyasu settle at Edo, and not at Odawara or Kamakura? Heavy goods moved best by water. Edo sat at the head of a sheltered bay, where the rivers of the plain came down. Odawara and Kamakura faced open sea and had no river route inland. Edo also lay near the middle of Ieyasu's new lands, while Odawara lay at the far edge. The castle stood on a steep terrace edge, guarded by water. There was room to grow, with dry upland for warriors' houses and shallows to fill for a town. Edo was also far from the politics of Kyoto and Osaka. Historians still debate how much the choice was Hideyoshi's and how much Ieyasu's. From here the story moves to the Five Faces map."
+   ],
+   "refs": [
+    "R19",
+    "R20",
+    "R21",
+    "R9"
+   ]
+  }
+ ],
+ "timeline": [
+  {
+   "date_label": "about 4,400 to 2,300 years ago",
+   "sort_year": -2400,
+   "title": "Shell heaps on the terrace edge",
+   "text": "Jōmon villagers lived in pit houses on the dry rim above flooded valleys. They gathered shellfish on the mudflats below. Their shell heap survives at Ōmori.",
+   "place": {
+    "name_en": "Ōmori shell mound",
+    "name_ja": "大森貝塚",
+    "lon": 139.7297,
+    "lat": 35.5933
+   },
+   "refs": [
+    "R23"
+   ]
+  },
+  {
+   "date_label": "300s to 400s",
+   "sort_year": 300,
+   "title": "Keyhole mounds on the Tama bluff",
+   "text": "Local chiefs began building large keyhole-shaped burial mounds. A long chain of them lines the bluff above the lower Tama River.",
+   "place": {
+    "name_en": "Kikkōyama / Tamagawadai mounds",
+    "name_ja": "亀甲山古墳・多摩川台古墳群",
+    "lon": 139.666,
+    "lat": 35.5898
+   },
+   "refs": [
+    "R27"
+   ]
+  },
+  {
+   "date_label": "400s",
+   "sort_year": 400,
+   "title": "The Noge Ōtsuka mound",
+   "text": "The Noge Ōtsuka mound was built on the same bluff. Its grave goods include iron armour of the kind made in central Japan.",
+   "place": {
+    "name_en": "Noge Ōtsuka mound",
+    "name_ja": "野毛大塚古墳",
+    "lon": 139.643,
+    "lat": 35.6049
+   },
+   "refs": [
+    "R27"
+   ]
+  },
+  {
+   "date_label": "628 (legend)",
+   "sort_year": 628,
+   "title": "Sensō-ji's founding story",
+   "text": "Two fishermen brothers pulled a small golden statue of Kannon from the river at Asakusa. That is the temple's own account. Historians treat the date as legend, but the temple is very old.",
+   "place": {
+    "name_en": "Sensō-ji",
+    "name_ja": "浅草寺",
+    "lon": 139.7967,
+    "lat": 35.7148
+   },
+   "refs": [
+    "R28"
+   ]
+  },
+  {
+   "date_label": "early 700s",
+   "sort_year": 700,
+   "title": "Musashi's provincial office at Fuchū",
+   "text": "The court in central Japan ruled through provinces. Musashi's office was built at Fuchū, beside a crossing of the Tama River.",
+   "place": {
+    "name_en": "Musashi provincial office",
+    "name_ja": "武蔵国府跡",
+    "lon": 139.4779,
+    "lat": 35.6668
+   },
+   "refs": [
+    "R24"
+   ]
+  },
+  {
+   "date_label": "750s",
+   "sort_year": 750,
+   "title": "The provincial temple at Kokubunji",
+   "text": "A short way north of Fuchū stood the province's official Buddhist temple. Its site is now a national historic site.",
+   "place": {
+    "name_en": "Musashi Kokubun-ji",
+    "name_ja": "武蔵国分寺跡",
+    "lon": 139.4718,
+    "lat": 35.6924
+   },
+   "refs": [
+    "R25"
+   ]
+  },
+  {
+   "date_label": "late 900s",
+   "sort_year": 975,
+   "title": "The provincial office stops working",
+   "text": "The Fuchū office seems to have stopped working by the late 900s. Families who managed land and horses were becoming mounted warriors.",
+   "place": {
+    "name_en": "Musashi provincial office",
+    "name_ja": "武蔵国府跡",
+    "lon": 139.4779,
+    "lat": 35.6668
+   },
+   "refs": [
+    "R24",
+    "R31"
+   ]
+  },
+  {
+   "date_label": "1100s",
+   "sort_year": 1100,
+   "title": "The Edo family takes its name",
+   "text": "A branch of the Chichibu clan settled on the bluff above the inlet. Edo Shigetsugu took the place name as his family name.",
+   "place": {
+    "name_en": "Edo Castle (and probable Edo family hall)",
+    "name_ja": "江戸城・江戸氏館",
+    "lon": 139.7544,
+    "lat": 35.6883
+   },
+   "refs": [
+    "R9",
+    "R19"
+   ]
+  },
+  {
+   "date_label": "1180",
+   "sort_year": 1180,
+   "title": "Edo Shigenaga joins Yoritomo",
+   "text": "Edo Shigenaga joined Minamoto no Yoritomo, who founded the Kamakura government. He helped bridge the Sumida with boats for Yoritomo's army.",
+   "place": {
+    "name_en": "Edo Castle (and probable Edo family hall)",
+    "name_ja": "江戸城・江戸氏館",
+    "lon": 139.7544,
+    "lat": 35.6883
+   },
+   "refs": [
+    "R9",
+    "R19"
+   ]
+  },
+  {
+   "date_label": "1300s to 1500s",
+   "sort_year": 1300,
+   "title": "Shinagawa, the deep-water port",
+   "text": "Bigger ships anchored at Shinagawa, a few kilometres south of Edo. Ships came there from Ise and Kii.",
+   "place": {
+    "name_en": "Shinagawa port",
+    "name_ja": "品川湊",
+    "lon": 139.7435,
+    "lat": 35.619
+   },
+   "refs": [
+    "R22"
+   ]
+  },
+  {
+   "date_label": "1432",
+   "sort_year": 1432,
+   "title": "Ōta Dōkan is born",
+   "text": "Ōta Dōkan was born in 1432. He served the Uesugi, who held this part of the Kantō.",
+   "place": null,
+   "refs": [
+    "R32"
+   ]
+  },
+  {
+   "date_label": "1450s",
+   "sort_year": 1450,
+   "title": "The Edo family leaves",
+   "text": "The Edo family gave up the site in the 1450s. They moved to Kitami, by the Tama River.",
+   "place": null,
+   "refs": [
+    "R9",
+    "R19"
+   ]
+  },
+  {
+   "date_label": "1457, 4th month",
+   "sort_year": 1457,
+   "title": "Dōkan finishes Edo Castle",
+   "text": "Ōta Dōkan finished a castle at Edo. It was made of earth banks and moats, not stone walls. Monks he invited wrote of ships crowding the harbour below.",
+   "place": {
+    "name_en": "Edo Castle (and probable Edo family hall)",
+    "name_ja": "江戸城・江戸氏館",
+    "lon": 139.7544,
+    "lat": 35.6883
+   },
+   "refs": [
+    "R9",
+    "R32"
+   ]
+  },
+  {
+   "date_label": "1457",
+   "sort_year": 1457,
+   "title": "A line of river forts",
+   "text": "Edo belonged to a line of forts that faced enemies across the rivers. Kawagoe lay to the northwest. Whether Dōkan also built Iwatsuki is disputed.",
+   "place": {
+    "name_en": "Kawagoe Castle",
+    "name_ja": "河越城",
+    "lon": 139.4915,
+    "lat": 35.9244
+   },
+   "refs": [
+    "R9",
+    "R19"
+   ]
+  },
+  {
+   "date_label": "1486, 7th month",
+   "sort_year": 1486,
+   "title": "Dōkan is killed",
+   "text": "In 1486 Dōkan's own lord, the Uesugi, had him killed.",
+   "place": null,
+   "refs": [
+    "R32"
+   ]
+  },
+  {
+   "date_label": "1524",
+   "sort_year": 1524,
+   "title": "The Hōjō take Edo",
+   "text": "The Hōjō family of Odawara took Edo. Under them Edo became the main base for ruling Musashi. The Tōyama family held the castle.",
+   "place": {
+    "name_en": "Edo Castle (and probable Edo family hall)",
+    "name_ja": "江戸城・江戸氏館",
+    "lon": 139.7544,
+    "lat": 35.6883
+   },
+   "refs": [
+    "R19"
+   ]
+  },
+  {
+   "date_label": "1590, 4th month, 22nd day",
+   "sort_year": 1590,
+   "title": "Edo Castle surrenders",
+   "text": "Toyotomi Hideyoshi, ruler of most of Japan, besieged Odawara. Edo Castle surrendered to Tokugawa troops without a fight.",
+   "place": {
+    "name_en": "Edo Castle (and probable Edo family hall)",
+    "name_ja": "江戸城・江戸氏館",
+    "lon": 139.7544,
+    "lat": 35.6883
+   },
+   "refs": [
+    "R19",
+    "R20"
+   ]
+  },
+  {
+   "date_label": "1590, 7th month, 5th day",
+   "sort_year": 1590,
+   "title": "Odawara gives up",
+   "text": "Odawara, the Hōjō seat, surrendered. Hideyoshi then moved Tokugawa Ieyasu from his home provinces to the Kantō.",
+   "place": {
+    "name_en": "Odawara Castle",
+    "name_ja": "小田原城",
+    "lon": 139.1534,
+    "lat": 35.251
+   },
+   "refs": [
+    "R19",
+    "R20"
+   ]
+  },
+  {
+   "date_label": "1590, 8th month, 1st day",
+   "sort_year": 1590,
+   "title": "Ieyasu enters Edo",
+   "text": "Ieyasu formally entered Edo on the first day of the eighth month. In today's calendar that is 30 August 1590. This date was later celebrated as Hassaku.",
+   "place": {
+    "name_en": "Edo Castle (and probable Edo family hall)",
+    "name_ja": "江戸城・江戸氏館",
+    "lon": 139.7544,
+    "lat": 35.6883
+   },
+   "refs": [
+    "R19",
+    "R20"
+   ]
+  }
+ ],
+ "image": {
+  "file": "images/sensoji-1809.jpg",
+  "thumb": "images/sensoji-1809-thumb.jpg",
+  "title_ja": "大日本金龍山之図",
+  "title_en": "Dai Nippon Kinryūzan no zu (Kinryūzan, that is Sensō-ji, in Great Japan)",
+  "artist": "Aōdō Denzen (亜欧堂田善, 1748–1822)",
+  "date_label": "early 19th century",
+  "medium": "copperplate engraving with hand colouring, 26.0 × 53.4 cm",
+  "repository": "Kobe City Museum (神戸市立博物館)",
+  "licence": "public domain",
+  "credit_line": "Aōdō Denzen (亜欧堂田善, 1748–1822), 大日本金龍山之図 (Dai Nippon Kinryūzan no zu), copperplate engraving with hand colouring, 26.0 × 53.4 cm, early 19th century. Kobe City Museum (神戸市立博物館). Public domain. Record: Cultural Heritage Online.",
+  "caption": "Sensō-ji's main grounds, with the Niō gate and the main hall, engraved on copper by Aōdō Denzen. He changed some details, so the view is not an exact record.",
+  "refs": [
+   "R29"
+  ]
+ },
+ "references": [
+  {
+   "key": "R1",
+   "apa": "Kikuchi, M. (2021). 古地理復元の高分解能化と課題：補遺―東京低地南西部の微地形発達史 [Higher-resolution palaeogeographic reconstruction: Addendum on the micro-landforms of the southwest Tokyo Lowland]. 神戸大学文学部紀要 [Bulletin of the Faculty of Letters, Kobe University], 48, 221–238. https://da.lib.kobe-u.ac.jp/da/kernel/81012693/",
+   "url": "https://da.lib.kobe-u.ac.jp/da/kernel/81012693/",
+   "note": "repository page confirmed; volume and pages as given by report 1"
+  },
+  {
+   "key": "R2",
+   "apa": "National Institute of Advanced Industrial Science and Technology. (2021, May 21). ついに完成！東京都心部の3次元地質地盤図 [Finally complete: A 3D geological map of central Tokyo] [Press release]. https://www.aist.go.jp/aist_j/press_release/pr2021/pr20210521/pr20210521.html",
+   "url": "https://www.aist.go.jp/aist_j/press_release/pr2021/pr20210521/pr20210521.html",
+   "note": "the map viewer itself was under maintenance when checked"
+  },
+  {
+   "key": "R3",
+   "apa": "Geospatial Information Authority of Japan. (n.d.). 治水地形分類図 [Landform classification maps for flood control]. https://www.gsi.go.jp/bousaichiri/fc_index.html",
+   "url": "https://www.gsi.go.jp/bousaichiri/fc_index.html"
+  },
+  {
+   "key": "R4",
+   "apa": "Matsuda, I. (2014). 東京低地西部の地形・地盤と地震被害 [Landforms, ground and earthquake damage in the western Tokyo Lowland]. 日本地震工学会誌 [Bulletin of the Japan Association for Earthquake Engineering], 20. https://www.jaee.gr.jp/jp/wp-content/uploads/2014/11/kaishi20.pdf",
+   "url": "https://www.jaee.gr.jp/jp/wp-content/uploads/2014/11/kaishi20.pdf",
+   "note": "issue PDF confirmed; article title as given by report 1"
+  },
+  {
+   "key": "R5",
+   "apa": "Matsuda, I. (2005). 江戸・東京の地形と災害 [Landforms and disasters of Edo-Tokyo]. 歴史都市防災論文集 [Journal of Disaster Mitigation for Historical Cities], 5. https://r-dmuch.jp/jp/results/disaster/dl_files/5go/5_1.pdf",
+   "url": "https://r-dmuch.jp/jp/results/disaster/dl_files/5go/5_1.pdf"
+  },
+  {
+   "key": "R6",
+   "apa": "Matsuda, I. (2013). 対話で学ぶ江戸東京・横浜の地形 [Learning the landforms of Edo-Tokyo and Yokohama through dialogue]. 之潮. https://ci.nii.ac.jp/ncid/BB14647248",
+   "url": "https://ci.nii.ac.jp/ncid/BB14647248"
+  },
+  {
+   "key": "R7",
+   "apa": "Kaizuka, S. (1979). 東京の自然史 [The natural history of Tokyo] (Enlarged 2nd ed.). 紀伊國屋書店. https://ci.nii.ac.jp/ncid/BN10939337",
+   "url": "https://ci.nii.ac.jp/ncid/BN10939337",
+   "note": "CiNii record confirmed; edition year to be checked against the record; reissued 2011 by Kōdansha Gakujutsu Bunko"
+  },
+  {
+   "key": "R8",
+   "apa": "Kubo, S. (2026). 東京の自然史を歩く [Walking the natural history of Tokyo]. 創元社. https://www.sogensha.co.jp/book/b10152173.html",
+   "url": "https://www.sogensha.co.jp/book/b10152173.html"
+  },
+  {
+   "key": "R9",
+   "apa": "Suzuki, M. (2000). 江戸はこうして造られた：幻の百年を復原する [How Edo was made: Reconstructing the lost century]. 筑摩書房 (ちくま学芸文庫). https://www.chikumashobo.co.jp/product/9784480085399/",
+   "url": "https://www.chikumashobo.co.jp/product/9784480085399/"
+  },
+  {
+   "key": "R10",
+   "apa": "Suzuki, M. (2024). 江戸の都市計画 [The urban planning of Edo]. 筑摩書房 (ちくま学芸文庫). (Original work published 1988) https://www.chikumashobo.co.jp/product/9784480512383/",
+   "url": "https://www.chikumashobo.co.jp/product/9784480512383/"
+  },
+  {
+   "key": "R11",
+   "apa": "Suzuki, M. (1989). 江戸の川・東京の川 [Rivers of Edo, rivers of Tokyo]. 井上書院. (Original work published 1978) https://www.inoueshoin.co.jp/books/ISBN978-4-7530-2304-2.html",
+   "url": "https://www.inoueshoin.co.jp/books/ISBN978-4-7530-2304-2.html"
+  },
+  {
+   "key": "R12",
+   "apa": "Chiyoda City. (2020). 千代田区の都市特性 [Urban character of Chiyoda City] [PDF]. https://www.city.chiyoda.lg.jp/documents/18350/toshitokusei2.pdf",
+   "url": "https://www.city.chiyoda.lg.jp/documents/18350/toshitokusei2.pdf"
+  },
+  {
+   "key": "R13",
+   "apa": "Minato City. (n.d.). 日比谷入江. In 港区史 自然編 [History of Minato City: Natural environment] (digital edition, ADEAC). https://adeac.jp/minato-city/texthtml/d110110/mp100110-110110/ht000380",
+   "url": "https://adeac.jp/minato-city/texthtml/d110110/mp100110-110110/ht000380"
+  },
+  {
+   "key": "R14",
+   "apa": "Ministry of Land, Infrastructure, Transport and Tourism, Arakawa Upstream River Office. (n.d.). 荒川の瀬替え [The westward diversion of the Arakawa]. https://www.ktr.mlit.go.jp/arajo/arajo00559.html",
+   "url": "https://www.ktr.mlit.go.jp/arajo/arajo00559.html"
+  },
+  {
+   "key": "R15",
+   "apa": "Ministry of Land, Infrastructure, Transport and Tourism, Arakawa Downstream River Office. (n.d.). 荒川放水路の開削 [Digging the Arakawa flood channel]. https://www.ktr.mlit.go.jp/arage/arage00031.html",
+   "url": "https://www.ktr.mlit.go.jp/arage/arage00031.html"
+  },
+  {
+   "key": "R16",
+   "apa": "Matsuura, S. (2002). 利根川東遷 [The eastward diversion of the Tone River]. 水利科学 [Water Science], 46(2), 23–48. https://doi.org/10.20820/suirikagaku.46.2_23",
+   "url": "https://doi.org/10.20820/suirikagaku.46.2_23"
+  },
+  {
+   "key": "R17",
+   "apa": "Ōkuma, T. (1981). 利根川治水の変遷と水害 [Changes in Tone River flood control and flood disasters]. 東京大学出版会. https://www.utp.or.jp/book/b302602.html",
+   "url": "https://www.utp.or.jp/book/b302602.html"
+  },
+  {
+   "key": "R18",
+   "apa": "Hanyu City. (2024). 会の川締切跡ビフォーアフター [The Aino-gawa closure site, before and after] [Exhibition panels, PDF]. https://www.city.hanyu.lg.jp/docs/2018072700016/file_contents/paneruten.pdf",
+   "url": "https://www.city.hanyu.lg.jp/docs/2018072700016/file_contents/paneruten.pdf",
+   "note": "year as given by report 2"
+  },
+  {
+   "key": "R19",
+   "apa": "Okano, T. (1999). 家康はなぜ江戸を選んだか [Why did Ieyasu choose Edo?]. 教育出版. https://www.kyoiku-shuppan.co.jp/book/book/cate5/cate526/sho-641.html",
+   "url": "https://www.kyoiku-shuppan.co.jp/book/book/cate5/cate526/sho-641.html"
+  },
+  {
+   "key": "R20",
+   "apa": "Hamada, K. (2023, September). 「家康はなぜ江戸を選んだか」超納得の深いワケ [The convincing reasons why Ieyasu chose Edo]. 東洋経済オンライン. https://toyokeizai.net/articles/-/699456",
+   "url": "https://toyokeizai.net/articles/-/699456"
+  },
+  {
+   "key": "R21",
+   "apa": "Saitō, S. (2022, January 21). 「江戸城は金ピカだったのか」近年の発掘調査で見えた\"ある仮説\" [Was Edo Castle gilded? A hypothesis from recent excavations]. President Online. https://president.jp/articles/-/53794",
+   "url": "https://president.jp/articles/-/53794"
+  },
+  {
+   "key": "R22",
+   "apa": "Shinagawa City. (n.d.). 品川湊. In 品川区史 [History of Shinagawa City] (digital edition, ADEAC). https://adeac.jp/shinagawa-city/text-list/d000010/ht001330",
+   "url": "https://adeac.jp/shinagawa-city/text-list/d000010/ht001330"
+  },
+  {
+   "key": "R23",
+   "apa": "Shinagawa Historical Museum. (n.d.). 大森貝塚 [The Ōmori shell mound] [Explanatory sheet, PDF]. https://www.city.shinagawa.tokyo.jp/jigyo/06/historyhp/en/pdf/kaisetsu_multi/tagengo_jpn/PDF_jpn/2_01jpn.pdf",
+   "url": "https://www.city.shinagawa.tokyo.jp/jigyo/06/historyhp/en/pdf/kaisetsu_multi/tagengo_jpn/PDF_jpn/2_01jpn.pdf"
+  },
+  {
+   "key": "R24",
+   "apa": "Agency for Cultural Affairs. (n.d.). 武蔵国府跡 [Site of the Musashi provincial office]. 文化遺産オンライン [Cultural Heritage Online]. https://online.bunka.go.jp/db/heritages/detail/212270",
+   "url": "https://online.bunka.go.jp/db/heritages/detail/212270"
+  },
+  {
+   "key": "R25",
+   "apa": "Kokubunji City. (n.d.). 武蔵国分寺跡【国指定史跡】 [Site of Musashi Kokubun-ji, national historic site]. https://www.city.kokubunji.tokyo.jp/shisetsu/kouen/1005196/1004222.html",
+   "url": "https://www.city.kokubunji.tokyo.jp/shisetsu/kouen/1005196/1004222.html"
+  },
+  {
+   "key": "R26",
+   "apa": "Kita City. (n.d.). 史跡中里貝塚に関する計画の概要 [Outline of the plan for the Nakazato shell mound historic site]. https://www.city.kita.lg.jp/city-information/policy/1018355/1018360/1011239/1011240.html",
+   "url": "https://www.city.kita.lg.jp/city-information/policy/1018355/1018360/1011239/1011240.html"
+  },
+  {
+   "key": "R27",
+   "apa": "Geological Survey of Japan, AIST. (2023). GSJ 地質ニュース [GSJ Geoscience News], 12(12) (item on Tamagawa Noge-chō Park and the Noge Ōtsuka mound). https://www.gsj.jp/data/gcn/gsj_cn_vol12.no12.pdf",
+   "url": "https://www.gsj.jp/data/gcn/gsj_cn_vol12.no12.pdf"
+  },
+  {
+   "key": "R28",
+   "apa": "Sensō-ji. (n.d.). 浅草寺を知る [About Sensō-ji]. https://www.senso-ji.jp/about/",
+   "url": "https://www.senso-ji.jp/about/"
+  },
+  {
+   "key": "R29",
+   "apa": "Agency for Cultural Affairs. (n.d.). 大日本金龍山之図 [Record of Aōdō Denzen's copperplate, Kobe City Museum]. 文化遺産オンライン [Cultural Heritage Online]. https://online.bunka.go.jp/db/heritages/detail/401381",
+   "url": "https://online.bunka.go.jp/db/heritages/detail/401381"
+  },
+  {
+   "key": "R30",
+   "apa": "Screech, T. (2020). Tokyo before Tokyo: Power and magic in the shogun's city of Edo. Reaktion Books. https://www.reaktionbooks.co.uk/work/tokyo-before-tokyo",
+   "url": "https://www.reaktionbooks.co.uk/work/tokyo-before-tokyo"
+  },
+  {
+   "key": "R31",
+   "apa": "Farris, W. W. (2009). Japan to 1600: A social and economic history. University of Hawai'i Press. https://uhpress.hawaii.edu/title/japan-to-1600-a-social-and-economic-history/",
+   "url": "https://uhpress.hawaii.edu/title/japan-to-1600-a-social-and-economic-history/"
+  },
+  {
+   "key": "R32",
+   "apa": "太田道灌. (n.d.). In コトバンク [Kotobank] (Japanese encyclopedias). https://kotobank.jp/word/%E5%A4%AA%E7%94%B0%E9%81%93%E7%81%8C-41201",
+   "url": "https://kotobank.jp/word/%E5%A4%AA%E7%94%B0%E9%81%93%E7%81%8C-41201"
+  },
+  {
+   "key": "R33",
+   "apa": "Tani, H. (2020). 東回り航路と内川廻し [The eastern sea route and the inland river route] [Lecture handout, PDF]. 日本海事史学会. https://kaijishi.jp/wp-content/uploads/2021/09/resume202010_tani.pdf",
+   "url": "https://kaijishi.jp/wp-content/uploads/2021/09/resume202010_tani.pdf"
+  },
+  {
+   "key": "R34",
+   "apa": "Nakamura, M. (2023). 1855年安政江戸地震の詳細震度分布 [Detailed intensity distribution of the 1855 Ansei Edo earthquake]. 歴史地震 [Historical Earthquakes], 39, 109–129. https://www.histeq.jp/kaishi/HE39/HE39_109_129_Nakamura.pdf",
+   "url": "https://www.histeq.jp/kaishi/HE39/HE39_109_129_Nakamura.pdf",
+   "note": "PDF confirmed; title from report 1's link text"
+  },
+  {
+   "key": "R35",
+   "apa": "Ministry of the Environment, Kōkyo Gaien. (n.d.). 皇居のお濠 [The moats of the Imperial Palace] [Leaflet, PDF]. https://www.env.go.jp/garden/kokyonoohorileaflet.pdf",
+   "url": "https://www.env.go.jp/garden/kokyonoohorileaflet.pdf"
+  }
+ ]
+}

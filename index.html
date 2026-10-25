@@ -5,58 +5,83 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A History of Tokyo</title>
-<meta name="description" content="Front door of a private study site on the history of Tokyo: what it is, the reading order, and the walking map.">
+<meta name="description" content="Front door of a private study site on the history of Tokyo: what it is, the reading order, and the colour and walking maps.">
 <style>
-:root{--ink:#111;--muted:#444;--rule:#cfcfcf;--paper:#fff;--soft:#f4f4f4}
+/* Autumn palette, taken from foliage.html (accent #d2491f, peak #c62828, late #ef8a17, done #8a8178) */
+:root{--ink:#1f1712;--muted:#5a4a3e;--rule:#e2cdb6;--paper:#fbf3e8;--soft:#f4e2cc;--accent:#d2491f;--head:#9c3415;--btn:#a8381a;--btn-hi:#c62828}
 *{box-sizing:border-box}
+html{background:var(--paper)}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:19px;line-height:1.65}
-a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:2px}
 a:hover,a:focus{text-decoration-thickness:2px}
 main{max-width:760px;margin:0 auto;padding:8px 16px 40px}
-h1{font-size:1.9rem;line-height:1.25;margin:36px 0 12px}
-h2{font-size:1.4rem;margin:40px 0 8px;padding-top:12px;border-top:2px solid var(--ink)}
+.band{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:20px 0 4px}
+.band img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;background:var(--soft)}
+.credit{margin:0 0 4px;font-size:.78rem;line-height:1.4;color:var(--muted)}
+h1{font-size:1.9rem;line-height:1.25;margin:24px 0 12px;color:var(--head)}
+h2{font-size:1.4rem;margin:40px 0 8px;padding-top:12px;border-top:2px solid var(--accent);color:var(--head)}
+h3{font-size:1.15rem;margin:24px 0 4px;color:var(--head)}
 .lede{margin:0 0 20px}
-.bigbtn{display:block;margin:24px 0 8px;padding:18px 20px;border:3px solid var(--ink);background:var(--ink);color:#fff;font-size:1.3rem;font-weight:bold;text-align:center;text-decoration:none}
-.bigbtn:hover,.bigbtn:focus{background:#fff;color:var(--ink);text-decoration:underline}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0 8px}
+.bigbtn{display:flex;align-items:center;justify-content:center;min-height:64px;padding:14px 12px;border:3px solid var(--btn);border-radius:8px;background:var(--btn);color:#fff;font-size:1.2rem;font-weight:bold;line-height:1.25;text-align:center;text-decoration:none}
+.bigbtn:hover,.bigbtn:focus{background:#fff;color:var(--btn);text-decoration:underline}
 .btnnote{margin:0 0 8px;font-size:.92rem;color:var(--muted);text-align:center}
 ol.order{padding-left:1.5em;margin:8px 0}
 ol.order li{margin:0 0 12px}
+ol.order li::marker{color:var(--head);font-weight:bold}
 ol.order a{font-weight:bold}
 ol.order span{display:block;font-size:.95rem;color:var(--muted)}
 ol.order .wait{font-style:italic}
-.status{margin:32px 0 8px;padding:10px 14px;background:var(--soft);font-size:.95rem}
+.status{margin:32px 0 8px;padding:10px 14px;background:var(--soft);border-left:4px solid var(--accent);font-size:.95rem}
 .status p{margin:2px 0}
-footer.page{max-width:760px;margin:0 auto;padding:16px 16px 48px;border-top:2px solid var(--ink);font-size:.92rem}
+footer.page{max-width:760px;margin:0 auto;padding:16px 16px 48px;border-top:2px solid var(--accent);font-size:.92rem;color:var(--muted)}
 a,span,p{overflow-wrap:anywhere}
-@media (max-width:700px){body{font-size:18px}h1{font-size:1.6rem}}
+@media (max-width:700px){body{font-size:18px}h1{font-size:1.6rem}.band{gap:4px;margin-top:14px}.band img{border-radius:4px}.bigbtn{font-size:1.05rem;padding:12px 8px}}
 </style>
 </head>
 <body>
 <div id="site-header"><noscript><p style="padding:12px 16px;margin:0"><a href="index.html">A History of Tokyo</a> · the menus need JavaScript</p></noscript></div>
 <script src="site-menu.js"></script>
 <main>
+<div class="band" role="group" aria-label="Six autumn leaves">
+ <img src="images/leaves/japanese-maple-autumn.jpg" alt="Red Japanese maple leaves" title="Japanese maple. Photo: Malene, CC BY-SA 3.0">
+ <img src="images/leaves/ginkgo-autumn.jpg" alt="A yellow ginkgo leaf" title="Ginkgo. Photo: Ninjatacoshell, CC BY-SA 3.0">
+ <img src="images/leaves/zelkova-autumn.jpg" alt="Fallen zelkova leaves in yellow and orange" title="Zelkova. Photo: Masaki Ikeda, public domain">
+ <img src="images/leaves/winged-spindle-autumn.jpg" alt="A pink-red winged spindle leaf" title="Winged spindle. Photo: Kjoonlee, CC BY 4.0">
+ <img src="images/leaves/japanese-larch-autumn.jpg" alt="A golden Japanese larch forest" title="Japanese larch. Photo: Raita Futo, CC BY 2.0">
+ <img src="images/leaves/chinese-tallow-autumn.jpg" alt="Red Chinese tallow leaves" title="Chinese tallow. Photo: Zhangzhugang, CC BY-SA 3.0">
+</div>
+<p class="credit">Photographs: Malene, Ninjatacoshell, Masaki Ikeda (池田正樹), Kjoonlee, Raita Futo and Zhangzhugang, Wikimedia Commons, CC BY-SA 3.0, CC BY 4.0, CC BY 2.0 and public domain.</p>
+
 <h1>A History of Tokyo</h1>
 <p class="lede">This is a private study site about the history of Tokyo. It begins with the land, and with the people who lived here before 1590. Then it follows the city as it grew from a castle town into one of the largest cities on earth. The walking pages are for use on foot in the city. They show the same streets in five periods, from Edo to today. Each map names its sources on the page itself.</p>
 
-<a class="bigbtn" href="five-faces.html">Open the walking map</a>
+<div class="btns">
+ <a class="bigbtn" href="foliage.html">Open the colour map</a>
+ <a class="bigbtn" href="five-faces.html">Open the walking map</a>
+</div>
 <p class="btnnote">The walking map now has its own page. A phone bookmark that opens this page can be moved to the map page instead.</p>
 
 <h2>Reading order</h2>
 <ol class="order">
- <li><a href="primer-land.html">The land</a><span>Why this plain, these rivers and this bay could carry a city. <em class="wait">In preparation.</em></span></li>
- <li><a href="primer-people.html">People and power to 1590</a><span>Who lived here before Ieyasu, and why he chose Edo. <em class="wait">In preparation.</em></span></li>
- <li><a href="growth.html">Growth of the city</a><span>Growth rings on one map, from the first castle in 1457 to 1945, with a time slider. Rings for 1960 to 2020 follow this week.</span></li>
+ <li><a href="primer-land.html">The land</a><span>Why this plain, these rivers and this bay could carry a city, with three maps.</span></li>
+ <li><a href="primer-people.html">People and power to 1590</a><span>Who lived here before Ieyasu, and why he chose Edo, with a timeline.</span></li>
+ <li><a href="growth.html">Growth of the city</a><span>Growth rings on one map, from the first castle in 1457 to 1945, with a time slider. Rings for 1960 to 2020 are still to come.</span></li>
  <li><a href="stats.html">Population 1720–2025</a><span>How many people lived in Tokyo, and what share of Japan that was.</span></li>
  <li><a href="five-faces.html">Tokyo in Five Faces</a><span>The walking map: the same streets in five periods, with a story at each stop.</span></li>
+</ol>
+<h3>Autumn</h3>
+<ol class="order" start="6">
  <li><a href="foliage.html">Tokyo in Colour</a><span>Autumn leaves in Tokyo and at the Fuji lakes.</span></li>
+ <li><a href="leaves.html">The leaves</a><span>A card for each tree you will meet, with photos, names, timing and lore.</span></li>
 </ol>
 
 <div class="status">
- <p>Latest change: 25 October 2026. The site gained this front page, a shared menu and the growth-of-the-city page. The walking map moved to its own page.</p>
+ <p>Latest change: 25 October 2026. Three new pages: The land, People and power to 1590, and The leaves. The menu gained an Autumn heading, and this page took on autumn colours.</p>
 </div>
 </main>
 <footer class="page">
- <p>Privacy: this site names no hotels and no flights.</p>
+ <p>Privacy: this site names no hotels, airlines or flight numbers, and people appear by initials only.</p>
  <p>Private study site for personal, non-commercial use. Each source keeps its own rights.</p>
 </footer>
 </body>
