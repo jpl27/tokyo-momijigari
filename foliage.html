@@ -257,7 +257,7 @@ const SPOTS = [
   tr:'Japanese maple (irohakaede), ginkgo, weeping cherry', pk:'Late Nov to mid Dec',
   f:'Nov 28 to Dec 11, peak Dec 3 (JMC). Weathernews ranks it 5th in Tokyo.',
   il:{d:'Nov 25 to Dec 6', h:'18:00–20:30 (last entry 19:30)', lbl:'18:00–20:30', now:true,
-      t:'Lit maples on the island, a light show on the old storehouse, two tea houses. One-way path. It ends before you are back from the lake, so go Wed, Thu or Fri.',
+      t:'Lit maples on the island, a light show on the old storehouse, two tea houses. One-way path. It ends Sunday 6 Dec, so go any evening from Wednesday to Sunday.',
       fee:'¥1,000 online in advance, ¥1,200 on the day (cash at the Main Gate). Numbers are capped each night.'},
   h:'Day 09:00–17:00 (last entry 16:30). The garden empties at 17:00 and reopens at 18:00 for the light-up.', cl:'None during the autumn event',
   fee:'¥300 (65+ ¥150). ¥400 day ticket with Kyū-Furukawa. Night ticket is separate.',
@@ -748,10 +748,10 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
   [
     'Warm weather delayed Tokyo\'s colour, so the city gardens should peak during your week.',
     'Best bets: Rikugien, Koishikawa Kōrakuen, Hamarikyū, Ueno, Shinjuku Gyoen and the Hongō ginkgos.',
-    'Meiji Jingū Gaien and Kiyosumi are fading: see them Wednesday or Thursday. See Rikugien\'s night light-up Wednesday to Friday.',
+    'Meiji Jingū Gaien and Kiyosumi are fading: see them Wednesday or Thursday. Rikugien\'s night light-up runs any evening from Wednesday to Sunday.',
     'Takao, Mitake and Showa Kinen will be finished.',
-    'At the lakes the leaves are gone. Instead, early winter gives the clearest, snowiest views of Fuji.',
-    'Take the evening bus Saturday. Collect the car Sunday at 08:00 and ride the ropeway that day. Send J and R to Narita by train Monday morning.'
+    'We stay in Tokyo all week. The Fuji lakes trip is dropped: the leaves there are gone, and the trip costs half a day each way.',
+    'See Fuji from Tokyo instead, from a high free deck on a clear morning.'
   ].forEach(function(t){ v.appendChild(el('p', null, t)); });
   box.appendChild(v);
 
@@ -760,14 +760,14 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
     {d:'Wed', w:'Tokyo', c:[['J', 'arr']]},
     {d:'Thu', w:'Tokyo', c:[['J'], ['B', 'arr'], ['Y', 'arr'], ['M', 'arr']]},
     {d:'Fri', w:'Tokyo', c:[['J'], ['B'], ['Y'], ['M'], ['R', 'arr']]},
-    {d:'Sat', w:'Hongō, then lake', c:[['J'], ['B'], ['Y'], ['M'], ['R']]},
-    {d:'Sun', w:'Lake', lake:true, c:[['J'], ['B'], ['Y'], ['M'], ['R']]},
-    {d:'Mon', w:'Lake, then split', lake:true, c:[['J', 'out'], ['R', 'out'], ['B'], ['Y'], ['M']]},
+    {d:'Sat', w:'Hongō and Tokyo', c:[['J'], ['B'], ['Y'], ['M'], ['R']]},
+    {d:'Sun', w:'Asakusa, Yanaka', c:[['J'], ['B'], ['Y'], ['M'], ['R']]},
+    {d:'Mon', w:'Tokyo, or Kamakura', c:[['J', 'out'], ['R', 'out'], ['B'], ['Y'], ['M']]},
     {d:'Tue', w:'Tokyo', c:[['B', 'out'], ['Y', 'out'], ['M', 'out']]}
   ];
   var wk = el('div', 'wk'); wk.setAttribute('role', 'list');
   DAYS.forEach(function(x){
-    var c = el('div', 'd' + (x.lake ? ' lake' : '')); c.setAttribute('role', 'listitem');
+    var c = el('div', 'd'); c.setAttribute('role', 'listitem');
     c.appendChild(el('b', null, x.d)); c.appendChild(el('span', 'where', x.w));
     var ch = el('div', 'chips');
     x.c.forEach(function(p){
@@ -780,25 +780,21 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
     c.appendChild(ch); wk.appendChild(c);
   });
   box.appendChild(wk);
-  var bands = el('div', 'bands');
-  var b1 = el('div', 'band lk', 'Lake trip: Sat evening to Mon morning'); b1.style.gridColumn = '4 / 7'; bands.appendChild(b1);
-  var b2 = el('div', 'band nrt', 'J R to Narita'); b2.style.gridColumn = '5 / 7'; b2.style.gridRow = '2'; bands.appendChild(b2);
-  box.appendChild(bands);
   var key = el('div', 'wkkey');
   [['arr', 'arrives'], ['out', 'flies out']].forEach(function(k){ var s = el('span'); s.appendChild(el('i', 'c ' + k[0], 'X')); s.appendChild(document.createTextNode(k[1])); key.appendChild(s); });
-  key.appendChild(el('span', null, 'J and R reach Narita about 12:15–13:00 Monday.'));
+  key.appendChild(el('span', null, 'J and R fly out Monday evening; B, Y and M on Tuesday evening.'));
   box.appendChild(key);
 
-  box.appendChild(el('h3', null, 'What the report suggests each day'));
+  box.appendChild(el('h3', null, 'The week'));
   var ul = el('ul', 'daylist');
   [
-    ['Wed', 'Meiji Jingū Gaien ginkgos and Kiyosumi before they fade. Evening: Rikugien light-up.'],
-    ['Thu', 'Central gardens. Kyū-Furukawa at 15:00, then Rikugien light-up at 18:00. East Gardens open.'],
-    ['Fri', 'Central or western gardens. Last evening for the Rikugien light-up. East Gardens closed.'],
-    ['Sat', 'Conference in Hongō: see the ginkgo avenue. 17:00 to Busta Shinjuku, bus to the lake.'],
-    ['Sun', 'The lake loop: open "Fuji Five Lakes" on the map.'],
-    ['Mon', 'Dawn at Ōishi Park and Chūreitō. J and R by train to Narita. B, Y and M back to Tokyo.'],
-    ['Tue', 'B, Y and M fly out.']
+    ['Wed', 'J arrives in the afternoon. Evening: Rikugien light-up.'],
+    ['Thu', 'B, Y and M arrive. Ueno Park, Shinobazu Pond and Ameyoko market.'],
+    ['Fri', 'Rikugien in the morning (opens 09:00). Tokyo National Museum, open to 20:00 on Fridays. Then Yanaka. R arrives in the evening.'],
+    ['Sat', 'Conference in Hongō: see the campus ginkgo avenue. The others are free.'],
+    ['Sun', 'Sensō-ji at 08:00, before the crowds, and Asakusa. Then Yanaka and Nezu.'],
+    ['Mon', 'J and R: a garden in the morning, Narita in the afternoon. B, Y and M: Kamakura and Enoshima if clear, Tokyo gardens if cloudy. Most museums close on Mondays.'],
+    ['Tue', 'B, Y and M: Koishikawa Kōrakuen and the Botanical Garden, then fly out in the evening.']
   ].forEach(function(r){ var li = el('li'); li.appendChild(el('b', null, r[0])); li.appendChild(el('span', null, r[1])); ul.appendChild(li); });
   box.appendChild(ul);
 
@@ -813,67 +809,31 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
     if (alt) d.appendChild(el('p', 'alt', alt));
     box.appendChild(d);
   }
-  leg('1 · Saturday evening: Hongō to the lake', 'All five',
-    [['Mode', 'Metro to Shinjuku (Marunouchi 18 min, Ōedo 23 min), then highway bus from Busta Shinjuku (4F, South Exit)'],
-     ['Departs', 'Buses every 30 min until 20:15, then 21:15 and 22:25 (last). Aim for 18:15 or 18:45.'],
-     ['Duration', '1 h 35 min to 1 h 52 min. Arrive about 19:50–20:35.'],
-     ['Price', '¥2,000 online, ¥2,200 at the counter (one way)']],
-    [['Book: Fujikyu highway bus', 'https://bus.fujikyu.co.jp/highway'], ['Willer Travel', 'https://willer-travel.com/en/']],
-    'Rail option: JR limited express to Ōtsuki, then the Fujikyū Line. About 2 h to 2 h 10 min. Last link leaves Shinjuku 22:00 and arrives 00:05. The direct Fuji Excursion train runs in the morning only.',
-    'Book ahead so five can sit together. The car-hire desks close at 19:00 and 20:00, so collect the car Sunday at 08:00.');
-  leg('2 · Monday morning: lake to Narita', 'J and R (land by about 14:00)',
-    [['Mode', 'Fujikyū Line to Ōtsuki, JR limited express (Kaiji or Azusa) to Shinjuku, then the Narita Express'],
-     ['Departs', 'Kawaguchiko 08:15–09:00. Latest safe: 09:15.'],
-     ['Duration', 'About 60 + 60 min to Shinjuku (arrive 10:30–11:15), then 81–93 min. At Narita 12:15–13:00.'],
-     ['Price', 'Not given in the report. Check on Eki-net.']],
-    [['Book: JR East Eki-net', 'https://www.eki-net.com/']],
-    'Bus option: highway bus to Busta Shinjuku (¥2,000 online), then Narita Express or Airport Limousine (¥3,600). Leave by 08:30: Monday traffic can add 30–60 min, and fares are not refunded for delays.',
-    'The direct Kawaguchiko–Narita bus leaves only at 13:10 and lands 16:27–16:35. Too late.');
-  leg('3 · Monday: lake back to Tokyo', 'B, Y and M',
-    [['Option A', 'Return the car at 08:00 and ride the morning bus (¥2,000 online) or the Ōtsuki train with J and R.'],
-     ['Option B', 'Keep the car for the morning (Music Forest Museum, cafés). Return it by 13:30.'],
-     ['Departs', 'Fuji Excursion 32 at 14:08, arrives Shinjuku 16:08. Or any midday bus.'],
-     ['Duration', 'Train about 2 h. Bus 1 h 35 min to 1 h 52 min.'],
-     ['Price', 'Train ¥4,200 (reserved seats only). Bus ¥2,000 online.']],
-    [['Book: Fuji Excursion', 'https://www.fujikyu-railway.jp/en/fujikaiyuu/'], ['Fujikyu highway bus', 'https://bus.fujikyu.co.jp/highway']],
-    'Later trains: 14:58, 16:48 and 17:41.', null);
-
-  box.appendChild(el('h3', null, 'The rental car'));
-  var rc = el('div', 'leg');
-  var dl = el('dl', 'facts');
-  [['At the station', 'Nippon Rent-A-Car, 2 min walk, 08:00–19:00. Toyota Rent-A-Car, 7 min walk, 08:00–20:00.'],
-   ['Nearby', 'ORIX near Mt. Fuji Station (to 19:00). Budget, Times and J-Net also serve the area.'],
-   ['Which car', 'Five adults plus airport bags: a Corolla Touring wagon or a 7-seat Sienta, not a small hatchback.'],
-   ['Price', 'From about ¥7,030 a day (mini) to ¥9,590 (minivan) on Rakuten. Trip.com: wagon about US$65, Sienta about US$76 a day. ETC toll card ¥330.'],
-   ['Winter tyres', 'Strongly advised: dawn frost at Lake Yamanaka and on the Subaru Line. Ask when booking.']]
-  .forEach(function(r){ dl.appendChild(el('dt', null, r[0])); dl.appendChild(el('dd', null, r[1])); });
-  rc.appendChild(dl);
-  var pw = el('div', 'warn hi');
-  pw.appendChild(el('b', null, 'Driving permit rule. '));
-  pw.appendChild(document.createTextNode('Japan accepts only the paper International Driving Permit under the 1949 Geneva Convention. The driver shows the original permit, home licence, passport with an entry stamp, and the booking card. At an automatic gate, ask for a manual stamp. A Taiwan licence needs an official Japanese translation instead (from JAF or the Taiwan-Japan Relations Association).'));
-  rc.appendChild(pw);
-  rc.appendChild(el('div', 'warn', 'Not known: whether winter tyres come free or cost extra. Check with the company.'));
-  var rl = el('div');
-  [['Book: Tabirai Japan', 'https://en.tabirai.net/car/yamanashi/'], ['Nippon Rent-A-Car', 'https://store.nipponrentacar.co.jp/en/'],
-   ['Rakuten Travel', 'https://travel.rakuten.com/cars/'], ['Trip.com', 'https://www.trip.com/carhire/']]
-  .forEach(function(x, i){ rl.appendChild(link(x[1], x[0], 'btnlink' + (i ? ' sec' : ''))); });
-  rc.appendChild(rl);
-  box.appendChild(rc);
-
-  box.appendChild(el('h3', null, 'At the lake'));
-  var wx = el('dl', 'facts');
-  [['Cold', 'Dawn −2 to −4 °C. Midday about 8–10 °C.'], ['Light', 'Sunrise about 06:35, sunset about 16:30.'],
-   ['Clearest Fuji', '06:00–09:30, and again 16:00–17:00. Cloud builds after midday.'],
-   ['Indoors', 'Museums and the village close at 16:30 (last entry 16:00).']]
-  .forEach(function(r){ wx.appendChild(el('dt', null, r[0])); wx.appendChild(el('dd', null, r[1])); });
-  box.appendChild(wx);
+  leg('1 · Narita to Ueno', 'Each of us, on arrival',
+    [['Mode', 'Keisei Skyliner to Keisei Ueno, the last stop. Board at Airport Terminal 2 Station (Terminals 2 and 3) or Narita Airport Station (Terminal 1).'],
+     ['Departs', 'Every 20–40 minutes.'],
+     ['Duration', 'About 40–45 minutes.'],
+     ['Price', 'About ¥2,580 with the seat ticket; a little less bought online in advance.']],
+    [['Keisei Skyliner', 'https://www.keisei.co.jp/keisei/tetudou/skyliner/us/']],
+    'Allow about 45 minutes from landing to the train for immigration, bags and customs.', null);
+  leg('2 · Monday afternoon: Ueno to Narita', 'J and R',
+    [['Mode', 'Keisei Skyliner from Keisei Ueno.'],
+     ['Departs', 'About 16:00.'],
+     ['Duration', 'About 40 minutes to Airport Terminal 2 Station; Narita Airport Station (Terminal 1) is the stop after.'],
+     ['Price', 'About ¥2,580 each.']],
+    [['Keisei Skyliner', 'https://www.keisei.co.jp/keisei/tetudou/skyliner/us/']],
+    null, 'Get off at your own terminal\'s station.');
+  leg('3 · Monday: Kamakura and Enoshima', 'B, Y and M (if the sky is clear)',
+    [['Mode', 'JR Yokosuka Line from Tokyo Station to Kamakura, no change. Engaku-ji and Kenchō-ji are at Kita-Kamakura, one stop before. Enoden line from Kamakura to Enoshima.'],
+     ['Departs', 'Every 10–15 minutes from Tokyo Station.'],
+     ['Duration', 'About 1 hour to Kamakura. Enoden about 25 minutes more.'],
+     ['Price', 'About ¥945 one way with an IC card.']],
+    [['Enoden line', 'https://www.enoden.co.jp/en/']],
+    'If cloudy, stay in Tokyo: Koishikawa Kōrakuen, Rikugien or Hamarikyū.', null);
 
   box.appendChild(el('h3', null, 'What the report is unsure about'));
   var u = el('ul', 'refs');
-  ['Yurari onsen may be closed for maintenance on your Sunday. Check its website in late November.',
-   'The Music Forest Museum: sources differ on closing time and Sunday price.',
-   'Narita Express times between 10:30 and 12:00 were not found. Check on Eki-net.',
-   'The Subaru Line toll, and whether winter tyres cost extra, were not found.',
+  ['Rikugien\'s 2026 light-up dates come from the report. Check the garden\'s own site in late November.',
    'Hours and fees for several Tokyo gardens follow the standard schedule. Recheck before you go.']
   .forEach(function(t){ u.appendChild(el('li', null, t)); });
   box.appendChild(u);
