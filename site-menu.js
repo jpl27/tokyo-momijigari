@@ -10,7 +10,7 @@
   var SMALL="Private study site · started 24 October 2026";
   var MENUS=[
     {label:"Momijigari",items:[
-      ["Tokyo in Colour","foliage.html"],
+      ["Tokyo Foliage","foliage.html"],
       ["The leaves","leaves.html"]]},
     {label:"Tokyo background",items:[
       ["The land","primer-land.html"],
