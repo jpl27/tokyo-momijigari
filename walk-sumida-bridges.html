@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Tokyo">
+<title>Sumida bridges by night</title>
+<!-- Public copy of plans/walk-sumida-bridges.html, written by publish_walk_pages.py. Do not edit here: rebuild the plan page, then rerun the script. No trip dates, no lodging. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<style>
+:root{--c:#1f3a5f;--cl:rgba(255,255,255,.6);--ink:#161616;--dim:#5a5d63;--line:#e3e1dc;--soft:#f7f5f0;--bg:#fbfaf7;--tap:40px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:17.5px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+.bar{background:var(--c);color:#fff;padding:10px 16px}
+.bar .k{font-size:.74em;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.bar h1{margin:2px 0 0;font-size:1.3rem;line-height:1.2}
+.bar .area{margin:2px 0 0;font-size:.9em;opacity:.95}
+#stage{position:relative;height:60vh;min-height:360px;background:#e8e4dc}
+#map{position:absolute;inset:0}
+#kjBadge{position:absolute;left:8px;bottom:8px;z-index:3;background:rgba(255,255,255,.95);border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.25);font-family:system-ui,sans-serif}
+#kjBadge a{color:var(--ink);text-decoration:none}
+#uenoChip{position:absolute;z-index:4;display:none;align-items:center;gap:5px;background:rgba(255,255,255,.95);border:1px solid #e3b3c0;border-radius:14px;padding:2px 9px 2px 6px;font:600 12px system-ui,sans-serif;color:#7a2d45;box-shadow:0 1px 3px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+#uenoChip svg{width:16px;height:16px}#uenoChip .ar{display:inline-block;transition:transform .2s}
+#maperr{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;background:var(--soft)}
+[hidden]{display:none !important}
+.controls{background:#fff;border-bottom:1px solid var(--line);padding:8px 12px}
+.periods{display:flex;flex-wrap:wrap;gap:6px}
+.periods button{font:inherit;font-size:.86em;min-height:34px;padding:4px 10px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);cursor:pointer}
+.periods button[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.mix{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:.86em;color:var(--dim)}
+.mix input{flex:1;min-width:0;height:var(--tap);accent-color:var(--c);margin:0}
+.note{font-size:.84em;color:var(--dim);margin:6px 0 0}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 56px}
+.stops{list-style:none;padding:0;margin:14px 0 6px;display:grid;grid-template-columns:1fr;gap:6px}
+@media (min-width:640px){.stops{grid-template-columns:1fr 1fr}}
+.stops li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+.stops li:hover{background:var(--cl)}
+.stops .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-size:.8em;font-weight:bold;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif}
+.stops .n.x{background:#fff;color:var(--c);border:2px solid var(--c)}
+.stops b{display:block;font-size:.95em}
+.stops span{display:block;font-size:.84em;color:var(--dim)}
+.legend{font-size:.84em;color:var(--dim);margin:4px 0 0}
+.legend i{display:inline-block;width:22px;border-top:3px solid var(--c);vertical-align:middle;margin-right:4px}
+.legend i.d{border-top-style:dashed}
+h2.pt{font-size:1.5rem;line-height:1.2;color:var(--c);margin:28px 0 0}
+p.slogan{font-style:italic;font-size:1.05em;margin:6px 0 14px}
+.pitch h3{margin:20px 0 6px;font-size:1.05rem;color:var(--c)}
+.pitch p{margin:0 0 10px}
+.foot{margin-top:28px;padding-top:12px;border-top:1px solid var(--line);font-size:.88em;color:var(--dim)}
+.foot a{color:var(--c)}
+.maplibregl-popup-content{font-family:Georgia,serif;font-size:14px;line-height:1.4;padding:10px 12px;max-width:260px}
+.maplibregl-popup-content b{display:block;margin-bottom:3px}
+.maplibregl-ctrl-attrib{font-family:system-ui,sans-serif;font-size:11px}
+
+/* HTML rule: pale green page, darker green rules, translucent white boxes */
+:root{--bg:#CAF6D1;--line:#B6DBBC;--soft:rgba(255,255,255,.6)}
+.controls{background:rgba(255,255,255,.6)}
+.stops li{background:rgba(255,255,255,.6)}
+.stops li:hover{background:rgba(255,255,255,.9)}
+.assume{background:rgba(255,255,255,.6);border-radius:8px;padding:10px 12px;font-size:.92em;margin:14px 0 6px}
+table.day{border-collapse:collapse;width:100%;font-size:.92em;margin:8px 0 10px}
+table.day td{text-align:left;vertical-align:top;padding:7px 6px;border-bottom:1px solid var(--line)}
+table.day td.t{white-space:nowrap;font-weight:bold;width:3.6em;color:var(--c)}
+table.day p.leg{margin:0}
+a.dir{display:inline-block;font-family:system-ui,sans-serif;font-size:.78em;border:1px solid var(--c);color:var(--c);border-radius:12px;padding:0 8px;margin-left:4px;text-decoration:none;white-space:nowrap}
+.pv{display:inline-block;font-family:system-ui,sans-serif;font-size:.7em;border-radius:4px;padding:0 5px;vertical-align:1px}
+.pv.n{background:rgba(255,255,255,.75);color:#7a3a14;border:1px solid #d9b9a4}
+.sum{font-size:.92em;color:var(--dim)}
+ul.unc{padding-left:20px}ul.unc li{margin:0 0 4px}ul.unc a{color:var(--c)}
+.card{background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:12px;padding:14px 14px 6px;margin:14px 0 18px}
+.card .chead{display:flex;gap:12px;align-items:flex-start;margin-bottom:8px}
+.card .num{flex:0 0 34px;height:34px;border-radius:50%;background:var(--c);color:#fff;font:bold 15px system-ui,sans-serif;display:flex;align-items:center;justify-content:center}
+.card h3{margin:0;font-size:1.25rem;line-height:1.2;color:var(--c)}
+.card .kj{font-weight:normal;font-size:.85em;color:var(--dim);white-space:nowrap}
+.card .yr{margin:2px 0 0;font-size:.88em;color:var(--dim)}
+table.facts{border-collapse:collapse;width:100%;font-size:.88em;margin:4px 0 12px}
+table.facts th,table.facts td{text-align:left;vertical-align:top;padding:5px 6px;border-top:1px solid var(--line)}
+table.facts th{width:5.2em;font-family:system-ui,sans-serif;font-size:.9em;color:var(--dim);font-weight:600}
+.card p{margin:0 0 10px}
+.card p.look{border-top:1px solid var(--line);padding-top:9px;font-size:.95em}
+#site-header{position:relative !important;z-index:40}
+</style>
+</head>
+<body>
+<div id="site-header"><noscript><p style="padding:12px 16px;margin:0"><a href="index.html">Tokyo Momijigari</a> · the menus need JavaScript</p></noscript></div>
+<script src="site-menu.js"></script>
+<div class="bar"><div class="k">Evening walk · Wednesday, 18:00 to about 20:10</div><h1>Sumida bridges by night</h1><p class="area">Kayabachō · Eitai Bridge · Toyomi Bridge · Kiyosu Bridge · Ningyōchō</p></div>
+<div id="stage"><div id="map"></div><div id="kjBadge" hidden><a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a></div><div id="uenoChip"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><span>上野公園 Ueno Park</span><span class="ar">&#x2191;</span><span id="uenoKm"></span></div><div id="maperr"></div></div>
+<div class="controls">
+<div class="periods" id="periods"></div>
+<div class="mix"><span>Old map</span><input id="mix" type="range" min="0" max="100" value="85" aria-label="Old map opacity"><span>Today</span></div>
+<p class="note">Tap a period to lay its map over today's streets; slide to fade. Tap a bridge to fly to it. <span id="pnote"></span></p>
+</div>
+<div class="wrap">
+<ol class="stops" id="stops"></ol>
+<p class="legend"><i></i> on foot &nbsp; <i class="d"></i> by train or optional &nbsp; The cherry blossom marks Ueno Park, the anchor near the flat; when it is off the map a blossom chip at the edge points to it. Bridge positions come from OpenStreetMap. Solid lines join the stops on foot in a straight line, so follow the streets and the riverbank; dashed lines are the train legs and the optional walk to Shin-Ōhashi.</p>
+
+<h2 class="pt">Three steel bridges of the rebuilt city</h2>
+<p class="slogan">An arch, a ladder and a chain bridge, built after the fire of 1923 and lit after dark.</p>
+<div class="pitch">
+<div class="assume"><b>The Wednesday evening walk.</b> Three steel bridges of the 1920s on one kilometre of river, all lit after dark, with a fourth as an optional extra. Tap a number on the map, or scroll down for a card on each bridge. The old-map buttons above show the river before and after the bridges were built: try 1896–1909, then 1927–39.</div>
+<h2 class="pt" style="margin-top:22px">The evening, Wednesday</h2>
+<table class="day">
+<tr><td class="t">18:00</td><td><b>Leave the flat.</b> Walk east to Naka-Okachimachi station on the Hibiya line, about 7 minutes. <span class="pv n">estimate</span></td></tr>
+<tr><td class="t">18:10</td><td><p class="leg"><b>Train.</b> Hibiya line, Naka-Okachimachi to Kayabachō, 4 stops, no change, about 8 minutes. <span class="pv n">estimate</span> <a class="dir" href="https://www.google.com/maps/dir/?api=1&origin=Naka-Okachimachi%20Station%2C%20Tokyo&destination=Kayabacho%20Station%2C%20Tokyo&travelmode=transit" target="_blank" rel="noopener">Directions</a></p></td></tr>
+<tr><td class="t">18:20</td><td><p class="leg"><b>Walk</b> east along Eitai-dōri, the wide street that runs straight onto the bridge. About 0.9 km, 11 minutes. <span class="pv n">estimate</span> <a class="dir" href="https://www.google.com/maps/dir/?api=1&origin=Kayabacho%20Station%2C%20Tokyo&destination=Eitai%20Bridge%2C%20Tokyo&travelmode=walking" target="_blank" rel="noopener">Directions</a></p></td></tr>
+<tr><td class="t">18:30</td><td><b>1, Eitai Bridge (20 minutes).</b> Walk out to the middle of the arch. Downstream the river splits round the towers of Tsukuda island. Then come back to the west end.</td></tr>
+<tr><td class="t">18:50</td><td><b>2, Toyomi Bridge (10 minutes).</b> Two minutes north along the bank. Cross it; from its far side Eitai Bridge is in full view.</td></tr>
+<tr><td class="t">19:00</td><td><p class="leg"><b>Walk</b> north along the west bank of the Sumida, under the motorway bridge, to Kiyosu Bridge. About 1 km, 15 minutes. If the riverside path is shut, follow the street one block inland. <span class="pv n">estimate</span> <a class="dir" href="https://www.google.com/maps/dir/?api=1&origin=Toyomi%20Bridge%2C%20Chuo%2C%20Tokyo&destination=Kiyosu%20Bridge%2C%20Tokyo&travelmode=walking" target="_blank" rel="noopener">Directions</a></p></td></tr>
+<tr><td class="t">19:15</td><td><b>3, Kiyosu Bridge (20 minutes).</b> Look at it first from the bank just downstream, then walk onto it to see the chains and the towers close up.</td></tr>
+<tr><td class="t">19:35</td><td><p class="leg"><b>Walk</b> west to Ningyōchō station, about 1 km, 13 minutes. Ningyōchō is an old merchant quarter with many places to eat. <span class="pv n">estimate</span> Eating places <span class="pv n">not checked</span> <a class="dir" href="https://www.google.com/maps/dir/?api=1&origin=Kiyosu%20Bridge%2C%20Tokyo&destination=Ningyocho%20Station%2C%20Tokyo&travelmode=walking" target="_blank" rel="noopener">Directions</a></p></td></tr>
+<tr><td class="t">19:50</td><td><p class="leg"><b>Train home.</b> Hibiya line, Ningyōchō to Naka-Okachimachi, 3 stops, about 6 minutes; then 7 minutes on foot. <span class="pv n">estimate</span> <a class="dir" href="https://www.google.com/maps/dir/?api=1&origin=Ningyocho%20Station%2C%20Tokyo&destination=Naka-Okachimachi%20Station%2C%20Tokyo&travelmode=transit" target="_blank" rel="noopener">Directions</a></p></td></tr>
+<tr><td class="t">~20:10</td><td><b>Back at the flat,</b> or later after dinner in Ningyōchō.</td></tr>
+</table>
+<p class="sum">On foot: about 4.3 km, counting the map distance plus a quarter for street corners. The optional walk on to Shin-Ōhashi adds about 1.0 km and 25 minutes. The bridges and the riverbank are free and open at all hours. <span class="pv n">estimate</span></p>
+<p class="sum"><b>The lights.</b> Sunset in early December is about 16:30. Tokyo's own notices in 2024 and 2025 gave the lighting hours as 15 minutes after sunset until 23:00. One source gives 21:00 for Eitai Bridge. Either way, this walk ends well before the lights go off.</p>
+<h2 class="pt">Why these bridges were built</h2>
+<p>The Great Kantō Earthquake struck on 1 September 1923. Most of the damage in Tokyo came from the fires that followed. Many bridges had steel frames but wooden decks, and the decks burned. People who had run to the river were trapped.</p>
+<p>The government set up a Reconstruction Bureau in February 1924. Its head of civil engineering was Ōta Enzō, and its chief of bridges was Tanaka Yutaka, a railway engineer. The Bureau built over 100 bridges, and Tokyo City built several hundred more. The programme was finished by 1930.</p>
+<p>One architect proposed that every bridge should have the same form. The Bureau refused. Tanaka gave each big Sumida bridge a different structure: an arch at Eitai, a suspension bridge at Kiyosu, a long steel beam at Kototoi. The river became a row of nine different steel bridges, built in about six years.</p>
+<p>On Thursday you see Kachidoki Bridge of 1940, the last of the line. Tonight's bridges are where that programme began.</p>
+<h2 class="pt">The bridges</h2>
+<section class="card" id="bridge-1"><div class="chead"><span class="num">1</span><div><h3>Eitai Bridge <span class="kj">永代橋</span></h3><p class="yr">Present bridge opened 22 December 1926</p></div></div><table class="facts"><tr><th>Type</th><td>Steel arch in the middle, steel beams at each side. The arch is a tied arch: the road deck ties its two feet together, like the string of a bow, so the arch does not push outward on the soft riverbed.</td></tr><tr><th>Size</th><td>184.7 m long, 25 m wide</td></tr><tr><th>Design</th><td>Tanaka Yutaka (outline) and Takenaka Yoshitada (detail), with the architects Yamada Mamoru and Yamaguchi Bunzō advising on its look</td></tr><tr><th>Built by</th><td>Reconstruction Bureau; steel from Kawasaki Shipbuilding, Kobe</td></tr><tr><th>Status</th><td>Important Cultural Property since 2007</td></tr></table><p><b>The first bridge, 1698.</b> The shogunate built it to mark the fiftieth birthday of the shogun Tsunayoshi. It was the fourth bridge over the Sumida. It joined the merchant city on the west bank to Fukagawa on the east bank. Fukagawa was the district of timber yards and rice warehouses. <span class="pv n">Fukagawa trades: not checked</span></p><p><b>The collapse of 1807.</b> Crowds going to the festival at Tomioka Hachiman shrine overloaded the wooden bridge and a section fell. More than 1,400 people were killed, injured or missing. It is often called the worst bridge collapse in Japanese history.</p><p><b>The iron bridge of 1897.</b> A steel truss replaced the wooden bridge, slightly downstream of the old site. It is described as the first iron road bridge in Japan. Trams ran over it from 1904.</p><p><b>1 September 1923.</b> The 1897 bridge had a steel frame but a wooden deck. In the fires after the earthquake the deck burned. Many people who had fled onto it died by fire or by drowning.</p><p><b>The bridge of 1926.</b> The Reconstruction Bureau rebuilt it first among the big Sumida bridges. Its form follows the Ludendorff railway bridge over the Rhine at Remagen. It was the first bridge in Japan to span more than 100 metres with a tied arch, and it is the oldest of that type still standing. The foundations were dug inside chambers of compressed air sunk into the riverbed, a method reported as new to Japan.</p><p><b>The river as a freight road.</b> On one day in 1921, 688 boats passed this point between 07:00 and 17:00. On one day in 2014 the count was 174, over a longer day. The bridge was built high and wide in the middle for that traffic, most of which has gone.</p><p class="look"><b>What to look for.</b> The single blue arch against the towers of Tsukuda. The lines of rivets on the arch ribs, visible from the footpath. The planners called this bridge and Kiyosu Bridge a matched pair: this one heavy and plain, the "gate of the imperial capital".</p></section>
+<section class="card" id="bridge-2"><div class="chead"><span class="num">2</span><div><h3>Toyomi Bridge <span class="kj">豊海橋</span></h3><p class="yr">Present bridge finished September 1927</p></div></div><table class="facts"><tr><th>Type</th><td>A steel frame shaped like a ladder laid on its side, with upright posts and no diagonal braces. Engineers call it a Vierendeel bridge, after its Belgian inventor.</td></tr><tr><th>Size</th><td>46.1 m long, 8 m wide</td></tr><tr><th>Design</th><td>Fukuda Takeo, for the Reconstruction Bureau</td></tr><tr><th>Built by</th><td>Yokogawa Bridge Works</td></tr><tr><th>Status</th><td>Chūō ward cultural property; engineering heritage listing 2022</td></tr></table><p><b>Where it stands.</b> It crosses the Nihonbashi River at the point where that river meets the Sumida. The Nihonbashi River was the main canal of the Edo merchant quarter, so this was the water gate of commercial Edo. <span class="pv n">not checked</span></p><p><b>Earlier bridges.</b> Tradition dates the first bridge here to 1698, the same year as Eitai Bridge. The forty-seven rōnin are said to have crossed it in 1703 on their way to Sengaku-ji. An iron bridge of 1903 fell in the 1923 earthquake.</p><p><b>The bridge of 1927.</b> Work began in May 1926. The ladder form was chosen so that the small bridge would sit well beside the big arch of Eitai Bridge. It keeps its original riveted joints.</p><p class="look"><b>What to look for.</b> The white ladder frame, lit a pale orange. It is short enough to take in whole. Film and television crews use it often. From its north side, look back at the Eitai arch.</p></section>
+<section class="card" id="bridge-3"><div class="chead"><span class="num">3</span><div><h3>Kiyosu Bridge <span class="kj">清洲橋</span></h3><p class="yr">Built March 1925 to March 1928</p></div></div><table class="facts"><tr><th>Type</th><td>Steel suspension bridge. The deck hangs from chains of flat steel bars pinned end to end, not from wire cables. The chains are fixed to the ends of the deck itself and not to blocks in the ground, which suits soft ground.</td></tr><tr><th>Size</th><td>186.3 m long, 22 m wide</td></tr><tr><th>Design</th><td>Suzuki Seiichi, under Tanaka Yutaka; the architects Yamada Mamoru and Yamaguchi Bunzō advised on its look</td></tr><tr><th>Built by</th><td>Reconstruction Bureau, with Japanese engineers only</td></tr><tr><th>Status</th><td>Important Cultural Property since 2007, the first road bridge owned by Tokyo to be listed</td></tr></table><p><b>A new crossing.</b> No bridge stood here before 1923. A ferry, the Nakasu ferry, carried people across. The reconstruction plan added a bridge to open a new east–west street.</p><p><b>The name.</b> It was chosen from suggestions sent in by the public. It joins one character from each bank: Kiyosumi on the east and Nakasu on the west.</p><p><b>The model.</b> The design follows the suspension bridge over the Rhine at Cologne, then counted among the most beautiful bridges in the world. The Cologne bridge was destroyed in 1945, so this is the surviving example of the form. <span class="pv n">Cologne bridge's fate: not checked</span></p><p><b>New steel.</b> The chains use a high-strength manganese steel, and this was the first bridge to use it. The foundations go down about 30 metres and are faced with granite 50 centimetres thick against salt water.</p><p><b>The pair.</b> The Bureau planned Kiyosu and Eitai together, one graceful and one heavy. They are the two bridges of the 1920s programme that the state has listed as Important Cultural Properties. Night lighting began in August 2020.</p><p class="look"><b>What to look for.</b> The two curving chains and the pink light. From the bank just downstream, the Tokyo Skytree stands behind the bridge. <span class="pv n">Skytree view: not checked</span> On the bridge, look at the flat bars and the pins that join them.</p></section>
+<section class="card" id="bridge-+"><div class="chead"><span class="num">+</span><div><h3>Shin-Ōhashi <span class="kj">新大橋</span></h3><p class="yr">Present bridge finished 27 March 1977 · optional stop</p></div></div><table class="facts"><tr><th>Type</th><td>The deck hangs from straight cables that run from two towers. Engineers call this a cable-stayed bridge.</td></tr><tr><th>Size</th><td>170 m long, 24 m wide</td></tr><tr><th>Built by</th><td>Tokyo Metropolitan Government; steelwork by IHI</td></tr><tr><th>Why it is here</th><td>This bridge is not from the 1920s. Its predecessor is the reason the 1920s bridges were built in steel.</td></tr></table><p><b>The first bridge, 1693.</b> It was the third bridge over the Sumida. The poet Bashō lived nearby and wrote verses on it as it was being built. Hiroshige drew it in his print of people caught in a sudden shower, which Van Gogh later copied in oils.</p><p><b>The steel bridge of 1912.</b> It opened on 19 July 1912, with a steel frame and stone pillars.</p><p><b>1 September 1923.</b> It was the only bridge on the Sumida that did not burn. Police and army reservists made people throw their bundles into the river so that the bridge would not catch fire. Thousands crossed it to safety. It became known as the "bridge that saved people".</p><p><b>After 1977.</b> About 25 metres of the 1912 bridge now stands in the Meiji-mura open-air museum near Nagoya. The memorial to the fire and a stone telling the story of the rescue stand at the west end, beside the police box.</p><p class="look"><b>What to look for.</b> The two memorial stones at the west end, on the Hamachō side. The orange towers of the present bridge. <span class="pv n">tower colour: not checked</span></p></section>
+<h2 class="pt">Not confirmed</h2><ul class="unc"><li>The lighting hours on the night. Tokyo&#x27;s notices of 2024 and 2025 say 15 minutes after sunset until 23:00; a bridge under repair may be dark.</li><li>Whether the riverside path on the west bank is open all the way from Toyomi Bridge to Kiyosu Bridge.</li><li>Every train time and walking time on this page; no route site was used.</li><li>The places on the map are approximate. The bridge markers sit near mid-span.</li><li>Each sentence tagged &quot;not checked&quot; comes from general knowledge and was not found in the sources below.</li></ul>
+<h2 class="pt">Sources</h2><ul class="unc"><li><a href="https://ja.wikipedia.org/wiki/永代橋" target="_blank" rel="noopener">永代橋 (Japanese Wikipedia)</a></li><li><a href="https://ja.wikipedia.org/wiki/清洲橋" target="_blank" rel="noopener">清洲橋 (Japanese Wikipedia)</a></li><li><a href="https://ja.wikipedia.org/wiki/豊海橋" target="_blank" rel="noopener">豊海橋 (Japanese Wikipedia)</a></li><li><a href="https://ja.wikipedia.org/wiki/新大橋" target="_blank" rel="noopener">新大橋 (Japanese Wikipedia)</a></li><li><a href="https://ja.wikipedia.org/wiki/震災復興橋梁" target="_blank" rel="noopener">震災復興橋梁 (Japanese Wikipedia)</a></li><li><a href="https://www.metro.tokyo.lg.jp/information/press/2024/09/2024090611" target="_blank" rel="noopener">Tokyo Metropolitan Government lighting notice, September 2024</a></li><li>Map positions: OpenStreetMap, looked up 13 November 2026.</li></ul>
+</div>
+<p class="foot">Thursday's plan: <a href="walk-five-revolutions.html">the five-revolutions page</a>. Map tiles: 地理院タイル (GSI), 今昔マップ on the web (Tani Kenji, Saitama Univ.), 農研機構 1880s rapid survey (CC BY 2.1 JP).</p>
+</div>
+<script>
+(function(){
+var DATA = {"center": [139.787, 35.681], "zoom": 14.3, "stops": [{"name": "Eitai Bridge 永代橋 (1926)", "c": [139.78756, 35.6763], "note": "A steel arch 185 metres long, lit blue. Walk to the middle for the river view.", "x": false, "label": "1"}, {"name": "Toyomi Bridge 豊海橋 (1927)", "c": [139.78661, 35.67747], "note": "A small white steel ladder over the mouth of the Nihonbashi River, two minutes north of Eitai Bridge.", "x": false, "label": "2"}, {"name": "Kiyosu Bridge 清洲橋 (1928)", "c": [139.79135, 35.68262], "note": "A steel suspension bridge hung from chains, lit pink. The best view is from the bank just downstream.", "x": false, "label": "3"}, {"name": "Shin-Ōhashi 新大橋 (1977; the 1912 bridge survived 1923)", "c": [139.7926, 35.6873], "note": "Optional: seven minutes further north. The memorial stones to the 1923 fire stand at its west end.", "x": true, "label": "+"}], "walk": [[[139.77006, 35.70795], [139.7762, 35.70649]], [[139.77942, 35.68023], [139.7862, 35.67665], [139.78756, 35.6763], [139.7862, 35.67665], [139.78661, 35.67747], [139.7887, 35.6805], [139.79, 35.6833], [139.79135, 35.68262], [139.79, 35.6833], [139.78219, 35.68628]]], "dash": [[[139.7762, 35.70649], [139.77942, 35.68023]], [[139.78219, 35.68628], [139.7762, 35.70649]], [[139.79, 35.6833], [139.7915, 35.6876], [139.7926, 35.6873]]]};
+var COLOUR = '#1f3a5f';
+if (typeof maplibregl === 'undefined') { var e = document.getElementById('maperr'); e.style.display='flex'; e.textContent='The map engine could not be loaded. Check the internet connection and reload.'; return; }
+var ATTR = {
+  gsi:'<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル (国土地理院)</a>',
+  naro:'<a href="https://habs.rad.naro.go.jp/" target="_blank" rel="noopener">農研機構農業環境研究部門</a> CC BY 2.1 JP',
+  kj:'<a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a>'
+};
+function gsi(id, ext, maxz, minz){ return {type:'raster', tiles:['https://cyberjapandata.gsi.go.jp/xyz/'+id+'/{z}/{x}/{y}.'+ext], tileSize:256, minzoom:minz||0, maxzoom:maxz, attribution:ATTR.gsi}; }
+function kj(p){ return {type:'raster', tiles:['https://ktgis.net/kjmapw/kjtilemap/tokyo50/'+p+'/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, minzoom:8, maxzoom:16, attribution:ATTR.kj}; }
+var SOURCES = {
+  'gsi-pale': gsi('pale','png',18),
+  'naro-rapid16': {type:'raster', tiles:['https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, maxzoom:16, attribution:ATTR.naro},
+  'kj-2man': kj('2man'), 'kj-01': kj('01'), 'kj-03': kj('03'),
+  'gsi-usa10': gsi('ort_USA10','png',17)
+};
+var PERIODS = [
+  {key:'1880s', label:'1880s', src:'naro-rapid16', note:'Army rapid survey maps of the 1880s.', kj:false},
+  {key:'1909', label:'1896–1909', src:'kj-2man', note:'Old topographic map, 1896–1909 (今昔マップ).', kj:true},
+  {key:'1930s', label:'1927–39', src:'kj-01', note:'Old topographic map, 1927–39 (今昔マップ).', kj:true},
+  {key:'1945', label:'1945–50 air photos', src:'gsi-usa10', note:'US air photos, 1945–50: war damage and the plants.', kj:false},
+  {key:'1960s', label:'1965–68', src:'kj-03', note:'Old topographic map, 1965–68 (今昔マップ).', kj:true},
+  {key:'today', label:'Today', src:null, note:'Today\'s GSI map only.', kj:false}
+];
+var map = new maplibregl.Map({container:'map', center:DATA.center, zoom:DATA.zoom, minZoom:10, maxZoom:18,
+  maxBounds:[[138.8,35.1],[140.7,36.2]], attributionControl:false, dragRotate:false, pitchWithRotate:false,
+  style:{version:8, sources:{'gsi-pale':SOURCES['gsi-pale']}, layers:[{id:'base', type:'raster', source:'gsi-pale'}]}});
+map.addControl(new maplibregl.AttributionControl({compact:true}), 'bottom-right');
+map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+map.addControl(new maplibregl.GeolocateControl({positionOptions:{enableHighAccuracy:true}, trackUserLocation:true}), 'top-right');
+var state = {period:'1930s', mix:85};
+function line(coords){ return {type:'Feature', geometry:{type:'LineString', coordinates:coords}}; }
+map.on('load', function(){
+  Object.keys(SOURCES).forEach(function(k){ if (k !== 'gsi-pale') map.addSource(k, SOURCES[k]); });
+  PERIODS.forEach(function(p){ if (p.src) map.addLayer({id:'ov-'+p.key, type:'raster', source:p.src, layout:{visibility:'none'}, paint:{'raster-opacity':state.mix/100, 'raster-fade-duration':0}}); });
+  map.addSource('walk', {type:'geojson', data:{type:'FeatureCollection', features:DATA.walk.map(line)}});
+  map.addLayer({id:'walk-halo', type:'line', source:'walk', paint:{'line-color':'#fff', 'line-width':7, 'line-opacity':.8}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addLayer({id:'walk', type:'line', source:'walk', paint:{'line-color':COLOUR, 'line-width':3.5}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addSource('dash', {type:'geojson', data:{type:'FeatureCollection', features:DATA.dash.map(line)}});
+  map.addLayer({id:'dash-halo', type:'line', source:'dash', paint:{'line-color':'#fff', 'line-width':6, 'line-opacity':.8}});
+  map.addLayer({id:'dash', type:'line', source:'dash', paint:{'line-color':COLOUR, 'line-width':2.5, 'line-dasharray':[2,2]}});
+  DATA.stops.forEach(function(s, i){
+    var el = document.createElement('div');
+    el.style.cssText = 'width:26px;height:26px;border-radius:50%;background:'+(s.x?'#fff':COLOUR)+';color:'+(s.x?COLOUR:'#fff')+';border:2px solid '+COLOUR+';font:bold 12px system-ui,sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer';
+    el.textContent = s.label || (s.x ? '+' : String(i+1));
+    var pop = new maplibregl.Popup({offset:16, closeButton:false}).setHTML('<b>'+s.name+'</b>'+s.note);
+    s.marker = new maplibregl.Marker({element:el, anchor:'center'}).setLngLat(s.c).setPopup(pop).addTo(map);
+  });
+  setPeriod(state.period);
+  map.resize();
+  fitAll();
+  setTimeout(function(){ map.resize(); fitAll(); }, 600);
+  /* Ueno Park: the visual anchor on every walk map (a cherry blossom, the mark Japanese maps give Ueno) */
+  var ue = document.createElement('div');
+  ue.innerHTML = '<svg viewBox="0 0 24 24" width="30" height="30" aria-label="Ueno Park"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><div style="font:600 11px system-ui,sans-serif;color:#7a2d45;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">上野公園</div>';
+  ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  new maplibregl.Marker({element:ue, anchor:'center'}).setLngLat(UENO).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Ueno Park 上野公園</b>The reference point on every walk map. The Ueno stations are on its south edge.')).addTo(map);
+  map.on('move', placeChip); map.on('resize', placeChip); placeChip();
+});
+var UENO = [139.7735, 35.7154];
+function placeChip(){
+  var chip = document.getElementById('uenoChip'); if (!chip) return;
+  var w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
+  var p = map.project(UENO);
+  var inside = p.x > 0 && p.x < w && p.y > 0 && p.y < h;
+  if (inside) { chip.style.display = 'none'; return; }
+  var cx = w/2, cy = h/2, dx = p.x - cx, dy = p.y - cy;
+  var m = 14, sx = Math.abs(dx) > 0 ? (cx - m) / Math.abs(dx) : 1e9, sy = Math.abs(dy) > 0 ? (cy - m) / Math.abs(dy) : 1e9, s = Math.min(sx, sy);
+  var x = cx + dx * s, y = cy + dy * s;
+  var c = map.getCenter(), R = 6371, toR = Math.PI/180;
+  var dLat = (UENO[1]-c.lat)*toR, dLon = (UENO[0]-c.lng)*toR;
+  var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(c.lat*toR)*Math.cos(UENO[1]*toR)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  var km = 2*R*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  document.getElementById('uenoKm').textContent = km.toFixed(1) + ' km';
+  chip.querySelector('.ar').style.transform = 'rotate(' + (Math.atan2(dy, dx)*180/Math.PI + 90) + 'deg)';
+  chip.style.display = 'flex';
+  chip.style.left = Math.max(4, Math.min(w - chip.offsetWidth - 4, x - chip.offsetWidth/2)) + 'px';
+  chip.style.top = Math.max(4, Math.min(h - chip.offsetHeight - 4, y - chip.offsetHeight/2)) + 'px';
+}
+window.addEventListener('resize', function(){ map.resize(); });
+function fitAll(){
+  var b = new maplibregl.LngLatBounds(DATA.stops[0].c, DATA.stops[0].c);
+  DATA.stops.forEach(function(s){ b.extend(s.c); });
+  map.fitBounds(b, {padding:{top:56, bottom:100, left:44, right:60}, maxZoom:15.5, duration:0});
+}
+function setPeriod(key){
+  state.period = key;
+  PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setLayoutProperty('ov-'+p.key, 'visibility', p.key===key ? 'visible' : 'none'); });
+  var p = PERIODS.filter(function(q){ return q.key===key; })[0];
+  document.getElementById('kjBadge').hidden = !p.kj;
+  document.getElementById('pnote').textContent = p.note;
+  document.querySelectorAll('#periods button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.key===key ? 'true':'false'); });
+}
+var pbox = document.getElementById('periods');
+PERIODS.forEach(function(p){ var b = document.createElement('button'); b.type='button'; b.dataset.key=p.key; b.textContent=p.label; b.addEventListener('click', function(){ setPeriod(p.key); }); pbox.appendChild(b); });
+document.getElementById('mix').addEventListener('input', function(){ state.mix = +this.value; PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setPaintProperty('ov-'+p.key, 'raster-opacity', state.mix/100); }); });
+var ol = document.getElementById('stops');
+DATA.stops.forEach(function(s, i){
+  var li = document.createElement('li');
+  li.innerHTML = '<span class="n'+(s.x?' x':'')+'">'+(s.label||(s.x?'+':(i+1)))+'</span><div><b>'+s.name+'</b><span>'+s.note+'</span></div>';
+  li.addEventListener('click', function(){ map.flyTo({center:s.c, zoom:16, duration:700}); if (s.marker) s.marker.togglePopup(); });
+  ol.appendChild(li);
+});
+})();
+</script>
+</body>
+</html>

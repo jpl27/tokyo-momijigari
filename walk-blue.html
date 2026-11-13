@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Tokyo">
+<title>Machine shops and the towers that replaced them</title>
+<!-- Public copy of plans/walk-blue.html, written by publish_walk_pages.py. Do not edit here: rebuild the plan page, then rerun the script. No trip dates, no lodging. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<style>
+:root{--c:#1f5fa8;--cl:#ecf2fb;--ink:#161616;--dim:#5a5d63;--line:#e3e1dc;--soft:#f7f5f0;--bg:#fbfaf7;--tap:40px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:17.5px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+.bar{background:var(--c);color:#fff;padding:10px 16px}
+.bar .k{font-size:.74em;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.bar h1{margin:2px 0 0;font-size:1.3rem;line-height:1.2}
+.bar .area{margin:2px 0 0;font-size:.9em;opacity:.95}
+#stage{position:relative;height:60vh;min-height:360px;background:#e8e4dc}
+#map{position:absolute;inset:0}
+#kjBadge{position:absolute;left:8px;bottom:8px;z-index:3;background:rgba(255,255,255,.95);border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.25);font-family:system-ui,sans-serif}
+#kjBadge a{color:var(--ink);text-decoration:none}
+#uenoChip{position:absolute;z-index:4;display:none;align-items:center;gap:5px;background:rgba(255,255,255,.95);border:1px solid #e3b3c0;border-radius:14px;padding:2px 9px 2px 6px;font:600 12px system-ui,sans-serif;color:#7a2d45;box-shadow:0 1px 3px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+#uenoChip svg{width:16px;height:16px}#uenoChip .ar{display:inline-block;transition:transform .2s}
+#maperr{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;background:var(--soft)}
+[hidden]{display:none !important}
+.controls{background:#fff;border-bottom:1px solid var(--line);padding:8px 12px}
+.periods{display:flex;flex-wrap:wrap;gap:6px}
+.periods button{font:inherit;font-size:.86em;min-height:34px;padding:4px 10px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);cursor:pointer}
+.periods button[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.mix{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:.86em;color:var(--dim)}
+.mix input{flex:1;min-width:0;height:var(--tap);accent-color:var(--c);margin:0}
+.note{font-size:.84em;color:var(--dim);margin:6px 0 0}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 56px}
+.stops{list-style:none;padding:0;margin:14px 0 6px;display:grid;grid-template-columns:1fr;gap:6px}
+@media (min-width:640px){.stops{grid-template-columns:1fr 1fr}}
+.stops li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+.stops li:hover{background:var(--cl)}
+.stops .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-size:.8em;font-weight:bold;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif}
+.stops .n.x{background:#fff;color:var(--c);border:2px solid var(--c)}
+.stops b{display:block;font-size:.95em}
+.stops span{display:block;font-size:.84em;color:var(--dim)}
+.legend{font-size:.84em;color:var(--dim);margin:4px 0 0}
+.legend i{display:inline-block;width:22px;border-top:3px solid var(--c);vertical-align:middle;margin-right:4px}
+.legend i.d{border-top-style:dashed}
+h2.pt{font-size:1.5rem;line-height:1.2;color:var(--c);margin:28px 0 0}
+p.slogan{font-style:italic;font-size:1.05em;margin:6px 0 14px}
+.pitch h3{margin:20px 0 6px;font-size:1.05rem;color:var(--c)}
+.pitch p{margin:0 0 10px}
+.foot{margin-top:28px;padding-top:12px;border-top:1px solid var(--line);font-size:.88em;color:var(--dim)}
+.foot a{color:var(--c)}
+.maplibregl-popup-content{font-family:Georgia,serif;font-size:14px;line-height:1.4;padding:10px 12px;max-width:260px}
+.maplibregl-popup-content b{display:block;margin-bottom:3px}
+.maplibregl-ctrl-attrib{font-family:system-ui,sans-serif;font-size:11px}
+#site-header{position:relative !important;z-index:40}
+</style>
+</head>
+<body>
+<div id="site-header"><noscript><p style="padding:12px 16px;margin:0"><a href="index.html">Tokyo Momijigari</a> · the menus need JavaScript</p></noscript></div>
+<script src="site-menu.js"></script>
+<div class="bar"><div class="k">Blue walk · Thursday, 07:00 to about 12:30</div><h1>Machine shops and the towers that replaced them</h1><p class="area">Kamata · Shimomaruko · Musashi-Nitta · Yaguchi</p></div>
+<div id="stage"><div id="map"></div><div id="kjBadge" hidden><a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a></div><div id="uenoChip"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><span>上野公園 Ueno Park</span><span class="ar">&#x2191;</span><span id="uenoKm"></span></div><div id="maperr"></div></div>
+<div class="controls">
+<div class="periods" id="periods"></div>
+<div class="mix"><span>Old map</span><input id="mix" type="range" min="0" max="100" value="85" aria-label="Old map opacity"><span>Today</span></div>
+<p class="note">Tap a period to lay its map over today's streets; slide to fade. Tap a stop to fly to it. <span id="pnote"></span></p>
+</div>
+<div class="wrap">
+<ol class="stops" id="stops"></ol>
+<p class="legend"><i></i> on foot &nbsp; <i class="d"></i> by train or optional &nbsp; The cherry blossom marks Ueno Park, the anchor near the flat; when it is off the map a blossom chip at the edge points to it. Stop positions come from address lookup; the bridge is approximate.</p>
+
+<h2 class="pt">Machine shops and the towers that replaced them</h2>
+<p class="slogan">Walk through the parts department of Japan's mass-production age, while the lathes are still running.</p>
+<div class="pitch">
+<h3>What you will see with your own eyes</h3>
+<p>You ride a three-car train out of Kamata, and workshops stand right beside the track. At Shimomaruko you pass Canon's head office campus. Canon gathered its head office and factory here in 1951, and it never left.</p>
+<p>A few minutes on, you climb the Tama river levee. Ōta's own town plan calls it a "super levee", lined with tall housing and large factory and research sites. The River Place rises beside you: 962 flats in six buildings, finished in 2004. Across the water lies Kawasaki, the other half of the same industrial belt.</p>
+<p>Then you drop into the back lanes, about 2.5 km of them, downstream through Musashi-Nitta towards Yaguchi. Rows of small workshop units, roll-up shutters half open. A lathe or a press inside. The smell of cutting oil. On a Thursday morning in December, nobody is performing for you. The machines are simply working.</p>
+<p>You finish in Kamata, at the ward's citizens' hall, Aprico. It stands on the site of the Shōchiku film studio, which worked here from 1920 to 1936. A memorial sits in the lobby and an old studio bridge is kept on the grounds. Then lunch, pork cutlet or Kamata's own "winged" dumplings, and the train home.</p>
+
+<h3>The history that makes it mean something</h3>
+<p>In the 1880s this was farmland. Households plaited straw braid for hats, a Meiji export. The railway arrived in 1923 and 1924, the same years the great earthquake wrecked central Tokyo. Factories fled south to open land.</p>
+<p>The big plants followed. Hokushin Electric and Mitsui Seiki came in 1934, NSK bearings in 1935, Mitsubishi in 1939. From 1937 war orders poured in. Ward output in wartime included tanks and machine guns.</p>
+<p>The film studio was a casualty of that boom. Factory noise and war industry pushed it out to Ōfuna in 1936. Industry did not just arrive in Kamata. It evicted the town's earlier trade.</p>
+<p>US bombing ravaged the area in 1945. A black market sprang up at once. Korean War orders from 1950 restarted the machine shops. Young rural migrants, called "golden eggs", came to work in the small factories. By 1955 Ōta had more factory workers than any other Tokyo ward.</p>
+<p>The ward peaked in 1983 at 9,190 factories. In 2021 it counted 3,584 manufacturing sites, and nearly half of its firms have three workers or fewer. The big riverside plants closed, the last of them, Mitsubishi Motors and Mitsui Seiki, in 2001. Tower blocks took their sites. Canon stayed.</p>
+
+<h3>What it gives your books</h3>
+<p>This is volume 4 country, with a long tail into volume 5. Mass production needed parts, prototypes and dies by the thousand. Ōta's southern belt made machinery and metalwork for the big electronics and car firms.</p>
+<p>Your fourth question, how work is organised, is the heart of it. Each tiny shop mastered one process: cutting, drilling, polishing or plating. A shop that lacked a process passed the job to a neighbour. The ward's industry body calls this nakama-mawashi, "passing work around among peers". The lanes worked as one factory, spread across a district, owned by many small owners.</p>
+<p>Notice what that does to discipline. There is no factory bell and no overseer. The order book and the deadline do the work. After the 1973 oil shock, many shops stopped depending on one parent firm. They specialised and took orders from many buyers to spread the risk. In the 1980s they added computer-controlled machine tools for small, precise, fast batches.</p>
+<p>Your fifth question, who buys, has a sharp answer here: the state at war, twice. Orders from 1937, then the Korean War orders of 1950. Peace-time buyers came later, big firms' research labs among them.</p>
+<p>Your third question, where the workers come from, is the golden eggs. Your sixth, what happens to the surplus, stands on the levee in 28-storey form. When the riverside plants closed, the most valuable thing left was the land. It went into flats.</p>
+<p>And your protagonists? Here the bourgeoisie comes in two sizes. One is a global camera firm with a campus. The other is a family with a lathe and a roll-up shutter. You will see both in one morning, a few hundred metres apart.</p>
+
+<h3>What you will know at 12:30</h3>
+<p>At 07:00 you may picture mass production as one owner, one gate, one vast floor. At 12:30 you will have walked the other model. Thousands of owners, one process each, passing jobs among friends.</p>
+<p>You will have seen how that system answers war demand quickly and cheaply. You will have seen how it shrinks when big buyers send work to China and Southeast Asia. And you will have stood where the giant plants stood, and counted the balconies that replaced them.</p>
+<p>You will also carry a reading lead home. Hugh Whittaker's <em>Small Firms in the Japanese Economy</em> (1997) gives Ōta a chapter of its own. You will read it as someone who has smelled the cutting oil.</p>
+
+<h3>What it asks of you</h3>
+<p>A little over an hour on trains in all: 29 minutes each way on the JR line, plus two short hops. The ride out is at rush hour, full until Shinagawa. The walking is about 7 km and completely flat.</p>
+<p>The workshops are private workplaces. Look in from the street and never step inside. Keep clear of forklifts and loading bays. Photograph buildings and shutters, never workers' faces. The tower flats are homes, so no lobbies or courtyards. Cyclists share the levee path.</p>
+<p>The whole morning costs about ¥2,500, lunch included. You are back at the flat by 12:30.</p>
+</div>
+<p class="foot">The three morning walks: <a href="walk-red.html">cotton, wool and the day labourers</a>, <a href="walk-blue.html">machine shops and the towers that replaced them</a> and <a href="walk-green.html">paper, gunpowder and Shibusawa</a>. The Thursday plan: <a href="walk-five-revolutions.html">five revolutions</a>. Map tiles: 地理院タイル (GSI), 今昔マップ on the web (Tani Kenji, Saitama Univ.), 農研機構 1880s rapid survey (CC BY 2.1 JP).</p>
+</div>
+<script>
+(function(){
+var DATA = {"center": [139.7, 35.5655], "zoom": 13.6, "stops": [{"name": "Kamata station", "c": [139.71876, 35.56289], "note": "Arrive about 08:14 by Keihin-Tōhoku line. Change to the Tōkyū Tamagawa line."}, {"name": "Shimomaruko station", "c": [139.6856, 35.57139], "note": "Three-car train, 6 minutes. Workshops beside the track."}, {"name": "Canon head office", "c": [139.68306, 35.568], "note": "Head office and factory gathered here in 1951. Outside only."}, {"name": "Tama river levee and The River Place", "c": [139.67923, 35.56883], "note": "Raised \"super levee\"; 962 flats in six buildings, 2004. Walk the top of the levee."}, {"name": "Musashi-Nitta", "c": [139.69258, 35.56772], "note": "The factory lanes: small workshop units, roll-up shutters, lathes running on a weekday."}, {"name": "Yaguchinowatashi station", "c": [139.70026, 35.56258], "note": "End of the lanes. Tamagawa line two stops back to Kamata."}, {"name": "Aprico", "c": [139.71806, 35.56067], "note": "Ward citizens' hall on the Shōchiku Kamata studio site, 1920–36. Memorial in the lobby, studio bridge on the grounds."}, {"name": "Tonkatsu Aoki", "c": [139.71715, 35.56042], "note": "Lunch from 11:00, Kamata 5-43-7. Or Kangei, the winged dumplings, Kamata 5-13-26, from 11:30."}], "walk": [[[139.6856, 35.57139], [139.68306, 35.568], [139.67923, 35.56883], [139.69258, 35.56772], [139.70026, 35.56258]], [[139.71876, 35.56289], [139.71806, 35.56067], [139.71715, 35.56042], [139.71876, 35.56289]]], "dash": [[[139.71876, 35.56289], [139.6856, 35.57139]], [[139.70026, 35.56258], [139.71876, 35.56289]]]};
+var COLOUR = '#1f5fa8';
+if (typeof maplibregl === 'undefined') { var e = document.getElementById('maperr'); e.style.display='flex'; e.textContent='The map engine could not be loaded. Check the internet connection and reload.'; return; }
+var ATTR = {
+  gsi:'<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル (国土地理院)</a>',
+  naro:'<a href="https://habs.rad.naro.go.jp/" target="_blank" rel="noopener">農研機構農業環境研究部門</a> CC BY 2.1 JP',
+  kj:'<a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a>'
+};
+function gsi(id, ext, maxz, minz){ return {type:'raster', tiles:['https://cyberjapandata.gsi.go.jp/xyz/'+id+'/{z}/{x}/{y}.'+ext], tileSize:256, minzoom:minz||0, maxzoom:maxz, attribution:ATTR.gsi}; }
+function kj(p){ return {type:'raster', tiles:['https://ktgis.net/kjmapw/kjtilemap/tokyo50/'+p+'/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, minzoom:8, maxzoom:16, attribution:ATTR.kj}; }
+var SOURCES = {
+  'gsi-pale': gsi('pale','png',18),
+  'naro-rapid16': {type:'raster', tiles:['https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, maxzoom:16, attribution:ATTR.naro},
+  'kj-2man': kj('2man'), 'kj-01': kj('01'), 'kj-03': kj('03'),
+  'gsi-usa10': gsi('ort_USA10','png',17)
+};
+var PERIODS = [
+  {key:'1880s', label:'1880s', src:'naro-rapid16', note:'Army rapid survey maps of the 1880s.', kj:false},
+  {key:'1909', label:'1896–1909', src:'kj-2man', note:'Old topographic map, 1896–1909 (今昔マップ).', kj:true},
+  {key:'1930s', label:'1927–39', src:'kj-01', note:'Old topographic map, 1927–39 (今昔マップ).', kj:true},
+  {key:'1945', label:'1945–50 air photos', src:'gsi-usa10', note:'US air photos, 1945–50: war damage and the plants.', kj:false},
+  {key:'1960s', label:'1965–68', src:'kj-03', note:'Old topographic map, 1965–68 (今昔マップ).', kj:true},
+  {key:'today', label:'Today', src:null, note:'Today\'s GSI map only.', kj:false}
+];
+var map = new maplibregl.Map({container:'map', center:DATA.center, zoom:DATA.zoom, minZoom:10, maxZoom:18,
+  maxBounds:[[138.8,35.1],[140.7,36.2]], attributionControl:false, dragRotate:false, pitchWithRotate:false,
+  style:{version:8, sources:{'gsi-pale':SOURCES['gsi-pale']}, layers:[{id:'base', type:'raster', source:'gsi-pale'}]}});
+map.addControl(new maplibregl.AttributionControl({compact:true}), 'bottom-right');
+map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+map.addControl(new maplibregl.GeolocateControl({positionOptions:{enableHighAccuracy:true}, trackUserLocation:true}), 'top-right');
+var state = {period:'1930s', mix:85};
+function line(coords){ return {type:'Feature', geometry:{type:'LineString', coordinates:coords}}; }
+map.on('load', function(){
+  Object.keys(SOURCES).forEach(function(k){ if (k !== 'gsi-pale') map.addSource(k, SOURCES[k]); });
+  PERIODS.forEach(function(p){ if (p.src) map.addLayer({id:'ov-'+p.key, type:'raster', source:p.src, layout:{visibility:'none'}, paint:{'raster-opacity':state.mix/100, 'raster-fade-duration':0}}); });
+  map.addSource('walk', {type:'geojson', data:{type:'FeatureCollection', features:DATA.walk.map(line)}});
+  map.addLayer({id:'walk-halo', type:'line', source:'walk', paint:{'line-color':'#fff', 'line-width':7, 'line-opacity':.8}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addLayer({id:'walk', type:'line', source:'walk', paint:{'line-color':COLOUR, 'line-width':3.5}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addSource('dash', {type:'geojson', data:{type:'FeatureCollection', features:DATA.dash.map(line)}});
+  map.addLayer({id:'dash-halo', type:'line', source:'dash', paint:{'line-color':'#fff', 'line-width':6, 'line-opacity':.8}});
+  map.addLayer({id:'dash', type:'line', source:'dash', paint:{'line-color':COLOUR, 'line-width':2.5, 'line-dasharray':[2,2]}});
+  DATA.stops.forEach(function(s, i){
+    var el = document.createElement('div');
+    el.style.cssText = 'width:26px;height:26px;border-radius:50%;background:'+(s.x?'#fff':COLOUR)+';color:'+(s.x?COLOUR:'#fff')+';border:2px solid '+COLOUR+';font:bold 12px system-ui,sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer';
+    el.textContent = s.x ? '+' : String(i+1);
+    var pop = new maplibregl.Popup({offset:16, closeButton:false}).setHTML('<b>'+(s.x?'Option: ':(i+1)+' · ')+s.name+'</b>'+s.note);
+    s.marker = new maplibregl.Marker({element:el, anchor:'center'}).setLngLat(s.c).setPopup(pop).addTo(map);
+  });
+  setPeriod(state.period);
+  map.resize();
+  fitAll();
+  /* Ueno Park: the visual anchor on every walk map (a cherry blossom, the mark Japanese maps give Ueno) */
+  var ue = document.createElement('div');
+  ue.innerHTML = '<svg viewBox="0 0 24 24" width="30" height="30" aria-label="Ueno Park"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><div style="font:600 11px system-ui,sans-serif;color:#7a2d45;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">上野公園</div>';
+  ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  new maplibregl.Marker({element:ue, anchor:'center'}).setLngLat(UENO).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Ueno Park 上野公園</b>The reference point on every walk map. The Ueno stations are on its south edge.')).addTo(map);
+  map.on('move', placeChip); map.on('resize', placeChip); placeChip();
+});
+var UENO = [139.7735, 35.7154];
+function placeChip(){
+  var chip = document.getElementById('uenoChip'); if (!chip) return;
+  var w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
+  var p = map.project(UENO);
+  var inside = p.x > 0 && p.x < w && p.y > 0 && p.y < h;
+  if (inside) { chip.style.display = 'none'; return; }
+  var cx = w/2, cy = h/2, dx = p.x - cx, dy = p.y - cy;
+  var m = 14, sx = Math.abs(dx) > 0 ? (cx - m) / Math.abs(dx) : 1e9, sy = Math.abs(dy) > 0 ? (cy - m) / Math.abs(dy) : 1e9, s = Math.min(sx, sy);
+  var x = cx + dx * s, y = cy + dy * s;
+  var c = map.getCenter(), R = 6371, toR = Math.PI/180;
+  var dLat = (UENO[1]-c.lat)*toR, dLon = (UENO[0]-c.lng)*toR;
+  var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(c.lat*toR)*Math.cos(UENO[1]*toR)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  var km = 2*R*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  document.getElementById('uenoKm').textContent = km.toFixed(1) + ' km';
+  chip.querySelector('.ar').style.transform = 'rotate(' + (Math.atan2(dy, dx)*180/Math.PI + 90) + 'deg)';
+  chip.style.display = 'flex';
+  chip.style.left = Math.max(4, Math.min(w - chip.offsetWidth - 4, x - chip.offsetWidth/2)) + 'px';
+  chip.style.top = Math.max(4, Math.min(h - chip.offsetHeight - 4, y - chip.offsetHeight/2)) + 'px';
+}
+window.addEventListener('resize', function(){ map.resize(); });
+function fitAll(){
+  var b = new maplibregl.LngLatBounds(DATA.stops[0].c, DATA.stops[0].c);
+  DATA.stops.forEach(function(s){ if (!s.x) b.extend(s.c); });
+  map.fitBounds(b, {padding:{top:40, bottom:40, left:30, right:30}, maxZoom:15.5, duration:0});
+}
+function setPeriod(key){
+  state.period = key;
+  PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setLayoutProperty('ov-'+p.key, 'visibility', p.key===key ? 'visible' : 'none'); });
+  var p = PERIODS.filter(function(q){ return q.key===key; })[0];
+  document.getElementById('kjBadge').hidden = !p.kj;
+  document.getElementById('pnote').textContent = p.note;
+  document.querySelectorAll('#periods button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.key===key ? 'true':'false'); });
+}
+var pbox = document.getElementById('periods');
+PERIODS.forEach(function(p){ var b = document.createElement('button'); b.type='button'; b.dataset.key=p.key; b.textContent=p.label; b.addEventListener('click', function(){ setPeriod(p.key); }); pbox.appendChild(b); });
+document.getElementById('mix').addEventListener('input', function(){ state.mix = +this.value; PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setPaintProperty('ov-'+p.key, 'raster-opacity', state.mix/100); }); });
+var ol = document.getElementById('stops');
+DATA.stops.forEach(function(s, i){
+  var li = document.createElement('li');
+  li.innerHTML = '<span class="n'+(s.x?' x':'')+'">'+(s.x?'+':(i+1))+'</span><div><b>'+s.name+'</b><span>'+s.note+'</span></div>';
+  li.addEventListener('click', function(){ map.flyTo({center:s.c, zoom:16, duration:700}); if (s.marker) s.marker.togglePopup(); });
+  ol.appendChild(li);
+});
+})();
+</script>
+</body>
+</html>

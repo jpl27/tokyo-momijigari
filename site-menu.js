@@ -17,7 +17,15 @@
       ["People and power to 1590","primer-people.html"],
       ["Growth of the city","growth.html"],
       ["Population 1720–2025","stats.html"],
-      ["Walking map: Tokyo in Five Faces","five-faces.html"]]}
+      ["Walking map: Tokyo in Five Faces","five-faces.html"]]},
+    {label:"Walks",items:[
+      ["Wednesday evening: Sumida bridges","walk-sumida-bridges.html"],
+      ["Thursday: five revolutions","walk-five-revolutions.html"],
+      ["Six revolutions, the longer version","walk-six-revolutions.html"],
+      ["Todai campus tour","walk-todai.html"],
+      ["Morning walk: cotton, wool, day labourers","walk-red.html"],
+      ["Morning walk: machine shops and towers","walk-blue.html"],
+      ["Morning walk: paper, gunpowder, Shibusawa","walk-green.html"]]}
   ];
   var COMPACT=["five-faces.html","foliage.html","growth.html"];
 

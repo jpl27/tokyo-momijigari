@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Tokyo">
+<title>Cotton, wool and the day labourers</title>
+<!-- Public copy of plans/walk-red.html, written by publish_walk_pages.py. Do not edit here: rebuild the plan page, then rerun the script. No trip dates, no lodging. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<style>
+:root{--c:#a8392b;--cl:#fbefec;--ink:#161616;--dim:#5a5d63;--line:#e3e1dc;--soft:#f7f5f0;--bg:#fbfaf7;--tap:40px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:17.5px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+.bar{background:var(--c);color:#fff;padding:10px 16px}
+.bar .k{font-size:.74em;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.bar h1{margin:2px 0 0;font-size:1.3rem;line-height:1.2}
+.bar .area{margin:2px 0 0;font-size:.9em;opacity:.95}
+#stage{position:relative;height:60vh;min-height:360px;background:#e8e4dc}
+#map{position:absolute;inset:0}
+#kjBadge{position:absolute;left:8px;bottom:8px;z-index:3;background:rgba(255,255,255,.95);border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.25);font-family:system-ui,sans-serif}
+#kjBadge a{color:var(--ink);text-decoration:none}
+#uenoChip{position:absolute;z-index:4;display:none;align-items:center;gap:5px;background:rgba(255,255,255,.95);border:1px solid #e3b3c0;border-radius:14px;padding:2px 9px 2px 6px;font:600 12px system-ui,sans-serif;color:#7a2d45;box-shadow:0 1px 3px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+#uenoChip svg{width:16px;height:16px}#uenoChip .ar{display:inline-block;transition:transform .2s}
+#maperr{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;background:var(--soft)}
+[hidden]{display:none !important}
+.controls{background:#fff;border-bottom:1px solid var(--line);padding:8px 12px}
+.periods{display:flex;flex-wrap:wrap;gap:6px}
+.periods button{font:inherit;font-size:.86em;min-height:34px;padding:4px 10px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);cursor:pointer}
+.periods button[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.mix{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:.86em;color:var(--dim)}
+.mix input{flex:1;min-width:0;height:var(--tap);accent-color:var(--c);margin:0}
+.note{font-size:.84em;color:var(--dim);margin:6px 0 0}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 56px}
+.stops{list-style:none;padding:0;margin:14px 0 6px;display:grid;grid-template-columns:1fr;gap:6px}
+@media (min-width:640px){.stops{grid-template-columns:1fr 1fr}}
+.stops li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+.stops li:hover{background:var(--cl)}
+.stops .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-size:.8em;font-weight:bold;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif}
+.stops .n.x{background:#fff;color:var(--c);border:2px solid var(--c)}
+.stops b{display:block;font-size:.95em}
+.stops span{display:block;font-size:.84em;color:var(--dim)}
+.legend{font-size:.84em;color:var(--dim);margin:4px 0 0}
+.legend i{display:inline-block;width:22px;border-top:3px solid var(--c);vertical-align:middle;margin-right:4px}
+.legend i.d{border-top-style:dashed}
+h2.pt{font-size:1.5rem;line-height:1.2;color:var(--c);margin:28px 0 0}
+p.slogan{font-style:italic;font-size:1.05em;margin:6px 0 14px}
+.pitch h3{margin:20px 0 6px;font-size:1.05rem;color:var(--c)}
+.pitch p{margin:0 0 10px}
+.foot{margin-top:28px;padding-top:12px;border-top:1px solid var(--line);font-size:.88em;color:var(--dim)}
+.foot a{color:var(--c)}
+.maplibregl-popup-content{font-family:Georgia,serif;font-size:14px;line-height:1.4;padding:10px 12px;max-width:260px}
+.maplibregl-popup-content b{display:block;margin-bottom:3px}
+.maplibregl-ctrl-attrib{font-family:system-ui,sans-serif;font-size:11px}
+#site-header{position:relative !important;z-index:40}
+</style>
+</head>
+<body>
+<div id="site-header"><noscript><p style="padding:12px 16px;margin:0"><a href="index.html">Tokyo Momijigari</a> · the menus need JavaScript</p></noscript></div>
+<script src="site-menu.js"></script>
+<div class="bar"><div class="k">Red walk · Thursday, 07:00 to about 12:30</div><h1>Cotton, wool and the day labourers</h1><p class="area">Senju · Minami-Senju · Kanegafuchi · San'ya</p></div>
+<div id="stage"><div id="map"></div><div id="kjBadge" hidden><a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a></div><div id="uenoChip"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><span>上野公園 Ueno Park</span><span class="ar">&#x2191;</span><span id="uenoKm"></span></div><div id="maperr"></div></div>
+<div class="controls">
+<div class="periods" id="periods"></div>
+<div class="mix"><span>Old map</span><input id="mix" type="range" min="0" max="100" value="85" aria-label="Old map opacity"><span>Today</span></div>
+<p class="note">Tap a period to lay its map over today's streets; slide to fade. Tap a stop to fly to it. <span id="pnote"></span></p>
+</div>
+<div class="wrap">
+<ol class="stops" id="stops"></ol>
+<p class="legend"><i></i> on foot &nbsp; <i class="d"></i> by train or optional &nbsp; The cherry blossom marks Ueno Park, the anchor near the flat; when it is off the map a blossom chip at the edge points to it. Stop positions come from address lookup; the bridge is approximate.</p>
+
+<h2 class="pt">Cotton, wool and the day labourers</h2>
+<p class="slogan">One morning, one riverbank, the whole circuit of capital: who paid, who sold, who worked, and what was left.</p>
+<div class="pitch">
+<h3>What you will see with your own eyes</h3>
+<p>You start at Kita-Senju, the first post town on the old Nikkō road. You walk south down that road and cross the Sumida on Senju Ōhashi, a steel bridge of 1927.</p>
+<p>On the far bank you reach Minami-Senju 6-chōme. Here stood Japan's first modern woollen mill, opened by the state in 1879. A stretch of its brick wall, built in 1911 to 1914 after the 1910 flood, survives. Two panels reportedly stand in a supermarket's bicycle park. A factory wall now guards bicycles. You may enjoy that.</p>
+<p>A few minutes on is Kotsukappara, Edo's execution ground from 1651. The "beheading Jizō" of 1741 still sits there. In 1771 doctors watched a dissection here, and it led to Japan's first Western anatomy text.</p>
+<p>Then you follow the river east and cross Shirahige Bridge into Sumida. In front of you rises a housing estate with no known equal in Japan for length. Eighteen blocks, 40 metres high, run in one line for 1.2 kilometres. The line is a fire wall. Look for the fire shutters on the balconies, the water cannons on the fifth floor and the tanks on the roof. Behind it lies a park built to shelter about 80,000 people. This wall stands on the land of the Kanebō cotton mill. In Kanebō Park, a stone marks the birthplace of Kanegafuchi Spinning.</p>
+<p>You walk back west to Namidabashi, "the bridge of tears", and into San'ya, Tokyo's day-labour district. You pass the Jōhoku Labour and Welfare Centre, Tamahime Park and the shopping street that lost its arcade roof in 2018. You drink coffee at Café Bach, roasting here since 1968. Lunch is soba at Tōjimaya, a house founded in 1887. That is the same year Kanebō was founded across the river.</p>
+
+<h3>Why it means something</h3>
+<p>The wool mill was Japan's state answer to an import bill. The army's uniforms were largely bought abroad, and that drained foreign currency. So the government built a mill. Its first director, Inoue Shōzō, had learned wool-making in Germany. From 1888 the Army Ministry ran it and expanded it. After defeat in 1945 production stopped. A private wool firm bought it and closed it in 1960. A baseball stadium took the land from 1962 to 1972; a sports centre holds it now.</p>
+<p>Kanebō is the private half of the story. It began in 1887 as the Tokyo Cotton Merchants' Company, at Kanegafuchi. Its mill was finished in 1889. Mitsui Bank became its main bank. In 1894 the bank sent a young man named Mutō Sanji into the firm. He rose to run it, and became president in 1921. Under him Kanebō ranked first in Japan by sales. Mutō called good treatment of workers "the best investment". In 1902 he set up a nursery and a girls' school inside the mill he ran. The firm also founded a mutual aid society. That was paternalism as a management system, sold as family.</p>
+<p>The ending is pure irony. The Tokyo spinning plant became a cosmetics factory in 1963 and closed in 1969. Tokyo bought the land. Planners feared a firestorm in the dense wooden streets that grew up after the 1923 earthquake. So they turned a cotton mill into a fortress against fire, built from 1975 to 1982. The small workshops it displaced were moved into one shared factory building at the west end.</p>
+<p>San'ya supplied the hands. In Edo it was cheap inns on the highway. In Meiji it housed rickshaw men. Before the war it already held day labourers. After 1945 tents for bombed-out families became flophouses. In 1961 about 20,000 workers lived in about 300 of them. They built Olympic Tokyo. Riots recurred through the 1960s, and in 1966 the name San'ya was taken off the address map. A 2021 survey counted about 3,000 residents, nine in ten on welfare. Many flophouses now take backpackers.</p>
+
+<h3>What it gives your six volumes</h3>
+<p>This is Volume 1 in another country. You can stand on a cotton mill site and ask the six questions of it directly.</p>
+<p><strong>Where the capital came from.</strong> Two answers sit a river apart. The wool mill was state money, spent to stop a currency drain. Kanebō began as a cotton merchants' company, and Mitsui Bank later stood behind it. You will see both sites before ten o'clock.</p>
+<p><strong>Where the machines and know-how came from.</strong> A director who learned wool-making in Germany. Japan carried the know-how home in one man's training, much as Slater carried it in his memory. You can test that thought on the spot.</p>
+<p><strong>Where the workers came from.</strong> San'ya is your answer, as a place. It shows the reserve of labour that the factory age needed, and what became of it once the work moved on.</p>
+<p><strong>How work was organised and disciplined.</strong> Mutō's nursery, school and mutual aid society belong beside your Lowell bell and Sunday school. The brick wall itself is a lesson in enclosure.</p>
+<p><strong>Who bought the product.</strong> For the wool mill, the buyer was the army. That is a market made by the state, and it will serve you again in later volumes.</p>
+<p><strong>What happened to the surplus, and to the land.</strong> Kanebō grew into Japan's largest firm by sales. Its founding ground ended as public housing and a fire wall. Few places show the end of a wave so plainly.</p>
+<p>The walk also touches Volume 3. The 1927 steel bridge is on your route. A 45-minute add-on reaches the monument to the Senju coal power station, which ran from 1926 to 1964. Its four chimneys were famous across the city. San'ya's Olympic builders belong to the high-growth years of Volume 4.</p>
+
+<h3>What you will understand at 12:30</h3>
+<p>At 07:00 the circuit of capital is a diagram in your notes. By 12:30 it has a map. You will have walked from the money to the mill, to the workers' district and back. You will see that the state and a bank both started factories here, for different buyers. You will see that the labour pool outlived the mills it served. And you will have seen what a city does with a dead mill: it builds a wall against the next disaster. "For better and worse" will stop being a refrain and become a street.</p>
+
+<h3>What it asks of you</h3>
+<p>It asks for legs. This is about 9 kilometres, mostly on foot and calm away from the main roads. You can save 1 kilometre by taking the train to Minami-Senju. Money is light: about ¥2,100 for trains, coffee and lunch. The exact spot of the wool mill wall is not confirmed, so allow a few minutes to find it. The ward history museum on the same block opens at 09:30, after you pass.</p>
+<p>It also asks for manners. San'ya is people's home, not a sight. Take no photos of people, queues or hotel doorways. Do not linger outside the welfare centre. Walk through Tamahime Park without a camera. At Shirahige-higashi, keep to public paths and never photograph into windows or balconies. Buy your coffee and your lunch locally. That is the fair exchange, and it is also a very good lunch.</p>
+</div>
+<p class="foot">The three morning walks: <a href="walk-red.html">cotton, wool and the day labourers</a>, <a href="walk-blue.html">machine shops and the towers that replaced them</a> and <a href="walk-green.html">paper, gunpowder and Shibusawa</a>. The Thursday plan: <a href="walk-five-revolutions.html">five revolutions</a>. Map tiles: 地理院タイル (GSI), 今昔マップ on the web (Tani Kenji, Saitama Univ.), 農研機構 1880s rapid survey (CC BY 2.1 JP).</p>
+</div>
+<script>
+(function(){
+var DATA = {"center": [139.8, 35.735], "zoom": 13.6, "stops": [{"name": "Kita-Senju station", "c": [139.80509, 35.74954], "note": "Start, about 07:51, Chiyoda line from Yushima. The first post town on the Nikkō road."}, {"name": "Senju Ōhashi", "c": [139.7969, 35.73751], "note": "Steel bridge of 1927. Cross the Sumida."}, {"name": "Senju wool-mill site", "c": [139.79541, 35.73741], "note": "State army wool mill 1879–1945, closed 1960; brick wall 1911–14; Arakawa Furusato Bunkakan opens 09:30."}, {"name": "Kotsukappara", "c": [139.79779, 35.73225], "note": "Execution ground from 1651; beheading Jizō of 1741; Ekōin graves."}, {"name": "Shirahige Bridge", "c": [139.8092, 35.7305], "note": "Cross into Sumida (position approximate)."}, {"name": "Shirahige-higashi, south end", "c": [139.81292, 35.72861], "note": "18 fire-wall blocks, 1975–82, on the Kanebō mill land; shutters, water cannons, roof tanks."}, {"name": "Kanebō Park", "c": [139.81835, 35.73988], "note": "Stone marking the birthplace of Kanegafuchi Spinning, 1887–89; cosmetics from 1963, closed 1969."}, {"name": "Namidabashi, San'ya", "c": [139.79946, 35.72895], "note": "Bridge of tears; Jōhoku Labour and Welfare Centre; Tamahime Park; Iroha-kai street. No photos of people."}, {"name": "Café Bach", "c": [139.80039, 35.72684], "note": "Coffee roasted in San'ya since 1968. Open 10:00."}, {"name": "Tōjimaya", "c": [139.78764, 35.72448], "note": "Lunch: soba house since 1887, Ryūsen 1-29-3. From 11:15."}, {"name": "Iriya station", "c": [139.78458, 35.72071], "note": "Hibiya line two stops to Ueno, then 10 minutes on foot. Home about 12:20."}, {"name": "Senju power-station chimney monument", "c": [139.78943, 35.75368], "note": "Optional add-on, about 45 minutes: monument on the Teikyo University of Science campus, Senju Sakuragi 2-2-1. Power station 1926–64.", "x": true}], "walk": [[[139.80509, 35.74954], [139.7969, 35.73751], [139.79541, 35.73741], [139.79779, 35.73225], [139.8092, 35.7305], [139.81292, 35.72861], [139.81835, 35.73988], [139.81292, 35.72861], [139.8092, 35.7305], [139.79946, 35.72895], [139.80039, 35.72684], [139.78764, 35.72448], [139.78458, 35.72071]]], "dash": [[[139.80509, 35.74954], [139.78943, 35.75368]]]};
+var COLOUR = '#a8392b';
+if (typeof maplibregl === 'undefined') { var e = document.getElementById('maperr'); e.style.display='flex'; e.textContent='The map engine could not be loaded. Check the internet connection and reload.'; return; }
+var ATTR = {
+  gsi:'<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル (国土地理院)</a>',
+  naro:'<a href="https://habs.rad.naro.go.jp/" target="_blank" rel="noopener">農研機構農業環境研究部門</a> CC BY 2.1 JP',
+  kj:'<a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a>'
+};
+function gsi(id, ext, maxz, minz){ return {type:'raster', tiles:['https://cyberjapandata.gsi.go.jp/xyz/'+id+'/{z}/{x}/{y}.'+ext], tileSize:256, minzoom:minz||0, maxzoom:maxz, attribution:ATTR.gsi}; }
+function kj(p){ return {type:'raster', tiles:['https://ktgis.net/kjmapw/kjtilemap/tokyo50/'+p+'/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, minzoom:8, maxzoom:16, attribution:ATTR.kj}; }
+var SOURCES = {
+  'gsi-pale': gsi('pale','png',18),
+  'naro-rapid16': {type:'raster', tiles:['https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, maxzoom:16, attribution:ATTR.naro},
+  'kj-2man': kj('2man'), 'kj-01': kj('01'), 'kj-03': kj('03'),
+  'gsi-usa10': gsi('ort_USA10','png',17)
+};
+var PERIODS = [
+  {key:'1880s', label:'1880s', src:'naro-rapid16', note:'Army rapid survey maps of the 1880s.', kj:false},
+  {key:'1909', label:'1896–1909', src:'kj-2man', note:'Old topographic map, 1896–1909 (今昔マップ).', kj:true},
+  {key:'1930s', label:'1927–39', src:'kj-01', note:'Old topographic map, 1927–39 (今昔マップ).', kj:true},
+  {key:'1945', label:'1945–50 air photos', src:'gsi-usa10', note:'US air photos, 1945–50: war damage and the plants.', kj:false},
+  {key:'1960s', label:'1965–68', src:'kj-03', note:'Old topographic map, 1965–68 (今昔マップ).', kj:true},
+  {key:'today', label:'Today', src:null, note:'Today\'s GSI map only.', kj:false}
+];
+var map = new maplibregl.Map({container:'map', center:DATA.center, zoom:DATA.zoom, minZoom:10, maxZoom:18,
+  maxBounds:[[138.8,35.1],[140.7,36.2]], attributionControl:false, dragRotate:false, pitchWithRotate:false,
+  style:{version:8, sources:{'gsi-pale':SOURCES['gsi-pale']}, layers:[{id:'base', type:'raster', source:'gsi-pale'}]}});
+map.addControl(new maplibregl.AttributionControl({compact:true}), 'bottom-right');
+map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+map.addControl(new maplibregl.GeolocateControl({positionOptions:{enableHighAccuracy:true}, trackUserLocation:true}), 'top-right');
+var state = {period:'1930s', mix:85};
+function line(coords){ return {type:'Feature', geometry:{type:'LineString', coordinates:coords}}; }
+map.on('load', function(){
+  Object.keys(SOURCES).forEach(function(k){ if (k !== 'gsi-pale') map.addSource(k, SOURCES[k]); });
+  PERIODS.forEach(function(p){ if (p.src) map.addLayer({id:'ov-'+p.key, type:'raster', source:p.src, layout:{visibility:'none'}, paint:{'raster-opacity':state.mix/100, 'raster-fade-duration':0}}); });
+  map.addSource('walk', {type:'geojson', data:{type:'FeatureCollection', features:DATA.walk.map(line)}});
+  map.addLayer({id:'walk-halo', type:'line', source:'walk', paint:{'line-color':'#fff', 'line-width':7, 'line-opacity':.8}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addLayer({id:'walk', type:'line', source:'walk', paint:{'line-color':COLOUR, 'line-width':3.5}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addSource('dash', {type:'geojson', data:{type:'FeatureCollection', features:DATA.dash.map(line)}});
+  map.addLayer({id:'dash-halo', type:'line', source:'dash', paint:{'line-color':'#fff', 'line-width':6, 'line-opacity':.8}});
+  map.addLayer({id:'dash', type:'line', source:'dash', paint:{'line-color':COLOUR, 'line-width':2.5, 'line-dasharray':[2,2]}});
+  DATA.stops.forEach(function(s, i){
+    var el = document.createElement('div');
+    el.style.cssText = 'width:26px;height:26px;border-radius:50%;background:'+(s.x?'#fff':COLOUR)+';color:'+(s.x?COLOUR:'#fff')+';border:2px solid '+COLOUR+';font:bold 12px system-ui,sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer';
+    el.textContent = s.x ? '+' : String(i+1);
+    var pop = new maplibregl.Popup({offset:16, closeButton:false}).setHTML('<b>'+(s.x?'Option: ':(i+1)+' · ')+s.name+'</b>'+s.note);
+    s.marker = new maplibregl.Marker({element:el, anchor:'center'}).setLngLat(s.c).setPopup(pop).addTo(map);
+  });
+  setPeriod(state.period);
+  map.resize();
+  fitAll();
+  /* Ueno Park: the visual anchor on every walk map (a cherry blossom, the mark Japanese maps give Ueno) */
+  var ue = document.createElement('div');
+  ue.innerHTML = '<svg viewBox="0 0 24 24" width="30" height="30" aria-label="Ueno Park"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><div style="font:600 11px system-ui,sans-serif;color:#7a2d45;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">上野公園</div>';
+  ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  new maplibregl.Marker({element:ue, anchor:'center'}).setLngLat(UENO).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Ueno Park 上野公園</b>The reference point on every walk map. The Ueno stations are on its south edge.')).addTo(map);
+  map.on('move', placeChip); map.on('resize', placeChip); placeChip();
+});
+var UENO = [139.7735, 35.7154];
+function placeChip(){
+  var chip = document.getElementById('uenoChip'); if (!chip) return;
+  var w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
+  var p = map.project(UENO);
+  var inside = p.x > 0 && p.x < w && p.y > 0 && p.y < h;
+  if (inside) { chip.style.display = 'none'; return; }
+  var cx = w/2, cy = h/2, dx = p.x - cx, dy = p.y - cy;
+  var m = 14, sx = Math.abs(dx) > 0 ? (cx - m) / Math.abs(dx) : 1e9, sy = Math.abs(dy) > 0 ? (cy - m) / Math.abs(dy) : 1e9, s = Math.min(sx, sy);
+  var x = cx + dx * s, y = cy + dy * s;
+  var c = map.getCenter(), R = 6371, toR = Math.PI/180;
+  var dLat = (UENO[1]-c.lat)*toR, dLon = (UENO[0]-c.lng)*toR;
+  var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(c.lat*toR)*Math.cos(UENO[1]*toR)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  var km = 2*R*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  document.getElementById('uenoKm').textContent = km.toFixed(1) + ' km';
+  chip.querySelector('.ar').style.transform = 'rotate(' + (Math.atan2(dy, dx)*180/Math.PI + 90) + 'deg)';
+  chip.style.display = 'flex';
+  chip.style.left = Math.max(4, Math.min(w - chip.offsetWidth - 4, x - chip.offsetWidth/2)) + 'px';
+  chip.style.top = Math.max(4, Math.min(h - chip.offsetHeight - 4, y - chip.offsetHeight/2)) + 'px';
+}
+window.addEventListener('resize', function(){ map.resize(); });
+function fitAll(){
+  var b = new maplibregl.LngLatBounds(DATA.stops[0].c, DATA.stops[0].c);
+  DATA.stops.forEach(function(s){ if (!s.x) b.extend(s.c); });
+  map.fitBounds(b, {padding:{top:40, bottom:40, left:30, right:30}, maxZoom:15.5, duration:0});
+}
+function setPeriod(key){
+  state.period = key;
+  PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setLayoutProperty('ov-'+p.key, 'visibility', p.key===key ? 'visible' : 'none'); });
+  var p = PERIODS.filter(function(q){ return q.key===key; })[0];
+  document.getElementById('kjBadge').hidden = !p.kj;
+  document.getElementById('pnote').textContent = p.note;
+  document.querySelectorAll('#periods button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.key===key ? 'true':'false'); });
+}
+var pbox = document.getElementById('periods');
+PERIODS.forEach(function(p){ var b = document.createElement('button'); b.type='button'; b.dataset.key=p.key; b.textContent=p.label; b.addEventListener('click', function(){ setPeriod(p.key); }); pbox.appendChild(b); });
+document.getElementById('mix').addEventListener('input', function(){ state.mix = +this.value; PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setPaintProperty('ov-'+p.key, 'raster-opacity', state.mix/100); }); });
+var ol = document.getElementById('stops');
+DATA.stops.forEach(function(s, i){
+  var li = document.createElement('li');
+  li.innerHTML = '<span class="n'+(s.x?' x':'')+'">'+(s.x?'+':(i+1))+'</span><div><b>'+s.name+'</b><span>'+s.note+'</span></div>';
+  li.addEventListener('click', function(){ map.flyTo({center:s.c, zoom:16, duration:700}); if (s.marker) s.marker.togglePopup(); });
+  ol.appendChild(li);
+});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Tokyo">
+<title>Six Revolutions Tour</title>
+<!-- Public copy of plans/walk-six-revolutions.html, written by publish_walk_pages.py. Do not edit here: rebuild the plan page, then rerun the script. No trip dates, no lodging. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<style>
+:root{--c:#4a4f8a;--cl:#eeeff8;--ink:#161616;--dim:#5a5d63;--line:#e3e1dc;--soft:#f7f5f0;--bg:#fbfaf7;--tap:40px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:17.5px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+.bar{background:var(--c);color:#fff;padding:10px 16px}
+.bar .k{font-size:.74em;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.bar h1{margin:2px 0 0;font-size:1.3rem;line-height:1.2}
+.bar .area{margin:2px 0 0;font-size:.9em;opacity:.95}
+#stage{position:relative;height:60vh;min-height:360px;background:#e8e4dc}
+#map{position:absolute;inset:0}
+#kjBadge{position:absolute;left:8px;bottom:8px;z-index:3;background:rgba(255,255,255,.95);border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.25);font-family:system-ui,sans-serif}
+#kjBadge a{color:var(--ink);text-decoration:none}
+#uenoChip{position:absolute;z-index:4;display:none;align-items:center;gap:5px;background:rgba(255,255,255,.95);border:1px solid #e3b3c0;border-radius:14px;padding:2px 9px 2px 6px;font:600 12px system-ui,sans-serif;color:#7a2d45;box-shadow:0 1px 3px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+#uenoChip svg{width:16px;height:16px}#uenoChip .ar{display:inline-block;transition:transform .2s}
+#maperr{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;background:var(--soft)}
+[hidden]{display:none !important}
+.controls{background:#fff;border-bottom:1px solid var(--line);padding:8px 12px}
+.periods{display:flex;flex-wrap:wrap;gap:6px}
+.periods button{font:inherit;font-size:.86em;min-height:34px;padding:4px 10px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);cursor:pointer}
+.periods button[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.mix{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:.86em;color:var(--dim)}
+.mix input{flex:1;min-width:0;height:var(--tap);accent-color:var(--c);margin:0}
+.note{font-size:.84em;color:var(--dim);margin:6px 0 0}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 56px}
+.stops{list-style:none;padding:0;margin:14px 0 6px;display:grid;grid-template-columns:1fr;gap:6px}
+@media (min-width:640px){.stops{grid-template-columns:1fr 1fr}}
+.stops li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+.stops li:hover{background:var(--cl)}
+.stops .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-size:.8em;font-weight:bold;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif}
+.stops .n.x{background:#fff;color:var(--c);border:2px solid var(--c)}
+.stops b{display:block;font-size:.95em}
+.stops span{display:block;font-size:.84em;color:var(--dim)}
+.legend{font-size:.84em;color:var(--dim);margin:4px 0 0}
+.legend i{display:inline-block;width:22px;border-top:3px solid var(--c);vertical-align:middle;margin-right:4px}
+.legend i.d{border-top-style:dashed}
+h2.pt{font-size:1.5rem;line-height:1.2;color:var(--c);margin:28px 0 0}
+p.slogan{font-style:italic;font-size:1.05em;margin:6px 0 14px}
+.pitch h3{margin:20px 0 6px;font-size:1.05rem;color:var(--c)}
+.pitch p{margin:0 0 10px}
+.foot{margin-top:28px;padding-top:12px;border-top:1px solid var(--line);font-size:.88em;color:var(--dim)}
+.foot a{color:var(--c)}
+.maplibregl-popup-content{font-family:Georgia,serif;font-size:14px;line-height:1.4;padding:10px 12px;max-width:260px}
+.maplibregl-popup-content b{display:block;margin-bottom:3px}
+.maplibregl-ctrl-attrib{font-family:system-ui,sans-serif;font-size:11px}
+
+.intro{font-size:1.05em}
+.assume{background:var(--cl);border-radius:8px;padding:10px 12px;font-size:.92em;margin:8px 0 6px}
+.dates{font-size:.9em;color:var(--dim);margin:0 0 8px}
+.site{border-left:3px solid var(--cl);padding-left:10px;margin:0 0 10px}
+.site p{margin:0 0 5px}.sn{line-height:1.3}.addr{font-size:.86em;color:var(--dim)}
+.hours{font-size:.88em;color:var(--dim)}
+.opt{display:inline-block;font-size:.72em;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--c);color:var(--c);border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:2px}
+.marx{background:var(--soft);border-left:4px solid var(--c);padding:8px 11px;font-size:.92em;margin:6px 0 18px}
+table.day{border-collapse:collapse;width:100%;font-size:.92em;margin:6px 0 12px}
+table.day td{text-align:left;vertical-align:top;padding:6px 6px;border-bottom:1px solid var(--line)}
+table.day td.t{white-space:nowrap;font-weight:bold;width:5.2em;color:var(--c)}
+#site-header{position:relative !important;z-index:40}
+</style>
+</head>
+<body>
+<div id="site-header"><noscript><p style="padding:12px 16px;margin:0"><a href="index.html">Tokyo Momijigari</a> · the menus need JavaScript</p></noscript></div>
+<script src="site-menu.js"></script>
+<div class="bar"><div class="k">Six revolutions · one long weekday, or two half-days</div><h1>Six Revolutions Tour</h1><p class="area">Kanegafuchi · Kachidoki · Kayabachō · Shimbashi · Yokohama · Musashino · Hongō</p></div>
+<div id="stage"><div id="map"></div><div id="kjBadge" hidden><a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a></div><div id="uenoChip"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><span>上野公園 Ueno Park</span><span class="ar">&#x2191;</span><span id="uenoKm"></span></div><div id="maperr"></div></div>
+<div class="controls">
+<div class="periods" id="periods"></div>
+<div class="mix"><span>Old map</span><input id="mix" type="range" min="0" max="100" value="85" aria-label="Old map opacity"><span>Today</span></div>
+<p class="note">Tap a period to lay its map over today's streets; slide to fade. Tap a stage to fly to it; dashed lines are train legs between stages. <span id="pnote"></span></p>
+</div>
+<div class="wrap">
+<ol class="stops" id="stops"></ol>
+<p class="legend"><i></i> on foot &nbsp; <i class="d"></i> by train or optional &nbsp; The cherry blossom marks Ueno Park, the anchor near the flat; when it is off the map a blossom chip at the edge points to it. Stop positions come from address lookup; the bridge is approximate.</p>
+
+<h2 class="pt">Six revolutions in one Tokyo day</h2>
+<p class="slogan">One site for each of Perez's technological revolutions, and one for yours, in the order the city lets you take them.</p>
+<div class="pitch">
+<div class="assume" style="border-left:4px solid var(--c)"><b>The plan:</b> the free Thursday, covers stages 1 to 5, with the hour's rest at the flat around noon. <b>The Thursday plan now lives on its own page: <a href="walk-five-revolutions.html">Thursday: five revolutions</a></b> (rebuilt 1 November from Gemini's report). This page stays as the background version with more sites; its timetable predates the noon-rest rule. Stage 6 is kept below for the record and has its own <a href="walk-todai.html">Todai tour</a>.</div>
+<p class="intro">Tokyo can show every one of the six revolutions within a train ride of the flat. Each stage below names its anchor site, the Perez date, the year the wave reached Japan, what you will see, when it is open, and which of Marx's six questions it answers on the ground. Hours were checked online on 1 November 2026; the Thursday rules matter because two of the museums keep odd days.</p>
+<div class="assume"><p><b>Assumptions.</b> A full weekday, leaving the flat about 07:30 and back about 18:00, or the same sites as two half-days. The long day only works on a <b>Thursday or Friday</b>, because the NTT history museum opens to the public on those two afternoons alone, and Thursday is safer still because the Kachidoki Bridge museum opens Tuesday, Thursday, Friday and Saturday. Train times are estimates from line maps, not a route site. The stages are visited in the order 1, 3, 2, 4, 5, 6 because Old Shimbashi Station opens at 10:00 and the bridge museum at 09:00.</p><p><b>Three closures to know.</b> The Miraikan in Odaiba is shut for renovation until 23 April 2027. The Ishikawajima shipyard museum opens only on Wednesdays and Saturdays, so on this trip that means the Wednesday or the Saturday. Old Shimbashi Station closes between exhibitions; its autumn show ends 23 November and the December dates were not published, so check its page the week before.</p></div>
+<h2 class="pt" style="margin-top:22px">The six stages</h2>
+<h3 id="stage-1">Stage 1 · Cotton and the factory</h3>
+<p class="dates"><b>Perez:</b> Cromford, 1771; Slater&#x27;s Pawtucket mill, 1790 &nbsp;·&nbsp; <b>Japan's landfall:</b> Tomioka state silk mill 1872; Osaka Spinning 1882; Kanebō&#x27;s Kanegafuchi mill 1887–89</p>
+<div class="site"><p class="sn"><b>Kanebō Park and the Shirahige-higashi fire wall</b><br><span class="addr">Sumida 3-chōme, beside Kanegafuchi station (Tōbu Skytree line)</span></p>
+<p>Kanebō began building its first mill here in 1887 and span from 1889; the plant became a cosmetics factory in 1963 and closed in 1969. A stone in Kanebō Park marks the birthplace of Kanegafuchi Spinning. On the rest of the land Tokyo built eighteen 40-metre blocks in one 1.2 km line, finished by 1982, as a fire wall for the wooden streets behind. Walk south along Bokutei-dōri past the shutters, water cannons and roof tanks.</p>
+<p class="hours">Outdoors, free, any time. Homes: public paths only, no photos into windows.</p></div>
+<div class="site"><p class="sn"><b>Senju wool-mill brick wall</b> <span class="opt">optional</span><br><span class="addr">Minami-Senju 6-chōme, Arakawa; the ward history museum at 6-63-1 opens 09:30 (¥100, closed Mondays)</span></p>
+<p>The state opened the mill in 1879 to make army cloth and stop uniform imports draining foreign currency. Production stopped in 1945; a private buyer closed it in 1960. Part of the wall was given to the ward in 2010 and is kept on display near the old main gate; the exact spot was not confirmed.</p>
+<p class="hours">Outdoors, free. Adds about 40 minutes from Kanegafuchi via Shirahige Bridge and Minami-Senju.</p></div>
+<p class="marx"><b>Marx's question here:</b> Where the starting capital came from and who did the work. A cotton merchants' company with Mitsui Bank behind it, and a labour reserve a bridge away in San'ya. The mill land ended as public housing, which is the surplus question answered by the state.</p>
+<h3 id="stage-2">Stage 2 · Steam, canals and railways</h3>
+<p class="dates"><b>Perez:</b> Stephenson&#x27;s Rocket, 1829 &nbsp;·&nbsp; <b>Japan's landfall:</b> Ishikawajima shipyard 1853, private under Hirano Tomiji from 1876; the Shimbashi–Yokohama railway, 14 October 1872</p>
+<div class="site"><p class="sn"><b>Old Shimbashi Station, railway history room</b><br><span class="addr">1-5-3 Higashi-Shimbashi, Minato; 5 minutes from JR Shimbashi, Ginza exit, or Toei Shiodome</span></p>
+<p>Japan's first railway left here for Yokohama on 14 October 1872: 29 km in about 53 minutes, nine round trips a day. The building is a copy of the 1872 station on its exact site; the stone foundations show through a glass floor, and a stretch of platform and track is rebuilt outside. Upstairs are changing exhibitions on railway and Shiodome history.</p>
+<p class="hours">10:00–17:00, last entry 16:45; closed Mondays and during exhibition changes; free. Early-December changeover dates not published: check.</p></div>
+<div class="site"><p class="sn"><b>Ishikawajima Museum, River City 21</b> <span class="opt">optional</span><br><span class="addr">Pier West Square 1F, 1-11-8 Tsukuda, Chūō; 6 minutes from Tsukishima station, exit 6</span></p>
+<p>The yard began in 1853 on shogunal orders after Perry; the engineer Hirano Tomiji took it over as a private firm in 1876. It became Tokyo Ishikawajima Shipbuilding in 1893 and opened its Toyosu works in 1939; the Tsukuda land was sold in 1979 and River City 21 rose from 1986.</p>
+<p class="hours">Wednesday and Saturday only; on this trip the Wednesday or the Saturday. Free, no booking.</p></div>
+<div class="site"><p class="sn"><b>The shipyard dock at Lalaport Toyosu</b> <span class="opt">optional</span><br><span class="addr">Toyosu 2-4-9, Kōtō; short walk from Toyosu station</span></p>
+<p>The shopping centre stands on the Toyosu works of 1939. Its old repair dock is now the pier for the Asakusa water bus, with a lift bridge at the mouth and one shipyard crane kept and lit at night.</p>
+<p class="hours">Open grounds, free.</p></div>
+<p class="marx"><b>Marx's question here:</b> Circulation: goods must be sold, and the larger sum must come back. The railway and the steamship cut the time the circuit takes. Japan's first line was state-built, so it is also the state as the buyer of British engineering.</p>
+<h3 id="stage-3">Stage 3 · Steel and electricity</h3>
+<p class="dates"><b>Perez:</b> Carnegie&#x27;s Bessemer plant, 1875 &nbsp;·&nbsp; <b>Japan's landfall:</b> Arc lamp in Ginza, 1 November 1882; Japan&#x27;s first power station, Kayabachō, 21 November 1887; the steel Sumida bridges 1926–40</p>
+<div class="site"><p class="sn"><b>Kachidoki Bridge Museum</b><br><span class="addr">6-20-11 Tsukiji, Chūō, on the Tsukiji side of the bridge; 8 minutes from Tsukiji station (Hibiya line)</span></p>
+<p>Completed 14 June 1940 as the gateway to a world fair the war cancelled, then East Asia's largest bascule bridge; it last opened on 29 November 1970 and is an Important Cultural Property. The museum fills the old substation that powered the lift and keeps the electrical gear as it was, with a 1:100 model and drawings of the other Sumida bridges. Nine steel bridges crossed the Sumida under the post-1923 plan: Eitai 1926, Kiyosu 1928, Kachidoki last.</p>
+<p class="hours">Tuesday, Thursday, Friday, Saturday; 1 December to 28 February 09:00–16:00; free.</p></div>
+<div class="site"><p class="sn"><b>First power station stone, Kayabachō</b><br><span class="addr">Near 1-3-10 Nihonbashi-Kayabachō, outside the Sotetsu Fresa Inn behind the Stock Exchange; 100 m from Kayabachō station</span></p>
+<p>Tokyo Electric Light built Japan's first power station here on 21 November 1887 and began supply on 29 November to nearby firms and the post office, from an Edison direct-current generator. TEPCO set the stone in 1987.</p>
+<p class="hours">Pavement, any time, free.</p></div>
+<div class="site"><p class="sn"><b>First electric street light plaque, Ginza 2-chōme</b> <span class="opt">optional</span><br><span class="addr">Pavement outside Cartier, Ginza 2-chōme; 100 m from Ginza-itchōme station</span></p>
+<p>The plaque of 1986 marks the arc lamp of 1 November 1882, Japan's first electric street light. It is two stops from Kayabachō.</p>
+<p class="hours">Pavement, any time, free.</p></div>
+<div class="site"><p class="sn"><b>Senju power-station chimney monument</b> <span class="opt">optional</span><br><span class="addr">Teikyo University of Science, Senju Sakuragi 2-2-1, Adachi; about 15 minutes from Kita-Senju</span></p>
+<p>Four 80-metre chimneys stood in a rhombus, so they seemed to number one to four from different angles. They came down in August 1964; the site is a substation. Whether the monument is visible from the street was not checked.</p>
+<p class="hours">Campus grounds; weekday access assumed, not checked.</p></div>
+<p class="marx"><b>Marx's question here:</b> Where the machines and the new inputs come from. Electricity and steel arrive as imported equipment and then as a home industry; the bridges are the state rebuilding the means of circulation after the earthquake.</p>
+<h3 id="stage-4">Stage 4 · Oil, autos and mass production</h3>
+<p class="dates"><b>Perez:</b> The Model T, 1908 &nbsp;·&nbsp; <b>Japan's landfall:</b> Nissan founded 1933, Yokohama plant 1934–35; the big plants come to Ōta 1934–39; Toyosu coal wharf 1948–50 and gas plant 1954–55</p>
+<div class="site"><p class="sn"><b>Nissan Engine Museum, Yokohama plant</b><br><span class="addr">2 Takara-chō, Kanagawa-ku, Yokohama; 17 minutes on foot from JR or Keikyū Shin-Koyasu, or a short bus ride</span></p>
+<p>The building was Nissan's head office and factory office from 1935 (the city dates it 1934, extended 1935); headquarters left for Ginza in 1968 and the museum opened in 2003. About 200 engines are held and 28 displayed. This is the Keihin belt's south end, where Tokyo's machine-shop lanes in Ōta feed the assembly plants.</p>
+<p class="hours">Weekdays 10:00–16:00, last entry 15:30; closed weekends, Golden Week, summer and year-end; free; no booking for individuals.</p></div>
+<div class="site"><p class="sn"><b>Toyosu, the coal and gas base</b> <span class="opt">optional</span><br><span class="addr">Toyosu 6-chōme, Kōtō; Shijō-mae station (Yurikamome)</span></p>
+<p>The two-berth coal wharf was finished in 1948–50 and the land for the city-gas plant filled in 1954–55; the Tokyo Gas plant stood until 1988 and Toyosu Market now sits on it, after the fight over its poisoned soil. The energy base of the oil and electricity age, turned into a fish market.</p>
+<p class="hours">Market visitor route 05:00–17:00, closed Sundays and 2 and 6 December; free.</p></div>
+<div class="site"><p class="sn"><b>Ōta machine-shop lanes</b> <span class="opt">optional</span><br><span class="addr">Shimomaruko to Musashi-Nitta, Tōkyū Tamagawa line</span></p>
+<p>If Yokohama is too far, the blue walk's lanes are this stage in Tokyo: thousands of tiny shops that worked as one spread-out factory for the car and machine makers.</p>
+<p class="hours">Streets, any weekday morning.</p></div>
+<p class="marx"><b>Marx's question here:</b> How work is organised and who buys. Mass production splits into a parts department of tiny subcontractors and an assembly plant; the buyers are the army in 1937, the Americans in 1950, and then the household.</p>
+<h3 id="stage-5">Stage 5 · Information</h3>
+<p class="dates"><b>Perez:</b> Intel&#x27;s 4004, 1971 &nbsp;·&nbsp; <b>Japan's landfall:</b> Sony TR-55 transistor radio, August 1955; Busicom&#x27;s calculator with the first 4004, July 1971; NEC PC-8001, September 1979</p>
+<div class="site"><p class="sn"><b>NTT Technology History Center, Musashino</b><br><span class="addr">3-9-11 Midori-chō, Musashino, inside the NTT research centre; Kantō bus from JR Mitaka north exit, about 10 minutes</span></p>
+<p>The state telegraph of 1870, an 1878 Japanese telephone, the black 600-type phone of 1962–79 and the 1979 car-phone service, in the research centre that produced them. Opened 2000. Japan's own landfall of the microprocessor was a Tokyo calculator firm: Busicom received the first working Intel 4004 in March 1971 and sold its calculator from July, months before Intel advertised the chip.</p>
+<p class="hours">Public days Thursday and Friday, 13:00–17:00; free; no booking on those days. An older city leaflet says Thursday only, so Thursday is the safe day.</p></div>
+<div class="site"><p class="sn"><b>Akihabara</b> <span class="opt">optional</span><br><span class="addr">JR Akihabara, Electric Town exit</span></p>
+<p>The postwar black market near Ogawamachi dealt in radio parts; a 1951 order moved the stalls, and the shops gathered at Akihabara. The "Electric Town" name came with the washing machines and fridges of the 1960s. Sony's founding site at Gotenyama is now an office complex with no plaque found, so Akihabara is the street-level stage 5.</p>
+<p class="hours">Shops from about 10:00 or 11:00.</p></div>
+<p class="marx"><b>Marx's question here:</b> The means of production become calculation and communication. The telephone network was a state monopoly that was later sold; the calculator firm shows a Japanese buyer commissioning the chip that started the American wave.</p>
+<h3 id="stage-6">Stage 6 · Intelligence <span class="opt">deferred to the Todai tour</span></h3>
+<p class="dates"><b>Perez:</b> Your addition: ChatGPT released 30 November 2022 &nbsp;·&nbsp; <b>Japan's landfall:</b> The Hongō AI cluster at the University of Tokyo; Inzai&#x27;s data-centre builds (Colt 2020, Google 2023) and TEPCO&#x27;s Chiba-Inzai substation, June 2024</p>
+<div class="site"><p class="sn"><b>Hongō, the University of Tokyo&#x27;s AI cluster</b><br><span class="addr">Hongō campus, 7-3-1 Hongō, Bunkyō; 15 minutes&#x27; walk from the flat; Hongō-sanchōme station</span></p>
+<p>The Matsuo-Iwasawa laboratory speaks of building a "Hongō Valley" and runs Hongō AI events; KERNEL HONGO is a support base for AI startups and by 2020 about 400 companies had come out of the university, 17 of them listed. Nothing here is open to a walk-in visitor; the stage is the campus and the streets around it, which you will see anyway at the conference on Saturday.</p>
+<p class="hours">Campus open; buildings not. Free.</p></div>
+<div class="site"><p class="sn"><b>Inzai data-centre alley, Chiba</b> <span class="opt">optional</span><br><span class="addr">Along the Hokusō line between Chiba New Town Chūō and Inzai-Makinohara; Keisei Access Express from Nippori, 35–45 minutes</span></p>
+<p>Called a data-centre Ginza: at least eleven operators, Colt's 27 MW centre of 2020, a planned 120 MW campus by Mitsubishi and Digital Realty, Google's build announced in 2023, and TEPCO's new substation of June 2024. The sheds are large and windowless; whether they are visible from public roads was not checked, and none admits visitors.</p>
+<p class="hours">Roads only; a half-day on its own.</p></div>
+<div class="site"><p class="sn"><b>NTT InterCommunication Center, Hatsudai</b> <span class="opt">optional</span><br><span class="addr">Tokyo Opera City tower, 2 minutes from Hatsudai (Keiō New Line)</span></p>
+<p>NTT's media-art centre shows work made with machine systems; its open space is free and exhibitions cost about ¥800. Every listed show ends on 8 November and no December programme was posted on 1 November, so treat it as a maybe.</p>
+<p class="hours">Normally 11:00–18:00, closed Mondays. December programme unverified.</p></div>
+<p class="marx"><b>Marx's question here:</b> What happens to the surplus now. It goes into compute, power and land on the Shimōsa plateau, and into a university cluster five minutes from where you sleep. The Miraikan would have been the showroom; it is shut until April 2027.</p>
+<h2 class="pt">The long day: Thursday or Friday, 07:30 to about 18:00</h2>
+<table class="day">
+<tr><td class="t">07:30</td><td>Leave. Ginza line Ueno-hirokōji to Asakusa, Tōbu to <b>Kanegafuchi</b>, about 35 minutes.</td></tr>
+<tr><td class="t">08:10–08:45</td><td><b>Stage 1.</b> Kanebō Park, then south along the fire-wall flats.</td></tr>
+<tr><td class="t">08:45–09:35</td><td>Tōbu to Oshiage, Asakusa line to Higashi-Ginza, Hibiya line one stop to Tsukiji, walk 8 minutes.</td></tr>
+<tr><td class="t">09:35–10:05</td><td><b>Stage 3.</b> Kachidoki Bridge Museum (opens 09:00 in winter).</td></tr>
+<tr><td class="t">10:05–10:30</td><td>Hibiya line Tsukiji to Kayabachō; the first power station stone.</td></tr>
+<tr><td class="t">10:30–10:50</td><td>Hibiya line to Higashi-Ginza, Asakusa line one stop to Shimbashi, walk 5 minutes.</td></tr>
+<tr><td class="t">10:50–11:30</td><td><b>Stage 2.</b> Old Shimbashi Station (opens 10:00).</td></tr>
+<tr><td class="t">11:35–12:30</td><td>JR Keihin-Tōhoku from Shimbashi to Shin-Koyasu, about 35 minutes, then 17 minutes on foot. Buy lunch at Shimbashi or Shin-Koyasu and eat it on the way.</td></tr>
+<tr><td class="t">12:30–13:15</td><td><b>Stage 4.</b> Nissan Engine Museum.</td></tr>
+<tr><td class="t">13:15–14:50</td><td>Shin-Koyasu to Tokyo or Kanda, Chūō rapid to Mitaka, bus to the research centre: about 75 minutes plus the bus. The long leg of the day.</td></tr>
+<tr><td class="t">14:50–16:15</td><td><b>Stage 5.</b> NTT Technology History Center (13:00–17:00, Thursday and Friday only).</td></tr>
+<tr><td class="t">16:15–17:00</td><td>Bus to Mitaka, Chūō rapid to Ochanomizu, walk or one Marunouchi stop to Hongō-sanchōme.</td></tr>
+<tr><td class="t">17:00–17:40</td><td><b>Stage 6.</b> Hongō campus and its edge at dusk.</td></tr>
+<tr><td class="t">18:00</td><td>Home. About 10½ hours; about 8 km on foot; museums all free; trains about ¥2,500 / $16.</td></tr>
+</table>
+<h2 class="pt">The same tour as two half-days</h2>
+<p><b>Half-day A, the river and the bay (stages 1 to 3), any day but Monday, about 4½ hours.</b> Kanegafuchi at 08:10, the Kachidoki Bridge museum at 09:35 (Tuesday, Thursday, Friday or Saturday), the Kayabachō stone at 10:15, Old Shimbashi at 10:50, home by 12:15. On a Wednesday or Saturday add the Ishikawajima museum and the Toyosu dock for another 90 minutes.</p>
+<p><b>Half-day B, the belt, the network and the cluster (stages 4 to 6), Thursday or Friday, about 7 hours.</b> Leave 09:00 for the Nissan Engine Museum at 10:00, lunch at Mitaka, the NTT history museum at 13:30, Hongō at 16:30, home at 17:15.</p>
+<p><b>Half-day B, the Tokyo-only version, any weekday, about 5 hours.</b> The Ōta machine-shop lanes from 08:30 for stage 4, Akihabara at 11:30 for stage 5, Hongō at 13:00 for stage 6. Less to enter, nothing to book, no Yokohama.</p>
+<h3>What was not checked</h3><ul class="small">
+<li>All train times are estimates from line maps; the route sites blocked automated reading.</li>
+<li>Old Shimbashi Station's early-December changeover closure; the NTT museum's holiday closures; weekday access to the Teikyo campus.</li>
+<li>Whether the Inzai data centres can be seen from public roads, and whether the ICC has a December programme.</li>
+<li>Sony's Gotenyama site: no plaque was found, so it is not on the map.</li>
+<li>Facts carried from the earlier Project Tokyo research and not re-checked today: the Ōta plant dates, San'ya, Kanebō's dates, Nissan's 1933 founding, the 1872 railway's British loan and engineers.</li>
+</ul>
+</div>
+<p class="foot">The three morning walks: <a href="walk-red.html">cotton, wool and the day labourers</a>, <a href="walk-blue.html">machine shops and the towers that replaced them</a> and <a href="walk-green.html">paper, gunpowder and Shibusawa</a>. Map tiles: 地理院タイル (GSI), 今昔マップ on the web (Tani Kenji, Saitama Univ.), 農研機構 1880s rapid survey (CC BY 2.1 JP).</p>
+</div>
+<script>
+(function(){
+var DATA = {"center": [139.72, 35.66], "zoom": 10.6, "stops": [{"name": "Stage 1: Kanebō Park and the Shirahige-higashi fire wall", "c": [139.81835, 35.73988], "note": "Kanegafuchi Spinning birthplace stone; 1.2 km of fire-wall flats on the mill land.", "x": false, "label": "1"}, {"name": "Stage 1: Senju wool-mill brick wall", "c": [139.79541, 35.73741], "note": "Japan's first modern woollen mill, state-built 1879; a stretch of its 1911–14 brick wall survives.", "x": true, "label": "+"}, {"name": "Stage 2: Old Shimbashi Station, railway history room", "c": [139.7614, 35.66563], "note": "Rebuilt 1872 station front on the original site; foundations under glass; platform and track reconstructed.", "x": false, "label": "2"}, {"name": "Stage 2: Ishikawajima Museum, River City 21", "c": [139.78477, 35.66981], "note": "IHI's museum on the old shipyard; Wednesdays and Saturdays only, 10:00–12:00 and 13:00–17:00, free.", "x": true, "label": "+"}, {"name": "Stage 2: The shipyard dock at Lalaport Toyosu", "c": [139.79292, 35.6563], "note": "A repair dock from the IHI yard, now a water-bus pier, with one shipyard crane kept.", "x": true, "label": "+"}, {"name": "Stage 3: Kachidoki Bridge Museum", "c": [139.77364, 35.66337], "note": "The bridge's former substation, with the original electric machinery that lifted the 1940 bascule span.", "x": false, "label": "3"}, {"name": "Stage 3: First power station stone, Kayabachō", "c": [139.77998, 35.68072], "note": "Stone of 1987 marking Tokyo Electric Light's 1887 station: an Edison direct-current dynamo of about 20 kW.", "x": false, "label": "3"}, {"name": "Stage 3: First electric street light plaque, Ginza 2-chōme", "c": [139.76693, 35.67312], "note": "The arc lamp lit on 1 November 1882, which drew crowds.", "x": true, "label": "+"}, {"name": "Stage 3: Senju power-station chimney monument", "c": [139.78943, 35.75368], "note": "Monument of 2010 made from the \"ghost chimneys\" of the 1926–64 coal power station.", "x": true, "label": "+"}, {"name": "Stage 4: Nissan Engine Museum, Yokohama plant", "c": [139.66382, 35.48099], "note": "The 1934–35 head-office building of Nissan's first plant; 28 engines on show, free, weekdays only.", "x": false, "label": "4"}, {"name": "Stage 4: Toyosu, the coal and gas base", "c": [139.78284, 35.64228], "note": "Coal wharf 1948–50, gas-plant land 1954–55; the Tokyo Gas plant stood until 1988; the fish market is on its site.", "x": true, "label": "+"}, {"name": "Stage 4: Ōta machine-shop lanes", "c": [139.69258, 35.56772], "note": "The lighter, Tokyo-only stage 4: the blue walk's factory lanes.", "x": true, "label": "+"}, {"name": "Stage 5: NTT Technology History Center, Musashino", "c": [139.56259, 35.71895], "note": "Telegraph gear from 1870, an 1878 telephone, the 1979 car phone; Thursday and Friday 13:00–17:00 only, free.", "x": false, "label": "5"}, {"name": "Stage 5: Akihabara", "c": [139.77239, 35.69759], "note": "The lighter, Tokyo-only stage 5: radio parts under the tracks in 1951, appliances in the 1960s, then computers.", "x": true, "label": "+"}, {"name": "Stage 6: Hongō, the University of Tokyo's AI cluster", "c": [139.76321, 35.71415], "note": "The startup cluster people call Hongō Valley, at your doorstep; walk the campus edge at dusk.", "x": false, "label": "6"}, {"name": "Stage 6: Inzai data-centre alley, Chiba", "c": [140.11632, 35.80018], "note": "Eleven or more operators, AWS, Google and NTT Data among them, on the Shimōsa plateau; the physical plant of this wave.", "x": true, "label": "+"}, {"name": "Stage 6: NTT InterCommunication Center, Hatsudai", "c": [139.6865, 35.683], "note": "Media-art centre with a free open space; nothing is scheduled after 8 November, so check before going.", "x": true, "label": "+"}], "walk": [], "dash": [[[139.81835, 35.73988], [139.7614, 35.66563]], [[139.7614, 35.66563], [139.77364, 35.66337]], [[139.77364, 35.66337], [139.77998, 35.68072]], [[139.77998, 35.68072], [139.66382, 35.48099]], [[139.66382, 35.48099], [139.56259, 35.71895]], [[139.56259, 35.71895], [139.76321, 35.71415]]]};
+var COLOUR = '#4a4f8a';
+if (typeof maplibregl === 'undefined') { var e = document.getElementById('maperr'); e.style.display='flex'; e.textContent='The map engine could not be loaded. Check the internet connection and reload.'; return; }
+var ATTR = {
+  gsi:'<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル (国土地理院)</a>',
+  naro:'<a href="https://habs.rad.naro.go.jp/" target="_blank" rel="noopener">農研機構農業環境研究部門</a> CC BY 2.1 JP',
+  kj:'<a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a>'
+};
+function gsi(id, ext, maxz, minz){ return {type:'raster', tiles:['https://cyberjapandata.gsi.go.jp/xyz/'+id+'/{z}/{x}/{y}.'+ext], tileSize:256, minzoom:minz||0, maxzoom:maxz, attribution:ATTR.gsi}; }
+function kj(p){ return {type:'raster', tiles:['https://ktgis.net/kjmapw/kjtilemap/tokyo50/'+p+'/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, minzoom:8, maxzoom:16, attribution:ATTR.kj}; }
+var SOURCES = {
+  'gsi-pale': gsi('pale','png',18),
+  'naro-rapid16': {type:'raster', tiles:['https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, maxzoom:16, attribution:ATTR.naro},
+  'kj-2man': kj('2man'), 'kj-01': kj('01'), 'kj-03': kj('03'),
+  'gsi-usa10': gsi('ort_USA10','png',17)
+};
+var PERIODS = [
+  {key:'1880s', label:'1880s', src:'naro-rapid16', note:'Army rapid survey maps of the 1880s.', kj:false},
+  {key:'1909', label:'1896–1909', src:'kj-2man', note:'Old topographic map, 1896–1909 (今昔マップ).', kj:true},
+  {key:'1930s', label:'1927–39', src:'kj-01', note:'Old topographic map, 1927–39 (今昔マップ).', kj:true},
+  {key:'1945', label:'1945–50 air photos', src:'gsi-usa10', note:'US air photos, 1945–50: war damage and the plants.', kj:false},
+  {key:'1960s', label:'1965–68', src:'kj-03', note:'Old topographic map, 1965–68 (今昔マップ).', kj:true},
+  {key:'today', label:'Today', src:null, note:'Today\'s GSI map only.', kj:false}
+];
+var map = new maplibregl.Map({container:'map', center:DATA.center, zoom:DATA.zoom, minZoom:10, maxZoom:18,
+  maxBounds:[[138.8,35.1],[140.7,36.2]], attributionControl:false, dragRotate:false, pitchWithRotate:false,
+  style:{version:8, sources:{'gsi-pale':SOURCES['gsi-pale']}, layers:[{id:'base', type:'raster', source:'gsi-pale'}]}});
+map.addControl(new maplibregl.AttributionControl({compact:true}), 'bottom-right');
+map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+map.addControl(new maplibregl.GeolocateControl({positionOptions:{enableHighAccuracy:true}, trackUserLocation:true}), 'top-right');
+var state = {period:'1930s', mix:85};
+function line(coords){ return {type:'Feature', geometry:{type:'LineString', coordinates:coords}}; }
+map.on('load', function(){
+  Object.keys(SOURCES).forEach(function(k){ if (k !== 'gsi-pale') map.addSource(k, SOURCES[k]); });
+  PERIODS.forEach(function(p){ if (p.src) map.addLayer({id:'ov-'+p.key, type:'raster', source:p.src, layout:{visibility:'none'}, paint:{'raster-opacity':state.mix/100, 'raster-fade-duration':0}}); });
+  map.addSource('walk', {type:'geojson', data:{type:'FeatureCollection', features:DATA.walk.map(line)}});
+  map.addLayer({id:'walk-halo', type:'line', source:'walk', paint:{'line-color':'#fff', 'line-width':7, 'line-opacity':.8}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addLayer({id:'walk', type:'line', source:'walk', paint:{'line-color':COLOUR, 'line-width':3.5}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addSource('dash', {type:'geojson', data:{type:'FeatureCollection', features:DATA.dash.map(line)}});
+  map.addLayer({id:'dash-halo', type:'line', source:'dash', paint:{'line-color':'#fff', 'line-width':6, 'line-opacity':.8}});
+  map.addLayer({id:'dash', type:'line', source:'dash', paint:{'line-color':COLOUR, 'line-width':2.5, 'line-dasharray':[2,2]}});
+  DATA.stops.forEach(function(s, i){
+    var el = document.createElement('div');
+    el.style.cssText = 'width:26px;height:26px;border-radius:50%;background:'+(s.x?'#fff':COLOUR)+';color:'+(s.x?COLOUR:'#fff')+';border:2px solid '+COLOUR+';font:bold 12px system-ui,sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer';
+    el.textContent = s.label || (s.x ? '+' : String(i+1));
+    var pop = new maplibregl.Popup({offset:16, closeButton:false}).setHTML('<b>'+(s.x?'Option: ':'')+s.name+'</b>'+s.note);
+    s.marker = new maplibregl.Marker({element:el, anchor:'center'}).setLngLat(s.c).setPopup(pop).addTo(map);
+  });
+  setPeriod(state.period);
+  map.resize();
+  fitAll();
+  setTimeout(function(){ map.resize(); fitAll(); }, 600);
+  /* Ueno Park: the visual anchor on every walk map (a cherry blossom, the mark Japanese maps give Ueno) */
+  var ue = document.createElement('div');
+  ue.innerHTML = '<svg viewBox="0 0 24 24" width="30" height="30" aria-label="Ueno Park"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><div style="font:600 11px system-ui,sans-serif;color:#7a2d45;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">上野公園</div>';
+  ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  new maplibregl.Marker({element:ue, anchor:'center'}).setLngLat(UENO).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Ueno Park 上野公園</b>The reference point on every walk map. The Ueno stations are on its south edge.')).addTo(map);
+  map.on('move', placeChip); map.on('resize', placeChip); placeChip();
+});
+var UENO = [139.7735, 35.7154];
+function placeChip(){
+  var chip = document.getElementById('uenoChip'); if (!chip) return;
+  var w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
+  var p = map.project(UENO);
+  var inside = p.x > 0 && p.x < w && p.y > 0 && p.y < h;
+  if (inside) { chip.style.display = 'none'; return; }
+  var cx = w/2, cy = h/2, dx = p.x - cx, dy = p.y - cy;
+  var m = 14, sx = Math.abs(dx) > 0 ? (cx - m) / Math.abs(dx) : 1e9, sy = Math.abs(dy) > 0 ? (cy - m) / Math.abs(dy) : 1e9, s = Math.min(sx, sy);
+  var x = cx + dx * s, y = cy + dy * s;
+  var c = map.getCenter(), R = 6371, toR = Math.PI/180;
+  var dLat = (UENO[1]-c.lat)*toR, dLon = (UENO[0]-c.lng)*toR;
+  var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(c.lat*toR)*Math.cos(UENO[1]*toR)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  var km = 2*R*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  document.getElementById('uenoKm').textContent = km.toFixed(1) + ' km';
+  chip.querySelector('.ar').style.transform = 'rotate(' + (Math.atan2(dy, dx)*180/Math.PI + 90) + 'deg)';
+  chip.style.display = 'flex';
+  chip.style.left = Math.max(4, Math.min(w - chip.offsetWidth - 4, x - chip.offsetWidth/2)) + 'px';
+  chip.style.top = Math.max(4, Math.min(h - chip.offsetHeight - 4, y - chip.offsetHeight/2)) + 'px';
+}
+window.addEventListener('resize', function(){ map.resize(); });
+function fitAll(){
+  var b = new maplibregl.LngLatBounds(DATA.stops[0].c, DATA.stops[0].c);
+  DATA.stops.forEach(function(s){ if (!s.x) b.extend(s.c); });
+  map.fitBounds(b, {padding:{top:70, bottom:44, left:34, right:76}, maxZoom:15.5, duration:0});
+}
+function setPeriod(key){
+  state.period = key;
+  PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setLayoutProperty('ov-'+p.key, 'visibility', p.key===key ? 'visible' : 'none'); });
+  var p = PERIODS.filter(function(q){ return q.key===key; })[0];
+  document.getElementById('kjBadge').hidden = !p.kj;
+  document.getElementById('pnote').textContent = p.note;
+  document.querySelectorAll('#periods button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.key===key ? 'true':'false'); });
+}
+var pbox = document.getElementById('periods');
+PERIODS.forEach(function(p){ var b = document.createElement('button'); b.type='button'; b.dataset.key=p.key; b.textContent=p.label; b.addEventListener('click', function(){ setPeriod(p.key); }); pbox.appendChild(b); });
+document.getElementById('mix').addEventListener('input', function(){ state.mix = +this.value; PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setPaintProperty('ov-'+p.key, 'raster-opacity', state.mix/100); }); });
+var ol = document.getElementById('stops');
+DATA.stops.forEach(function(s, i){
+  var li = document.createElement('li');
+  li.innerHTML = '<span class="n'+(s.x?' x':'')+'">'+(s.label||(s.x?'+':(i+1)))+'</span><div><b>'+s.name+'</b><span>'+s.note+'</span></div>';
+  li.addEventListener('click', function(){ map.flyTo({center:s.c, zoom:16, duration:700}); if (s.marker) s.marker.togglePopup(); });
+  ol.appendChild(li);
+});
+})();
+</script>
+</body>
+</html>

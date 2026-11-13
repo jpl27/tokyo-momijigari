@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Tokyo">
+<title>The Todai campus tour</title>
+<!-- Public copy of plans/walk-todai.html, written by publish_walk_pages.py. Do not edit here: rebuild the plan page, then rerun the script. No trip dates, no lodging. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<style>
+:root{--c:#8a6200;--cl:#fbf4e2;--ink:#161616;--dim:#5a5d63;--line:#e3e1dc;--soft:#f7f5f0;--bg:#fbfaf7;--tap:40px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:17.5px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+.bar{background:var(--c);color:#fff;padding:10px 16px}
+.bar .k{font-size:.74em;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.bar h1{margin:2px 0 0;font-size:1.3rem;line-height:1.2}
+.bar .area{margin:2px 0 0;font-size:.9em;opacity:.95}
+#stage{position:relative;height:60vh;min-height:360px;background:#e8e4dc}
+#map{position:absolute;inset:0}
+#kjBadge{position:absolute;left:8px;bottom:8px;z-index:3;background:rgba(255,255,255,.95);border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.25);font-family:system-ui,sans-serif}
+#kjBadge a{color:var(--ink);text-decoration:none}
+#uenoChip{position:absolute;z-index:4;display:none;align-items:center;gap:5px;background:rgba(255,255,255,.95);border:1px solid #e3b3c0;border-radius:14px;padding:2px 9px 2px 6px;font:600 12px system-ui,sans-serif;color:#7a2d45;box-shadow:0 1px 3px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+#uenoChip svg{width:16px;height:16px}#uenoChip .ar{display:inline-block;transition:transform .2s}
+#maperr{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;background:var(--soft)}
+[hidden]{display:none !important}
+.controls{background:#fff;border-bottom:1px solid var(--line);padding:8px 12px}
+.periods{display:flex;flex-wrap:wrap;gap:6px}
+.periods button{font:inherit;font-size:.86em;min-height:34px;padding:4px 10px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);cursor:pointer}
+.periods button[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.mix{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:.86em;color:var(--dim)}
+.mix input{flex:1;min-width:0;height:var(--tap);accent-color:var(--c);margin:0}
+.note{font-size:.84em;color:var(--dim);margin:6px 0 0}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 56px}
+.stops{list-style:none;padding:0;margin:14px 0 6px;display:grid;grid-template-columns:1fr;gap:6px}
+@media (min-width:640px){.stops{grid-template-columns:1fr 1fr}}
+.stops li{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+.stops li:hover{background:var(--cl)}
+.stops .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-size:.8em;font-weight:bold;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif}
+.stops .n.x{background:#fff;color:var(--c);border:2px solid var(--c)}
+.stops b{display:block;font-size:.95em}
+.stops span{display:block;font-size:.84em;color:var(--dim)}
+.legend{font-size:.84em;color:var(--dim);margin:4px 0 0}
+.legend i{display:inline-block;width:22px;border-top:3px solid var(--c);vertical-align:middle;margin-right:4px}
+.legend i.d{border-top-style:dashed}
+h2.pt{font-size:1.5rem;line-height:1.2;color:var(--c);margin:28px 0 0}
+p.slogan{font-style:italic;font-size:1.05em;margin:6px 0 14px}
+.pitch h3{margin:20px 0 6px;font-size:1.05rem;color:var(--c)}
+.pitch p{margin:0 0 10px}
+.foot{margin-top:28px;padding-top:12px;border-top:1px solid var(--line);font-size:.88em;color:var(--dim)}
+.foot a{color:var(--c)}
+.maplibregl-popup-content{font-family:Georgia,serif;font-size:14px;line-height:1.4;padding:10px 12px;max-width:260px}
+.maplibregl-popup-content b{display:block;margin-bottom:3px}
+.maplibregl-ctrl-attrib{font-family:system-ui,sans-serif;font-size:11px}
+
+.intro{font-size:1.05em;margin-top:18px}
+.assume,.leaf{border-radius:8px;padding:10px 12px;font-size:.92em;margin:8px 0}
+.assume{background:var(--cl)}.leaf{background:var(--soft);border-left:4px solid var(--c)}
+.st{border-left:3px solid var(--cl);padding-left:12px;margin:0 0 22px}
+.st h3{display:flex;gap:9px;align-items:center;margin:20px 0 6px;font-size:1.08rem;color:var(--c)}
+.st .sn{flex:0 0 26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font:bold 12px system-ui,sans-serif;display:flex;align-items:center;justify-content:center}
+.st .sn.x{background:#fff;color:var(--c);border:2px solid var(--c)}
+.st dl{margin:0 0 8px}.st dt{font-size:.78em;text-transform:uppercase;letter-spacing:.04em;color:var(--dim);margin-top:6px}.st dd{margin:1px 0 0}
+.st .look{background:var(--soft);padding:7px 10px;border-radius:6px;font-size:.95em;margin:8px 0 5px}
+.st .in{font-size:.9em;color:var(--dim);margin:0}
+.st.opt{border-left-color:var(--c)}
+table.day{border-collapse:collapse;width:100%;font-size:.92em;margin:6px 0 12px}
+table.day td{text-align:left;vertical-align:top;padding:6px 6px;border-bottom:1px solid var(--line)}
+table.day td.t{white-space:nowrap;font-weight:bold;width:4.5em;color:var(--c)}
+ul.unk{font-size:.92em;padding-left:20px}
+#site-header{position:relative !important;z-index:40}
+</style>
+</head>
+<body>
+<div id="site-header"><noscript><p style="padding:12px 16px;margin:0"><a href="index.html">Tokyo Momijigari</a> · the menus need JavaScript</p></noscript></div>
+<script src="site-menu.js"></script>
+<div class="bar"><div class="k">Todai campus tour · any day, about two hours</div><h1>The Todai campus tour</h1><p class="area">Hongō campus, University of Tokyo · Hongō-sanchōme to Yushima</p></div>
+<div id="stage"><div id="map"></div><div id="kjBadge" hidden><a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a></div><div id="uenoChip"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><span>上野公園 Ueno Park</span><span class="ar">&#x2191;</span><span id="uenoKm"></span></div><div id="maperr"></div></div>
+<div class="controls">
+<div class="periods" id="periods"></div>
+<div class="mix"><span>Old map</span><input id="mix" type="range" min="0" max="100" value="85" aria-label="Old map opacity"><span>Today</span></div>
+<p class="note">Tap a period to lay its map over today's streets; slide to fade. Tap a stop to fly to it. <span id="pnote"></span></p>
+</div>
+<div class="wrap">
+<ol class="stops" id="stops"></ol>
+<p class="legend"><i></i> on foot &nbsp; <i class="d"></i> by train or optional &nbsp; The cherry blossom marks Ueno Park, the anchor near the flat; when it is off the map a blossom chip at the edge points to it. Stop positions come from OpenStreetMap; the line joins the stops, so follow the campus paths on the ground.</p>
+
+<h2 class="pt">Gothic brick, an Edo garden and an AI laboratory</h2>
+<p class="slogan">Two hours on foot, every stop seen from outside.</p>
+<div class="pitch">
+<p class="intro">A walk of about two hours through the University of Tokyo's Hongō campus, from Hongō-sanchōme to Yushima. You walk about 3.2 km and see fifteen stops, all from outside. The campus is the old upper residence of the Maeda lords of Kaga. Most of what stands is Uchida Yoshikazu's rebuilding after the 1923 earthquake.</p>
+<div class="assume"><b>Any day of the trip.</b> The grounds are open to walkers 07:00–18:00 every day, without a pass; tell the guard at the gate you are visiting. Faculty buildings, Yasuda Auditorium and the library are closed to visitors. On Saturday and Sunday the main gate's big doors are shut, but its small side door is open 07:00–24:30. The university asks that photos stay personal: not posted on social media or published. No exam days fall in December.</div>
+<p class="leaf"><b>The leaves that week.</b> The ginkgo avenue is usually at its brightest from late November to early December. In the first week of December expect either a full yellow canopy or a carpet of fallen leaves; one windy night can strip the trees. Around Sanshirō Pond the maples turn later than the ginkgo, so they may be red that week. No source gives the 2026 dates; check a few days before.</p>
+<h2 class="pt">The stops</h2>
+<section class="st" id="s1"><h3><span class="sn">1</span>Hongō-sanchōme station</h3>
+<dl><dt>What it holds</dt><dd>A station on the Marunouchi and Ōedo lines, at the Hongō crossing. The campus begins about 400 metres north.</dd><dt>Designed by</dt><dd>—</dd><dt>Built</dt><dd>—</dd><dt>What the designer meant</dt><dd>—</dd></dl>
+<p class="look"><b>From where you stand.</b> Come up to street level and walk north on Hongō-dōri. The long wall that soon appears on your right is the edge of the old Maeda estate, now the campus.</p><p class="in"><b>Can you go in?</b> The station, yes. You can also start at Yushima and walk the tour backwards.</p></section>
+<section class="st" id="s2"><h3><span class="sn">2</span>Akamon, the red gate (赤門)</h3>
+<dl><dt>What it holds</dt><dd>A gate, not a building. It is a National Important Cultural Property.</dd><dt>Designed by</dt><dd>No designer is named; it was built by the Maeda house.</dd><dt>Built</dt><dd>1827, when the Maeda lord Nariyasu married Yasuhime, a daughter of the shogun Tokugawa Ienari. The university received it in 1877. Closed since 12 February 2021 for earthquake strengthening; the university plans to reopen it in 2027.</dd><dt>What the designer meant</dt><dd>No statement of intent survives. The design itself says it: a vermilion gate of the kind a lord's house built to receive a bride from the shogun's family.</dd></dl>
+<p class="look"><b>From where you stand.</b> Stand on the far side of Hongō-dōri and take in the red lacquer, the tiled roof and the two small guard wings. Just to its left, inside the wall, you can see the long low line of Fukutake Hall.</p><p class="in"><b>Can you go in?</b> No. The gate is shut until 2027, so walk on north to the main gate.</p></section>
+<section class="st" id="s3"><h3><span class="sn">3</span>The main gate and the ginkgo avenue (正門・銀杏並木)</h3>
+<dl><dt>What it holds</dt><dd>The main entrance to the campus. The avenue of ginkgo trees runs from it straight to Yasuda Auditorium.</dd><dt>Designed by</dt><dd>The gate and guard house are by Itō Chūta. Uchida set the straight line of the avenue in his post-earthquake plan.</dd><dt>Built</dt><dd>Gate 1912. Its original doors and lintel were replaced with aluminium copies in 1988.</dd><dt>What the designer meant</dt><dd>No statement of intent by Itō was found. The university calls the gate a blend of Japanese spirit and Western technique (和魂洋才), a wooden gate in a mixed style.</dd></dl>
+<p class="look"><b>From where you stand.</b> Stand in the gateway and look straight up the avenue: the trees frame the clock tower of Yasuda Auditorium at the far end. This is the view the whole plan was built around.</p><p class="in"><b>Can you go in?</b> Yes, on weekdays 07:00–18:00. At weekends use the small side door.</p></section>
+<section class="st" id="s4"><h3><span class="sn">4</span>The Reppinkan and Engineering Building 1 (列品館・工学部1号館)</h3>
+<dl><dt>What it holds</dt><dd>The Reppinkan now holds the Faculty of Engineering offices; it was planned as a museum of research specimens. Engineering 1 is a teaching building and hosts engineering ceremonies; its light court became an indoor hall in 1996.</dd><dt>Designed by</dt><dd>Uchida Yoshikazu (the Reppinkan with Kishida Hideto, by some accounts). The 1996 work on Engineering 1 is by Kōyama Hisao.</dd><dt>Built</dt><dd>Reppinkan 1925, the first building finished under the rebuilding plan. Engineering 1 1935, on the site of Tatsuno Kingo's 1888 engineering college, which the 1923 earthquake damaged. Both registered as cultural property in 1998.</dd><dt>What the designer meant</dt><dd>No words of Uchida's own were found. The university says he devised this style as the style of the rebuilding, and the Reppinkan was its first example. A 2021 study by Tsunematsu Yūsuke argues he chose Gothic so new buildings would agree with the older campus.</dd></dl>
+<p class="look"><b>From where you stand.</b> At the Reppinkan porch, look at the row of pointed arches and the tall narrow windows: every later building repeats them. At Engineering 1, count the thin piers between the windows; each one marks a column of the frame inside.</p><p class="in"><b>Can you go in?</b> No. Both are seen from outside.</p></section>
+<section class="st" id="s5"><h3><span class="sn">5</span>Law Building 3 (法学部3号館)</h3>
+<dl><dt>What it holds</dt><dd>Teaching rooms of the Faculty of Law.</dd><dt>Designed by</dt><dd>Uchida Yoshikazu. A rooftop storey was added in 1976; in 2012 a new tower was set into the central courtyard, keeping the low old front.</dd><dt>Built</dt><dd>1927; registered as cultural property in 1998.</dd><dt>What the designer meant</dt><dd>No statement of intent found. The registration text says the east front stresses vertical lines to answer the axis that joins the General Library and Engineering 1, so the building takes its cue from the plan around it.</dd></dl>
+<p class="look"><b>From where you stand.</b> Look at the arched entrance, which copies the Reppinkan opposite. Then look above the old roofline for the 1976 storey and the 2012 tower behind.</p><p class="in"><b>Can you go in?</b> No.</p></section>
+<section class="st" id="s6"><h3><span class="sn">6</span>Law and Letters Buildings 1 and 2: the arcades (法文1号館・2号館)</h3>
+<dl><dt>What it holds</dt><dd>Teaching buildings for Law and Letters, facing each other across the avenue. The ground floor of each is a covered arcade used as a public path.</dd><dt>Designed by</dt><dd>Uchida Yoshikazu. The rust-brown steel vaults on both roofs are by Kōyama Hisao.</dd><dt>Built</dt><dd>Building 1: west part 1929, whole building 1935. Building 2: 1938. Rooftop vaults 1976–81. Both registered in 1998.</dd><dt>What the designer meant</dt><dd>The university says the arcade of Building 1 is meant to recall the inside of a church with a nave and two aisles, and carries on the pointed arches of the campus's older buildings. Of the roof vaults it says they were an addition meant to keep the design of the whole campus unified (キャンパス全体のデザインの統一を意図した増築).</dd></dl>
+<p class="look"><b>From where you stand.</b> Step into an arcade and look along the row of pointed arches; this is the space the university compares to a church aisle. Back on the avenue, look up at the quarter-circle steel vaults sitting on the 1930s brick.</p><p class="in"><b>Can you go in?</b> Yes, through the arcades only; the buildings themselves are closed.</p></section>
+<section class="st" id="s7"><h3><span class="sn">7</span>Yasuda Auditorium (安田講堂)</h3>
+<dl><dt>What it holds</dt><dd>The university's great hall, used for ceremonies, and the offices of the central administration.</dd><dt>Designed by</dt><dd>Uchida Yoshikazu with Kishida Hideto. (The university's own guide names only Uchida.)</dd><dt>Built</dt><dd>1925, paid for by the banker Yasuda Zenjirō. Medical students occupied it in June 1968; students held it barricaded until riot police cleared it on 18–19 January 1969, and the 1969 entrance exam was cancelled. Earthquake strengthening and restoration June 2013 to December 2014. Registered cultural property No. 1 (1996).</dd><dt>What the designer meant</dt><dd>No statement by the architects was found. The university's guide says the design draws on a Cambridge college gate tower, and that for a university turning itself into a modern comprehensive university, "Yasuda Auditorium was to be its new icon" (安田講堂こそ大学の新しいイコンとなるべきものであった).</dd></dl>
+<p class="look"><b>From where you stand.</b> From the foot of the avenue, take in the dark red-brown tile, the central clock tower and the deep arched entrance. Then walk round the side to see the curved hall behind the tower.</p><p class="in"><b>Can you go in?</b> No. Inside is open only on occasional sign-up tours; none were found for December.</p></section>
+<section class="st" id="s8"><h3><span class="sn">8</span>Engineering Building 2: the AI laboratory (工学部2号館)</h3>
+<dl><dt>What it holds</dt><dd>Engineering departments, and the Matsuo–Iwasawa AI laboratory, whose own contact page gives this building as its address.</dd><dt>Designed by</dt><dd>Uchida Yoshikazu for the old wing. The designer of the towers was not found.</dd><dt>Built</dt><dd>Old wing 1924, Uchida's first building on the campus, designed before the earthquake. The north part was later demolished for a high tower, and a second tower was built over the kept south part; the year was not confirmed.</dd><dt>What the designer meant</dt><dd>No statement of intent found. What you see is a choice to keep the 1924 front facing Yasuda Auditorium and build the new work above and behind it.</dd></dl>
+<p class="look"><b>From where you stand.</b> Stand on the Yasuda side and look at the low 1924 front, then raise your eyes to the tower rising over it. This is where the sixth stage of the six revolutions tour sits: the intelligence revolution, inside a 1924 shell.</p><p class="in"><b>Can you go in?</b> No. The laboratory is not open to visitors; it teaches the public through online courses.</p></section>
+<section class="st" id="s9"><h3><span class="sn">9</span>Sanshirō Pond (三四郎池)</h3>
+<dl><dt>What it holds</dt><dd>A strolling garden round a pond of about 3,600 square metres, with 808 trees of 71 kinds. Its formal name is the Ikutokuen Shinji-ike (育徳園心字池), "the pond shaped like the character 心 (heart)".</dd><dt>Designed by</dt><dd>Laid out for the Maeda lords of Kaga; no designer is named.</dd><dt>Built</dt><dd>Early Edo period. The shogun Iemitsu and his father Hidetada visited in 1629, so the garden is older than that; one university page gives 1638. In Natsume Sōseki's novel Sanshirō the hero and heroine meet here, and the name stuck.</dd><dt>What the designer meant</dt><dd>No statement of intent survives. It is a daimyo garden: thick trees close it in so it seems deeper and wilder than it is (the water is under a metre deep).</dd></dl>
+<p class="look"><b>From where you stand.</b> From the water's edge, look for the heart shape in the outline and the paths and small bridges. The ten-metre drop hides the brick campus, so for a few minutes you are in the Maeda garden, not a university.</p><p class="in"><b>Can you go in?</b> Yes; it is open ground. The path down from Yasuda Auditorium is steep.</p></section>
+<section class="st" id="s10"><h3><span class="sn">10</span>Medicine Building 2 and the hospital edge (医学部2号館・東大病院)</h3>
+<dl><dt>What it holds</dt><dd>Medicine Building 2 is the old main building of the Faculty of Medicine and houses its office. East of it are the University Hospital's wards and research buildings.</dd><dt>Designed by</dt><dd>Uchida Yoshikazu, as were several hospital buildings of the 1920s and 1930s, some with Kishida Hideto.</dd><dt>Built</dt><dd>1936 by one source, 1938 by another. A library wing was added in 1961; earthquake strengthening 2008.</dd><dt>What the designer meant</dt><dd>No statement of intent found. The 2021 study by Tsunematsu says that from the late 1920s Uchida varied the style to suit each building's neighbours, and Kishida brought in plainer modern touches.</dd></dl>
+<p class="look"><b>From where you stand.</b> Compare this front with the Law and Letters buildings: the brick and the vertical lines are the same, but the arches are fewer and the ornament thinner. Look east down the slope to the hospital towers.</p><p class="in"><b>Can you go in?</b> No. The hospital is a working hospital; do not wander in.</p></section>
+<section class="st" id="s11"><h3><span class="sn">11</span>The General Library and the fountain plaza (総合図書館)</h3>
+<dl><dt>What it holds</dt><dd>About 1.2 million volumes in the old building, the Memorial Room and third-floor hall restored to their 1928 design, and the Asian Research Library (2020). Under the plaza is the Library Plaza annex, with automated stacks about 40 metres deep for some 3 million volumes.</dd><dt>Designed by</dt><dd>Uchida Yoshikazu; the university counts it among his best works. The recent renovation was designed by the university with Kōyama Hisao's office.</dd><dt>Built</dt><dd>The old library burned in the 1923 earthquake fire, with about 560,000 volumes. John D. Rockefeller Jr. gave 4 million yen in 1924, and the new building opened in December 1928. The underground annex opened in 2017; the renovation was finished in November 2020.</dd><dt>What the designer meant</dt><dd>No words of Uchida's own were found. The university describes the front as "a row of books facing the plaza", with a grand stair leading up to a space recalling a Roman basilica.</dd></dl>
+<p class="look"><b>From where you stand.</b> Stand by the fountain and read the front as a shelf of books standing upright. Then remember that the fountain plaza is the roof of the new underground library.</p><p class="in"><b>Can you go in?</b> Normally no; it is for members. The visitor rules could not be read, so treat it as outside only.</p></section>
+<section class="st" id="s12"><h3><span class="sn">12</span>Fukutake Hall (福武ホール)</h3>
+<dl><dt>What it holds</dt><dd>The Interfaculty Initiative in Information Studies: a 200-seat lecture theatre, workshop rooms, and the café UT Cafe BERTHOLLET Rouge.</dd><dt>Designed by</dt><dd>Tadao Ando, his first building at the university. Paid for by a gift from Fukutake Sōichirō.</dd><dt>Built</dt><dd>Opened March 2008, for the university's 130th anniversary.</dd><dt>What the designer meant</dt><dd>The hall's own page explains the design: the site is a strip 100 metres long and 15 metres wide along the campus edge, so the building stays low to spare the old camphor trees on the boundary. A 100-metre concrete "Thinking Wall" faces the campus, making a sheltered strip where students gather; more than half the building is underground.</dd></dl>
+<p class="look"><b>From where you stand.</b> Walk along the campus side of the Thinking Wall and notice how little of the building rises above the camphor trees. From here you can also see the back of the Akamon.</p><p class="in"><b>Can you go in?</b> Open weekdays 08:00–20:00, weekends for events only. It is not stated whether visitors may walk in; the café is your best reason to try.</p></section>
+<section class="st" id="s13"><h3><span class="sn">13</span>Daiwa Ubiquitous Computing Research Building (ダイワユビキタス学術研究館)</h3>
+<dl><dt>What it holds</dt><dd>Laboratories for ubiquitous computing and the internet of things. Sensors on the building measure wind, radiation, dust, temperature and humidity.</dd><dt>Designed by</dt><dd>Kengo Kuma, then a professor of engineering here. The earth wall on the garden side is by the plasterer Hasado Shūhei. Paid for by Daiwa House.</dd><dt>Built</dt><dd>Begun October 2012, finished April 2014, opened May 2014.</dd><dt>What the designer meant</dt><dd>Kuma's office wrote that it aimed to break the campus image of hard concrete, metal and stone and make "a soft building of wood and earth" (木と土でできたやわらかな建築). A soft opening through its middle joins the lane in front to the Japanese garden behind, making "an organic, soft flow of light and wind" (有機的でやわらかい、光と風の流れ).</dd></dl>
+<p class="look"><b>From where you stand.</b> From the lane by the Kasuga gate, look up at the cedar boards hung like overlapping scales. Then look through the opening in the middle of the building to the old Kaitokukan garden behind.</p><p class="in"><b>Can you go in?</b> The ground-level opening and the small plaza, yes. Inside, no public hours were found.</p></section>
+<section class="st" id="s14"><h3><span class="sn">14</span>Entrepreneur Plaza: the startup building (東京大学アントレプレナープラザ)</h3>
+<dl><dt>What it holds</dt><dd>Thirty offices and laboratories for young companies spun out of the university, on seven floors.</dd><dt>Designed by</dt><dd>Not named. It was paid for by Nemoto Nobuo, founder of the wig maker Aderans, on university land, and passes to the university after 30 years.</dd><dt>Built</dt><dd>Finished May 2007.</dd><dt>What the designer meant</dt><dd>No statement of intent found.</dd></dl>
+<p class="look"><b>From where you stand.</b> Look at an ordinary seven-storey block and remember it holds about thirty companies. The second incubator, the Entrepreneur Lab (2018), and the university's venture fund UTEC are in the South Research Building, 250 metres north up the hospital lane.</p><p class="in"><b>Can you go in?</b> No; tenants only. In 2018 the business press called this cluster "Hongō Valley" (本郷バレー), after KERNEL HONGO, an AI incubator a few minutes from the Akamon whose address could not be found.</p></section>
+<section class="st" id="s15"><h3><span class="sn">15</span>Yushima station</h3>
+<dl><dt>What it holds</dt><dd>Chiyoda line, near the flat.</dd><dt>Designed by</dt><dd>—</dd><dt>Built</dt><dd>—</dd><dt>What the designer meant</dt><dd>—</dd></dl>
+<p class="look"><b>From where you stand.</b> Leave by the Tatsuoka gate, which is always open, and walk east down Kasuga-dōri. The road drops off the Hongō plateau towards Ueno.</p><p class="in"><b>Can you go in?</b> Yes. About 8 minutes from the gate.</p></section>
+<h2 class="pt">The two-hour plan</h2>
+<p>Times are minutes from the start. For example, a 09:30 start ends about 11:30. On Saturday, before the conference, the campus opens at 07:00.</p>
+<table class="day"><tr><td class="t">0:00</td><td>Hongō-sanchōme station. Walk north on Hongō-dōri (5 min).</td></tr><tr><td class="t">0:05</td><td>Akamon from across the road (5 min). Walk on north to the main gate (5 min).</td></tr><tr><td class="t">0:15</td><td>Main gate, the ginkgo avenue, the Reppinkan and Engineering 1 (15 min).</td></tr><tr><td class="t">0:30</td><td>Law Building 3 and the Law and Letters arcades (10 min).</td></tr><tr><td class="t">0:40</td><td>Yasuda Auditorium, then Engineering Building 2 behind it (15 min).</td></tr><tr><td class="t">0:55</td><td>Down the steps to Sanshirō Pond (15 min).</td></tr><tr><td class="t">1:10</td><td>Up to Medicine Building 2 and the hospital edge (5 min).</td></tr><tr><td class="t">1:15</td><td>The General Library and fountain plaza (10 min).</td></tr><tr><td class="t">1:25</td><td>Fukutake Hall and the Thinking Wall; coffee if the café lets you in (10 min).</td></tr><tr><td class="t">1:35</td><td>Through the Kaitoku gate to the Kuma building and the Entrepreneur Plaza (15 min).</td></tr><tr><td class="t">1:50</td><td>Out by the Tatsuoka gate to Yushima station (8 min). Home about 2:00.</td></tr></table>
+<p><b>Food.</b> The central cafeteria under Yasuda Auditorium (中央食堂) is open weekdays 11:00–21:00 and weekends 11:00–14:00. The co-op shop is open weekdays 10:00–18:00 and Saturday 11:00–16:00.</p>
+<h3>What could not be confirmed</h3><ul class="unk">
+<li>Whether the ginkgo will still be on the trees in the first week of December 2026.</li>
+<li>Whether the Akamon's closure notice (dated November 2025) still holds; the reopening is given as 2027.</li>
+<li>Uchida's own words on why he chose Gothic; his 1968 recorded interviews exist but were not read.</li>
+<li>The date of Medicine Building 2 (1936 or 1938) and the year and architect of the Engineering 2 towers.</li>
+<li>Whether visitors may walk into Fukutake Hall's café, and the library's visitor rules.</li>
+<li>KERNEL HONGO's address and whether it still runs; the designers of the Entrepreneur Plaza and Lab.</li>
+<li>Stop positions come from OpenStreetMap; the Law and Letters stop is placed between the two buildings.</li></ul>
+</div>
+<p class="foot">Part of the trip plans: <a href="walk-six-revolutions.html">the six revolutions tour</a> (this campus is its sixth stage). Map tiles: 地理院タイル (GSI), 今昔マップ on the web (Tani Kenji, Saitama Univ.), 農研機構 1880s rapid survey (CC BY 2.1 JP).</p>
+</div>
+<script>
+(function(){
+var DATA = {"center": [139.7625, 35.7105], "zoom": 15.6, "stops": [{"name": "Hongō-sanchōme station", "c": [139.75994, 35.7066], "note": "Start. Marunouchi or Ōedo line, about a kilometre west of Yushima station. Walk north up Hongō-dōri.", "x": false, "label": "1"}, {"name": "Akamon, the red gate", "c": [139.76035, 35.7106], "note": "1827, built for the shogun's daughter who married the Maeda lord. Closed for strengthening until 2027: look from the street.", "x": false, "label": "2"}, {"name": "Main gate and the ginkgo avenue", "c": [139.75944, 35.7129], "note": "Itō Chūta's gate of 1912. Enter here; the ginkgo avenue runs straight ahead to Yasuda Auditorium.", "x": false, "label": "3"}, {"name": "The Reppinkan and Engineering Building 1", "c": [139.75993, 35.71329], "note": "Uchida's first finished rebuilding (1925), just inside the gate on the left; Engineering 1 (1935) behind it.", "x": false, "label": "4"}, {"name": "Law Building 3", "c": [139.76022, 35.71263], "note": "Uchida, 1927, on the right of the gate; a tower was slipped into its courtyard in 2012.", "x": false, "label": "5"}, {"name": "Law and Letters 1 and 2: the arcades", "c": [139.76092, 35.71309], "note": "Uchida, 1929–38. Walk through the pointed-arch arcades, the one part of these buildings open to you.", "x": false, "label": "6"}, {"name": "Yasuda Auditorium", "c": [139.7623, 35.71342], "note": "1925, Uchida with Kishida Hideto; held by students in 1968–69. Outside only.", "x": false, "label": "7"}, {"name": "Engineering Building 2: the AI laboratory", "c": [139.76193, 35.71427], "note": "Uchida's first campus building (1924) with towers on top; home of the Matsuo–Iwasawa AI laboratory.", "x": false, "label": "8"}, {"name": "Sanshirō Pond", "c": [139.7621, 35.71211], "note": "The Maeda lords' garden of the 1620s–30s, ten metres below the campus; named after Sōseki's novel.", "x": false, "label": "9"}, {"name": "Medicine Building 2 and the hospital edge", "c": [139.76229, 35.7109], "note": "Uchida, 1936 or 1938 (sources differ). Plainer brick, fewer arches: the style changes towards the hospital.", "x": false, "label": "10"}, {"name": "The General Library", "c": [139.76062, 35.71175], "note": "Uchida, 1928, paid for by John D. Rockefeller Jr. after the 1923 fire; an underground library beneath the fountain since 2017.", "x": false, "label": "11"}, {"name": "Fukutake Hall", "c": [139.76004, 35.71147], "note": "Tadao Ando, 2008: a 100-metre concrete wall, low enough to spare the camphor trees. Café inside.", "x": false, "label": "12"}, {"name": "Daiwa Ubiquitous Computing Research Building", "c": [139.76266, 35.7082], "note": "Kengo Kuma, 2014: cedar scales and an earth wall, a soft building among hard ones.", "x": false, "label": "13"}, {"name": "Entrepreneur Plaza: the startup building", "c": [139.76286, 35.70869], "note": "2007, seven floors of university spin-off companies. The edge of what has been called \"Hongō Valley\".", "x": false, "label": "14"}, {"name": "Yushima station", "c": [139.77006, 35.70795], "note": "End. Out by the Tatsuoka gate (always open), east down Kasuga-dōri, about 8 minutes. The flat is close by.", "x": false, "label": "15"}], "walk": [[[139.75994, 35.7066], [139.76035, 35.7106], [139.75944, 35.7129], [139.75993, 35.71329], [139.76002, 35.71443], [139.75993, 35.71329], [139.76022, 35.71263], [139.76092, 35.71309], [139.7623, 35.71342], [139.76193, 35.71427], [139.7623, 35.71342], [139.7621, 35.71211], [139.76229, 35.7109], [139.76062, 35.71175], [139.76004, 35.71147], [139.76094, 35.70911], [139.76266, 35.7082], [139.76286, 35.70869], [139.76364, 35.7082], [139.77006, 35.70795]]], "dash": []};
+var COLOUR = '#8a6200';
+if (typeof maplibregl === 'undefined') { var e = document.getElementById('maperr'); e.style.display='flex'; e.textContent='The map engine could not be loaded. Check the internet connection and reload.'; return; }
+var ATTR = {
+  gsi:'<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル (国土地理院)</a>',
+  naro:'<a href="https://habs.rad.naro.go.jp/" target="_blank" rel="noopener">農研機構農業環境研究部門</a> CC BY 2.1 JP',
+  kj:'<a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a>'
+};
+function gsi(id, ext, maxz, minz){ return {type:'raster', tiles:['https://cyberjapandata.gsi.go.jp/xyz/'+id+'/{z}/{x}/{y}.'+ext], tileSize:256, minzoom:minz||0, maxzoom:maxz, attribution:ATTR.gsi}; }
+function kj(p){ return {type:'raster', tiles:['https://ktgis.net/kjmapw/kjtilemap/tokyo50/'+p+'/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, minzoom:8, maxzoom:16, attribution:ATTR.kj}; }
+var SOURCES = {
+  'gsi-pale': gsi('pale','png',18),
+  'naro-rapid16': {type:'raster', tiles:['https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, maxzoom:16, attribution:ATTR.naro},
+  'kj-2man': kj('2man'), 'kj-01': kj('01'), 'kj-03': kj('03'),
+  'gsi-usa10': gsi('ort_USA10','png',17)
+};
+var PERIODS = [
+  {key:'1880s', label:'1880s', src:'naro-rapid16', note:'Army rapid survey maps of the 1880s.', kj:false},
+  {key:'1909', label:'1896–1909', src:'kj-2man', note:'Old topographic map, 1896–1909 (今昔マップ).', kj:true},
+  {key:'1930s', label:'1927–39', src:'kj-01', note:'Old topographic map, 1927–39 (今昔マップ).', kj:true},
+  {key:'1945', label:'1945–50 air photos', src:'gsi-usa10', note:'US air photos, 1945–50: war damage and the plants.', kj:false},
+  {key:'1960s', label:'1965–68', src:'kj-03', note:'Old topographic map, 1965–68 (今昔マップ).', kj:true},
+  {key:'today', label:'Today', src:null, note:'Today\'s GSI map only.', kj:false}
+];
+var map = new maplibregl.Map({container:'map', center:DATA.center, zoom:DATA.zoom, minZoom:10, maxZoom:18,
+  maxBounds:[[138.8,35.1],[140.7,36.2]], attributionControl:false, dragRotate:false, pitchWithRotate:false,
+  style:{version:8, sources:{'gsi-pale':SOURCES['gsi-pale']}, layers:[{id:'base', type:'raster', source:'gsi-pale'}]}});
+map.addControl(new maplibregl.AttributionControl({compact:true}), 'bottom-right');
+map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+map.addControl(new maplibregl.GeolocateControl({positionOptions:{enableHighAccuracy:true}, trackUserLocation:true}), 'top-right');
+var state = {period:'1930s', mix:85};
+function line(coords){ return {type:'Feature', geometry:{type:'LineString', coordinates:coords}}; }
+map.on('load', function(){
+  Object.keys(SOURCES).forEach(function(k){ if (k !== 'gsi-pale') map.addSource(k, SOURCES[k]); });
+  PERIODS.forEach(function(p){ if (p.src) map.addLayer({id:'ov-'+p.key, type:'raster', source:p.src, layout:{visibility:'none'}, paint:{'raster-opacity':state.mix/100, 'raster-fade-duration':0}}); });
+  map.addSource('walk', {type:'geojson', data:{type:'FeatureCollection', features:DATA.walk.map(line)}});
+  map.addLayer({id:'walk-halo', type:'line', source:'walk', paint:{'line-color':'#fff', 'line-width':7, 'line-opacity':.8}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addLayer({id:'walk', type:'line', source:'walk', paint:{'line-color':COLOUR, 'line-width':3.5}, layout:{'line-cap':'round','line-join':'round'}});
+  map.addSource('dash', {type:'geojson', data:{type:'FeatureCollection', features:DATA.dash.map(line)}});
+  map.addLayer({id:'dash-halo', type:'line', source:'dash', paint:{'line-color':'#fff', 'line-width':6, 'line-opacity':.8}});
+  map.addLayer({id:'dash', type:'line', source:'dash', paint:{'line-color':COLOUR, 'line-width':2.5, 'line-dasharray':[2,2]}});
+  DATA.stops.forEach(function(s, i){
+    var el = document.createElement('div');
+    el.style.cssText = 'width:26px;height:26px;border-radius:50%;background:'+(s.x?'#fff':COLOUR)+';color:'+(s.x?COLOUR:'#fff')+';border:2px solid '+COLOUR+';font:bold 12px system-ui,sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer';
+    el.textContent = s.label || (s.x ? '+' : String(i+1));
+    var pop = new maplibregl.Popup({offset:16, closeButton:false}).setHTML('<b>'+(s.x?'Option: ':s.label+' · ')+s.name+'</b>'+s.note);
+    s.marker = new maplibregl.Marker({element:el, anchor:'center'}).setLngLat(s.c).setPopup(pop).addTo(map);
+  });
+  setPeriod(state.period);
+  map.resize();
+  fitAll();
+  setTimeout(function(){ map.resize(); fitAll(); }, 600);
+  /* Ueno Park: the visual anchor on every walk map (a cherry blossom, the mark Japanese maps give Ueno) */
+  var ue = document.createElement('div');
+  ue.innerHTML = '<svg viewBox="0 0 24 24" width="30" height="30" aria-label="Ueno Park"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><div style="font:600 11px system-ui,sans-serif;color:#7a2d45;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">上野公園</div>';
+  ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  new maplibregl.Marker({element:ue, anchor:'center'}).setLngLat(UENO).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Ueno Park 上野公園</b>The reference point on every walk map. The Ueno stations are on its south edge.')).addTo(map);
+  map.on('move', placeChip); map.on('resize', placeChip); placeChip();
+});
+var UENO = [139.7735, 35.7154];
+function placeChip(){
+  var chip = document.getElementById('uenoChip'); if (!chip) return;
+  var w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
+  var p = map.project(UENO);
+  var inside = p.x > 0 && p.x < w && p.y > 0 && p.y < h;
+  if (inside) { chip.style.display = 'none'; return; }
+  var cx = w/2, cy = h/2, dx = p.x - cx, dy = p.y - cy;
+  var m = 14, sx = Math.abs(dx) > 0 ? (cx - m) / Math.abs(dx) : 1e9, sy = Math.abs(dy) > 0 ? (cy - m) / Math.abs(dy) : 1e9, s = Math.min(sx, sy);
+  var x = cx + dx * s, y = cy + dy * s;
+  var c = map.getCenter(), R = 6371, toR = Math.PI/180;
+  var dLat = (UENO[1]-c.lat)*toR, dLon = (UENO[0]-c.lng)*toR;
+  var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(c.lat*toR)*Math.cos(UENO[1]*toR)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  var km = 2*R*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  document.getElementById('uenoKm').textContent = km.toFixed(1) + ' km';
+  chip.querySelector('.ar').style.transform = 'rotate(' + (Math.atan2(dy, dx)*180/Math.PI + 90) + 'deg)';
+  chip.style.display = 'flex';
+  chip.style.left = Math.max(4, Math.min(w - chip.offsetWidth - 4, x - chip.offsetWidth/2)) + 'px';
+  chip.style.top = Math.max(4, Math.min(h - chip.offsetHeight - 4, y - chip.offsetHeight/2)) + 'px';
+}
+window.addEventListener('resize', function(){ map.resize(); });
+function fitAll(){
+  var b = new maplibregl.LngLatBounds(DATA.stops[0].c, DATA.stops[0].c);
+  DATA.stops.forEach(function(s){ if (!s.x) b.extend(s.c); });
+  map.fitBounds(b, {padding:{top:40, bottom:40, left:30, right:30}, maxZoom:16.5, duration:0});
+}
+function setPeriod(key){
+  state.period = key;
+  PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setLayoutProperty('ov-'+p.key, 'visibility', p.key===key ? 'visible' : 'none'); });
+  var p = PERIODS.filter(function(q){ return q.key===key; })[0];
+  document.getElementById('kjBadge').hidden = !p.kj;
+  document.getElementById('pnote').textContent = p.note;
+  document.querySelectorAll('#periods button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.key===key ? 'true':'false'); });
+}
+var pbox = document.getElementById('periods');
+PERIODS.forEach(function(p){ var b = document.createElement('button'); b.type='button'; b.dataset.key=p.key; b.textContent=p.label; b.addEventListener('click', function(){ setPeriod(p.key); }); pbox.appendChild(b); });
+document.getElementById('mix').addEventListener('input', function(){ state.mix = +this.value; PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setPaintProperty('ov-'+p.key, 'raster-opacity', state.mix/100); }); });
+var ol = document.getElementById('stops');
+DATA.stops.forEach(function(s, i){
+  var li = document.createElement('li');
+  li.innerHTML = '<span class="n'+(s.x?' x':'')+'">'+(s.label||(s.x?'+':(i+1)))+'</span><div><b>'+s.name+'</b><span>'+s.note+'</span></div>';
+  li.addEventListener('click', function(){ map.flyTo({center:s.c, zoom:16, duration:700}); if (s.marker) s.marker.togglePopup(); });
+  ol.appendChild(li);
+});
+})();
+</script>
+</body>
+</html>
