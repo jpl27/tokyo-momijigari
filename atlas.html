@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Tokyo">
+<title>Tokyo atlas</title>
+<!-- Public page written by ⚡jeeves-md-notes/scripts/walk-map-pages-2026-11-01/build_atlas_page.py. Do not edit here: edit the generator and rerun it. No trip dates, no lodging. -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<script src="map-layers.js"></script>
+<style>
+:root{--c:#1f3a5f;--ink:#161616;--dim:#5a5d63;--line:#B6DBBC;--soft:rgba(255,255,255,.6);--bg:#CAF6D1;--tap:40px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",Times,serif;font-size:17.5px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+#stage{position:relative;height:72vh;height:72dvh;min-height:380px;background:#e8e4dc}
+#map{position:absolute;inset:0}
+#kjBadge{position:absolute;left:8px;bottom:8px;z-index:3;background:rgba(255,255,255,.95);border-radius:6px;padding:3px 8px;font-size:13px;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.25);font-family:system-ui,sans-serif}
+#kjBadge a{color:var(--ink);text-decoration:none}
+#maperr{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;background:var(--soft)}
+[hidden]{display:none !important}
+.controls{background:var(--soft);border-bottom:1px solid var(--line);padding:8px 12px}
+.periods{display:flex;flex-wrap:wrap;gap:6px}
+.periods button{font:inherit;font-size:.86em;min-height:34px;padding:4px 10px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);cursor:pointer}
+.periods button[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.mix{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:.86em;color:var(--dim)}
+.mix input{flex:1;min-width:0;height:var(--tap);accent-color:var(--c);margin:0}
+.note{font-size:.84em;color:var(--dim);margin:6px 0 0}
+.layers{margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
+.layers h2{margin:0 0 2px;font-size:1.05rem;color:var(--c)}
+.layers .rule{font-size:.86em;color:var(--dim);margin:4px 0 0}
+ul.planned{list-style:none;margin:8px 0 0;padding:0;font-size:.88em}
+ul.planned li{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-top:1px dashed var(--line);color:var(--dim)}
+ul.planned em{font-style:italic;white-space:nowrap}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 56px}
+h1{font-size:1.6rem;line-height:1.2;color:var(--c);margin:22px 0 6px}
+.about{background:var(--soft);border-radius:8px;padding:10px 12px;margin:0 0 14px}
+.about p{margin:0 0 8px}.about p:last-child{margin:0}
+.foot{margin-top:24px;padding-top:12px;border-top:1px solid var(--line);font-size:.88em;color:var(--dim)}
+.maplibregl-popup-content{font-family:Georgia,serif;font-size:14px;line-height:1.4;padding:10px 12px;max-width:260px}
+.maplibregl-popup-content b{display:block;margin-bottom:3px}
+.maplibregl-ctrl-attrib{font-family:system-ui,sans-serif;font-size:11px}
+#uenoChip{position:absolute;z-index:4;display:none;align-items:center;gap:5px;background:rgba(255,255,255,.95);border:1px solid #e3b3c0;border-radius:14px;padding:2px 9px 2px 6px;font:600 12px system-ui,sans-serif;color:#7a2d45;box-shadow:0 1px 3px rgba(0,0,0,.25);pointer-events:none;white-space:nowrap}
+#uenoChip svg{width:16px;height:16px}#uenoChip .ar{display:inline-block;transition:transform .2s}
+#site-header{position:relative !important;z-index:40}
+</style>
+</head>
+<body>
+<div id="site-header"><noscript><p style="padding:12px 16px;margin:0"><a href="index.html">Tokyo Momijigari</a> · the menus need JavaScript</p></noscript></div>
+<script src="site-menu.js"></script>
+<div id="stage"><div id="map"></div><div id="kjBadge" hidden><a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a></div><div id="uenoChip"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><span>上野公園 Ueno Park</span><span class="ar">&#x2191;</span><span id="uenoKm"></span></div><div id="maperr"></div></div>
+<div class="controls">
+<div class="periods" id="periods"></div>
+<div class="mix"><span>Old map</span><input id="mix" type="range" min="0" max="100" value="85" aria-label="Old map opacity"><span>Today</span></div>
+<p class="note">Tap a period to lay its map over today's streets; slide to fade. <span id="pnote"></span></p>
+<div class="layers">
+<h2>Layers</h2>
+<div id="layerBtns"></div>
+<div id="layerLegend" hidden></div>
+<p class="rule">Only one shaded layer can be on at a time. Borders and points can be added on top of it.</p>
+<ul class="planned" aria-label="Layers planned but not built"><li><span>Autumn foliage</span><em>not built yet</em></li><li><span>Winter night lights</span><em>not built yet</em></li></ul>
+</div>
+</div>
+<div class="wrap">
+<h1>Tokyo atlas</h1>
+<div class="about">
+<p>This is a map of Tokyo with layers you can switch on. You can lay each layer over an old map of the city from one of six periods.</p>
+<p>The layers stand on their own. They do not depend on any walk. There are four: neighbourhood names, industrial zones, how well off each ward and city is, and which party group people there voted for. Tap any shape to read its name and a note.</p>
+<p>The cherry blossom marks Ueno Park; when it is off the map, a blossom chip at the edge points to it. The gold chrysanthemum marks the Imperial Palace.</p>
+<p>The last two cover today only. If you pick an old map with one of them on, the page says so instead of drawing anything.</p>
+</div>
+<p class="foot">Neighbourhood borders and some industrial outlines © OpenStreetMap contributors. Map tiles: 地理院タイル (GSI), 今昔マップ on the web (Tani Kenji, Saitama Univ.), 農研機構 1880s rapid survey (CC BY 2.1 JP).</p>
+</div>
+<script>
+(function(){
+if (typeof maplibregl === 'undefined') { var e = document.getElementById('maperr'); e.style.display='flex'; e.textContent='The map engine could not be loaded. Check the internet connection and reload.'; return; }
+var ATTR = {
+  gsi:'<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル (国土地理院)</a>',
+  naro:'<a href="https://habs.rad.naro.go.jp/" target="_blank" rel="noopener">農研機構農業環境研究部門</a> CC BY 2.1 JP',
+  kj:'<a href="https://ktgis.net/kjmapw/" target="_blank" rel="noopener">今昔マップ on the web</a>'
+};
+function gsi(id, ext, maxz, minz){ return {type:'raster', tiles:['https://cyberjapandata.gsi.go.jp/xyz/'+id+'/{z}/{x}/{y}.'+ext], tileSize:256, minzoom:minz||0, maxzoom:maxz, attribution:ATTR.gsi}; }
+function kj(p){ return {type:'raster', tiles:['https://ktgis.net/kjmapw/kjtilemap/tokyo50/'+p+'/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, minzoom:8, maxzoom:16, attribution:ATTR.kj}; }
+var SOURCES = {
+  'gsi-pale': gsi('pale','png',18),
+  'naro-rapid16': {type:'raster', tiles:['https://habs.rad.naro.go.jp/rapid16/{z}/{x}/{y}.png'], scheme:'tms', tileSize:256, maxzoom:16, attribution:ATTR.naro},
+  'kj-2man': kj('2man'), 'kj-01': kj('01'), 'kj-03': kj('03'),
+  'gsi-usa10': gsi('ort_USA10','png',17)
+};
+var PERIODS = [
+  {key:'1880s', label:'1880s', src:'naro-rapid16', note:'Army rapid survey maps of the 1880s.', kj:false},
+  {key:'1909', label:'1896–1909', src:'kj-2man', note:'Old topographic map, 1896–1909 (今昔マップ).', kj:true},
+  {key:'1930s', label:'1927–39', src:'kj-01', note:'Old topographic map, 1927–39 (今昔マップ).', kj:true},
+  {key:'1945', label:'1945–50 air photos', src:'gsi-usa10', note:'US air photos, 1945–50: war damage and the plants.', kj:false},
+  {key:'1960s', label:'1965–68', src:'kj-03', note:'Old topographic map, 1965–68 (今昔マップ).', kj:true},
+  {key:'today', label:'Today', src:null, note:'Today\'s GSI map only.', kj:false}
+];
+/* the nine neighbourhoods fit inside this box (Akihabara north to Shinkawa south, Kayabachō west to Kiyosumi east) */
+var VIEW = [[139.764,35.668],[139.802,35.714]];
+var PAD = {top:30, bottom:30, left:24, right:24};
+var map = new maplibregl.Map({container:'map', bounds:VIEW, fitBoundsOptions:{padding:PAD}, minZoom:7, maxZoom:18,
+  maxBounds:[[137.0,34.0],[142.0,37.5]], attributionControl:false, dragRotate:false, pitchWithRotate:false,
+  style:{version:8, sources:{'gsi-pale':SOURCES['gsi-pale']}, layers:[{id:'base', type:'raster', source:'gsi-pale'}]}});
+map.addControl(new maplibregl.AttributionControl({compact:true}), 'bottom-right');
+map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'top-right');
+var state = {period:'1930s', mix:85};
+function shaded(id){ return id === 'industry' || id === 'social-standing' || id === 'party-leanings'; }
+function fitAll(){ map.fitBounds(VIEW, {padding:PAD, duration:0}); }
+map.on('load', function(){
+  Object.keys(SOURCES).forEach(function(k){ if (k !== 'gsi-pale') map.addSource(k, SOURCES[k]); });
+  PERIODS.forEach(function(p){ if (p.src) map.addLayer({id:'ov-'+p.key, type:'raster', source:p.src, layout:{visibility:'none'}, paint:{'raster-opacity':state.mix/100, 'raster-fade-duration':0}}); });
+  setPeriod(state.period);
+  if (window.TokyoLayers) TokyoLayers.attach(map, {layers:['neighbourhoods','industry','social-standing','party-leanings'], on:['neighbourhoods'], controls:'#layerBtns', legend:'#layerLegend',
+    jumpToPeriod:true, fit:{padding:PAD, maxZoom:13},
+    onChange:function(id, on, b){ if (on && b && !shaded(id)) map.fitBounds(b, {padding:PAD, maxZoom:15.5, duration:500}); }});
+  var ue = document.createElement('div');
+  ue.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-label="Ueno Park"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><div style="font:600 8px system-ui,sans-serif;color:#7a2d45;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">上野公園</div>';
+  ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  new maplibregl.Marker({element:ue, anchor:'center'}).setLngLat(UENO).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Ueno Park 上野公園</b>The landmark on every map of this site.')).addTo(map);
+  var pa = document.createElement('div');
+  pa.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-label="Imperial Palace"><g fill="#E8B923" stroke="#8A6A00" stroke-width="0.6"><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(0 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(22.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(45 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(67.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(90 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(112.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(135 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(157.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(180 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(202.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(225 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(247.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(270 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(292.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(315 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(337.5 12 12)"/></g><circle cx="12" cy="12" r="2.4" fill="#F6D860" stroke="#8A6A00" stroke-width="0.6"/></svg><div style="font:600 8px system-ui,sans-serif;color:#5C4500;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">皇居</div>';
+  pa.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  new maplibregl.Marker({element:pa, anchor:'center'}).setLngLat([139.7528, 35.6852]).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Imperial Palace 皇居</b>The second landmark on every map of this site.')).addTo(map);
+  map.on('move', placeChip); map.on('resize', placeChip); placeChip();
+  map.resize();
+  fitAll();
+  setTimeout(function(){ map.resize(); fitAll(); }, 600);
+});
+var UENO = [139.7735, 35.7154];
+function placeChip(){
+  var chip = document.getElementById('uenoChip'); if (!chip) return;
+  var w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
+  var p = map.project(UENO);
+  var inside = p.x > 0 && p.x < w && p.y > 0 && p.y < h;
+  if (inside) { chip.style.display = 'none'; return; }
+  var cx = w/2, cy = h/2, dx = p.x - cx, dy = p.y - cy;
+  var m = 14, sx = Math.abs(dx) > 0 ? (cx - m) / Math.abs(dx) : 1e9, sy = Math.abs(dy) > 0 ? (cy - m) / Math.abs(dy) : 1e9, s = Math.min(sx, sy);
+  var x = cx + dx * s, y = cy + dy * s;
+  var c = map.getCenter(), R = 6371, toR = Math.PI/180;
+  var dLat = (UENO[1]-c.lat)*toR, dLon = (UENO[0]-c.lng)*toR;
+  var a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(c.lat*toR)*Math.cos(UENO[1]*toR)*Math.sin(dLon/2)*Math.sin(dLon/2);
+  var km = 2*R*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  document.getElementById('uenoKm').textContent = km.toFixed(1) + ' km';
+  chip.querySelector('.ar').style.transform = 'rotate(' + (Math.atan2(dy, dx)*180/Math.PI + 90) + 'deg)';
+  chip.style.display = 'flex';
+  var lx = x - chip.offsetWidth/2, ty = y - chip.offsetHeight/2;
+  lx = Math.max(4, Math.min(w - chip.offsetWidth - 4, lx)); ty = Math.max(4, Math.min(h - chip.offsetHeight - 4, ty));
+  /* keep clear of the zoom buttons (top right), the 今昔マップ badge (bottom left) and the attribution (bottom right) */
+  if (ty < 100) lx = Math.min(lx, w - chip.offsetWidth - 52);
+  if (ty > h - 44) lx = Math.max(180, Math.min(lx, w - chip.offsetWidth - 150));
+  chip.style.left = lx + 'px'; chip.style.top = ty + 'px';
+}
+window.addEventListener('resize', function(){ map.resize(); });
+function setPeriod(key){
+  state.period = key;
+  PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setLayoutProperty('ov-'+p.key, 'visibility', p.key===key ? 'visible' : 'none'); });
+  var p = PERIODS.filter(function(q){ return q.key===key; })[0];
+  document.getElementById('kjBadge').hidden = !p.kj;
+  document.getElementById('pnote').textContent = p.note;
+  document.querySelectorAll('#periods button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.key===key ? 'true':'false'); });
+}
+var pbox = document.getElementById('periods');
+PERIODS.forEach(function(p){ var b = document.createElement('button'); b.type='button'; b.dataset.key=p.key; b.textContent=p.label; b.addEventListener('click', function(){ setPeriod(p.key); }); pbox.appendChild(b); });
+document.getElementById('mix').addEventListener('input', function(){ state.mix = +this.value; PERIODS.forEach(function(p){ if (p.src && map.getLayer('ov-'+p.key)) map.setPaintProperty('ov-'+p.key, 'raster-opacity', state.mix/100); }); });
+})();
+</script>
+</body>
+</html>

@@ -17,7 +17,8 @@
       ["People and power to 1590","primer-people.html"],
       ["Growth of the city","growth.html"],
       ["Population 1720–2025","stats.html"],
-      ["Walking map: Tokyo in Five Faces","five-faces.html"]]},
+      ["Walking map: Tokyo in Five Faces","five-faces.html"],
+      ["Tokyo atlas","atlas.html"]]},
     {label:"Walks",items:[
       ["Wednesday evening: Sumida bridges","walk-sumida-bridges.html"],
       ["Thursday: five revolutions","walk-five-revolutions.html"],
