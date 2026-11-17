@@ -1,1 +1,746 @@
-{}
+{
+ "format": "tokyo-atlas-layer/1",
+ "id": "neighbourhoods",
+ "title": "Neighbourhoods",
+ "kind": "outline",
+ "labelMinZoom": 11.5,
+ "note": "Borders are rough. Akihabara and Okachimachi are not official districts; their patches cover the blocks round each station.",
+ "credit": "Neighbourhood borders © OpenStreetMap contributors.",
+ "source": "Neighbourhood borders © OpenStreetMap contributors (ODbL 1.0), fetched 2026-11-13 and 2026-11-14 via Overpass API",
+ "style": {
+  "fillOpacity": 0.35,
+  "lineWidth": 2,
+  "outlineDarken": 0.6
+ },
+ "features": [
+  {
+   "id": "akihabara",
+   "name": "Akihabara",
+   "ja": "秋葉原",
+   "colour": "#0072B2",
+   "label": [
+    139.77232,
+    35.69993
+   ],
+   "target": "spot-stations-akihabara",
+   "approx": true,
+   "source": "OpenStreetMap administrative boundaries (ODbL), merged: 千代田区 外神田一丁目, 外神田三丁目, 外神田四丁目, 神田佐久間町一丁目, 神田花岡町, 神田相生町, 神田練塀町, 神田松永町 and 台東区 秋葉原. Approximate: Akihabara is not an official district; the blocks are those people call Akihabara. Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.76885,
+       35.69838
+      ],
+      [
+       139.76897,
+       35.6986
+      ],
+      [
+       139.76917,
+       35.69988
+      ],
+      [
+       139.76938,
+       35.70217
+      ],
+      [
+       139.76959,
+       35.70298
+      ],
+      [
+       139.77158,
+       35.70297
+      ],
+      [
+       139.77577,
+       35.70262
+      ],
+      [
+       139.77544,
+       35.69892
+      ],
+      [
+       139.77541,
+       35.69693
+      ],
+      [
+       139.77211,
+       35.69697
+      ],
+      [
+       139.77128,
+       35.69704
+      ],
+      [
+       139.77071,
+       35.69724
+      ],
+      [
+       139.76885,
+       35.69838
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "kodemmacho",
+   "name": "Kodemmachō",
+   "ja": "小伝馬町",
+   "colour": "#E69F00",
+   "label": [
+    139.7788,
+    35.69134
+   ],
+   "target": "spot-stations-kodemmacho",
+   "source": "OpenStreetMap administrative boundary (ODbL): 中央区 日本橋小伝馬町. Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.77661,
+       35.69146
+      ],
+      [
+       139.77875,
+       35.69233
+      ],
+      [
+       139.77994,
+       35.6932
+      ],
+      [
+       139.78127,
+       35.69178
+      ],
+      [
+       139.78112,
+       35.69168
+      ],
+      [
+       139.78105,
+       35.69173
+      ],
+      [
+       139.77886,
+       35.69025
+      ],
+      [
+       139.7787,
+       35.69043
+      ],
+      [
+       139.77735,
+       35.6896
+      ],
+      [
+       139.77661,
+       35.69146
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ningyocho",
+   "name": "Ningyōchō",
+   "ja": "人形町",
+   "colour": "#009E73",
+   "label": [
+    139.78371,
+    35.68689
+   ],
+   "target": "spot-stations-ningyocho",
+   "source": "OpenStreetMap administrative boundaries (ODbL), merged: 中央区 日本橋人形町一丁目, 二丁目, 三丁目. Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.77945,
+       35.68633
+      ],
+      [
+       139.78032,
+       35.68659
+      ],
+      [
+       139.78252,
+       35.688
+      ],
+      [
+       139.78339,
+       35.68704
+      ],
+      [
+       139.78465,
+       35.68787
+      ],
+      [
+       139.78477,
+       35.68787
+      ],
+      [
+       139.78596,
+       35.68666
+      ],
+      [
+       139.78702,
+       35.68505
+      ],
+      [
+       139.78318,
+       35.68319
+      ],
+      [
+       139.78217,
+       35.68437
+      ],
+      [
+       139.78138,
+       35.68395
+      ],
+      [
+       139.78067,
+       35.68479
+      ],
+      [
+       139.78028,
+       35.68535
+      ],
+      [
+       139.77994,
+       35.68526
+      ],
+      [
+       139.77945,
+       35.68633
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "kayabacho",
+   "name": "Kayabachō",
+   "ja": "茅場町",
+   "colour": "#CC79A7",
+   "label": [
+    139.7783,
+    35.6781
+   ],
+   "target": "spot-stations-kayabacho",
+   "source": "OpenStreetMap administrative boundaries (ODbL), merged: 中央区 日本橋茅場町一丁目, 二丁目, 三丁目. Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.77654,
+       35.67808
+      ],
+      [
+       139.77864,
+       35.68135
+      ],
+      [
+       139.77916,
+       35.68193
+      ],
+      [
+       139.77953,
+       35.68218
+      ],
+      [
+       139.77998,
+       35.68227
+      ],
+      [
+       139.78008,
+       35.68194
+      ],
+      [
+       139.78053,
+       35.68136
+      ],
+      [
+       139.78231,
+       35.67982
+      ],
+      [
+       139.78025,
+       35.67781
+      ],
+      [
+       139.77942,
+       35.67684
+      ],
+      [
+       139.77654,
+       35.67808
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "shinkawa",
+   "name": "Shinkawa",
+   "ja": "新川",
+   "colour": "#D55E00",
+   "label": [
+    139.7825,
+    35.6745
+   ],
+   "target": "spot-districts-shinkawa",
+   "source": "OpenStreetMap administrative boundary (ODbL): 中央区 新川一丁目, 新川二丁目 Merged. Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.78657,
+       35.67287
+      ],
+      [
+       139.78527,
+       35.67213
+      ],
+      [
+       139.78285,
+       35.6709
+      ],
+      [
+       139.77895,
+       35.67613
+      ],
+      [
+       139.77896,
+       35.6763
+      ],
+      [
+       139.78025,
+       35.67781
+      ],
+      [
+       139.78231,
+       35.67982
+      ],
+      [
+       139.78429,
+       35.67863
+      ],
+      [
+       139.78702,
+       35.67722
+      ],
+      [
+       139.78779,
+       35.67691
+      ],
+      [
+       139.78683,
+       35.67429
+      ],
+      [
+       139.78657,
+       35.67287
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "kabutocho",
+   "name": "Kabutochō",
+   "ja": "兜町",
+   "colour": "#56B4E9",
+   "label": [
+    139.77765,
+    35.68224
+   ],
+   "target": "spot-districts-kabutocho",
+   "source": "OpenStreetMap administrative boundary (ODbL): 中央区 日本橋兜町 (admin_level 9) Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.7751,
+       35.67866
+      ],
+      [
+       139.77717,
+       35.68206
+      ],
+      [
+       139.77812,
+       35.6835
+      ],
+      [
+       139.77821,
+       35.68373
+      ],
+      [
+       139.77843,
+       35.68369
+      ],
+      [
+       139.77862,
+       35.68406
+      ],
+      [
+       139.77903,
+       35.68378
+      ],
+      [
+       139.77948,
+       35.68333
+      ],
+      [
+       139.77998,
+       35.68227
+      ],
+      [
+       139.77953,
+       35.68218
+      ],
+      [
+       139.77932,
+       35.68207
+      ],
+      [
+       139.77876,
+       35.6815
+      ],
+      [
+       139.77654,
+       35.67808
+      ],
+      [
+       139.77555,
+       35.67848
+      ],
+      [
+       139.77552,
+       35.67844
+      ],
+      [
+       139.77537,
+       35.6785
+      ],
+      [
+       139.7754,
+       35.67854
+      ],
+      [
+       139.7751,
+       35.67866
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "kakigaracho-and-hakozaki",
+   "name": "Kakigarachō and Hakozaki",
+   "ja": "蛎殻町・箱崎町",
+   "colour": "#7B3FA0",
+   "label": [
+    139.785,
+    35.6815
+   ],
+   "target": "spot-districts-kakigaracho-and-hakozaki",
+   "source": "OpenStreetMap administrative boundary (ODbL): 中央区 日本橋蛎殻町一丁目, 日本橋蛎殻町二丁目, 日本橋箱崎町 (箱崎町 admin_level 9) Merged. Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.78174,
+       35.68247
+      ],
+      [
+       139.78112,
+       35.6832
+      ],
+      [
+       139.78061,
+       35.68354
+      ],
+      [
+       139.78217,
+       35.68438
+      ],
+      [
+       139.78318,
+       35.68319
+      ],
+      [
+       139.78702,
+       35.68505
+      ],
+      [
+       139.78863,
+       35.68298
+      ],
+      [
+       139.78991,
+       35.68194
+      ],
+      [
+       139.79013,
+       35.68185
+      ],
+      [
+       139.78998,
+       35.68167
+      ],
+      [
+       139.79086,
+       35.68132
+      ],
+      [
+       139.78937,
+       35.6795
+      ],
+      [
+       139.78779,
+       35.67691
+      ],
+      [
+       139.78702,
+       35.67722
+      ],
+      [
+       139.78429,
+       35.67863
+      ],
+      [
+       139.78237,
+       35.67978
+      ],
+      [
+       139.78276,
+       35.68
+      ],
+      [
+       139.78264,
+       35.68012
+      ],
+      [
+       139.78349,
+       35.68052
+      ],
+      [
+       139.78202,
+       35.68226
+      ],
+      [
+       139.78174,
+       35.68247
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "saga-and-kiyosumi",
+   "name": "Saga and Kiyosumi (Fukagawa)",
+   "ja": "佐賀・清澄",
+   "colour": "#8A8A00",
+   "label": [
+    139.79346,
+    35.67912
+   ],
+   "target": "spot-districts-saga-and-kiyosumi",
+   "source": "OpenStreetMap administrative boundary (ODbL): 江東区 佐賀一丁目, 佐賀二丁目, 清澄一丁目, 清澄二丁目, 清澄三丁目 Merged. Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.79156,
+       35.67599
+      ],
+      [
+       139.79061,
+       35.67652
+      ],
+      [
+       139.78984,
+       35.67521
+      ],
+      [
+       139.78875,
+       35.67603
+      ],
+      [
+       139.78756,
+       35.6763
+      ],
+      [
+       139.7878,
+       35.67692
+      ],
+      [
+       139.78937,
+       35.6795
+      ],
+      [
+       139.79252,
+       35.68335
+      ],
+      [
+       139.79858,
+       35.68374
+      ],
+      [
+       139.79908,
+       35.67964
+      ],
+      [
+       139.79902,
+       35.67949
+      ],
+      [
+       139.79788,
+       35.67808
+      ],
+      [
+       139.79413,
+       35.67966
+      ],
+      [
+       139.79186,
+       35.67587
+      ],
+      [
+       139.79156,
+       35.67599
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "okachimachi",
+   "name": "Okachimachi",
+   "ja": "御徒町",
+   "colour": "#4D4D4D",
+   "label": [
+    139.77934,
+    35.70702
+   ],
+   "target": "spot-districts-okachimachi",
+   "approx": true,
+   "source": "OpenStreetMap administrative boundary (ODbL): 台東区 上野三丁目, 上野五丁目, 上野六丁目, 台東三丁目, 台東四丁目. Approximate: Okachimachi is not an official district; the blocks are those round JR Okachimachi station. Merged. Simplified: Douglas-Peucker, tolerance 0.00003 degrees (about 3 m).",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       139.78059,
+       35.70389
+      ],
+      [
+       139.77595,
+       35.70422
+      ],
+      [
+       139.77577,
+       35.70262
+      ],
+      [
+       139.77301,
+       35.70286
+      ],
+      [
+       139.77327,
+       35.70501
+      ],
+      [
+       139.772,
+       35.7051
+      ],
+      [
+       139.7721,
+       35.70584
+      ],
+      [
+       139.77287,
+       35.70723
+      ],
+      [
+       139.7731,
+       35.70799
+      ],
+      [
+       139.77459,
+       35.70783
+      ],
+      [
+       139.77476,
+       35.70865
+      ],
+      [
+       139.77476,
+       35.70891
+      ],
+      [
+       139.77453,
+       35.71037
+      ],
+      [
+       139.77453,
+       35.71095
+      ],
+      [
+       139.77461,
+       35.71141
+      ],
+      [
+       139.77506,
+       35.71146
+      ],
+      [
+       139.77625,
+       35.7113
+      ],
+      [
+       139.77635,
+       35.71119
+      ],
+      [
+       139.77656,
+       35.71068
+      ],
+      [
+       139.7763,
+       35.70766
+      ],
+      [
+       139.78196,
+       35.70703
+      ],
+      [
+       139.78163,
+       35.70515
+      ],
+      [
+       139.78132,
+       35.70383
+      ],
+      [
+       139.78059,
+       35.70389
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}
