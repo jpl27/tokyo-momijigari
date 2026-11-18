@@ -173,7 +173,7 @@ map.on('load', function(){
   new maplibregl.Marker({element:pa, anchor:'center'}).setLngLat([139.7528, 35.6852]).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Imperial Palace 皇居</b>The second landmark on every map of this site.')).addTo(map);
   map.on('move', placeChip); map.on('resize', placeChip); placeChip();
 });
-var UENO = [139.7735, 35.7154];
+var UENO = [139.7708, 35.7119];
 function placeChip(){
   var chip = document.getElementById('uenoChip'); if (!chip) return;
   var w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;

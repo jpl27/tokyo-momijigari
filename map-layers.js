@@ -161,8 +161,9 @@
         var v = viewOf(f, state.period);
         if (!v || (def.kind === 'points' && !inWindow(f.when, state.date))) return;
         var col = colourOf(def, v), c = catOf(def, v);
-        out.push({type: 'Feature', geometry: v.geometry, properties: {id: f.id, colour: col, dark: darken(col, k),
-          op: (c && c.opacity != null) ? c.opacity : fo, dash: !!(c && c.dash)}});
+        var props = {id: f.id, colour: col, dark: darken(col, k), op: (c && c.opacity != null) ? c.opacity : fo, dash: !!(c && c.dash)};
+        if (v.lineWidth) props.lw = v.lineWidth;   /* optional per-feature outline width (2026-11-18) */
+        out.push({type: 'Feature', geometry: v.geometry, properties: props});
       });
       return {type: 'FeatureCollection', features: out};
     }
@@ -204,7 +205,7 @@
           paint: {'fill-color': ['get', 'colour'], 'fill-opacity': def.kind === 'fill' ? ['get', 'op'] : fo}}, b);
         var lw = st.lineWidth || (def.kind === 'fill' ? 1 : 2);
         map.addLayer({id: src + '-line', type: 'line', source: src, filter: ['!=', ['get', 'dash'], true], layout: {visibility: 'none', 'line-join': 'round'},
-          paint: {'line-color': ['get', 'dark'], 'line-width': lw}}, b);
+          paint: {'line-color': ['get', 'dark'], 'line-width': ['coalesce', ['get', 'lw'], lw]}}, b);
         if (def.kind === 'fill'){   /* categories marked dash:true get a dashed outline */
           ids.push(src + '-dash');
           map.addLayer({id: src + '-dash', type: 'line', source: src, filter: ['==', ['get', 'dash'], true], layout: {visibility: 'none', 'line-join': 'round'},
@@ -224,8 +225,9 @@
       labels(id);
     }
 
-    function labelShown(def, on){ return on && !(def.labelMinZoom && map.getZoom() < def.labelMinZoom); }
-    function showLabels(){ order.forEach(function(id){ var o = L[id]; o.markers.forEach(function(m){ m.getElement().style.display = labelShown(o.def, o.on) ? '' : 'none'; }); }); }
+    /* fz = the feature's own labelMinZoom (2026-11-18); features without one behave exactly as before */
+    function labelShown(def, on, fz){ return on && !(def.labelMinZoom && map.getZoom() < def.labelMinZoom) && !(fz && map.getZoom() < fz); }
+    function showLabels(){ order.forEach(function(id){ var o = L[id]; o.markers.forEach(function(m){ var el = m.getElement(); el.style.display = labelShown(o.def, o.on, +el.dataset.minz || 0) ? '' : 'none'; }); }); }
     map.on('zoom', showLabels);
     function labels(id){
       var o = L[id], def = o.def;
@@ -238,7 +240,9 @@
         var at = f.label || (g.type === 'Point' ? g.coordinates : null);
         if (!at) return;
         var el = document.createElement('div');
-        el.className = 'tl-lab'; el.style.display = labelShown(def, o.on) ? '' : 'none';
+        el.className = 'tl-lab';
+        if (f.labelMinZoom) el.dataset.minz = f.labelMinZoom;
+        el.style.display = labelShown(def, o.on, f.labelMinZoom || 0) ? '' : 'none';
         el.innerHTML = esc(f.name) + (f.ja ? '<small>' + esc(f.ja) + '</small>' : '');
         el.addEventListener('click', function(ev){ ev.stopPropagation(); tap(def, f, at); });
         o.markers.push(new maplibregl.Marker({element: el, anchor: def.kind === 'points' ? 'top' : 'center', offset: def.kind === 'points' ? [0, 8] : [0, 0]}).setLngLat(at).addTo(map));
@@ -282,7 +286,8 @@
           : def.features.map(function(f){ return viewOf(f, state.period); }).filter(Boolean).map(function(f){ return {name: f.name + (f.approx ? ' (approximate)' : ''), colour: colourOf(def, f)}; });
         var none = state.period != null && !def.features.some(function(f){ return viewOf(f, state.period) && (def.kind !== 'points' || inWindow(f.when, state.date)); });
         var cov = coveredKeys(def);
-        var sw = items.map(function(it){
+        /* optional layer-level legendNote (2026-11-18): one line of text in place of the swatches */
+        var sw = def.legendNote ? esc(def.legendNote) : items.map(function(it){
           var css = def.kind === 'points' ? 'background:' + it.colour : 'border-color:' + it.colour;
           return '<span class="' + dot + '" style="' + css + '">&#8203;</span>' + esc(it.name);
         }).join('');

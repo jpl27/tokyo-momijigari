@@ -69,11 +69,11 @@ h1{font-size:1.6rem;line-height:1.2;color:var(--c);margin:22px 0 6px}
 <h1>Tokyo atlas</h1>
 <div class="about">
 <p>This is a map of Tokyo with layers you can switch on. You can lay each layer over an old map of the city from one of six periods.</p>
-<p>The layers stand on their own. They do not depend on any walk. There are four: neighbourhood names, industrial zones, how well off each ward and city is, and which party group people there voted for. Tap any shape to read its name and a note.</p>
+<p>The layers stand on their own. They do not depend on any walk. There are four: the famous neighbourhoods of Tokyo, industrial zones, how well off each ward and city is, and which party group people there voted for. Tap any shape to read its name and a note.</p>
 <p>The cherry blossom marks Ueno Park; when it is off the map, a blossom chip at the edge points to it. The gold chrysanthemum marks the Imperial Palace.</p>
 <p>The last two cover today only. If you pick an old map with one of them on, the page says so instead of drawing anything.</p>
 </div>
-<p class="foot">Neighbourhood borders and some industrial outlines © OpenStreetMap contributors. Map tiles: 地理院タイル (GSI), 今昔マップ on the web (Tani Kenji, Saitama Univ.), 農研機構 1880s rapid survey (CC BY 2.1 JP).</p>
+<p class="foot">Neighbourhood town boundaries: 2020 Population Census small-area boundary data, Statistics Bureau of Japan (出典：政府統計の総合窓口(e-Stat)（https://www.e-stat.go.jp/）「令和2年国勢調査 小地域（町丁・字等）境界データ」（総務省統計局）を加工して作成). The nine coloured neighbourhood patches and some industrial outlines © OpenStreetMap contributors. Map tiles: 地理院タイル (GSI), 今昔マップ on the web (Tani Kenji, Saitama Univ.), 農研機構 1880s rapid survey (CC BY 2.1 JP).</p>
 </div>
 <script>
 (function(){
@@ -99,8 +99,8 @@ var PERIODS = [
   {key:'1960s', label:'1965–68', src:'kj-03', note:'Old topographic map, 1965–68 (今昔マップ).', kj:true},
   {key:'today', label:'Today', src:null, note:'Today\'s GSI map only.', kj:false}
 ];
-/* the nine neighbourhoods fit inside this box (Akihabara north to Shinkawa south, Kayabachō west to Kiyosumi east) */
-var VIEW = [[139.764,35.668],[139.802,35.714]];
+/* opening view (2026-11-18): central Tokyo, Shinjuku and Shibuya in the west to the Sumida-side neighbourhoods in the east, Ueno in the north */
+var VIEW = [[139.695,35.650],[139.812,35.728]];
 var PAD = {top:30, bottom:30, left:24, right:24};
 var map = new maplibregl.Map({container:'map', bounds:VIEW, fitBoundsOptions:{padding:PAD}, minZoom:7, maxZoom:18,
   maxBounds:[[137.0,34.0],[142.0,37.5]], attributionControl:false, dragRotate:false, pitchWithRotate:false,
@@ -114,23 +114,23 @@ map.on('load', function(){
   Object.keys(SOURCES).forEach(function(k){ if (k !== 'gsi-pale') map.addSource(k, SOURCES[k]); });
   PERIODS.forEach(function(p){ if (p.src) map.addLayer({id:'ov-'+p.key, type:'raster', source:p.src, layout:{visibility:'none'}, paint:{'raster-opacity':state.mix/100, 'raster-fade-duration':0}}); });
   setPeriod(state.period);
-  if (window.TokyoLayers) TokyoLayers.attach(map, {layers:['neighbourhoods','industry','social-standing','party-leanings'], on:['neighbourhoods'], controls:'#layerBtns', legend:'#layerLegend',
+  if (window.TokyoLayers) TokyoLayers.attach(map, {layers:['tokyo-neighbourhoods','industry','social-standing','party-leanings'], on:['tokyo-neighbourhoods'], controls:'#layerBtns', legend:'#layerLegend',
     jumpToPeriod:true, fit:{padding:PAD, maxZoom:13},
-    onChange:function(id, on, b){ if (on && b && !shaded(id)) map.fitBounds(b, {padding:PAD, maxZoom:15.5, duration:500}); }});
+    onChange:function(id, on, b){ if (on && b && !shaded(id)) map.fitBounds(id === 'tokyo-neighbourhoods' ? VIEW : b, {padding:PAD, maxZoom:15.5, duration:500}); }});
   var ue = document.createElement('div');
   ue.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-label="Ueno Park"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><div style="font:600 8px system-ui,sans-serif;color:#7a2d45;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">上野公園</div>';
-  ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;z-index:5;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
   new maplibregl.Marker({element:ue, anchor:'center'}).setLngLat(UENO).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Ueno Park 上野公園</b>The landmark on every map of this site.')).addTo(map);
   var pa = document.createElement('div');
   pa.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-label="Imperial Palace"><g fill="#E8B923" stroke="#8A6A00" stroke-width="0.6"><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(0 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(22.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(45 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(67.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(90 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(112.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(135 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(157.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(180 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(202.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(225 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(247.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(270 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(292.5 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(315 12 12)"/><ellipse cx="12" cy="5.2" rx="1.9" ry="4.2" transform="rotate(337.5 12 12)"/></g><circle cx="12" cy="12" r="2.4" fill="#F6D860" stroke="#8A6A00" stroke-width="0.6"/></svg><div style="font:600 8px system-ui,sans-serif;color:#5C4500;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">皇居</div>';
-  pa.style.cssText = 'display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
+  pa.style.cssText = 'display:flex;flex-direction:column;align-items:center;z-index:5;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
   new maplibregl.Marker({element:pa, anchor:'center'}).setLngLat([139.7528, 35.6852]).setPopup(new maplibregl.Popup({offset:18, closeButton:false}).setHTML('<b>Imperial Palace 皇居</b>The second landmark on every map of this site.')).addTo(map);
   map.on('move', placeChip); map.on('resize', placeChip); placeChip();
   map.resize();
   fitAll();
   setTimeout(function(){ map.resize(); fitAll(); }, 600);
 });
-var UENO = [139.7735, 35.7154];
+var UENO = [139.7708, 35.7119];  /* Shinobazu Pond, Joe 2026-11-18 */
 function placeChip(){
   var chip = document.getElementById('uenoChip'); if (!chip) return;
   var w = map.getContainer().clientWidth, h = map.getContainer().clientHeight;
