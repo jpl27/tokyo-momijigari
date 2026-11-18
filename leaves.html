@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="Tokyo">
 <title>The Leaves</title>
-<meta name="description" content="Sixteen trees whose autumn leaves we may see in Tokyo: how to know them, when they turn, and their lore.">
+<meta name="description" content="Fifteen trees whose autumn leaves we may see in Tokyo: how to know them, when they turn, and their lore.">
 <!-- The page's one data file is leaves-data.json. Outlines come from leaf-outlines.js; photo credits from images/leaves/credits.json. -->
 <style>
 :root{
@@ -110,7 +110,7 @@ footer{border-top:1px solid var(--line);margin:32px 0 0;padding:14px 0 40px;font
   <div id="top"></div>
 </div>
 
-<nav id="idx" aria-label="The sixteen trees"><ul id="idxlist"></ul></nav>
+<nav id="idx" aria-label="The fifteen trees"><ul id="idxlist"></ul></nav>
 
 <main class="wrap">
   <div id="cards"></div>
@@ -193,7 +193,7 @@ footer{border-top:1px solid var(--line);margin:32px 0 0;padding:14px 0 40px;font
     h += '<p class="lat">'+esc(e.latin)+' · '+esc(e.family)+'</p>';
     if (e.warning) h += '<div class="danger" role="note"><strong>Do not touch. Do not burn.</strong>Leaves, twigs and sap can cause a bad rash. Smoke from burning them can too. Look from the path.</div>';
     h += '<h3>How to know it</h3><p>'+esc(e.recognise)+'</p>';
-    h += '<h3>When it turns</h3><dl class="when"><dt>Tokyo</dt><dd>'+esc(e.timing.tokyo)+'</dd><dt>Kawaguchiko</dt><dd>'+esc(e.timing.kawaguchiko)+'</dd></dl>';
+    h += '<h3>When it turns</h3><dl class="when"><dt>Tokyo</dt><dd>'+esc(e.timing.tokyo)+'</dd></dl>';
     h += '<h3>Where on our route</h3><p>'+esc(e.where_on_route.text)+'</p>';
     h += '<h3>Lore</h3><ul class="lore">' + (e.lore||[]).map(function(l){
       var t = esc(l.text);

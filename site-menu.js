@@ -1,14 +1,14 @@
-/* Shared title bar and menus for the Tokyo Momijigari site (renamed from "A History of Tokyo" 2026-10-25).
+/* Shared menu bar for the Tokyo Momijigari site. One brown bar, same on every page (2026-11-18).
    Edit menus HERE only. Each page has <div id="site-header"></div> followed by
-   <script src="site-menu.js"></script>. Two levels deep, never deeper.
-   Copied from the Japan site's site-menu.js (2026-10-25). All styles are scoped
-   to #site-header and "sm-" classes so they never touch a page's own styles.
-   The full-screen map pages (COMPACT) get one slim bar with a "Menu" button,
-   so the header does not take the phone screen from the map. */
+   <script src="site-menu.js"></script> (or "../site-menu.js" from a subfolder: the path prefix
+   is worked out from that src). All styles are scoped to #site-header and "sm-" classes
+   so they never touch a page's own styles.
+   Full-screen map pages (COMPACT) also get body.sm-compact-page so the map fills the rest of the screen. */
 (function(){
   var TITLE="Tokyo Momijigari";
-  var SMALL="Private study site · started 24 October 2026";
+  /* Top-level entries in order: a plain link has href, a drop-down has items. */
   var MENUS=[
+    {label:"Tokyo atlas",href:"atlas.html"},
     {label:"Momijigari",items:[
       ["Tokyo Foliage","foliage.html"],
       ["The leaves","leaves.html"]]},
@@ -17,8 +17,7 @@
       ["People and power to 1590","primer-people.html"],
       ["Growth of the city","growth.html"],
       ["Population 1720–2025","stats.html"],
-      ["Walking map: Tokyo in Five Faces","five-faces.html"],
-      ["Tokyo atlas","atlas.html"]]},
+      ["Walking map: Tokyo in Five Faces","five-faces.html"]]},
     {label:"Walks",items:[
       ["Wednesday evening: Sumida bridges","walk-sumida-bridges.html"],
       ["Thursday: five revolutions","walk-five-revolutions.html"],
@@ -30,112 +29,103 @@
   ];
   var COMPACT=["five-faces.html","foliage.html","growth.html"];
 
+  /* Path prefix from this script tag's own src ("../site-menu.js" gives "../"). */
+  var me=document.currentScript, src=me?(me.getAttribute("src")||""):"";
+  if(!src){ var ss=document.getElementsByTagName("script"); for(var k=0;k<ss.length;k++){ var s0=ss[k].getAttribute("src")||""; if(/(^|\/)site-menu\.js(\?|$)/.test(s0)){ src=s0; break; } } }
+  var P=src.replace(/site-menu\.js.*$/,"");
+  var depth=(P.match(/\.\.\//g)||[]).length;
+
   var F="Georgia,'Times New Roman',Times,serif";
+  var BAR="#3E2723",CREAM="#F7EFE2",PANEL="#FBF5EA",INK="#2B1A14",HOVER="#EFE3D0",BORDER="#6D4C41";
+  var H="44px";
   var CSS=
-   /* ---- full header (reading pages) ---- */
-   "#site-header{position:sticky;top:0;z-index:40}"+
-   "#site-header .sm-top{background:#fff;color:#111;border-bottom:2px solid #111;font-family:"+F+";font-size:16px;line-height:1.4}"+
-   "#site-header .sm-bar{max-width:1100px;margin:0 auto;padding:12px 16px 0}"+
-   "#site-header .sm-title{margin:0;font-size:1.25rem;line-height:1.3;font-weight:bold}"+
-   "#site-header .sm-title a{text-decoration:none;color:#111}"+
-   "#site-header .sm-title small{display:block;font-weight:normal;font-size:.8rem;color:#444}"+
-   "#site-header nav.sm-menus{position:relative;max-width:1100px;margin:0 auto;padding:0 16px}"+
-   "#site-header nav.sm-menus>ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 4px}"+
-   "#site-header li{margin:0}#site-header .sm-menu{position:relative}"+
-   "#site-header .sm-menu>button,#site-header .sm-menu>a.sm-link{font:inherit;font-size:.95rem;background:none;border:0;color:#111;padding:10px 12px;cursor:pointer;display:block;text-decoration:none}"+
-   "#site-header .sm-menu>button::after{content:' \\25BE';font-size:.8em}"+
-   "#site-header .sm-menu>button:hover,#site-header .sm-menu>button:focus-visible,#site-header .sm-menu.open>button,#site-header .sm-menu>a.sm-link:hover{background:#f4f4f4}"+
-   "#site-header .sm-menu.current>button,#site-header .sm-menu.current>a.sm-link{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}"+
-   "#site-header .sm-sub{display:none;position:absolute;left:0;top:100%;min-width:250px;list-style:none;margin:0;padding:6px 0;background:#fff;border:1px solid #111;box-shadow:0 4px 12px rgba(0,0,0,.12)}"+
-   "#site-header .sm-sub a{display:block;padding:8px 16px;text-decoration:none;font-size:.95rem;color:#111}"+
-   "#site-header .sm-sub a:hover,#site-header .sm-sub a:focus{background:#f4f4f4;text-decoration:underline}"+
-   "#site-header .sm-sub a[aria-current=page]{font-weight:bold;border-left:4px solid #111;padding-left:12px}"+
+   "#site-header{position:sticky;top:0;z-index:40;font-family:"+F+"}"+
+   "#site-header *{box-sizing:border-box}"+
+   "html body #site-header{position:sticky!important;top:0}"+
+   "#site-header .sm-bar{display:flex;align-items:stretch;justify-content:space-between;gap:8px;height:calc("+H+" + env(safe-area-inset-top));"+
+     "padding:env(safe-area-inset-top) calc(8px + env(safe-area-inset-right)) 0 calc(14px + env(safe-area-inset-left));background:"+BAR+";color:"+CREAM+";border-bottom:1px solid #241512;font-size:16px;line-height:1.3}"+
+   "#site-header .sm-title{display:flex;align-items:center;color:"+CREAM+";text-decoration:none;font-weight:bold;font-size:17px;white-space:nowrap;margin-right:10px;flex:0 0 auto}"+
+   "#site-header .sm-title:hover,#site-header .sm-title:focus-visible{text-decoration:underline}"+
+   "#site-header ul.sm-menus{list-style:none;margin:0 auto 0 0;padding:0;display:flex;align-items:stretch;flex:1 1 auto}"+
+   "#site-header li{margin:0}#site-header .sm-menu{position:relative;display:flex}"+
+   "#site-header .sm-menu>button,#site-header .sm-menu>a.sm-link{font:inherit;font-size:15px;background:none;border:0;color:"+CREAM+";padding:0 12px;cursor:pointer;display:flex;align-items:center;text-decoration:none}"+
+   "#site-header .sm-menu>button::after{content:'\\00a0\\25BE';font-size:.8em}"+
+   "#site-header .sm-menu>button:hover,#site-header .sm-menu>button:focus-visible,#site-header .sm-menu.open>button,#site-header .sm-menu>a.sm-link:hover,#site-header .sm-menu>a.sm-link:focus-visible{background:rgba(247,239,226,.14)}"+
+   "#site-header .sm-menu.current>button,#site-header .sm-menu.current>a.sm-link{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}"+
+   "#site-header .sm-sub{display:none;position:absolute;left:0;top:100%;min-width:270px;list-style:none;margin:0;padding:6px 0;background:"+PANEL+";border:1px solid "+BORDER+";box-shadow:0 6px 16px rgba(36,21,18,.3)}"+
+   "#site-header .sm-sub a{display:block;padding:9px 16px;text-decoration:none;font-size:15px;color:"+INK+"}"+
+   "#site-header .sm-sub a:hover,#site-header .sm-sub a:focus{background:"+HOVER+"}"+
+   "#site-header .sm-sub a[aria-current=page]{font-weight:bold;border-left:4px solid "+BORDER+";padding-left:12px}"+
    "#site-header .sm-menu.open>.sm-sub{display:block}"+
    "@media (hover:hover) and (pointer:fine){#site-header .sm-menu:hover>.sm-sub{display:block}#site-header .sm-menu.nohover:not(.open)>.sm-sub{display:none}}"+
-   "@media (max-width:700px){#site-header .sm-bar{padding-top:8px}#site-header .sm-title{font-size:1.05rem}#site-header .sm-title small{font-size:.72rem}#site-header .sm-menu{position:static}"+
-   "#site-header .sm-menu>button,#site-header .sm-menu>a.sm-link{padding:8px 7px;font-size:.88rem}#site-header .sm-sub{left:16px;right:16px;min-width:0}}"+
-   "@media print{#site-header{position:static}#site-header .sm-sub{display:none!important}}"+
-   /* ---- compact bar (full-screen map pages) ---- */
-   "body.sm-compact-page{display:flex;flex-direction:column;height:100vh;height:100dvh}"+
-   "body.sm-compact-page>#site-header{position:relative;flex:0 0 auto;z-index:40}"+
-   "body.sm-compact-page>#app{flex:1 1 auto;min-height:0;height:auto}"+
-   /* the slim bar now takes the notch inset, so the map's own top items need not */
-   "body.sm-compact-page #title{top:8px}body.sm-compact-page .maplibregl-ctrl-top-right{top:0}"+
-   "#site-header .sm-cbar{display:flex;align-items:center;justify-content:space-between;gap:8px;height:calc(40px + env(safe-area-inset-top));"+
-     "padding:env(safe-area-inset-top) calc(6px + env(safe-area-inset-right)) 0 calc(12px + env(safe-area-inset-left));background:#16181d;color:#f3f3f1;border-bottom:1px solid #3a3e46;font-family:"+F+"}"+
-   "#site-header .sm-cbar>a{color:#f3f3f1;text-decoration:none;font-weight:bold;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;line-height:40px}"+
-   "#site-header .sm-cbtn{flex:0 0 auto;height:34px;min-width:44px;padding:0 12px;border:1px solid #5a5f69;border-radius:8px;background:#23262d;color:#f3f3f1;font:600 14px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;cursor:pointer}"+
-   "#site-header .sm-cbtn::after{content:' \\25BE';font-size:.8em}"+
-   "#site-header .sm-cbtn[aria-expanded=true]{background:#f3f3f1;color:#16181d}"+
-   "#site-header .sm-cbtn:focus-visible{outline:3px solid #ffd27a;outline-offset:1px}"+
-   "#site-header .sm-panel{display:none;position:absolute;top:100%;right:0;width:min(100vw,340px);max-height:calc(100vh - 60px);max-height:calc(100dvh - 60px);overflow-y:auto;"+
-     "background:#fff;color:#111;border:1px solid #111;box-shadow:0 6px 18px rgba(0,0,0,.3);padding:6px 0 10px;font-family:"+F+";font-size:16px;line-height:1.35}"+
+   "#site-header .sm-mbtn{display:none;align-self:center;height:34px;min-width:44px;padding:0 12px;border:1px solid "+CREAM+";border-radius:8px;background:transparent;color:"+CREAM+";font:600 14px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;cursor:pointer}"+
+   "#site-header .sm-mbtn::after{content:'\\00a0\\25BE';font-size:.8em}"+
+   "#site-header .sm-mbtn[aria-expanded=true]{background:"+CREAM+";color:"+BAR+"}"+
+   "#site-header .sm-mbtn:focus-visible,#site-header .sm-menu>button:focus-visible,#site-header .sm-menu>a:focus-visible,#site-header .sm-title:focus-visible{outline:3px solid #ffd27a;outline-offset:-2px}"+
+   "#site-header .sm-panel{display:none;position:absolute;top:100%;left:0;right:0;max-height:calc(100vh - "+H+" - env(safe-area-inset-top));max-height:calc(100dvh - "+H+" - env(safe-area-inset-top));overflow-y:auto;"+
+     "background:"+PANEL+";color:"+INK+";border-bottom:1px solid "+BORDER+";box-shadow:0 8px 18px rgba(36,21,18,.3);padding:6px 0 10px;font-size:16px;line-height:1.35}"+
    "#site-header .sm-panel.open{display:block}"+
-   "#site-header .sm-panel p{margin:4px 16px 6px;font-size:12.5px;color:#444}"+
-   "#site-header .sm-panel h2{margin:10px 16px 2px;font-size:12.5px;font-weight:bold;text-transform:uppercase;letter-spacing:.05em;color:#444}"+
+   "#site-header .sm-panel h2{margin:10px 16px 2px;font-size:12.5px;font-weight:bold;text-transform:uppercase;letter-spacing:.05em;color:#6D4C41}"+
    "#site-header .sm-panel ul{list-style:none;margin:0;padding:0}"+
-   "#site-header .sm-panel a{display:block;padding:10px 16px;color:#111;text-decoration:none;min-height:44px}"+
-   "#site-header .sm-panel a:hover,#site-header .sm-panel a:focus{background:#f4f4f4;text-decoration:underline}"+
-   "#site-header .sm-panel a[aria-current=page]{font-weight:bold;border-left:4px solid #111;padding-left:12px}"+
-   "#site-header .sm-panel a.sm-top-a{border-top:1px solid #ddd;margin-top:6px}"+
-   "@media (max-width:700px){#site-header .sm-panel{left:0;right:0;width:auto}}";
+   "#site-header .sm-panel a{display:flex;align-items:center;padding:8px 16px;color:"+INK+";text-decoration:none;min-height:44px}"+
+   "#site-header .sm-panel a:hover,#site-header .sm-panel a:focus{background:"+HOVER+"}"+
+   "#site-header .sm-panel a[aria-current=page]{font-weight:bold;border-left:4px solid "+BORDER+";padding-left:12px}"+
+   "@media (max-width:800px){#site-header ul.sm-menus{display:none}#site-header .sm-mbtn{display:block}#site-header .sm-title{margin-right:auto}}"+
+   "@media (min-width:801px){#site-header .sm-panel{display:none!important}}"+
+   /* full-screen map pages: bar in the flow, map fills the rest */
+   "body.sm-compact-page{display:flex;flex-direction:column;height:100vh;height:100dvh}"+
+   "body.sm-compact-page>#site-header,html body.sm-compact-page>#site-header{position:relative!important;flex:0 0 auto;z-index:40}"+
+   "body.sm-compact-page>#app{flex:1 1 auto;min-height:0;height:auto}"+
+   "body.sm-compact-page #title{top:8px}body.sm-compact-page .maplibregl-ctrl-top-right{top:0}"+
+   "@media print{#site-header,html body #site-header{position:static!important}#site-header .sm-sub,#site-header .sm-panel{display:none!important}}";
 
   function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
-  var here=decodeURIComponent((location.pathname.split("/").pop()||"index.html"));
-  if(!/\.html?$/.test(here)) here="index.html";
+  var segs=decodeURIComponent(location.pathname).split("/");
+  var here=segs.slice(Math.max(0,segs.length-1-depth)).join("/");
+  if(!/\.html?$/.test(here)) here=(depth?segs.slice(Math.max(0,segs.length-1-depth),-1).join("/")+"/":"")+"index.html";
+  if(here===""||/\/$/.test(here)) here+="index.html";
   function cur(href){return href===here?' aria-current="page"':'';}
 
   var st=document.createElement("style"); st.textContent=CSS; document.head.appendChild(st);
   var slot=document.getElementById("site-header");
   if(!slot) return;
-  var compact=COMPACT.indexOf(here)>=0;
+  if(COMPACT.indexOf(here)>=0) document.body.classList.add("sm-compact-page");
 
-  if(compact){
-    document.body.classList.add("sm-compact-page");
-    var p='<p>'+esc(SMALL)+'</p><ul><li><a href="index.html"'+cur("index.html")+'>Home: what this site is</a></li></ul>';
-    MENUS.forEach(function(m){
-      if(m.href){ p+='<ul><li><a class="sm-top-a" href="'+m.href+'"'+cur(m.href)+'>'+esc(m.label)+'</a></li></ul>'; return; }
-      p+='<h2>'+esc(m.label)+'</h2><ul>';
-      m.items.forEach(function(it){ p+='<li><a href="'+it[1]+'"'+cur(it[1])+'>'+esc(it[0])+'</a></li>'; });
-      p+='</ul>';
-    });
-    slot.innerHTML='<nav class="sm-cbar" aria-label="Site menu"><a href="index.html">'+esc(TITLE)+'</a>'+
-      '<button type="button" class="sm-cbtn" aria-expanded="false" aria-controls="sm-panel">Menu</button></nav>'+
-      '<div class="sm-panel" id="sm-panel">'+p+'</div>';
-    var btn=slot.querySelector(".sm-cbtn"), panel=slot.querySelector(".sm-panel");
-    function setOpen(o){ panel.classList.toggle("open",o); btn.setAttribute("aria-expanded",o?"true":"false"); }
-    btn.addEventListener("click",function(e){ e.stopPropagation(); setOpen(!panel.classList.contains("open")); });
-    document.addEventListener("click",function(e){ if(!e.target.closest("#site-header")) setOpen(false); });
-    document.addEventListener("keydown",function(e){ if(e.key==="Escape") setOpen(false); });
-    return;
-  }
-
-  var h='<header class="sm-top"><div class="sm-bar"><p class="sm-title"><a href="index.html">'+esc(TITLE)+'</a>'+
-        '<small>'+esc(SMALL)+'</small></p></div>'+
-        '<nav class="sm-menus" aria-label="Site menus"><ul>';
+  var d='',p='<ul><li><a href="'+P+'index.html"'+cur("index.html")+'>Home: what this site is</a></li></ul>';
   MENUS.forEach(function(m,i){
     if(m.href){
       var c=(here===m.href);
-      h+='<li class="sm-menu'+(c?' current':'')+'"><a class="sm-link" href="'+m.href+'"'+(c?' aria-current="page"':'')+'>'+esc(m.label)+'</a></li>';
+      d+='<li class="sm-menu'+(c?' current':'')+'"><a class="sm-link" href="'+P+m.href+'"'+(c?' aria-current="page"':'')+'>'+esc(m.label)+'</a></li>';
+      p+='<ul><li><a href="'+P+m.href+'"'+cur(m.href)+'>'+esc(m.label)+'</a></li></ul>';
       return;
     }
     var inGroup=m.items.some(function(it){return it[1]===here;});
-    h+='<li class="sm-menu'+(inGroup?' current':'')+'"><button type="button" aria-expanded="false" aria-controls="sm-m'+i+'">'+esc(m.label)+'</button><ul class="sm-sub" id="sm-m'+i+'">';
-    m.items.forEach(function(it){ h+='<li><a href="'+it[1]+'"'+cur(it[1])+'>'+esc(it[0])+'</a></li>'; });
-    h+='</ul></li>';
+    d+='<li class="sm-menu'+(inGroup?' current':'')+'"><button type="button" aria-expanded="false" aria-controls="sm-m'+i+'">'+esc(m.label)+'</button><ul class="sm-sub" id="sm-m'+i+'">';
+    p+='<h2>'+esc(m.label)+'</h2><ul>';
+    m.items.forEach(function(it){
+      d+='<li><a href="'+P+it[1]+'"'+cur(it[1])+'>'+esc(it[0])+'</a></li>';
+      p+='<li><a href="'+P+it[1]+'"'+cur(it[1])+'>'+esc(it[0])+'</a></li>';
+    });
+    d+='</ul></li>'; p+='</ul>';
   });
-  h+='</ul></nav></header>';
-  slot.innerHTML=h;
+  slot.innerHTML='<div class="sm-bar"><a class="sm-title" href="'+P+'index.html">'+esc(TITLE)+'</a>'+
+    '<nav aria-label="Site menus" style="display:contents"><ul class="sm-menus">'+d+'</ul></nav>'+
+    '<button type="button" class="sm-mbtn" aria-expanded="false" aria-controls="sm-panel">Menu</button></div>'+
+    '<nav class="sm-panel" id="sm-panel" aria-label="Site menu">'+p+'</nav>';
+
   var menus=slot.querySelectorAll(".sm-menu");
+  var btn=slot.querySelector(".sm-mbtn"), panel=slot.querySelector(".sm-panel");
   function closeAll(except){
     Array.prototype.forEach.call(menus,function(m){ if(m!==except){ m.classList.remove("open"); var b=m.querySelector("button"); if(b) b.setAttribute("aria-expanded","false"); } });
   }
+  function setPanel(o){ panel.classList.toggle("open",o); btn.setAttribute("aria-expanded",o?"true":"false"); }
   Array.prototype.forEach.call(menus,function(m){
     var b=m.querySelector("button"); if(!b) return;
     b.addEventListener("click",function(e){ e.stopPropagation(); var o=m.classList.toggle("open"); b.setAttribute("aria-expanded",o?"true":"false"); closeAll(m); });
     Array.prototype.forEach.call(m.querySelectorAll(".sm-sub a"),function(a){ a.addEventListener("click",function(){ closeAll(); m.classList.add("nohover"); }); });
     m.addEventListener("mouseleave",function(){ m.classList.remove("nohover"); });
   });
-  document.addEventListener("click",function(e){ if(!e.target.closest(".sm-menu")) closeAll(); });
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeAll(); });
+  btn.addEventListener("click",function(e){ e.stopPropagation(); setPanel(!panel.classList.contains("open")); });
+  document.addEventListener("click",function(e){ if(!e.target.closest("#site-header")){ closeAll(); setPanel(false); } else if(!e.target.closest(".sm-menu")) closeAll(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape"){ closeAll(); setPanel(false); } });
 })();

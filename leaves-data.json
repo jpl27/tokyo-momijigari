@@ -5,7 +5,7 @@
  "general": {
   "pronunciation_note": "The guides use plain English sounds. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel with a bar (ō) is held for two beats. Pitch accent is not marked yet.",
   "why_leaves_turn": {
-   "text": "A green leaf is green because chlorophyll hides every other colour. In autumn the tree takes its chlorophyll apart, to save the nitrogen inside for next spring. Then the yellows and oranges that were there all summer show through. That is why ginkgo and larch turn gold. Red is new paint. Maples, wax trees and dogwoods build fresh red pigment in the leaf's last weeks, using sugar trapped inside. Bright sun and cold weather favour the strongest reds. Brown comes from other compounds that darken as the leaf dies, as in zelkova, beech and oak. Each species keeps its own timetable. In Tokyo the ginkgos usually turn in late November, and the maples soon after. Around Kawaguchiko, higher and colder, the leaves peak about three weeks earlier. That is why the lake will be bare and Tokyo bright. East Asia, like eastern North America, has many red-turning trees, so its autumns look redder than northern Europe's.",
+   "text": "A green leaf is green because chlorophyll hides every other colour. In autumn the tree takes its chlorophyll apart, to save the nitrogen inside for next spring. Then the yellows and oranges that were there all summer show through. That is why ginkgo and larch turn gold. Red is new paint. Maples, wax trees and dogwoods build fresh red pigment in the leaf's last weeks, using sugar trapped inside. Bright sun and cold weather favour the strongest reds. Brown comes from other compounds that darken as the leaf dies, as in zelkova, beech and oak. Each species keeps its own timetable. In Tokyo the ginkgos usually turn in late November, and the maples soon after. East Asia, like eastern North America, has many red-turning trees, so its autumns look redder than northern Europe's.",
    "ref": [
     "hortensteiner2006",
     "lee2003",
@@ -15,7 +15,6 @@
     "kb_kouyou",
     "jma_ichou_y",
     "jma_kaede_r",
-    "yamanashi_corridor",
     "hirji2012"
    ]
   },
@@ -194,11 +193,6 @@
     "key": "jma_kaede_r",
     "apa": "Japan Meteorological Agency. (2026). かえでの紅葉日 (2025年–2026年) [Dates when maples turned red, 2025–2026]. Retrieved October 25, 2026. https://www.data.jma.go.jp/sakura/data/phn_014.html",
     "url": "https://www.data.jma.go.jp/sakura/data/phn_014.html"
-   },
-   {
-    "key": "yamanashi_corridor",
-    "apa": "Yamanashi Prefecture official tourism site. (2026). もみじ回廊 [Momiji Corridor]. 富士の国やまなし観光ネット. Retrieved October 25, 2026. https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html",
-    "url": "https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html"
    }
   ]
  },
@@ -226,23 +220,19 @@
    },
    "timing": {
     "tokyo": "Late November to early December. In 2025 the Japan Meteorological Agency recorded Tokyo's maple turning on 23 November, five days before normal. Rikugien forecast: 28 November to 11 December, peak about 3 December.",
-    "kawaguchiko": "Early to mid November. Colour starts in late October; the fallen-leaf carpet follows in mid to late November.",
     "ref": [
      "jma_kaede_r",
-     "foliage_page",
-     "yamanashi_corridor"
+     "foliage_page"
     ],
     "source": [
      "https://www.data.jma.go.jp/sakura/data/phn_014.html",
-     "foliage.html (internal)",
-     "https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html"
+     "foliage.html (internal)"
     ]
    },
    "where_on_route": {
-    "text": "Rikugien Garden in Komagome, with its night light-up. At the lake, the Momiji Corridor on the north shore will already be bare.",
+    "text": "Rikugien Garden in Komagome, with its night light-up.",
     "ref": [
-     "foliage_page",
-     "yamanashi_corridor"
+     "foliage_page"
     ]
    },
    "lore": [
@@ -331,11 +321,6 @@
      "url": "https://www.data.jma.go.jp/sakura/data/phn_014.html"
     },
     {
-     "key": "yamanashi_corridor",
-     "apa": "Yamanashi Prefecture official tourism site. (2026). もみじ回廊 [Momiji Corridor]. 富士の国やまなし観光ネット. Retrieved October 25, 2026. https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html",
-     "url": "https://www.yamanashi-kankou.jp/kankou/spot/p1_4534.html"
-    },
-    {
      "key": "foliage_page",
      "apa": "Tokyo Foliage, the foliage map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
      "url": "foliage.html",
@@ -415,7 +400,6 @@
    },
    "timing": {
     "tokyo": "No dated source found. It is a mountain tree and is not on the city's forecast lists.",
-    "kawaguchiko": "No dated source yet.",
     "ref": [],
     "source": []
    },
@@ -531,7 +515,6 @@
    },
    "timing": {
     "tokyo": "Late November to early December. In 2025 the Japan Meteorological Agency recorded Tokyo's ginkgo yellow on 22 November and mostly fallen by 4 December. Gaien avenue forecast: 24 November to 5 December, peak about 28 November.",
-    "kawaguchiko": "Not a lake tree in our sources; no date found.",
     "ref": [
      "jma_ichou_y",
      "jma_ichou_f",
@@ -732,7 +715,6 @@
    },
    "timing": {
     "tokyo": "Earlier than ginkgo and maple. The colour report expects Ueno's zelkovas mostly bare by early December.",
-    "kawaguchiko": "No date found.",
     "ref": [
      "foliage_page"
     ],
@@ -852,7 +834,6 @@
    },
    "timing": {
     "tokyo": "Early. The colour report expects cherry leaves already down at Ueno and along the Chidorigafuchi moat by early December.",
-    "kawaguchiko": "No date found.",
     "ref": [
      "foliage_page"
     ],
@@ -978,7 +959,6 @@
    },
    "timing": {
     "tokyo": "No dated source found.",
-    "kawaguchiko": "Not a lake tree: it is planted in warm areas.",
     "ref": [
      "kb_nankin"
     ],
@@ -1085,7 +1065,6 @@
    },
    "timing": {
     "tokyo": "No dated source found.",
-    "kawaguchiko": "No date found.",
     "ref": [],
     "source": []
    },
@@ -1185,7 +1164,6 @@
    },
    "timing": {
     "tokyo": "No dated source found.",
-    "kawaguchiko": "No date found.",
     "ref": [],
     "source": []
    },
@@ -1272,7 +1250,6 @@
    },
    "timing": {
     "tokyo": "No dated source found.",
-    "kawaguchiko": "No date found.",
     "ref": [],
     "source": []
    },
@@ -1381,7 +1358,6 @@
    },
    "timing": {
     "tokyo": "No dated source found.",
-    "kawaguchiko": "No date found.",
     "ref": [],
     "source": []
    },
@@ -1495,7 +1471,6 @@
    },
    "timing": {
     "tokyo": "Jindai Botanical Garden forecast for the whole garden: 30 November to 12 December, peak about 4 December.",
-    "kawaguchiko": "No date found.",
     "ref": [
      "foliage_page"
     ],
@@ -1600,148 +1575,6 @@
    }
   },
   {
-   "id": "japanese-larch",
-   "english": "Japanese larch",
-   "kanji_kana": "落葉松・唐松（カラマツ）; also フジマツ",
-   "romaji": "karamatsu",
-   "say_it": "kah-rah-mah-tsoo. Japanese has no strong stress: give every syllable the same short beat, kept flat. A vowel written with a bar (ō) is held for two beats.",
-   "latin": "Larix kaempferi (Lamb.) Carrière",
-   "family": "Pinaceae (pine family)",
-   "native_or_introduced": "Native and found only in Japan: central Honshū, mainly Nagano and Yamanashi, and around Nikkō, at 1,000–2,800 m.",
-   "recognise": "Soft needles 2 to 4 cm long, in tufts on short knobby spurs, single on long shoots. Small upright cones with scales curled back. A conifer that turns gold and drops every needle.",
-   "shape_spec": "Draw a spur rosette: many linear needles, 2–4 cm long and about 1 mm wide, fanning out from a spur 3–4 mm long; on long shoots, needles single and spiralled. Needle tips pointed; one midvein. Rosette about 5–7 cm across. Needle and spur sizes from Kotobank; rosette size approximate.",
-   "colours": {
-    "summer": "#7fae4a",
-    "autumn": [
-     "#e8c547",
-     "#d9a22e",
-     "#b8792a"
-    ],
-    "pattern": "The whole tree turns together, lime to gold to orange-tan (reference photos).",
-    "pigment": "Yellow to yellow-brown: carotenoids unmasked, then browning."
-   },
-   "timing": {
-    "tokyo": "Not a Tokyo tree.",
-    "kawaguchiko": "Fuji Subaru Line slopes: early to late October (Walkerplus); mid October to early November (Weathernews). Bare by your visit.",
-    "ref": [
-     "walker_subaru",
-     "wn_subaru",
-     "foliage_page"
-    ],
-    "source": [
-     "https://koyo.walkerplus.com/detail/ar0419e12832/",
-     "https://weathernews.jp/s/koyo/spot/24924/",
-     "foliage.html (internal)"
-    ]
-   },
-   "where_on_route": {
-    "text": "The larch belt along the Fuji Subaru Line toward the Fifth Station: gold in October, bare in December.",
-    "ref": [
-     "walker_subaru",
-     "foliage_page"
-    ]
-   },
-   "lore": [
-    {
-     "text": "A local name is Fuji-matsu, 'Fuji pine'.",
-     "ref": [
-      "kb_karamatsu"
-     ]
-    },
-    {
-     "text": "Kara-matsu means 'Chinese pine': late-Edo nurserymen thought the new shoots looked like pines in Chinese paintings.",
-     "ref": [
-      "kb_karamatsu"
-     ]
-    },
-    {
-     "text": "Kitahara Hakushū, 'Karamatsu' (Larch), first stanza.",
-     "ref": [
-      "hiroshima_karamatsu"
-     ],
-     "japanese": "からまつの林を過ぎて、からまつをしみじみと見き。からまつはさびしかりけり。たびゆくはさびしかりけり。",
-     "translation": "I passed through the larch wood and looked long at the larches. The larches were lonely. Travelling is lonely too.",
-     "translation_by": "our own"
-    },
-    {
-     "text": "Because it is hardy and grows fast, it was planted widely on burned and logged land.",
-     "ref": [
-      "kb_karamatsu"
-     ]
-    }
-   ],
-   "biology": [
-    {
-     "text": "It is a deciduous conifer: it drops all its needles each autumn.",
-     "ref": [
-      "kb_karamatsu"
-     ]
-    },
-    {
-     "text": "It is a sun-loving tree of the upper temperate and subalpine zones; above the tree line it creeps low.",
-     "ref": [
-      "kb_karamatsu"
-     ]
-    }
-   ],
-   "references": [
-    {
-     "key": "kb_karamatsu",
-     "apa": "カラマツ [Karamatsu, Japanese larch]. (n.d.). In 改訂新版 世界大百科事典 and 日本大百科全書（ニッポニカ）. Retrieved October 25, 2026, from Kotobank:  https://kotobank.jp/word/%E3%81%8B%E3%82%89%E3%81%BE%E3%81%A4-3147849",
-     "url": "https://kotobank.jp/word/%E3%81%8B%E3%82%89%E3%81%BE%E3%81%A4-3147849"
-    },
-    {
-     "key": "hiroshima_karamatsu",
-     "apa": "Hiroshima Prefecture. (n.d.). 落葉松 [Karamatsu (Larch), poem by Kitahara Hakushū] [Teaching material, Word file]. https://www.pref.hiroshima.lg.jp/uploaded/attachment/122781.docx",
-     "url": "https://www.pref.hiroshima.lg.jp/uploaded/attachment/122781.docx"
-    },
-    {
-     "key": "walker_subaru",
-     "apa": "Walkerplus. (2026). 富士山5合目(山梨側)の紅葉 [Autumn colour at the Fifth Station of Mt. Fuji, Yamanashi side]. Retrieved October 25, 2026. https://koyo.walkerplus.com/detail/ar0419e12832/",
-     "url": "https://koyo.walkerplus.com/detail/ar0419e12832/"
-    },
-    {
-     "key": "wn_subaru",
-     "apa": "Weathernews. (2026). 富士スバルラインの紅葉情報 [Autumn colour on the Fuji Subaru Line]. Retrieved October 25, 2026. https://weathernews.jp/s/koyo/spot/24924/",
-     "url": "https://weathernews.jp/s/koyo/spot/24924/"
-    },
-    {
-     "key": "foliage_page",
-     "apa": "Tokyo Foliage, the foliage map on this site (foliage.html). Its timing forecasts cite the Japan Meteorological Corporation and Weathernews.",
-     "url": "foliage.html",
-     "note": "A page on this site, not a public source."
-    },
-    {
-     "key": "gbif_larix",
-     "apa": "GBIF Secretariat. (n.d.). Larix kaempferi (Lamb.) Carrière. In GBIF Backbone Taxonomy [Data record]. https://api.gbif.org/v1/species/2686157",
-     "url": "https://api.gbif.org/v1/species/2686157"
-    }
-   ],
-   "reference_photo": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Japanese_larch_autumn_forest_%2852506194263%29.jpg/1280px-Japanese_larch_autumn_forest_%2852506194263%29.jpg",
-    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Japanese_larch_autumn_forest_%2852506194263%29.jpg",
-    "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
-    "licence": "CC BY 2.0",
-    "licence_url": "https://creativecommons.org/licenses/by/2.0",
-    "author": "Raita Futo from Tokyo, Japan",
-    "file_page": "https://commons.wikimedia.org/wiki/File:Japanese_larch_autumn_forest_(52506194263).jpg",
-    "local_file": "~/tokyo-leaves-ref/japanese-larch-autumn.jpg",
-    "commons_title": "File:Japanese larch autumn forest (52506194263).jpg",
-    "season": "autumn",
-    "summer": {
-     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Larix_kaempferi_%28Trondheim%29.jpg/1280px-Larix_kaempferi_%28Trondheim%29.jpg",
-     "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Larix_kaempferi_%28Trondheim%29.jpg",
-     "url_note": "url is the 1280-px rendition saved locally when the original is larger; Wikimedia refused automated requests for some original files (429) on 25 October 2026.",
-     "licence": "Public domain",
-     "licence_url": null,
-     "author": "Daderot",
-     "file_page": "https://commons.wikimedia.org/wiki/File:Larix_kaempferi_(Trondheim).jpg",
-     "local_file": "~/tokyo-leaves-ref/japanese-larch-summer.jpg",
-     "commons_title": "File:Larix kaempferi (Trondheim).jpg"
-    }
-   }
-  },
-  {
    "id": "horse-chestnut",
    "english": "Japanese horse chestnut",
    "kanji_kana": "栃・橡（トチノキ）",
@@ -1764,7 +1597,6 @@
    },
    "timing": {
     "tokyo": "No dated source found.",
-    "kawaguchiko": "No date found.",
     "ref": [],
     "source": []
    },
@@ -1864,7 +1696,6 @@
    },
    "timing": {
     "tokyo": "Not a central Tokyo tree. On Mt. Takao the season ends about 30 November, before your week.",
-    "kawaguchiko": "No dated source found.",
     "ref": [
      "foliage_page"
     ],
@@ -1992,7 +1823,6 @@
    },
    "timing": {
     "tokyo": "No dated source found.",
-    "kawaguchiko": "No date found.",
     "ref": [],
     "source": []
    },
@@ -2125,7 +1955,6 @@
    },
    "timing": {
     "tokyo": "Kiyosumi Garden forecast for the whole garden: 28 November to 3 December, peak about 30 November. Kyū-Furukawa: peak about 2 December.",
-    "kawaguchiko": "No dated source found.",
     "ref": [
      "foliage_page"
     ],

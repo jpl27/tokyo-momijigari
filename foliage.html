@@ -20,7 +20,7 @@
   --bar:#16181d; --bar-2:#23262d; --bar-text:#f3f3f1; --bar-dim:#a9adb5;
   --sheet:#ffffff; --ink:#15171a; --ink-dim:#555a62; --line:#dedfe2;
   --tap:44px;
-  --peak:#c62828; --late:#ef8a17; --done:#8a8178; --fuji:#2f6db5;
+  --peak:#c62828; --late:#ef8a17; --done:#8a8178;
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bar);color:var(--ink);
@@ -48,13 +48,12 @@ html,body{margin:0;height:100%;background:var(--bar);color:var(--ink);
 #attribSlot .maplibregl-ctrl-attrib{background:none;padding:0;margin:0;float:none;font-size:11px}
 #attribSlot .maplibregl-ctrl-attrib-inner, #attribSlot a{color:var(--bar-dim)}
 #attribSlot .maplibregl-ctrl-attrib-button{display:none}
-#regions{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:6px;margin:0 0 6px}
+#regions{display:grid;grid-template-columns:1fr;gap:6px;margin:0 0 6px}
 #tools{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
 #bar button,#bar a.barlink{min-height:var(--tap);border:0;border-radius:8px;font:inherit;cursor:pointer;
   background:var(--bar-2);color:var(--bar-text);-webkit-tap-highlight-color:transparent;
   display:flex;align-items:center;justify-content:center;text-align:center;padding:2px 3px;min-width:0}
 #regions button{font-size:14.5px;font-weight:700}
-#regions button[aria-pressed="true"]{background:var(--accent);color:#fff}
 #tools button,#tools a.barlink{font-size:13px;line-height:1.15;font-weight:600}
 #tools button[aria-expanded="true"],#tools button[aria-pressed="true"]{outline:2px solid var(--accent);outline-offset:-2px}
 #tools button[aria-pressed="true"]{background:#3a2a10;color:#ffd27a}
@@ -90,7 +89,6 @@ details summary{cursor:pointer;min-height:40px;line-height:40px;font-weight:600;
 .verdict p{font-size:15px;color:#15171a;margin:4px 0}
 .wk{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;margin:8px 0 3px}
 .wk .d{background:#f3f6fa;border:1px solid #d5dde8;border-radius:8px;padding:4px 2px 5px;text-align:center;min-width:0}
-.wk .d.lake{background:#eaf1fb;border-color:#9fbbe0}
 .wk .d b{display:block;font-size:13px}
 .wk .where{display:block;font-size:10.5px;color:#4a4f57;line-height:1.15;min-height:2.3em}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:2px}
@@ -100,7 +98,6 @@ details summary{cursor:pointer;min-height:40px;line-height:40px;font-weight:600;
 .c.out{background:#fff;color:#15171a;border:2px solid #15171a}
 .bands{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;margin:0 0 4px}
 .band{border-radius:6px;font-size:11.5px;font-weight:700;padding:3px 4px;text-align:center;line-height:1.2}
-.band.lk{background:#2f6db5;color:#fff}
 .band.nrt{background:#15171a;color:#fff}
 .wkkey{font-size:12.5px;color:#4a4f57;display:flex;flex-wrap:wrap;gap:4px 12px;margin:2px 0 8px}
 .wkkey span{display:inline-flex;align-items:center;gap:5px}
@@ -128,21 +125,12 @@ a.btnlink.sec{background:#e9eef6;color:#0b57a4 !important}
 .pop p{margin:4px 0;color:#222}
 .pop .stat{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13.5px;margin:2px 0 4px}
 .pop .stat i{width:12px;height:12px;border-radius:50%;display:inline-block;border:1.5px solid #fff;box-shadow:0 0 0 1px #777}
-.pop .stop{background:#fbf3ef;border-left:4px solid var(--accent);padding:5px 8px;margin:6px 0;border-radius:0 6px 6px 0;font-size:14.5px}
-.pop .stop.dawn{background:#fdf0f6;border-left-color:#c2407e}
-.pop .stop.sun{background:#fff3e2;border-left-color:#e07b00}
 .pop .note{font-weight:600;color:#15171a}
 .pop .conf{font-size:13.5px;color:#333;border-top:1px solid #eee;padding-top:5px;margin-top:6px}
 .pop .approx{color:#7a4b00;font-weight:600}
 .pop .flag{color:#a00000;font-weight:700}
 .pop dl.facts{font-size:14px}
 .pop a.btnlink{min-height:40px;font-size:14.5px}
-/* markers: visible 30px, touch area 44px */
-.pin{width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:none;border:0;padding:0}
-.pin i{font-style:normal;width:30px;height:30px;border-radius:50%;background:#15171a;color:#fff;border:2px solid #fff;
-  box-shadow:0 1px 4px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;font:700 12px/1 -apple-system,sans-serif}
-.pin.sun i{background:#e07b00;width:34px;height:34px;font-size:17px}
-.pin.dawn i{background:#c2407e;font-size:11px}
 .lightlbl{pointer-events:none;background:#2b1d05;color:#ffd27a;font:700 12px/1.2 -apple-system,sans-serif;padding:3px 7px;border-radius:6px;
   white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.4);transform:translateY(-22px)}
 .maplibregl-ctrl-group button{width:44px;height:44px}
@@ -200,7 +188,7 @@ window.addLandmarks = function(m){
     <div id="maperr"></div>
     <div id="title">
       <h1>Tokyo Foliage</h1>
-      <p>Autumn leaves and the Fuji lakes</p>
+      <p>Autumn leaves in Tokyo</p>
       <div id="colourCheck" role="status"></div>
     </div>
     <div id="notice" role="status" hidden></div>
@@ -226,9 +214,7 @@ window.addLandmarks = function(m){
 
   <nav id="bar" aria-label="Map controls">
     <div id="attribSlot"></div>
-    <div id="regions" role="group" aria-label="Choose a region">
-      <button type="button" data-region="tokyo" aria-pressed="true">Tokyo</button>
-      <button type="button" data-region="fuji" aria-pressed="false">Fuji Five Lakes</button>
+    <div id="regions" role="group" aria-label="Find my position">
       <button type="button" id="whereBtn">Where am I</button>
     </div>
     <div id="tools">
@@ -257,8 +243,7 @@ const COLOUR_CHECK = { date: 'not yet checked', text: 'dot colours are the forec
 const STATUS = {
   peak: {label:'At peak', col:'#c62828', key:'At peak'},
   late: {label:'Late colour: go early in the week', col:'#ef8a17', key:'Late colour'},
-  done: {label:'Finished', col:'#8a8178', key:'Finished'},
-  fuji: {label:'Fuji view / no foliage', col:'#2f6db5', key:'Fuji view / no foliage'}
+  done: {label:'Finished', col:'#8a8178', key:'Finished'}
 };
 const RECHECK = 'Hours and fee follow the standard park schedule; the report says recheck them.';
 
@@ -372,117 +357,12 @@ const SPOTS = [
  {id:'nature', r:'t', n:'Institute for Nature Study', jp:'国立科学博物館附属自然教育園', lat:35.6385, lon:139.7194, s:'peak', minor:true,
   f:'The latest of 37 Tokyo spots: its season runs to Dec 8 (JMC).', cf:'Medium: the report gives only the end date.'},
  {id:'jindaiji', r:'t', n:'Jindaiji Temple', jp:'深大寺', lat:35.6675, lon:139.5503, s:'peak', minor:true,
-  f:'Next to Jindai Botanical Garden (peak Dec 4). Weathernews ranks it 7th.', cf:'Medium: judged from the garden next door.'},
-
- /* --- Fuji Five Lakes --- */
- {id:'kstation', r:'f', n:'Kawaguchiko Station (car hire)', jp:'河口湖駅', lat:35.4983, lon:138.7688, s:'fuji', logi:true,
-  tr:'No foliage', h:'Nippon Rent-A-Car 08:00–19:00 (2 min walk). Toyota Rent-A-Car 08:00–20:00 (7 min walk).',
-  note:'The counters are shut when you arrive on Saturday night. Collect the car at 08:00 on Sunday.', cf:'High.'},
- {id:'ropeway', r:'f', n:'Kawaguchiko Tenjōzan Ropeway', jp:'富士山パノラマロープウェイ', lat:35.5038, lon:138.7744, s:'fuji',
-  tr:'No foliage', h:'08:30–17:00 (last car down 17:20). Swing and tower at the top 09:30–16:00, not in rain or strong wind.',
-  cl:'Closed for its yearly inspection from your Monday, for about two weeks. Open on Sunday.',
-  fee:'Return ¥1,200 adult, ¥600 child (new fare from Nov 1)', go:'Funatsu lakeside car park at the base',
-  note:'Three minutes up to the 1,075 m deck. Take the first car at 08:30.', cf:'High.'},
- {id:'oishi', r:'f', n:'Ōishi Park and Natural Living Center', jp:'大石公園', lat:35.5233, lon:138.7465, s:'fuji',
-  tr:'Maples and red kochia bushes, both over', pk:'Kochia mid to late Oct; maples by mid to late Nov',
-  h:'Park 24 hours. Centre 09:00–17:30 (Nov–Mar).', cl:'None', fee:'Free', go:'Free car park (about 100 cars), 15 min from Kawaguchiko IC',
-  note:'Clear view of Fuji across the lake. At dawn, look for the mirror image ("Sakasa-Fuji").', cf:'High.'},
- {id:'tunnel', r:'f', n:'Momiji Tunnel', jp:'もみじトンネル', lat:35.5140, lon:138.7388, s:'done',
-  tr:'Roadside maple canopy, now bare', pk:'Late Oct to mid Nov', h:'Open 24 hours (roadside)', cl:'None', fee:'Free',
-  go:'Small free roadside pull-out', note:'Bare branches frame Fuji across the lake. Five minutes west of Ōishi Park by car.', cf:'High.'},
- {id:'corridor', r:'f', n:'Momiji Corridor', jp:'もみじ回廊', lat:35.5256, lon:138.7624, s:'done',
-  tr:'About 60 to 100 old maples along about 150 m of the Nashikawa stream', pk:'Late Oct to mid Nov',
-  il:{d:'Festival Nov 7 to Nov 29', h:'Sunset to 21:00 (some sites say 21:30)', lbl:'over before your week', now:false, t:'The festival and light-up end before your week.'},
-  h:'Open 24 hours (walkway)', cl:'None', fee:'Free', go:'North-shore car parks near the Kubota Itchiku Museum bus stop',
-  note:'Trees bare by your visit.', cf:'High.'},
- {id:'itchiku', r:'f', n:'Itchiku Kubota Art Museum', jp:'久保田一竹美術館', lat:35.5274, lon:138.7598, s:'fuji',
-  tr:'Garden maples finished (late Oct to mid or late Nov)',
-  il:{d:'Until mid-December', h:'Daytime only: the museum shuts at 16:30', lbl:'daytime only, to 16:30', now:true,
-      t:'The "Symphony of Light" garden display is the only autumn display left on the north shore.'},
-  h:'10:00–16:30 (last entry 16:00), Dec to Mar', cl:'Irregular (Google lists Tuesdays). Open Sunday and Monday.',
-  fee:'¥1,500 adult, ¥900 student, ¥400 child', go:'Free car park on site',
-  note:'Kimono textile art. Allow 75 minutes.', cf:'Medium: closing days are irregular; check itchiku-museum.com.',
-  links:[['Museum site', 'https://www.itchiku-museum.com/']]},
- {id:'music', r:'f', n:'Kawaguchiko Music Forest Museum', jp:'河口湖音楽と森の美術館', lat:35.5224, lon:138.7687, s:'fuji',
-  tr:'No foliage', h:'10:00–17:00 (last entry 16:00) or 10:00–17:30 (last entry 17:00): sources differ',
-  cl:'Many Tue–Thu in winter. Open Sunday and Monday.', fee:'¥2,100 weekends and holidays, ¥1,800 weekdays (adult)',
-  go:'Free parking for 300 cars opposite the entrance', note:'Old dance organs and automatic instruments. A swap for the art museum.',
-  cf:'Low: sources disagree on hours and fee. Budget ¥2,100 and arrive by 15:30.'},
- {id:'artmuseum', r:'f', n:'Kawaguchiko Museum of Art (lakeside maples)', jp:'河口湖美術館', lat:35.5193, lon:138.7707, s:'done',
-  tr:'Lakeside maples', pk:'Finish between late Oct and mid to late Nov', note:'Named in the report only for its maples.', cf:'High.', minor:true},
- {id:'heritage', r:'f', n:'Fujisan World Heritage Center and Fujisan Deck', jp:'富士山世界遺産センター', lat:35.4859, lon:138.7707, ax:true, s:'fuji',
-  tr:'No foliage', h:'Fujisan Deck 09:00–18:00 (last entry 17:30)', cl:'None', fee:'Fujisan Deck ¥1,000 adult, ¥500 child',
-  go:'Free car park on site', note:'Rooftop deck, 10 minutes from Kawaguchiko Station.',
-  cf:'Medium: the indoor exhibition hours were not found; check.'},
- {id:'chureito', r:'f', n:'Chūreitō Pagoda, Arakurayama Sengen Park', jp:'新倉山浅間公園・忠霊塔', lat:35.5013, lon:138.8014, s:'fuji',
-  tr:'Foliage over (peak late Oct to early Nov)', h:'Open 24 hours (398 steps)', cl:'None', fee:'Free',
-  go:'Paid car parks P1–P4 at the base, ¥1,000–¥1,500 per 6 hours. Cars only: no buses or minibuses.',
-  note:'Best at sunrise, when light falls on the pagoda and on Fuji.', cf:'High.'},
- {id:'oshino', r:'f', n:'Oshino Hakkai', jp:'忍野八海', lat:35.4602, lon:138.8327, s:'fuji',
-  tr:'Foliage over (peak mid Oct to early Nov)', h:'Open 24 hours (village ponds)', cl:'None', fee:'Free',
-  go:'Osada car park ¥300; Oshinoya car park free', note:'Eight spring-fed ponds with Fuji reflections.', cf:'High.'},
- {id:'nenba', r:'f', n:'Saiko Iyashi-no-Sato Nenba', jp:'西湖いやしの里根場', lat:35.5045, lon:138.6614, s:'fuji',
-  tr:'No foliage', h:'09:30–16:30 (last entry 16:00), Dec to Feb', cl:'None', fee:'¥500 adult, ¥250 child',
-  go:'Free car park on site', note:'Twenty thatched craft houses facing Fuji.', cf:'High.'},
- {id:'shoji', r:'f', n:'Lake Shōji, Tategahama beach', jp:'精進湖 他手合浜', lat:35.4908, lon:138.6045, s:'fuji',
-  tr:'No foliage', h:'Open 24 hours', cl:'None', fee:'Free', go:'Free lakeshore parking',
-  note:'"Kodaki-Fuji": Mt. Ōmuro sits in front of Fuji, like a child in its arms. Good for a hōtō noodle lunch.', cf:'High.'},
- {id:'motosu', r:'f', n:'Lake Motosu, Nakanokura Pass view', jp:'本栖湖 中ノ倉峠', lat:35.4757, lon:138.5730, s:'fuji',
-  tr:'No foliage', h:'Open 24 hours', cl:'None', fee:'Free', go:'Free lakeshore parking', note:'The view on the ¥1,000 note.', cf:'High.'},
- {id:'panoramadai', r:'f', n:'Lake Yamanaka Panorama-dai', jp:'山中湖パノラマ台', lat:35.4126, lon:138.9095, s:'fuji',
-  tr:'Lake Yamanaka foliage over (peak late Oct to early Nov)', h:'Open 24 hours', cl:'None', fee:'Free', go:'Small free roadside car park',
-  note:'Sunday sunset spot: Fuji black against a red sky, the lake below.', cf:'High.'},
- {id:'subaru5', r:'f', n:'Fuji Subaru Line 5th Station (2,305 m)', jp:'富士スバルライン五合目', lat:35.3939, lon:138.7336, s:'fuji',
-  tr:'Larch over (peak early to late Oct; bare by early Nov)',
-  h:'Road open to cars in December. Shops: Gogoen Rest House 08:30–17:30; Montbell 08:30–17:00 (until mid-Dec); Komitake Baiten 09:00–17:00.',
-  cl:'Gates close in heavy snow or ice', fee:'Toll road: the fee was not found', go:'Free parking at the 5th Station',
-  note:'Optional, instead of Lake Motosu, if the sky is clear and the road dry. Go before 14:00.',
-  cf:'Low: toll and road state unknown. Check the road page first.',
-  links:[['Road status', 'https://tollgate.securesite.jp/wp/road/subaruline/']]},
- {id:'yurari', r:'f', n:'Fuji Chōbō-no-Yu Yurari (onsen)', jp:'富士眺望の湯ゆらり', lat:35.4764, lon:138.6914, s:'fuji',
-  tr:'No foliage', h:'Weekends 10:00–22:00 (last entry 21:00). Weekdays 10:00–21:00 (last entry 20:00).',
-  cl:'A maintenance closure is flagged for your Sunday. Check the website in late November.',
-  fee:'Weekends ¥1,700 (¥1,500 after 19:00). Weekdays ¥1,400 (¥1,200 after 19:00). Towels included.',
-  go:'Free parking for 130 cars', note:'Open-air baths facing Fuji.', cf:'Low: it may be closed on your Sunday.',
-  links:[['Yurari website', 'https://www.fuji-yurari.jp/']]},
- {id:'fujiyama', r:'f', n:'Fujiyama Onsen', jp:'ふじやま温泉', lat:35.4839, lon:138.7794, s:'fuji',
-  tr:'No foliage', h:'Morning bath 06:30–09:00 (last entry 08:30). Main 10:00–23:00 (last entry 22:00).', cl:'Open all year',
-  fee:'¥2,000 weekends, ¥1,600 weekdays (towels included). Morning bath ¥800.', go:'Free parking, next to Fuji-Q Highland',
-  note:'First backup if Yurari is shut.', cf:'High.'},
- {id:'benifuji', r:'f', n:'Lake Yamanaka town onsen', jp:'紅富士の湯 (≈)', lat:35.4300, lon:138.8426, ax:true, s:'fuji',
-  tr:'No foliage', h:'From 06:00 on weekends and holidays (Dec to Feb), until 21:00', cl:'Tuesdays', fee:'¥900 adult',
-  note:'The report calls it "the municipal Fuji-view onsen at Lake Yamanaka". We assume it is Benifuji-no-Yu.', cf:'Medium: name and position assumed.'},
- {id:'kaiun', r:'f', n:'Kaiun-no-Yu (tattoo-friendly bath)', jp:'開運の湯', lat:35.5063, lon:138.7627, ax:true, s:'fuji',
-  tr:'No foliage', h:'06:00–24:00', fee:'¥1,000 adult, ¥800 child', note:'Inside a lakeside hotel in Funatsu.', cf:'Medium.'},
- {id:'fugaku', r:'f', n:'Fugaku Wind Cave', jp:'富岳風穴', lat:35.4775, lon:138.6575, s:'fuji',
-  tr:'No foliage', h:'09:00–16:30 (Nov 16 to Feb 15)', fee:'¥350 adult, ¥200 child', go:'Free parking', note:'In the Aokigahara forest, on the way west.', cf:'High.'},
- {id:'narusawa', r:'f', n:'Narusawa Ice Cave', jp:'鳴沢氷穴', lat:35.4748, lon:138.6665, s:'fuji',
-  tr:'No foliage', h:'09:00–16:30 (Nov 16 to Feb 15)', fee:'¥350 adult, ¥200 child', go:'Free parking', cf:'High.'}
-];
-
-/* ---------- The Sunday lake loop, in order (rough times from the report) ---------- */
-const LOOP = [
-  {id:'kstation', t:'08:00–08:20', w:'Collect the car. Nippon Rent-A-Car is 2 min on foot; Toyota is 7 min.'},
-  {id:'ropeway', t:'08:30–09:30', w:'5 min drive. Take the first car up for clear morning views.'},
-  {id:'oishi', t:'from 09:45', w:'12 min drive to the north shore. Photos of Fuji across the lake.'},
-  {id:'tunnel', t:'about 10:00', w:'5 min west. Bare maple branches framing Fuji.'},
-  {id:'itchiku', t:'10:00–11:15', w:'Museum opens at 10:00; allow 75 min. Then a 5-minute walk along the Momiji Corridor.'},
-  {id:'nenba', t:'11:35', w:'20 min drive west. Walk among the thatched houses.'},
-  {id:'shoji', t:'about 12:15', w:'15 min further west. Kodaki-Fuji view and a hōtō noodle lunch.'},
-  {id:'motosu', t:'until 13:15', w:'The ¥1,000-note view. If the sky is clear and the road dry, the Subaru Line 5th Station can replace this (before 14:00).'},
-  {id:'oshino', t:'14:00–15:15', w:'35 min drive east. Stroll the spring-fed ponds; park at Osada (¥300).'},
-  {id:'panoramadai', t:'15:40–17:00', w:'20 min drive up. Arrive 45 min before sunset (about 16:30).', sun:true},
-  {id:'fujiyama', t:'17:30–19:30', w:'Hot bath. Yurari instead, only if it is open that day.'}
-];
-const DAWN = [
-  {id:'oishi', code:'D1', t:'06:15', w:'Monday dawn. Calm water before sunrise (about 06:35) can mirror Fuji.'},
-  {id:'chureito', code:'D2', t:'06:50', w:'15 min drive. Climb the 398 steps: sunrise lights the pagoda and Fuji. Back at the station by 08:00–08:15.'}
+  f:'Next to Jindai Botanical Garden (peak Dec 4). Weathernews ranks it 7th.', cf:'Medium: judged from the garden next door.'}
 ];
 
 /* ---------- Regions ---------- */
 const REGION = {
   tokyo: [[139.688, 35.652], [139.802, 35.746]],
-  fuji:  [[138.565, 35.388], [138.918, 35.530]],
   west:  [[139.14, 35.62], [139.81, 35.79]]
 };
 
@@ -514,7 +394,7 @@ $('notice').addEventListener('click', function(){ this.hidden = true; });
 })();
 
 const BY = {}; SPOTS.forEach(function(s){ BY[s.id] = s; });
-const state = Object.assign({relief:false, photo:false, spots:true, route:true, minor:true}, load('ov', {}));
+const state = Object.assign({relief:false, photo:false, spots:true, minor:true}, load('ov', {}));
 let lightsOn = false;
 
 if (typeof maplibregl === 'undefined') {
@@ -547,7 +427,7 @@ try {
         {id:'relief', type:'raster', source:'gsi-relief', layout:{visibility:'none'}, paint:{'raster-opacity':0.55, 'raster-fade-duration':FADE}}
       ]},
     bounds:REGION.tokyo, fitBoundsOptions:{padding:padFor('tokyo')},
-    minZoom:7, maxZoom:18.5, maxBounds:[[137.9, 34.8], [140.6, 36.3]],
+    minZoom:7, maxZoom:18.5, maxBounds:[[138.6, 35.2], [140.4, 36.2]],
     attributionControl:false, dragRotate:false, pitchWithRotate:false
   });
 } catch (err) {
@@ -592,18 +472,12 @@ function openPopup(ll, div){
   setTimeout(layoutDock, 0);
   return curPopup;
 }
-function spotDiv(s, stop){
+function spotDiv(s){
   var d = el('div', 'pop');
   d.appendChild(el('h4', null, s.n));
   if (s.jp) d.appendChild(el('p', 'jp', s.jp));
   var st = el('div', 'stat'); var dot = el('i'); dot.style.background = STATUS[s.s].col; st.appendChild(dot);
-  st.appendChild(document.createTextNode(s.logi ? 'Start and end of the lake loop' : STATUS[s.s].label)); d.appendChild(st);
-  if (stop) {
-    var sp = el('div', 'stop' + (stop.code ? ' dawn' : '') + (stop.sun ? ' sun' : ''));
-    sp.appendChild(el('b', null, (stop.code ? stop.code + ' · ' : 'Stop ' + stop.num + ' · ') + stop.t + (stop.sun ? ' · Sunset' : '') + (stop.code ? ' · Dawn' : '')));
-    sp.appendChild(el('div', null, stop.w));
-    d.appendChild(sp);
-  }
+  st.appendChild(document.createTextNode(STATUS[s.s].label)); d.appendChild(st);
   var dl = el('dl', 'facts');
   function row(k, v){ if (!v) return; dl.appendChild(el('dt', null, k)); dl.appendChild(el('dd', null, v)); }
   row('Trees', s.tr); row('Usual peak', s.pk); row('This year', s.f);
@@ -625,7 +499,7 @@ function spotDiv(s, stop){
 
 /* ---------- Spot dots ---------- */
 function spotFC(){
-  return {type:'FeatureCollection', features:SPOTS.filter(function(s){ return !s.logi; }).map(function(s){
+  return {type:'FeatureCollection', features:SPOTS.map(function(s){
     return {type:'Feature', geometry:{type:'Point', coordinates:[s.lon, s.lat]},
             properties:{id:s.id, s:s.s, minor:s.minor ? 1 : 0, il:s.il ? 1 : 0}};
   })};
@@ -638,18 +512,8 @@ function spotFilter(){
 }
 function addSpots(){
   map.addSource('spots', {type:'geojson', data:spotFC(), attribution:ATTR.osm});
-  map.addSource('loop', {type:'geojson', data:{type:'FeatureCollection', features:[
-    {type:'Feature', properties:{k:'sun'}, geometry:{type:'LineString', coordinates:LOOP.map(function(x){ return [BY[x.id].lon, BY[x.id].lat]; })}},
-    {type:'Feature', properties:{k:'dawn'}, geometry:{type:'LineString', coordinates:DAWN.map(function(x){ return [BY[x.id].lon, BY[x.id].lat]; }).concat([[BY.kstation.lon, BY.kstation.lat]])}}
-  ]}});
-  map.addLayer({id:'loop-casing', type:'line', source:'loop', filter:['==', ['get', 'k'], 'sun'],
-    layout:{'line-join':'round', 'line-cap':'round'}, paint:{'line-color':'#fff', 'line-width':6, 'line-opacity':0.9}});
-  map.addLayer({id:'loop-line', type:'line', source:'loop', filter:['==', ['get', 'k'], 'sun'],
-    layout:{'line-join':'round', 'line-cap':'round'}, paint:{'line-color':'#d2491f', 'line-width':3}});
-  map.addLayer({id:'dawn-line', type:'line', source:'loop', filter:['==', ['get', 'k'], 'dawn'],
-    layout:{'line-join':'round', 'line-cap':'round'}, paint:{'line-color':'#c2407e', 'line-width':3, 'line-dasharray':[1.5, 1.5]}});
   map.addLayer({id:'spots-dot', type:'circle', source:'spots',
-    paint:{'circle-color':['match', ['get', 's'], 'peak', STATUS.peak.col, 'late', STATUS.late.col, 'done', STATUS.done.col, STATUS.fuji.col],
+    paint:{'circle-color':['match', ['get', 's'], 'peak', STATUS.peak.col, 'late', STATUS.late.col, 'done', STATUS.done.col, STATUS.done.col],
       'circle-radius':['interpolate', ['linear'], ['zoom'], 8, ['case', ['==', ['get', 'minor'], 1], 4, 5.5], 13, ['case', ['==', ['get', 'minor'], 1], 6.5, 9]],
       'circle-stroke-color':'#fff', 'circle-stroke-width':2}});
   map.addLayer({id:'spots-hit', type:'circle', source:'spots', paint:{'circle-radius':22, 'circle-opacity':0, 'circle-stroke-width':0}});
@@ -667,25 +531,6 @@ map.on('click', 'spots-hit', function(e){
 });
 map.on('mouseenter', 'spots-hit', function(){ map.getCanvas().style.cursor = 'pointer'; });
 map.on('mouseleave', 'spots-hit', function(){ map.getCanvas().style.cursor = ''; });
-
-/* ---------- Route pins (HTML markers, 44 px touch targets) ---------- */
-const routeMarkers = [];
-function pin(label, cls, s, stop, aria){
-  var b = el('button', 'pin' + (cls ? ' ' + cls : '')); b.type = 'button'; b.setAttribute('aria-label', aria);
-  var i = el('i', null, label); b.appendChild(i);
-  b.addEventListener('click', function(ev){ ev.stopPropagation(); openPopup([s.lon, s.lat], spotDiv(s, stop)); });
-  var m = new maplibregl.Marker({element:b}).setLngLat([s.lon, s.lat]);
-  routeMarkers.push(m); return m;
-}
-LOOP.forEach(function(x, i){
-  var s = BY[x.id]; x.num = i + 1;
-  pin(x.sun ? '☀' : String(i + 1), x.sun ? 'sun' : null, s, x, 'Lake loop stop ' + (i + 1) + ': ' + s.n + (x.sun ? ', sunset' : ''));
-});
-DAWN.forEach(function(x){
-  var s = BY[x.id], off = x.id === 'oishi' ? [0, -40] : [0, 0];
-  var m = pin(x.code, 'dawn', s, x, 'Monday dawn ' + x.code + ': ' + s.n); m.setOffset(off);
-});
-function showRoute(on){ routeMarkers.forEach(function(m){ if (on) m.addTo(map); else m.remove(); }); setVis('loop-casing', on); setVis('loop-line', on); setVis('dawn-line', on); }
 
 /* ---------- Evening lights ---------- */
 const lightMarkers = SPOTS.filter(function(s){ return s.il; }).map(function(s){
@@ -707,15 +552,13 @@ function applyLayers(){
   setVis('relief', state.relief); setVis('photo', state.photo);
   setVis('spots-dot', state.spots); setVis('spots-hit', state.spots);
   if (map.getLayer('spots-dot')) { map.setFilter('spots-dot', spotFilter()); map.setFilter('spots-hit', spotFilter()); }
-  showRoute(state.route);
 }
 function buildLayers(){
   var box = $('layerBox'); box.textContent = '';
   box.appendChild(el('h3', null, 'Background'));
   [['relief', 'Terrain relief', 'Colour shows height. GSI.'], ['photo', 'Aerial photo', 'Seamless air photos. GSI.']]
   .concat([['spots', 'Foliage spots', 'Dots coloured by how the leaves will look in your week.'],
-           ['minor', 'Small dots: forecast-only places', 'Named in the report only as forecast references.'],
-           ['route', 'Lake loop and dawn stops', 'Sunday drive 1–11, sunset ☀, Monday dawn D1–D2.']])
+           ['minor', 'Small dots: forecast-only places', 'Named in the report only as forecast references.']])
   .forEach(function(o, i){
     if (i === 2) box.appendChild(el('h3', null, 'On the map'));
     var lab = el('label', 'opt'), inp = el('input'); inp.type = 'checkbox'; inp.checked = !!state[o[0]];
@@ -724,21 +567,10 @@ function buildLayers(){
     lab.appendChild(inp); lab.appendChild(sp); box.appendChild(lab);
   });
   var w = el('button', 'wide', 'Show the far-west Tokyo spots'); w.type = 'button';
-  w.addEventListener('click', function(){ closeSheets(); setRegion(null); fit(REGION.west); });
+  w.addEventListener('click', function(){ closeSheets(); fit(REGION.west); });
   box.appendChild(w);
   box.appendChild(el('p', null, 'Takao, Mitake and Showa Kinen are far west of the centre. All three will be finished.'));
 }
-
-/* ---------- Region switch ---------- */
-let region = 'tokyo';
-function setRegion(r){
-  region = r; document.querySelectorAll('#legendBody .lk').forEach(function(x){ x.hidden = r !== 'fuji'; });
-  document.querySelectorAll('#regions [data-region]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.region === r ? 'true' : 'false'); });
-  if (r) fit(REGION[r]);
-}
-document.querySelectorAll('#regions [data-region]').forEach(function(b){
-  b.addEventListener('click', function(){ if (curPopup) curPopup.remove(); setRegion(b.dataset.region); });
-});
 
 /* ---------- Sheets ---------- */
 function closeSheets(){
@@ -764,8 +596,7 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
     'Best bets: Rikugien, Koishikawa Kōrakuen, Hamarikyū, Ueno, Shinjuku Gyoen and the Hongō ginkgos.',
     'Meiji Jingū Gaien and Kiyosumi are fading: see them Wednesday or Thursday. Rikugien\'s night light-up runs any evening from Wednesday to Sunday.',
     'Takao, Mitake and Showa Kinen will be finished.',
-    'We stay in Tokyo all week. The Fuji lakes trip is dropped: the leaves there are gone, and the trip costs half a day each way.',
-    'See Fuji from Tokyo instead, from a high free deck on a clear morning.'
+    'We stay in Tokyo all week.'
   ].forEach(function(t){ v.appendChild(el('p', null, t)); });
   box.appendChild(v);
 
@@ -868,7 +699,7 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
     'Credit "国土地理院" / "地理院タイル" with link to the tile list',
     'Public Data License 1.0 (CC BY 4.0-compatible, commercial use OK — not yet confirmed on the GSI page)',
     [GSI_LIST, 'https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html']);
-  addSrc('Gemini Deep Research report: "Autumn Foliage Phenology and Fuji Five Lakes Operational Report", compiled 2026-10-24 (kept offline)',
+  addSrc('Gemini Deep Research report on autumn foliage, compiled 2026-10-24 (kept offline)',
     'All forecasts, hours, fees, routes and travel times on this page come from it. The report says it read every source below on 2026-10-24.',
     'The report\'s sources keep their own rights.', []);
   addSrc('Positions of the spots: OpenStreetMap Nominatim (checked 2026-10-24). "≈" marks an approximate point.',
@@ -878,19 +709,12 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
     [1, 'Japan Meteorological Corporation (JMC): 2026 autumn leaf forecast, 2nd', 'https://n-kishou.com/corp/news-contents/autumn/'],
     [20, 'JMC: forecast release (English)', 'https://n-kishou.com/corp/news-contents/autumn/?lang=en'],
     [2, 'SimonTamHK: Japan autumn leaves forecast 2026', 'https://simontamhk.com/%E6%97%A5%E6%9C%AC%E7%B4%85%E8%91%89%E9%A0%90%E6%B8%AC/'],
-    [3, 'MATCHA: Fuji Kawaguchiko Autumn Leaves Festival 2026', 'https://locally.matcha-jp.com/en/12948'],
     [4, 'Japan Weather Association, tenki.jp: forecast, 2nd', 'https://tenki.jp/kouyou/expectation.html'],
     [5, 'IsFujiVisible: Tokyo autumn leaves forecast, 37 spots (JMC)', 'https://isfujivisible.com/koyo/tokyo'],
     [6, 'tenki.jp: Tokyo foliage times', 'https://tenki.jp/kouyou/3/16/'],
     [7, 'Weathernews: Tokyo foliage ranking', 'https://weathernews.jp/koyo/area/tokyo/ranking.html'],
     [8, 'GlosTravel: Shinjuku Gyoen autumn leaves', 'https://glostravel.com/en/article/shinjuku-gyoen-autumn-leaves'],
-    [9, 'Jatravi: Kawaguchiko autumn leaves 2026', 'https://jatravi.com/japantraveladvice/kawaguchiko-autumn-leaves-2026/'],
-    [12, 'William Lion: Kawaguchiko Momiji Corridor guide', 'https://jp-travel.williamlion.tw/en/japan/kawaguchiko-momiji-corridor-autumn-guide-2026-en/'],
-    [13, 'Lemon8: renting a car from Tokyo to Mt. Fuji', 'https://www.lemon8-app.com/@jinnggyi/7422593905067196929?region=sg'],
     [14, 'GO TOKYO: Rikugien night viewing', 'https://www.gotokyo.org/en/spot/ev126/index.html'],
-    [15, 'Hidden Japan Gems: airports to Kawaguchiko', 'https://hiddenjapan-gems.com/haneda-or-narita-to-kawaguchiko/'],
-    [16, 'Trip.com: Kawaguchiko Station car rental', 'https://www.trip.com/carhire/station/kawaguchiko-station-100808094/'],
-    [18, 'Japan by Japanese: things to do around Kawaguchiko', 'https://japanbyjapanese.com/japan/yamanashi/fuji-five-lakes/things-to-do/'],
     [21, 'Enjyu Japan: Tokyo autumn foliage 2026', 'https://enjyu-japan.travel/column/tokyo-autumn-foliage/'],
     [22, 'Hidden Japan Gems: koyo tracker', 'https://hiddenjapan-gems.com/japan-koyo-tracker/'],
     [23, 'GLTJP: Rikugien access, hours and price', 'https://www.gltjp.com/en/directory/item/10011/'],
@@ -899,26 +723,6 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
     [27, 'Hey Japan: Rikugien night viewing', 'https://www.hey-japan.com/event/rikugien-garden-night-autumn-viewing'],
     [28, 'William Lion: Rikugien night illumination', 'https://jp-travel.williamlion.tw/en/japan/rikugien-autumn-illumination-guide-2026-en/'],
     [null, 'Tokyo Metropolitan Park Association: Rikugien night tickets', 'https://www.tokyo-park.or.jp/park/rikugien/news/2026/rikugiengardens.html'],
-    [32, 'Keep Good Trip: Mt Fuji autumn leaves', 'https://www.keepgoodtrip.com/blogs/japan-travel/mt-fuji-autumn-leaves'],
-    [33, 'Kawaguchiko Trip: Itchiku Kubota Art Museum', 'https://kawaguchikotrip.com/things-to-do/itchiku-kubota-museum/'],
-    [34, 'Yurari onsen FAQ', 'https://en-43387.site-translation.com/qa.html'],
-    [35, 'Navitime: Fuji Chobo no Yu Yurari', 'https://japantravel.navitime.com/en/area/jp/spot/02301-14401687/'],
-    [37, 'KS House: day-use onsen in the Fuji Five Lakes', 'https://kshouse.jp/articles/en/fuji-fivelakes-onsen-e/'],
-    [38, 'Kawaguchiko Trip: attractions, fees and access', 'https://kawaguchikotrip.com/things-to-do/'],
-    [41, 'Kawaguchiko.net: Music Forest Museum', 'https://en.kawaguchiko.net/knowledge-en/kawaguchiko-music-forest-museum-2/'],
-    [42, 'Jeepe: Kawaguchiko Music Forest', 'https://www.jeepe.jp/en/articles/kawaguchiko-music-forest-museum-2415'],
-    [43, 'Japan Guide: Kawaguchiko Music Forest', 'https://www.japan-guide.com/e/e6913.html'],
-    [46, 'Yamanashi Tourism: Fuji Subaru Line 5th Station', 'https://www.yamanashi-kankou.jp/english/staff-journal/5thstation_mtfuji.html'],
-    [47, 'Resort Glamping: renting a car at Lake Kawaguchi', 'https://en.resort-glamping.com/article/lakekawaguchiko/rentacar/'],
-    [48, 'Fujikyu Railway: Fuji Excursion timetable and fares', 'https://www.fujikyu-railway.jp/en/fujikaiyuu/'],
-    [51, 'Japan Bus Online: Narita Airport – Kawaguchiko', 'https://japanbusonline.com/en/CourseSearch/11300720001'],
-    [52, 'Narita Airport: Mt. Fuji route schedule (older brochure)', 'https://www.narita-airport.jp/files/5e0b584dafb01a7f9cdeb19d8758ecfb3f1efa562897de2f2f619524545d5d97'],
-    [53, 'Nippon Rent-A-Car: Kawaguchiko Station office', 'https://store.nipponrentacar.co.jp/en/b/nrs/info/513207/?BT3=selectReserveOfficeWithRecommendation'],
-    [54, 'Rakuten Travel: car rental in Fujikawaguchiko', 'https://travel.rakuten.com/cars/default/en-us/yamanashi/city/390/'],
-    [56, 'Expat Focus: Japan car rental', 'https://www.expatfocus.com/japan/guide/japan-car-rental'],
-    [58, 'Tabirai: Nippon Rent-A-Car package', 'https://en.tabirai.net/s/car/yamanashi/search/step3.aspx?SCL=6684&SSP=11&SAFG=2&SAF=119304'],
-    [null, 'National Police Agency: driving in Japan with a foreign licence', 'https://www.npa.go.jp/policies/application/license_renewal/have_DL_issed_another_country.html'],
-    [null, 'Fuji Subaru Line road status', 'https://tollgate.securesite.jp/wp/road/subaruline/']
   ];
   box.appendChild(el('h3', null, 'Report sources used on this page'));
   box.appendChild(el('p', null, 'Numbers are the report\'s own reference numbers.'));
@@ -936,13 +740,9 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeS
 (function buildKey(){
   var b = $('legendBody');
   b.appendChild(el('div', 'lgt', 'Leaves in your week'));
-  ['peak', 'late', 'done', 'fuji'].forEach(function(k){
+  ['peak', 'late', 'done'].forEach(function(k){
     var r = el('div', 'lgr'), i = el('b'); i.style.background = STATUS[k].col; r.appendChild(i); r.appendChild(document.createTextNode(STATUS[k].key)); b.appendChild(r);
   });
-  var lt = el('div', 'lgt lk', 'Lake loop'); lt.hidden = true; b.appendChild(lt);
-  var r1 = el('div', 'lgr lk'); r1.hidden = true; var m1 = el('span', 'mk', '1'); m1.style.background = '#15171a'; r1.appendChild(m1); r1.appendChild(el('span', 'ln')); r1.appendChild(document.createTextNode('Sunday stops')); b.appendChild(r1);
-  var r2 = el('div', 'lgr lk'); r2.hidden = true; var m2 = el('span', 'mk', '☀'); m2.style.background = '#e07b00'; r2.appendChild(m2); r2.appendChild(document.createTextNode('Sunday sunset')); b.appendChild(r2);
-  var r3 = el('div', 'lgr lk'); r3.hidden = true; var m3 = el('span', 'mk', 'D'); m3.style.background = '#c2407e'; r3.appendChild(m3); r3.appendChild(document.createTextNode('Monday dawn')); b.appendChild(r3);
   b.appendChild(el('div', 'lgs', 'Small dots: forecast only. Tap a dot for details.'));
   $('legend').hidden = false;
 })();
