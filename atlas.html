@@ -114,9 +114,9 @@ map.on('load', function(){
   Object.keys(SOURCES).forEach(function(k){ if (k !== 'gsi-pale') map.addSource(k, SOURCES[k]); });
   PERIODS.forEach(function(p){ if (p.src) map.addLayer({id:'ov-'+p.key, type:'raster', source:p.src, layout:{visibility:'none'}, paint:{'raster-opacity':state.mix/100, 'raster-fade-duration':0}}); });
   setPeriod(state.period);
-  if (window.TokyoLayers) TokyoLayers.attach(map, {layers:['tokyo-neighbourhoods','industry','social-standing','party-leanings'], on:['tokyo-neighbourhoods'], controls:'#layerBtns', legend:'#layerLegend',
+  if (window.TokyoLayers) TokyoLayers.attach(map, {layers:['tokyo-neighbourhoods','industry','social-standing','party-leanings','tourist-sites'], on:['tokyo-neighbourhoods'], controls:'#layerBtns', legend:'#layerLegend',
     jumpToPeriod:true, fit:{padding:PAD, maxZoom:13},
-    onChange:function(id, on, b){ if (on && b && !shaded(id)) map.fitBounds(id === 'tokyo-neighbourhoods' ? VIEW : b, {padding:PAD, maxZoom:15.5, duration:500}); }});
+    onChange:function(id, on, b){ if (on && b && !shaded(id)) map.fitBounds((id === 'tokyo-neighbourhoods' || id === 'tourist-sites') ? VIEW : b, {padding:PAD, maxZoom:15.5, duration:500}); }});
   var ue = document.createElement('div');
   ue.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-label="Ueno Park"><g fill="#f2a7bd" stroke="#b5476b" stroke-width="1"><circle cx="12" cy="5" r="4"/><circle cx="18.7" cy="9.8" r="4"/><circle cx="16.1" cy="17.7" r="4"/><circle cx="7.9" cy="17.7" r="4"/><circle cx="5.3" cy="9.8" r="4"/></g><circle cx="12" cy="12" r="2.2" fill="#fff" stroke="#b5476b"/></svg><div style="font:600 8px system-ui,sans-serif;color:#7a2d45;text-align:center;margin-top:-3px;text-shadow:0 0 3px #fff,0 0 3px #fff">上野公園</div>';
   ue.style.cssText = 'display:flex;flex-direction:column;align-items:center;z-index:5;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))';
